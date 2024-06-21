@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.waybar.settings.mainBar = {
-    position= "bottom";
+    position= "top";
     layer= "top";
     height= 5;
     margin-top= 0;
@@ -9,20 +9,20 @@
     margin-left= 0;
     margin-right= 0;
     modules-left= [
-        "custom/launcher" 
+        # "custom/launcher" 
         "hyprland/workspaces"
     ];
     modules-center= [
         "clock"
     ];
     modules-right= [
-        "tray" 
-        "cpu"
-        "memory"
-        "disk"
+        # "cpu"
+        # "memory"
+        # "disk"
         "pulseaudio" 
         "battery"
-        "network"
+        #"network"
+        "tray" 
     ];
     clock= {
         calendar = {
@@ -39,23 +39,25 @@
         format = "{icon}";
         on-click= "activate";
         format-icons= {
-            "1"= "󰈹";
-            "2"= "";
-            "3"= "󰘙";
-            "4"= "󰙯";
-            "5"= "";
-            "6"= "";
+            "1"= "1";
+            "2"= "2";
+            "3"= "3";
+            "4"= "4";
+            "5"= "5";
+            "6"= "6";
+            "7"= "7";
+            "8"= "8";
+            "9"= "9";
+            "10"= "10";
             urgent= "";
             default = "";
             sort-by-number= true;
         };
-        persistent-workspaces = {
-            "1"= [];
-            "2"= [];
-            "3"= [];
-            "4"= [];
-            "5"= [];
-        };
+        # persistent-workspaces = {
+        #     "1"= [];
+        #     "2"= [];
+        #     "3"= [];
+        # };
     };
     memory= {
         format= "󰟜 {}%";
@@ -81,7 +83,7 @@
     };
     tray= {
         icon-size= 20;
-        spacing= 8;
+        spacing = 2; # was 8 originally
     };
     pulseaudio= {
         format= "{icon} {volume}%";
