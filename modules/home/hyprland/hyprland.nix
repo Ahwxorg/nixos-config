@@ -8,7 +8,6 @@
     grim
     slurp
     wl-clip-persist
-    wf-recorder
     glib
     wayland
     direnv
