@@ -3,6 +3,8 @@
   wayland.windowManager.hyprland = {
     settings = {
 
+      source = "~/nixos-config/modules/home/hyprland/displays.conf";
+
       "debug:disable_scale_checks" = true;
       monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
 
