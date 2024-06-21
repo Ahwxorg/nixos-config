@@ -1,7 +1,7 @@
 { ... }:
 let custom = {
     font = "JetBrainsMono Nerd Font";
-    font_size = "15px";
+    font_size = "10px";
     font_weight = "bold";
     text_color = "#cdd6f4";
     secondary_accent= "89b4fa";
@@ -29,7 +29,7 @@ in
     }
 
     #workspaces {
-        font-size: 18px;
+        font-size: 10px;
         padding-left: 15px;
         
     }
