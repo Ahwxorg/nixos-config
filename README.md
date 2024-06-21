@@ -26,28 +26,14 @@
    </div>
 </h1>
 
-<br>
-</div>
+<!--
 
-### 🖼️ Gallery
+### Gallery
 
 <p align="center">
    <img src="./.github/assets/screenshots/1.png" /> <br>
-   <img src="./.github/assets/screenshots/2.png" /> <br>
-   <img src="./.github/assets/screenshots/3.png" /> <br>
    Screenshots last updated <b>2024-04-09</b>
-</p>
-
-<details>
-<summary>
-OLD (EXPAND)
-</summary>
-<p align="center">
-   <img src="./.github/assets/screenshots/1.old.png" width="800px" /> <br>
-   <img src="./.github/assets/screenshots/2.old.png" width="800px" /> <br>
-   <img src="./.github/assets/screenshots/3.old.png" width="800px" /> <br>
-</p>
-</details>
+</p> -->
 
 # 🗃️ Overview
 
@@ -80,11 +66,10 @@ OLD (EXPAND)
 | **Color Scheme**            | [catppuccin][Catppuccin] |
 | **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
 | **Lockscreen**              | [swaylock-effects][swaylock-effects] |
-| **Image Viewer**            | [swiv][swiv] |
+| **Image Viewer**            | [nsxiv][nsxiv] |
 | **Media Player**            | [mpv][mpv] |
 | **Music Player**            | [audacious][audacious] |
 | **Screenshot Software**     | [grimblast][grimblast] |
-| **Screen Recording**        | [wf-recorder][wf-recorder] |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
 | **Color Picker**            | [hyprpicker][hyprpicker] |
 
@@ -93,26 +78,7 @@ OLD (EXPAND)
 
 <details>
 <summary>
-Utils (EXPAND)
-</summary>
-
-- ```c```     $\rightarrow$ ```clear```
-- ```cd```    $\rightarrow$ ```z```
-- ```tt```    $\rightarrow$ ```gtrash put```
-- ```vim```   $\rightarrow$ ```nvim```
-- ```cat```   $\rightarrow$ ```bat```
-- ```nano```  $\rightarrow$ ```micro```
-- ```icat```  $\rightarrow$ ```kitten icat```
-- ```dsize``` $\rightarrow$ ```du -hs```
-- ```findw``` $\rightarrow$ ```grep -rl```
-- ```l```     $\rightarrow$ ```eza --icons  -a --group-directories-first -1```
-- ```ll```    $\rightarrow$ ```eza --icons  -a --group-directories-first -1 --no-user --long```
-- ```tree```  $\rightarrow$ ```eza --icons --tree --group-directories-first```
-</details>
-
-<details>
-<summary>
-Nixos (EXPAND)
+NixOS (expand)
 </summary>
 
 > ${host} is either `desktop` or `laptop`
@@ -123,28 +89,6 @@ Nixos (EXPAND)
 - ```nix-switchu```      $\rightarrow$ ```sudo nixos-rebuild switch --upgrade --flake ~/nixos-config#${host}```
 - ```nix-flake-update``` $\rightarrow$ ```sudo nix flake update ~/nixos-config#```
 - ```nix-clean```        $\rightarrow$ ```sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d```
-</details>
-
-<details>
-<summary>
-Git (EXPAND)
-</summary>
-
-- ```ga```   $\rightarrow$ ```git add```
-- ```gaa```  $\rightarrow$ ```git add --all```
-- ```gs```   $\rightarrow$ ```git status```
-- ```gb```   $\rightarrow$ ```git branch```
-- ```gm```   $\rightarrow$ ```git merge```
-- ```gpl```  $\rightarrow$ ```git pull```
-- ```gplo``` $\rightarrow$ ```git pull origin```
-- ```gps```  $\rightarrow$ ```git push```
-- ```gpso``` $\rightarrow$ ```git push origin```
-- ```gc```   $\rightarrow$ ```git commit```
-- ```gcm```  $\rightarrow$ ```git commit -m```
-- ```gch```  $\rightarrow$ ```git checkout```
-- ```gchb``` $\rightarrow$ ```git checkout -b```
-- ```gcoe``` $\rightarrow$ ```git config user.email```
-- ```gcon``` $\rightarrow$ ```git config user.name```
 </details>
 
 ### 🛠️ Scripts
@@ -221,135 +165,9 @@ runbg.sh
 **Usage:** ```runbg <command> <arg1> <arg2> <...>```
 </details>
 
-### ⌨️ Keybinds
-
-View all keybinds by pressing ```$mainMod F1``` and wallpaper picker by pressing ```$mainMod w```. By default ```$mainMod``` is the ```SUPER``` key. 
-
-<details>
-<summary>
-Keybindings 
-</summary>
-
-- ```bind = $mainMod, Return, exec, kitty```
-- ```bind = ALT, Return, exec, kitty --title float_kitty```
-- ```bind = $mainMod SHIFT, Return, exec, kitty --start-as=fullscreen -o 'font_size=16'```
-- ```bind = $mainMod, B, exec, firefox```
-- ```bind = $mainMod, Q, killactive,```
-- ```bind = $mainMod, F, fullscreen, 0```
-- ```bind = $mainMod SHIFT, F, fullscreen, 1```
-- ```bind = $mainMod, Space, togglefloating,```
-- ```bind = $mainMod, D, exec, pkill wofi || wofi --show drun```
-- ```bind = $mainMod, Escape, exec, swaylock```
-- ```bind = $mainMod SHIFT, Escape, exec, shutdown-script```
-- ```bind = $mainMod, P, pseudo,```
-- ```bind = $mainMod, J, togglesplit,```
-- ```bind = $mainMod, E, exec, nemo```
-- ```bind = $mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped```
-- ```bind = $mainMod, C ,exec, hyprpicker -a```
-- ```bind = $mainMod, G,exec, $HOME/.local/bin/toggle_layout```
-- ```bind = $mainMod, W,exec, pkill wofi || wallpaper-picker```
-</details>
-
-<details>
-<summary>
-Screenshot 
-</summary>
-
-- ```bind = $mainMod, Print, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png```
-- ```bind = ,Print, exec, grimblast --notify --cursor  copy area```
-</details>
-
-<details>
-<summary>
-Switch window focus 
-</summary>
-
-- ```bind = $mainMod, left, movefocus, l```
-- ```bind = $mainMod, right, movefocus, r```
-- ```bind = $mainMod, up, movefocus, u```
-- ```bind = $mainMod, down, movefocus, d```
-</details>
-
-<details>
-<summary>
-Switch workspace 
-</summary>
-
-- ```bind = $mainMod, 1, workspace, 1```
-- ```bind = $mainMod, 2, workspace, 2```
-- ```bind = $mainMod, 3, workspace, 3```
-- ```bind = $mainMod, 4, workspace, 4```
-- ```bind = $mainMod, 5, workspace, 5```
-- ```bind = $mainMod, 6, workspace, 6```
-- ```bind = $mainMod, 7, workspace, 7```
-- ```bind = $mainMod, 8, workspace, 8```
-- ```bind = $mainMod, 9, workspace, 9```
-- ```bind = $mainMod, 0, workspace, 10```
-</details>
-
-<details>
-<summary>
-Switch window to workspace 
-</summary>
-
-- ```bind = $mainMod SHIFT, 1, movetoworkspace, 1```
-- ```bind = $mainMod SHIFT, 2, movetoworkspace, 2```
-- ```bind = $mainMod SHIFT, 3, movetoworkspace, 3```
-- ```bind = $mainMod SHIFT, 4, movetoworkspace, 4```
-- ```bind = $mainMod SHIFT, 5, movetoworkspace, 5```
-- ```bind = $mainMod SHIFT, 6, movetoworkspace, 6```
-- ```bind = $mainMod SHIFT, 7, movetoworkspace, 7```
-- ```bind = $mainMod SHIFT, 8, movetoworkspace, 8```
-- ```bind = $mainMod SHIFT, 9, movetoworkspace, 9```
-- ```bind = $mainMod SHIFT, 0, movetoworkspace, 10```
-- ```bind = $mainMod CTRL, c, movetoworkspace, empty```
-</details>
-
-<details>
-<summary>
-Window control 
-</summary>
-
-- ```bind = $mainMod SHIFT, left, movewindow, l```
-- ```bind = $mainMod SHIFT, right, movewindow, r```
-- ```bind = $mainMod SHIFT, up, movewindow, u```
-- ```bind = $mainMod SHIFT, down, movewindow, d```
-- ```bind = $mainMod CTRL, left, resizeactive, -80 0```
-- ```bind = $mainMod CTRL, right, resizeactive, 80 0```
-- ```bind = $mainMod CTRL, up, resizeactive, 0 -80```
-- ```bind = $mainMod CTRL, down, resizeactive, 0 80```
-- ```bind = $mainMod ALT, left, moveactive,  -80 0```
-- ```bind = $mainMod ALT, right, moveactive, 80 0```
-- ```bind = $mainMod ALT, up, moveactive, 0 -80```
-- ```bind = $mainMod ALT, down, moveactive, 0 80```
-</details>
-
-<details>
-<summary>
-Media and volume controls 
-</summary>
-   
-- ```bind = ,XF86AudioRaiseVolume,exec, pamixer -i 2```
-- ```bind = ,XF86AudioLowerVolume,exec, pamixer -d 2```
-- ```bind = ,XF86AudioMute,exec, pamixer -t```
-- ```bind = ,XF86AudioPlay,exec, playerctl play-pause```
-- ```bind = ,XF86AudioNext,exec, playerctl next```
-- ```bind = ,XF86AudioPrev,exec, playerctl previous```
-- ```bind = , XF86AudioStop, exec, playerctl stop```
-- ```bind = $mainMod, mouse_down, workspace, e-1```
-- ```bind = $mainMod, mouse_up, workspace, e+1```
-</details>
-
-<details>
-<summary>
-Mouse binding 
-</summary>
-
-- ```bindm = $mainMod, mouse:272, movewindow```
-- ```bindm = $mainMod, mouse:273, resizewindow```
-</details>
-
 # 🚀 Installation 
+
+> This is unchanged of Frost-Phoenix's dots, needs to be remade but don't feel like spending that time currently.
 
 > **⚠️ Use this configuration at your own risk! ⚠️** <br>
 > Applying custom configurations, especially those related to your operating system, can have unexpected consequences and may interfere with your system's normal behavior. While I have tested these configurations on my own setup, there is no guarantee that they will work flawlessly on all systems. <br>
@@ -357,7 +175,7 @@ Mouse binding
 
 > It is highly recommended to review the configuration contents and make necessary modifications to customize it to your needs before attempting the installation.
 
-1. **Install NixOs**
+1. **Install NixOS**
 
    First install nixos using any [graphical ISO image](https://nixos.org/download.html#nixos-iso). 
    > Only been tested using the Gnome graphical installer and choosing the ```No desktop``` option durring instalation.
