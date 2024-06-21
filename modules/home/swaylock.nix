@@ -12,7 +12,7 @@
       indicator-radius = 100;
       indicator-thickness = 7;
       
-      effect-blur = "7x5";
+      effect-blur = "10x7";
       effect-vignette = "0.5:0.5";
       effect-pixelate = 5;
       
