@@ -30,16 +30,5 @@
         variant = "mocha";
       };
     };
-    cursorTheme = {
-      name = "Nordzy-cursors";
-      package = pkgs.nordzy-cursor-theme;
-      size = 22;
-    };
-  };
-  
-  home.pointerCursor = {
-    name = "Nordzy-cursors";
-    package = pkgs.nordzy-cursor-theme;
-    size = 22;
   };
 }
