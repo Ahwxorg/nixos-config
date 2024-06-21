@@ -5,6 +5,7 @@
     wdisplays
     htop
     firefox
+    lxappearance
     nsxiv
     eza                               # ls replacement
     file                              # Show file information 
@@ -19,6 +20,7 @@
     wineWowPackages.wayland
     element-desktop-wayland
     spotify
+    spot
     thunderbird
     neofetch
     yarn
