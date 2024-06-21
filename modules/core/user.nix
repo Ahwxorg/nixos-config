@@ -10,9 +10,11 @@
         if (host == "desktop") then 
           [ ./../home/default.desktop.nix ] 
         else [ ./../home ];
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
-      home.stateVersion = "22.11";
+        home = {
+          username = "${username}";
+          homeDirectory = "/home/${username}";
+          stateVersion = "22.11";
+        };
       programs.home-manager.enable = true;
     };
   };
