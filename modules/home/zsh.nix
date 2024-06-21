@@ -19,22 +19,16 @@
       };
 
       shellAliases = {
-        ls = "eza -lh";
-        la = "eza -A";
-        ll = "eza -l";
+        ls = "eza -lh --git";
+        la = "eza -A --git";
+        ll = "eza -l --git";
         lla = "eza -lA";
         # :q = "exit";
         ezit = "exit";
-        notes = "nvim ~/Documents/todo.md";
-        todo = "nvim ~/Documents/todo.md";
         irc = "ssh irc";
-        tmuxconf = "nvim ~/.config/tmux/tmux.conf";
-        nvimconf = "cd ~/.config/nvim && nvim";
-        termconf = "nvim ~/.config/alacritty/alacritty.yml";
         wc = "wl-copy";
         zshrc = "nvim ~/.zshrc";
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
-        emerge = "doas emerge";
         zshconf = "nvim ~/.zshrc";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
@@ -42,7 +36,6 @@
         doas = "sudo";
 
         # NixOS
-        cdnix = "cd ~/nixos-config && codium ~/nixos-config";
         ns = "nix-shell --run zsh";
         nix-shell = "nix-shell --run zsh";
         nix-switch = "sudo nixos-rebuild switch --flake ~/nixos-config#${host}";
