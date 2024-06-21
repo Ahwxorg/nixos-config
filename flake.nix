@@ -26,17 +26,12 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
-    catppuccin-cava = {
-      url = "github:catppuccin/cava";
-      flake = false;
-    };
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, self, ...} @ inputs:
+  outputs = { nixpkgs, self, agenix, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
     username = "liv";
@@ -52,19 +47,37 @@
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ (import ./hosts/desktop) ];
+        modules = [(
+          import ./hosts/desktop
+          agenix.nixosModules.default
+        )];
         specialArgs = { host="desktop"; inherit self inputs username ; };
       };
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ (import ./hosts/laptop) ];
+        modules = [(
+          import ./hosts/laptop
+          agenix.nixosModules.default
+        )];
         specialArgs = { host="laptop"; inherit self inputs username ; };
       };
-       vm = nixpkgs.lib.nixosSystem {
+      vm = nixpkgs.lib.nixosSystem {
         inherit system;
-        modules = [ (import ./hosts/vm) ];
+        modules = [(
+          import ./hosts/vm
+          agenix.nixosModules.default
+        )];
         specialArgs = { host="vm"; inherit self inputs username ; };
       };
+      server = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [(
+          import ./hosts/server
+          agenix.nixosModules.default
+        )];
+        specialArgs = { host="server"; inherit self inputs username ; };
+      };
+
     };
   };
 }
