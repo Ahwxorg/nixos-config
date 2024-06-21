@@ -9,12 +9,10 @@
     eza                               # ls replacement
     file                              # Show file information 
     fzf                               # fuzzy finder
-    gtt                               # google translate TUI
     gimp
     lazygit
     libreoffice
     xfce.thunar                       # file manager
-    nix-prefetch-github
     prismlauncher                     # minecraft launcher
     ripgrep                           # grep replacement
     yt-dlp
@@ -32,12 +30,10 @@
     # Python
     python3
 
-    gparted                           # partition manager
     ffmpeg
-    imv                               # image viewer
     killall
     libnotify
-    man-pages			      # extra man pages
+    man-pages			              # extra man pages
     mpv                               # video player
     openssl
     pamixer                           # pulseaudio command line mixer
