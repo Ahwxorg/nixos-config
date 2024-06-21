@@ -57,7 +57,7 @@
         inherit system;
         modules = [(
           import ./hosts/sakura
-          agenix.nixosModules.default
+          #agenix.nixosModules.default
         )];
         specialArgs = { host="sakura"; inherit self inputs username ; };
       };
