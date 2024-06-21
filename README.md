@@ -67,21 +67,20 @@ OLD (EXPAND)
 |                             | NixOS + Hyprland                                                                              |
 | --------------------------- | :---------------------------------------------------------------------------------------------:
 | **Window Manager**          | [Hyprland][Hyprland] |
-| **Bar**                     | [Waybar][Waybar] |
+| **Bar**                     | [Waybar][waybar] |
 | **Application Launcher**    | [wofi][wofi] |
-| **Notification Daemon**     | [Mako][Mako] |
-| **Terminal Emulator**       | [Kitty][Kitty] |
-| **Shell**                   | [zsh][zsh] + [oh-my-zsh][oh-my-zsh] + [Starship][Starship] |
+| **Notification Daemon**     | [Mako][mako] |
+| **Terminal Emulator**       | [Kitty][kitty] |
+| **Shell**                   | [zsh][zsh] |
 | **Text Editor**             | [VSCodium][VSCodium] + [Neovim][Neovim] |
 | **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
-| **System resource monitor** | [Btop][Btop] |
+| **System resource monitor** | [htop][btop] |
 | **File Manager**            | [nemo][nemo] + [yazi][yazi] |
-| **Fonts**                   | [Nerd fonts][Nerd fonts] |
-| **Color Scheme**            | [Catppuccin][Catppuccin] |
-| **Cursor**                  | [Nordzy-cursors][Nordzy-cursors] |
+| **Fonts**                   | [nerd fonts][Nerd fonts] |
+| **Color Scheme**            | [catppuccin][Catppuccin] |
 | **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
-| **Lockscreen**              | [Swaylock-effects][Swaylock-effects] |
-| **Image Viewer**            | [imv][imv] |
+| **Lockscreen**              | [swaylock-effects][swaylock-effects] |
+| **Image Viewer**            | [swiv][swiv] |
 | **Media Player**            | [mpv][mpv] |
 | **Music Player**            | [audacious][audacious] |
 | **Screenshot Software**     | [grimblast][grimblast] |
@@ -437,31 +436,7 @@ A brief walkthrough of what the install script does.
 
 Other dotfiles that I learned / copy from:
 
-- Nix Flakes
-  - [nomadics9/NixOS-Flake](https://github.com/nomadics9/NixOS-Flake): This is where I start my nixos / hyprland journey.
-  - [samiulbasirfahim/Flakes](https://github.com/samiulbasirfahim/Flakes): General flake / files structure
-  - [justinlime/dotfiles](https://github.com/justinlime/dotfiles): Mainly waybar (old design)
-  - [skiletro/nixfiles](https://github.com/skiletro/nixfiles): Vscodium config (that prevent it to crash)
-  - [fufexan/dotfiles](https://github.com/fufexan/dotfiles)
-
-- README
-  - [ryan4yin/nix-config](https://github.com/ryan4yin/nix-config)
-  - [NotAShelf/nyx](https://github.com/NotAShelf/nyx)
-  - [sioodmy/dotfiles](https://github.com/sioodmy/dotfiles)
-  - [Ruixi-rebirth/flakes](https://github.com/Ruixi-rebirth/flakes)
-
-
-<!-- # ✨ Stars History -->
-
-<!-- <p align="center"><img src="https://api.star-history.com/svg?repos=frost-phoenix/nixos-config&type=Timeline&theme=dark" /></p> -->
-
-<p align="center"><img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" /></p>
-
-<!-- end of page, send back to the top -->
-
-<div align="right">
-  <a href="#readme">Back to the Top</a>
-</div>
+- [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config): This is the repository that I cloned and changed to my needs. Their credits are in their repository's readme.
 
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
@@ -480,15 +455,12 @@ Other dotfiles that I learned / copy from:
 [VSCodium]:https://vscodium.com/
 [Neovim]: https://github.com/neovim/neovim
 [grimblast]: https://github.com/hyprwm/contrib
-[imv]: https://sr.ht/~exec64/imv/
-[Mako]: https://github.com/emersion/mako
-[Nerd fonts]: https://github.com/ryanoasis/nerd-fonts
+[nsxiv]: https://nsxiv.codeberg.page
+[mako]: https://github.com/emersion/mako
+[nerd fonts]: https://github.com/ryanoasis/nerd-fonts
 [NetworkManager]: https://wiki.gnome.org/Projects/NetworkManager
 [network-manager-applet]: https://gitlab.gnome.org/GNOME/network-manager-applet/
 [wl-clip-persist]: https://github.com/Linus789/wl-clip-persist
-[wf-recorder]: https://github.com/ammen99/wf-recorder
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
-[Catppuccin]: https://github.com/catppuccin/catppuccin
+[catppuccin]: https://github.com/catppuccin/catppuccin
 [catppuccin-papirus-folders]: https://github.com/catppuccin/papirus-folders
-[Nordzy-cursors]: https://github.com/alvatip/Nordzy-cursors
-[maxfetch]: https://github.com/jobcmax/maxfetch
