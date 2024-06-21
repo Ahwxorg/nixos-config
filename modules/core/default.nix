@@ -1,4 +1,4 @@
-{ inputs, nixpkgs, self, username, host, ...}:
+{ ... }:
 {
   imports =
        [ (import ./bootloader.nix) ]
@@ -11,6 +11,7 @@
     ++ [ (import ./services.nix) ]
     ++ [ (import ./system.nix) ]
     ++ [ (import ./user.nix) ]
-    ++ [ (import ./wayland.nix) ]
-    ++ [ (import ./virtualization.nix) ];
+    ++ [ (import ./bluetooth.nix) ]
+    ++ [ (import ./wayland.nix) ];
+    # ++ [ (import ./virtualization.nix) ];
 }
