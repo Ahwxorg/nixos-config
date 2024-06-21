@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ ... }: 
 {
   programs.kitty = {
     enable = true;
@@ -7,7 +7,7 @@
     
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 13;
+      size = 9;
     };
 
     settings = {
@@ -31,12 +31,6 @@
     };
 
     keybindings = {  
-      ## Tabs
-      "alt+1" = "goto_tab 1";
-      "alt+2" = "goto_tab 2";
-      "alt+3" = "goto_tab 3";
-      "alt+4" = "goto_tab 4";
-
       ## Unbind
       "ctrl+shift+left" = "no_op";
       "ctrl+shift+right" = "no_op";
