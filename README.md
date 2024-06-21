@@ -255,6 +255,7 @@ A brief walkthrough of what the install script does.
 Other dotfiles that I learned / copy from:
 
 - [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config): This is the repository that I cloned and changed to my needs. Their credits are in their repository's readme.
+- [notthebee/nix-config](https://github.com/notthebee/nix-config)
 
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
