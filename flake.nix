@@ -53,13 +53,13 @@
         )];
         specialArgs = { host="desktop"; inherit self inputs username ; };
       };
-      laptop = nixpkgs.lib.nixosSystem {
+      sakura = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [(
-          import ./hosts/laptop
+          import ./hosts/sakura
           agenix.nixosModules.default
         )];
-        specialArgs = { host="laptop"; inherit self inputs username ; };
+        specialArgs = { host="sakura"; inherit self inputs username ; };
       };
       vm = nixpkgs.lib.nixosSystem {
         inherit system;
