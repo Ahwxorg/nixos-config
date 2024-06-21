@@ -5,18 +5,8 @@
       enable = true;
       xkb.layout = "us";
     };
-
-    displayManager.autoLogin = {
-      enable = true;
-      user = "${username}";
-    };
-    libinput = {
-      enable = true;
-      # mouse = {
-      #   accelProfile = "flat";
-      # };
-    };
   };
-  # To prevent getting stuck at shutdown
+
+  # To prevent getting stuck at shutdown - this is not Xorg related, but I like to blame Xorg for all of my life issues.
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 }

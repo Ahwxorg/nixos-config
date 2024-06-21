@@ -1,5 +1,19 @@
-{ pkgs, ... }:
+{ username, pkgs, ... }:
 {
+  services = {
+    displayManager.autoLogin = {
+      enable = true;
+      user = "${username}";
+    };
+    libinput = {
+      enable = true;
+      # mouse = {
+      #   accelProfile = "flat";
+      # };
+    };
+  };
+
+
   programs.hyprland.enable = true;
   xdg.portal = {
     enable = true;
