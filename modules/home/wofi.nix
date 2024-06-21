@@ -37,7 +37,7 @@
         border: 3px solid @accent;
         border-radius: 7px;
         background-color: @bg;
-        animation: slideIn 0.5s ease-in-out both;
+        /* animation: slideIn 0.5s ease-in-out both; */
     }
 
     /* Slide In */
@@ -57,7 +57,7 @@
         padding: 10px;
         border: none;
         background-color: @bg;
-        animation: fadeIn 0.5s ease-in-out both;
+        /* animation: fadeIn 0.5s ease-in-out both; */
     }
 
     /* Fade In */
