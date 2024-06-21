@@ -1,8 +1,10 @@
 { username, ... }: 
 {
-  services.xserver = {
-    enable = true;
-    xkb.layout = "us";
+  services = {
+    xserver = {
+      enable = true;
+      xkb.layout = "us";
+    };
 
     displayManager.autoLogin = {
       enable = true;
