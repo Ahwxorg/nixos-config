@@ -22,6 +22,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
+
     catppuccin-bat = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -31,7 +33,7 @@
     agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, self, agenix, ...} @ inputs:
+  outputs = { nixpkgs, self, agenix, catppuccin, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
     username = "liv";
