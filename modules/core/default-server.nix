@@ -8,6 +8,6 @@
     ++ [ (import ./security.nix) ]
     ++ [ (import ./services.nix) ]
     ++ [ (import ./system.nix) ]
-    ++ [ (import ./user.nix) ]
-    ++ [ (import ./virtualization.nix) ];
+    ++ [ (import ./user.nix) ];
+    # ++ [ (import ./virtualization.nix) ];
 }
