@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    jq
     tmux
     wdisplays
     htop
