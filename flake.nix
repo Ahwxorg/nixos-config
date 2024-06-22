@@ -75,7 +75,7 @@
         inherit system;
         modules = [(
           import ./hosts/server
-          agenix.nixosModules.default
+          # agenix.nixosModules.default
         )];
         specialArgs = { host="server"; inherit self inputs username ; };
       };
