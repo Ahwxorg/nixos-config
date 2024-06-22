@@ -36,6 +36,8 @@
         };
       };
     };
+
+    sshd.enable = true;
   };
 
   boot = {
