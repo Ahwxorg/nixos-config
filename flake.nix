@@ -59,7 +59,7 @@
         inherit system;
         modules = [(
           import ./hosts/sakura
-          #agenix.nixosModules.default
+          #agenix.nixosModules.default # TODO: Should use this for en/decrypting secret values.
         )];
         specialArgs = { host="sakura"; inherit self inputs username ; };
       };
