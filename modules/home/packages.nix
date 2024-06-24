@@ -8,15 +8,16 @@
     firefox
     lxappearance
     nsxiv
-    eza                               # ls replacement
-    file                              # Show file information 
-    fzf                               # fuzzy finder
+    eza
+    file
+    fzf
     gimp
     lazygit
     libreoffice
-    xfce.thunar                       # file manager
-    prismlauncher                     # minecraft launcher
-    ripgrep                           # grep replacement
+    xfce.thunar
+    prismlauncher
+    modrinth-app
+    ripgrep
     yt-dlp
     wineWowPackages.wayland
     element-desktop-wayland
