@@ -37,6 +37,11 @@
 
       bind-key r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 
+      # Remove C-b because that just sucks
+      unbind C-b
+      set -g prefix C-t
+      bind-key C-t send-prefix
+
       set-option -g bell-action none
       set -g status-position bottom
       set -g status-justify left
