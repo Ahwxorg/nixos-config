@@ -14,5 +14,6 @@
     ++ [(import ./waybar)]                        # status bar
     ++ [(import ./wofi.nix)]                      # launcher
     ++ [(import ./zsh.nix)]                       # shell
+    ++ [(import ./steam.nix)]                     # steam
     ++ [(import ./tmux.nix)];                     # terminal multiplexer
 }
