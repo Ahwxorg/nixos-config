@@ -26,7 +26,7 @@
         # :q = "exit";
         ezit = "exit";
         irc = "ssh irc";
-        wc = "wl-copy";
+        wlc = "wl-copy";
         zshrc = "nvim ~/.zshrc";
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
         zshconf = "nvim ~/.zshrc";
