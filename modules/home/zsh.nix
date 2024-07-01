@@ -16,6 +16,8 @@
         # KEYTIMEOUT = 1;
         LANG = "en_US.UTF-8";
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
+        ZSH_AUTOSUGGEST_USE_ASYNC = 1;
+        ZSH_AUTOSUGGEST_STRATEGY = "(match_prev_cmd history completion)";
       };
 
       shellAliases = {
