@@ -1,7 +1,6 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    sptlrx
     jq
     tmux
     wdisplays
@@ -13,6 +12,7 @@
     file
     fzf
     gimp
+    darktable
     lazygit
     libreoffice
     xfce.thunar
@@ -23,7 +23,6 @@
     wineWowPackages.wayland
     element-desktop-wayland
     spotify
-    spot
     thunderbird
     neofetch
     yarn
