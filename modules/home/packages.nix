@@ -18,6 +18,8 @@
     xfce.thunar
     prismlauncher
     modrinth-app
+    lunar-client
+    jdk
     ripgrep
     yt-dlp
     wineWowPackages.wayland
