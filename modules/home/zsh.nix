@@ -24,13 +24,10 @@
         la = "eza -A --git";
         ll = "eza -l --git";
         lla = "eza -lA";
-        # :q = "exit";
+        ":q" = "exit";
         ezit = "exit";
-        irc = "ssh irc";
         wlc = "wl-copy";
-        zshrc = "nvim ~/.zshrc";
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
-        zshconf = "nvim ~/.zshrc";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
         nvim = "nix run /home/liv/Development/nixvim --";
