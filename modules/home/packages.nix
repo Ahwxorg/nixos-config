@@ -24,6 +24,7 @@
     yt-dlp
     wineWowPackages.wayland
     element-desktop-wayland
+    tut
     spotify
     thunderbird
     neofetch
