@@ -8,7 +8,7 @@
     };
 
     background = [{
-      path = ~/nixos-config/modules/home/hyprland/lockscreen.png;
+      path = /home/liv/nixos-config/modules/home/hyprland/lockscreen.png;
       blur_passes = 0;
       color = "rgb(1e1e2e)"; # base
     }];
