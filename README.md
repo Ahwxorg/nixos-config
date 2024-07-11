@@ -65,7 +65,7 @@
 | **Fonts**                   | [nerd fonts][Nerd fonts] |
 | **Color Scheme**            | [catppuccin][Catppuccin] |
 | **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
-| **Lockscreen**              | [swaylock-effects][swaylock-effects] |
+| **Lockscreen**              | [hyprlock][hyprlock] |
 | **Image Viewer**            | [nsxiv][nsxiv] |
 | **Media Player**            | [mpv][mpv] |
 | **Music Player**            | [audacious][audacious] |
@@ -206,7 +206,7 @@ runbg.sh
    ```
 4. **Reboot**
 
-   After rebooting, you'll be greeted by swaylock prompting for your password, with the wallpaper in the background.
+   After rebooting, you'll be greeted by hyprlock prompting for your password, with the wallpaper in the background.
 
 5. **Manual config**
 
@@ -268,7 +268,7 @@ Other dotfiles that I learned / copy from:
 [yazi]: https://github.com/sxyazi/yazi
 [zsh]: https://ohmyz.sh/
 [oh-my-zsh]: https://ohmyz.sh/
-[Swaylock-effects]: https://github.com/mortie/swaylock-effects
+[hyprlock]: https://github.com/hyprwm/Hyprlock
 [audacious]: https://audacious-media-player.org/
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]:https://vscodium.com/
