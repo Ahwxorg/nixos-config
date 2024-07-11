@@ -19,7 +19,7 @@
       # BACKGROUND
       background {
         monitor =
-        path = ~/.config/background
+        path = ~/nixos-config/modules/home/hyprland/lockscreen.png
         blur_passes = 0
         color = $base
       }
