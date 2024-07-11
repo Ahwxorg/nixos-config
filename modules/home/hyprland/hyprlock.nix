@@ -75,7 +75,7 @@
         font_color = rgba(203, 164, 243, 1)
        #font_color = $text
         fade_on_empty = false
-        placeholder_text = <span foreground="##$accentAlpha">󰌾  Logged in as <span foreground="##$accentAlpha"><b>$USER</b></span></span>
+        placeholder_text = <span foreground="##$accentAlpha">󰌾 <span foreground="##$accentAlpha"><b>$USER</b></span></span>
        #placeholder_text = <span foreground="##$textAlpha"><i>󰌾 Logged in as </i><span foreground="##$accentAlpha">$USER</span></span>
         hide_input = false
         check_color = $accent
