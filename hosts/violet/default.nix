@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    ./../../modules/core/sshd
   ];
 
   networking.hostName = "violet";
@@ -19,7 +18,7 @@
   
   services = {    
     thermald.enable = true;
-    cpupower-gui.enable = true;
+    # cpupower-gui.enable = true;
     # power-profiles-daemon.enable = true;
  
     upower = {
