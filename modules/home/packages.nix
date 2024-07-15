@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    wireguard-tools
     jq
     tmux
     wdisplays
