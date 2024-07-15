@@ -6,6 +6,7 @@
       autocd = true;
       autosuggestion.enable = true;
       enableCompletion = true;
+      enableGlobalCompInit = true;
 
       localVariables = {
         # Looks like this: '~/some/path > '
@@ -17,7 +18,29 @@
         LANG = "en_US.UTF-8";
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
         ZSH_AUTOSUGGEST_USE_ASYNC = 1;
+        HISTSIZE = 100000;
+        SAVEHIST = 100000;
+        HISTFILE = "~/.zsh_history";
+        HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
       };
+
+      setOptions = [
+        # Corrections
+        "CORRECT"
+        
+        # History stuff
+        "APPEND_HISTORY"
+        "INC_APPEND_HOSTORY"
+        "SHARE_HISTORY"
+        "EXTENDED_HISTORY"
+        "HIST_REDUCT_BLANKS"
+        "HIST_IGNORE_SPACE"
+        
+        # Disable annoying beep
+        "NO_BEEP"
+        # Fix comments
+        "INTERACTIVE_COMMENTS"
+      ];
 
       shellAliases = {
         ls = "eza -lh --git";
