@@ -11,6 +11,7 @@
       localVariables = {
         # Looks like this: '~/some/path > '
         PS1 = "%F{magenta}%~%f > ";
+        RPROMPT = "%F{magenta}%m";
         # Gets pushed to the home directory otherwise
         LESSHISTFILE = "/dev/null";
         # Make Vi mode transitions faster (in hundredths of a second)
