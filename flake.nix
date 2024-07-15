@@ -1,5 +1,5 @@
 {
-  description = "FrostPhoenix's nixos configuration";
+  description = "liv's NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -71,10 +71,8 @@
         inherit system;
         modules = [(
           import ./hosts/violet
-          iceshrimp.nixosModules.default
-          # agenix.nixosModules.default
         )];
-        specialArgs = { host="violet"; inherit self inputs username ; };
+        specialArgs = { host="violet"; inherit self inputs username iceshrimp ; };
       };
 
       vm = nixpkgs.lib.nixosSystem {
