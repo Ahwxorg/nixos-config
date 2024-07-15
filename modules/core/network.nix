@@ -1,7 +1,6 @@
 { pkgs, ... }: 
 {
   networking = {
-    hostName = "sakura";
     networkmanager.enable = true;
     nameservers = [ "9.9.9.9" ];
     firewall = {
@@ -15,7 +14,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    networkmanagerapplet
-  ];
+  # environment.systemPackages = with pkgs; [
+  #   networkmanagerapplet
+  # ];
 }
