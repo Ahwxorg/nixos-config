@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/services/violet.nix
-    iceshrimp.nixosModule
+    iceshrimp.nixosModules
   ];
 
   networking.hostName = "violet";
