@@ -9,6 +9,8 @@
       imports = 
         if (host == "desktop") then 
           [ ./../home/default.desktop.nix ] 
+        else if (host == "violet") then
+          [ ./../home/default.violet.nix ]
         else [ ./../home ];
         home = {
           username = "${username}";
