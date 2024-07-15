@@ -1,6 +1,6 @@
 { pkgs, lib, config, ... }:
 let
-  fqdn = "quack.social";
+  fqdn = "liv.town";
   baseUrl = "https://${fqdn}";
   clientConfig."m.homeserver".base_url = baseUrl;
   serverConfig."m.server" = "${fqdn}:443";
@@ -10,9 +10,10 @@ let
     return 200 '${builtins.toJSON data}';
   '';
 in {
-  #age.secrets.matrix-synapse = {
-  #    file = "../../../secrets/matrix-synapse.age";
-  #};
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "ahwx@ahwx.org";
+  };
 
   services = {
     # postgresql.enable = true;
