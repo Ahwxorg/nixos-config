@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    wireguard-tools
+    wireguard-tools                   # VPN connections
+    openresolv                        # required for wireguard-tools
     jq
     tmux
     wdisplays
