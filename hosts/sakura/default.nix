@@ -5,6 +5,8 @@
     ./../../modules/core
   ];
 
+  networking.hostName = "sakura";
+
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
