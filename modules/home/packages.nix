@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     wireguard-tools                   # VPN connections
     openresolv                        # required for wireguard-tools
+    pwgen
     jq
     tmux
     wdisplays
