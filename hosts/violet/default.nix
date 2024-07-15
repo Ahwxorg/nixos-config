@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./../../modules/services/violet.nix
   ];
 
   networking.hostName = "violet";
