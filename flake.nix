@@ -55,7 +55,6 @@
         inherit system;
         modules = [(
           import ./hosts/desktop
-          agenix.nixosModules.default
         )];
         specialArgs = { host="desktop"; inherit self inputs username ; };
       };
@@ -79,7 +78,6 @@
         inherit system;
         modules = [(
           import ./hosts/vm
-          agenix.nixosModules.default
         )];
         specialArgs = { host="vm"; inherit self inputs username ; };
       };
@@ -87,7 +85,6 @@
         inherit system;
         modules = [(
           import ./hosts/server
-          # agenix.nixosModules.default
         )];
         specialArgs = { host="server"; inherit self inputs username ; };
       };
