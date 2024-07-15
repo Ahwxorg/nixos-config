@@ -35,21 +35,23 @@
    Screenshots last updated <b>2024-04-09</b>
 </p> -->
 
-# 🗃️ Overview
+# Overview
 
-### 📚 Layout
+### Layout
 
--   [flake.nix](flake.nix) base of the configuration
--   [hosts](hosts) 🌳 per-host configurations that contain machine specific configurations
-    - [desktop](hosts/desktop/) 🖥️ Desktop specific configuration
-    - [sakura](hosts/sakura/) 💻 Laptop (sakura) specific configuration
--   [modules](modules) 🍱 modularized NixOS configurations
-    -   [core](modules/core/) ⚙️ Core NixOS configuration
-    -   [homes](modules/home/) 🏠 my [Home-Manager](https://github.com/nix-community/home-manager) config
--   [pkgs](flake/pkgs) 📦 packages exported by my flake
--   [wallpapers](wallpapers/) 🌄 wallpapers collection
+- [flake.nix](flake.nix): base of the configuration
+- [hosts](hosts): per-host configurations that contain machine specific configurations
+  - [desktop](hosts/desktop/): Desktop specific configuration
+  - [sakura](hosts/sakura/): Laptop (sakura) specific configuration
+  - [violet](hosts/violet/): Server (sakura) specific configuration
+- [modules](modules): modularized NixOS configurations
+  - [core](modules/core/): core NixOS configuration
+  - [homes](modules/home/): my [Home-Manager](https://github.com/nix-community/home-manager) config
+  - [services](modules/services/): services ran on my servers
+- [pkgs](flake/pkgs): packages exported by my flake
+- [wallpapers](wallpapers/): wallpaper collection
 
-### 📓 Components
+### Components
 |                             | NixOS + Hyprland                                                                              |
 | --------------------------- | :---------------------------------------------------------------------------------------------:
 | **Window Manager**          | [Hyprland][Hyprland] |
@@ -58,23 +60,22 @@
 | **Notification Daemon**     | [Mako][mako] |
 | **Terminal Emulator**       | [Kitty][kitty] |
 | **Shell**                   | [zsh][zsh] |
-| **Text Editor**             | [VSCodium][VSCodium] + [Neovim][Neovim] |
+| **Text Editor**             | [Neovim][Neovim] + [VSCodium][VSCodium] |
 | **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
-| **System resource monitor** | [htop][btop] |
-| **File Manager**            | [nemo][nemo] + [yazi][yazi] |
+| **System resource monitor** | [htop][htop] |
+| **File Manager**            | [thunar][thunar]
 | **Fonts**                   | [nerd fonts][Nerd fonts] |
 | **Color Scheme**            | [catppuccin][Catppuccin] |
 | **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
 | **Lockscreen**              | [hyprlock][hyprlock] |
 | **Image Viewer**            | [nsxiv][nsxiv] |
 | **Media Player**            | [mpv][mpv] |
-| **Music Player**            | [audacious][audacious] |
 | **Screenshot Software**     | [grimblast][grimblast] |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
 | **Color Picker**            | [hyprpicker][hyprpicker] |
 
 
-### 📝 Shell aliases
+### Shell aliases
 
 <details>
 <summary>
@@ -91,29 +92,9 @@ NixOS (expand)
 - ```nix-clean```        $\rightarrow$ ```sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d```
 </details>
 
-### 🛠️ Scripts
+### Scripts
 
 All the scripts are in ```modules/home/scripts/scripts/``` and are exported as packages in ```modules/home/scripts/default.nix```
-
-<details>
-<summary>
-extract.sh 
-</summary>
-
-**Description:** This script extract ```tar.gz``` archives in the current directory.
-
-**Usage:** ```extract <archive_file>```
-</details>
-
-<details>
-<summary>
-compress.sh 
-</summary>
-
-**Description:** This script compress a file or a folder into a ```tar.gz``` archives which is created in the current directory with the name of the chosen file or folder. 
-
-**Usage:** ```compress <file>``` or ```compress <folder>```
-</details>
 
 <details>
 <summary>
@@ -137,26 +118,6 @@ toggle_oppacity.sh
 
 <details>
 <summary>
-maxfetch.sh 
-</summary>
-
-**Description:** This script is a modified version of the [jobcmax/maxfetch][maxfetch] script.
-
-**Usage:** ```maxfetch```
-</details>
-
-<details>
-<summary>
-music.sh 
-</summary>
-
-**Description:** This script is for managing Audacious (music player). If Audacious is currently running, it will be killed (stopping the music); otherwise, it will start Audacious in the 8th workspace and resume the music. 
-
-**Usage:** ```music```
-</details>
-
-<details>
-<summary>
 runbg.sh 
 </summary>
 
@@ -165,7 +126,7 @@ runbg.sh
 **Usage:** ```runbg <command> <arg1> <arg2> <...>```
 </details>
 
-# 🚀 Installation 
+# Installation 
 
 > This is unchanged of Frost-Phoenix's dots, needs to be remade but don't feel like spending that time currently.
 
@@ -206,7 +167,7 @@ runbg.sh
    ```
 4. **Reboot**
 
-   After rebooting, you'll be greeted by hyprlock prompting for your password, with the wallpaper in the background.
+   After rebooting, you'll be greeted by hyprlock prompting for your password, with its wallpaper in the background.
 
 5. **Manual config**
 
@@ -260,20 +221,16 @@ Other dotfiles that I learned / copy from:
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
 [Kitty]: https://github.com/kovidgoyal/kitty
-[Starship]: https://github.com/starship/starship
 [Waybar]: https://github.com/Alexays/Waybar
 [wofi]: https://hg.sr.ht/~scoopta/wofi
-[Btop]: https://github.com/aristocratos/btop
-[nemo]: https://github.com/linuxmint/nemo
-[yazi]: https://github.com/sxyazi/yazi
 [zsh]: https://ohmyz.sh/
-[oh-my-zsh]: https://ohmyz.sh/
 [hyprlock]: https://github.com/hyprwm/Hyprlock
-[audacious]: https://audacious-media-player.org/
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]:https://vscodium.com/
 [Neovim]: https://github.com/neovim/neovim
 [grimblast]: https://github.com/hyprwm/contrib
+[htop]: https://github.com/htop-dev/htop
+[thunar]: https://docs.xfce.org/xfce/thunar/start
 [nsxiv]: https://nsxiv.codeberg.page
 [mako]: https://github.com/emersion/mako
 [nerd fonts]: https://github.com/ryanoasis/nerd-fonts
