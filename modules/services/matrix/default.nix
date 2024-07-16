@@ -108,7 +108,7 @@ in {
     matrix-synapse = {
       enable = true;
       settings = {
-        database.name = "matrix-synapse";
+        database.name = "psycopg2";
         database.args = {
           user = "matrix-synapse";
           password = "synapse";
