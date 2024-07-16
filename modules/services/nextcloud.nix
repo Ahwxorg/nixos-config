@@ -8,7 +8,7 @@
     https = true;
     configureRedis = true; # caching
     maxUploadSize = "10G";
-    hostname = "cloud.liv.town";
+    hostName = "cloud.liv.town";
 
     settings = {
       trusted_domains = [
