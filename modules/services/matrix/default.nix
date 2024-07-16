@@ -116,7 +116,8 @@ in {
         server_name = "${fqdn}";
         public_baseurl = "https://${fqdn}";
         enable_registration = false;
-        extraConfigFiles = [ "/home/liv/nixos-config/secrets/matrix-synapse.yaml" ];
+        registration_shared_secret = "";
+        # extraConfigFiles = [ "/home/liv/nixos-config/secrets/matrix-synapse.yaml" ];
         listeners = [
           { port = 8008;
             bind_addresses = [ "::1" ];
