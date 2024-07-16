@@ -11,6 +11,7 @@
     ++ [(import ./security.nix)]
     ++ [(import ./services.nix)]
     ++ [(import ./system.nix)]
+    ++ [(import ./wireguard.nix)]
     ++ [(import ./user.nix)];
     # ++ [(import ./bluetooth.nix)]
     # ++ [(import ./yubikey.nix)]
