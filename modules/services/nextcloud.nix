@@ -1,15 +1,19 @@
 { config, ... }:
 {
-  services.nextcloud = {                
-    enable = true;                   
-    hostName = "cloud.liv.town";
-    https = true;
-    configureRedis = true;
-    maxUploadSize = "10G";
 
-    virtualHosts.${config.services.nextcloud.hostName} = {
-      forceSSL = true;
-      enableACME = true;
+
+  services.nextcloud = {
+    enable = true;
+    home = "/home/liv/nextcloud";
+    https = true;
+    configureRedis = true; # caching
+    maxUploadSize = "10G";
+    hostname = "cloud.liv.town";
+
+    settings = {
+      trusted_domains = [
+        "cloud.liv.town"
+      ];
     };
 
     extraOptions.enabledPreviewProviders = [
@@ -25,10 +29,8 @@
       "OC\\Preview\\XBitmap"
       "OC\\Preview\\HEIC"
     ];
-
   };
-  
-    
+
   security.acme = {
     acceptTerms = true;   
     certs = { 
