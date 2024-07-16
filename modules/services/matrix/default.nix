@@ -1,4 +1,4 @@
-{ pkgs, lib, config, agenix, ... }:
+{ pkgs, lib, config, ... }:
 let
   fqdn = "liv.town";
   baseUrl = "https://${fqdn}";
@@ -14,8 +14,6 @@ in {
     acceptTerms = true;
     defaults.email = "ahwx@ahwx.org";
   };
-
-  age.secrets.matrix-synapse.file = ../../../secrets/matrix-synapse.age;
 
   services = {
     # postgresql.enable = true;
@@ -118,7 +116,7 @@ in {
         server_name = "${fqdn}";
         public_baseurl = "https://${fqdn}";
         enable_registration = false;
-        extraConfig = config.age.secrets.matrix-synapse.file;
+        extraConfig = ./secrets.yaml;
         listeners = [
           { port = 8008;
             bind_addresses = [ "::1" ];
