@@ -94,14 +94,25 @@ in {
       };
     };
 
+    postgresql = {
+      enable = true;
+      initialScript = pkgs.writeText "synapse-init.sql" ''
+        CREATE ROLE "matrix-synapse" WITH LOGIN PASSWORD 'synapse';
+        CREATE DATABASE "matrix-synapse" WITH OWNER "matrix-synapse"
+          TEMPLATE template0
+          LC_COLLATE = "C"
+          LC_CTYPE = "C";
+      '';
+    };
+
     matrix-synapse = {
       enable = true;
       settings = {
-        # database.name = "psycopg2";
-        # database.args = {
-        #   user = "matrix-synapse";
-        #   password = "synapse";
-        # };
+        database.name = "matrix-synapse";
+        database.args = {
+          user = "matrix-synapse";
+          password = "synapse";
+        };
         server_name = "${fqdn}";
         public_baseurl = "https://${fqdn}";
         enable_registration = false;
