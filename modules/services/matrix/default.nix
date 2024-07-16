@@ -15,6 +15,8 @@ in {
     defaults.email = "ahwx@ahwx.org";
   };
 
+  age.secrets.matrix-synapse.file = ../../../secrets/matrix-synapse.age;
+
   services = {
     # postgresql.enable = true;
     # postgresql.initialScript = pkgs.writeText "synapse-init.sql" ''
