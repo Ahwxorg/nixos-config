@@ -31,19 +31,19 @@
       criticalPowerAction = "PowerOff";
     };
 
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
-    };
+    # auto-cpufreq = {
+    #   enable = true;
+    #   settings = {
+    #     battery = {
+    #       governor = "powersave";
+    #       turbo = "auto";
+    #     };
+    #     charger = {
+    #       governor = "performance";
+    #       turbo = "auto";
+    #     };
+    #   };
+    # };
   };
 
   boot = {
