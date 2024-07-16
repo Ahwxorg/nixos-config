@@ -37,7 +37,7 @@
     };
   };
 
-  outputs = { nixpkgs, self, agenix, iceshrimp, catppuccin, ...} @ inputs:
+  outputs = { nixpkgs, self, iceshrimp, agenix, catppuccin, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
     username = "liv";

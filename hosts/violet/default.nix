@@ -1,10 +1,11 @@
-{ pkgs, config, iceshrimp, ... }: 
+{ pkgs, config, iceshrimp, agenix, ... }: 
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/services/violet.nix
     iceshrimp.nixosModules.default
+    agenix.nixosModules.default
   ];
 
   networking.hostName = "violet";

@@ -116,7 +116,7 @@ in {
         server_name = "${fqdn}";
         public_baseurl = "https://${fqdn}";
         enable_registration = false;
-        extraConfig = config.age.secrets.matrix-synapse;
+        registration_shared_secret = config.age.secrets.matrix-synapse;
         #macaroon_secret_key = config.age.secrets.matrix-synapse;
         listeners = [
           { port = 8008;
