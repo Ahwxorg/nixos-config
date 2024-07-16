@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, agenix, ... }:
 let
   fqdn = "liv.town";
   baseUrl = "https://${fqdn}";
