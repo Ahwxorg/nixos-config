@@ -4,7 +4,7 @@
   services = {
     postgresql = {
       enable = true;
-      initialScript = pkgs.writeText "synapse-init.sql" ''
+      initialScript = pkgs.writeText "iceshrimp.sql" ''
         CREATE ROLE "iceshrimp" WITH LOGIN PASSWORD 'uph2reeloo3aeDae4muc';
         CREATE DATABASE "iceshrimp" WITH OWNER "iceshrimp"
           TEMPLATE template0
