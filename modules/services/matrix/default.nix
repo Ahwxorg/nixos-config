@@ -6,7 +6,7 @@ let
   serverConfig."m.server" = "${fqdn}:443";
   mkWellKnown = data: ''
     default_type application/json;
-    add_header Access-Control-Allow-Origin *;
+    # add_header Access-Control-Allow-Origin *;
     return 200 '${builtins.toJSON data}';
   '';
 in {
