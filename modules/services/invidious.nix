@@ -14,7 +14,7 @@
       "video.liv.town" = {
         forceSSL = true;
         enableACME = true;
-        proxyPass = "http://127.0.0.1:${toString config.services.invidious.port}";
+        locations."/".proxyPass = "http://127.0.0.1:${toString config.services.invidious.port}";
       };
     };
   };
