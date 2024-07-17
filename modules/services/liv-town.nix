@@ -6,7 +6,7 @@
     # enableNvidia = true;
   };
   
-  user.users.liv = {
+  users.users.liv = {
     extraGroups = [ "docker" ];
   };
 
