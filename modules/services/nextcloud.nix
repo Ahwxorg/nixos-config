@@ -47,12 +47,40 @@
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-    virtualHosts.${config.services.nextcloud.hostName} = {
-      enableACME = true;
-      addSSL = true;
-      locations."/" = {
-        proxyPass = "http://localhost:8080";
-        proxyWebsockets = true;
+
+    # Hardened TLS and HSTS preloading
+    appendHttpConfig = ''
+      # Add HSTS header with preloading to HTTPS requests.
+      # Do not add HSTS header to HTTP requests.
+      map $scheme $hsts_header {
+          https   "max-age=31536000; includeSubdomains; preload";
+      }
+      add_header Strict-Transport-Security $hsts_header;
+
+      # Enable CSP for your services.
+      #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
+
+      # Minimize information leaked to other domains
+      add_header 'Referrer-Policy' 'origin-when-cross-origin';
+
+      # Disable embedding as a frame
+      add_header X-Frame-Options DENY;
+
+      # Prevent injection of code in other mime types (XSS Attacks)
+      add_header X-Content-Type-Options nosniff;
+
+      # This might create errors
+      # proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+    '';
+
+    virtualHosts = {
+      "${config.services.nextcloud.hostName}" = {
+        enableACME = true;
+        forceSSL = true;
+        locations = {
+          "/".proxyPass = "http://localhost:8080";
+          "/".proxyWebsockets = true;
+        };
       };
     };
   };
