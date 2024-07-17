@@ -10,6 +10,11 @@ let
     return 200 '${builtins.toJSON data}';
   '';
 in {
+
+  imports = [
+    ../liv-town.nix # If using Matrix, also require website, TODO: should probably be the other way around.
+  ];
+
   security.acme = {
     acceptTerms = true;
     defaults.email = "ahwx@ahwx.org";
@@ -81,9 +86,7 @@ in {
           # It's also possible to do a redirect here or something else, this vhost is not
           # needed for Matrix. It's recommended though to *not put* element
           # here, see also the section about Element.
-          locations."/".extraConfig = ''
-            return 404;
-          '';
+          locations."/".proxyPass = "http://[::1]:4321";
           # Forward all Matrix API calls to the synapse Matrix homeserver. A trailing slash
           # *must not* be used here.
           locations."/_matrix".proxyPass = "http://[::1]:8008";
