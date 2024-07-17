@@ -86,7 +86,7 @@ in {
           # It's also possible to do a redirect here or something else, this vhost is not
           # needed for Matrix. It's recommended though to *not put* element
           # here, see also the section about Element.
-          locations."/".proxyPass = "http://[::1]:4321";
+          locations."/".proxyPass = "http://127.0.0.1:4321";
           # Forward all Matrix API calls to the synapse Matrix homeserver. A trailing slash
           # *must not* be used here.
           locations."/_matrix".proxyPass = "http://[::1]:8008";
