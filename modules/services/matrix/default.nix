@@ -47,10 +47,7 @@ in {
         add_header Strict-Transport-Security $hsts_header;
 
         # Enable CSP for your services.
-        add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
-
-        # Minimize information leaked to other domains
-        add_header 'Referrer-Policy' 'origin-when-cross-origin';
+        add_header Content-Security-Policy "default-src 'self'; base-uri 'self'; frame-src 'self'; frame-ancestors 'self'; form-action 'self';" always;
 
         # Disable embedding as a frame
         add_header X-Frame-Options DENY;
