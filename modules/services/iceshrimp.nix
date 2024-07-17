@@ -14,16 +14,17 @@
     # };
 
 
-    iceshrimp = {
-      enable = true;
-      settings = { 
-        configureNginx = true;
-        createDb = true;
-        url = "https://fedi.liv.town"; # The domain your Iceshrimp UI will be served on.
-        # settings.db.host = "/run/postgresql"; # omitting this setting causes some configurations to fail
-      };
-      dbPasswordFile = /var/iceshrimp/dbPasswordFile;
-      secretConfig = /var/iceshrimp/secretConfig.yml;
-    };
+    # > "@liv the nix package is sadly broken at the moment"
+    # iceshrimp = {
+    #   enable = true;
+    #   settings = { 
+    #     configureNginx = true;
+    #     createDb = true;
+    #     url = "https://fedi.liv.town"; # The domain your Iceshrimp UI will be served on.
+    #     # settings.db.host = "/run/postgresql"; # omitting this setting causes some configurations to fail
+    #   };
+    #   dbPasswordFile = /var/iceshrimp/dbPasswordFile;
+    #   secretConfig = /var/iceshrimp/secretConfig.yml;
+    # };
   };
 }
