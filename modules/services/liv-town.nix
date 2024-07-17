@@ -15,7 +15,7 @@
     containers."livdottown" = {
       image = "ghcr.io/ahwxorg/liv.town:latest";
       ports = [
-        "4321:4321/tcp"
+        "0.0.0.0:4321:8080"
       ];
     };
   };
