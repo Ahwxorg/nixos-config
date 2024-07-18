@@ -134,5 +134,37 @@ in {
         ];
       };
     };
+
+    mautrix-whatsapp = {
+      enable = true;
+      settings = {
+        appservice = {
+          database = {
+            type = "postgres";
+            uri = "postgresql:///mautrix_whatsapp?host=/run/postgresql";
+          };
+          ephemeral_events = false;
+          id = "whatsapp";
+        };
+        bridge = {
+          encryption = {
+            allow = true;
+            default = true;
+            require = true;
+          };
+          history_sync = {
+            request_full_sync = true;
+          };
+          mute_bridging = true;
+          permissions = {
+            "example.com" = "user";
+          };
+          private_chat_portal_meta = true;
+          provisioning = {
+            shared_secret = "disable";
+          };
+        };
+      };
+    };
   };
 }
