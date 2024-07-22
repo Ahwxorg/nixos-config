@@ -54,7 +54,8 @@
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
-        nvim = "nix run /home/liv/Development/nixvim --";
+        # nvim = "nix run /home/liv/Development/nixvim --";
+        vim = "nvim";
         doas = "sudo";
 
         # NixOS
