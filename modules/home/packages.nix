@@ -59,6 +59,6 @@
     xdg-utils
     xxd
     inputs.alejandra.defaultPackage.${system}
-    inputs.nixvim.defaultPackage.${system}
+    inputs.nixvim.packages.${pkgs.system}.default
   ];
 }
