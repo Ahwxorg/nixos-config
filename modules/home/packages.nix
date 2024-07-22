@@ -28,6 +28,7 @@
     wineWowPackages.wayland
     element-desktop-wayland
     tut
+    iamb
     spotify
     thunderbird
     neofetch
