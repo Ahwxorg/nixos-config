@@ -1,18 +1,19 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, agenix, ... }:
 let
-  fqdn = "quack.social";
+  fqdn = "liv.town";
   baseUrl = "https://${fqdn}";
   clientConfig."m.homeserver".base_url = baseUrl;
   serverConfig."m.server" = "${fqdn}:443";
   mkWellKnown = data: ''
     default_type application/json;
-    add_header Access-Control-Allow-Origin *;
+    # add_header Access-Control-Allow-Origin *;
     return 200 '${builtins.toJSON data}';
   '';
 in {
-  #age.secrets.matrix-synapse = {
-  #    file = "../../../secrets/matrix-synapse.age";
-  #};
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "ahwx@ahwx.org";
+  };
 
   services = {
     # postgresql.enable = true;
@@ -30,6 +31,32 @@ in {
       recommendedOptimisation = true;
       recommendedGzipSettings = true;
       recommendedProxySettings = true;
+
+      # Hardened TLS and HSTS preloading
+      appendHttpConfig = ''
+        # Add HSTS header with preloading to HTTPS requests.
+        # Do not add HSTS header to HTTP requests.
+        map $scheme $hsts_header {
+            https   "max-age=31536000; includeSubdomains; preload";
+        }
+        add_header Strict-Transport-Security $hsts_header;
+
+        # Enable CSP for your services.
+        #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
+
+        # Minimize information leaked to other domains
+        add_header 'Referrer-Policy' 'origin-when-cross-origin';
+
+        # Disable embedding as a frame
+        add_header X-Frame-Options DENY;
+
+        # Prevent injection of code in other mime types (XSS Attacks)
+        add_header X-Content-Type-Options nosniff;
+
+        # This might create errors
+        # proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+      '';
+
       virtualHosts = {
         # If the A and AAAA DNS records on example.org do not point on the same host as the
         # records for myhostname.example.org, you can easily move the /.well-known
@@ -67,18 +94,29 @@ in {
       };
     };
 
+    postgresql = {
+      enable = true;
+      initialScript = pkgs.writeText "synapse-init.sql" ''
+        CREATE ROLE "matrix-synapse" WITH LOGIN PASSWORD 'synapse';
+        CREATE DATABASE "matrix-synapse" WITH OWNER "matrix-synapse"
+          TEMPLATE template0
+          LC_COLLATE = "C"
+          LC_CTYPE = "C";
+      '';
+    };
+
     matrix-synapse = {
       enable = true;
       settings = {
-        # database.name = "psycopg2";
-        # database.args = {
-        #   user = "matrix-synapse";
-        #   password = "synapse";
-        # };
+        database.name = "psycopg2";
+        database.args = {
+          user = "matrix-synapse";
+          password = "synapse";
+        };
         server_name = "${fqdn}";
         public_baseurl = "https://${fqdn}";
         enable_registration = false;
-        #registration_shared_secret = config.age.secrets.matrix-synapse;
+        registration_shared_secret = config.age.secrets.matrix-synapse;
         #macaroon_secret_key = config.age.secrets.matrix-synapse;
         listeners = [
           { port = 8008;

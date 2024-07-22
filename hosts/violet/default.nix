@@ -1,10 +1,11 @@
-{ pkgs, config, iceshrimp, ... }: 
+{ pkgs, config, iceshrimp, agenix, ... }: 
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/services/violet.nix
     iceshrimp.nixosModules.default
+    agenix.nixosModules.default
   ];
 
   networking.hostName = "violet";
@@ -31,19 +32,19 @@
       criticalPowerAction = "PowerOff";
     };
 
-    auto-cpufreq = {
-      enable = true;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
-    };
+    # auto-cpufreq = {
+    #   enable = true;
+    #   settings = {
+    #     battery = {
+    #       governor = "powersave";
+    #       turbo = "auto";
+    #     };
+    #     charger = {
+    #       governor = "performance";
+    #       turbo = "auto";
+    #     };
+    #   };
+    # };
   };
 
   boot = {

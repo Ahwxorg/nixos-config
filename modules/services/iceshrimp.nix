@@ -2,12 +2,17 @@
 {
 
   services = {
-    # redis.servers.iceshrimp = {
-    #   enable = true;
-    #   port = 6380;
-    #   bind = "0.0.0.0";
-    #   settings.protected-mode = "no";
-    # };
+    postgresql = {
+      enable = true;
+      initialScript = pkgs.writeText "synapse-init.sql" ''
+        CREATE ROLE "matrix-synapse" WITH LOGIN PASSWORD 'synapse';
+        CREATE DATABASE "matrix-synapse" WITH OWNER "matrix-synapse"
+          TEMPLATE template0
+          LC_COLLATE = "C"
+          LC_CTYPE = "C";
+      '';
+    };
+
 
     iceshrimp = {
       enable = true;
