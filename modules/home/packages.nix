@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    translate-shell                   # Google Translate but in the CLI
     wireguard-tools                   # VPN connections
     openresolv                        # required for wireguard-tools
     pwgen
@@ -29,6 +30,7 @@
     wineWowPackages.wayland
     element-desktop-wayland
     tut
+    iamb
     spotify
     thunderbird
     neofetch
@@ -58,5 +60,6 @@
     xdg-utils
     xxd
     inputs.alejandra.defaultPackage.${system}
+    inputs.nixvim.packages.${pkgs.system}.default
   ];
 }

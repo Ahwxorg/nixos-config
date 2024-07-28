@@ -25,6 +25,72 @@
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
       };
 
+      initExtra = ''
+        autoload -U add-zsh-hook
+        autoload -U compinit
+        zmodload zsh/complist
+        autoload -U edit-command-line
+        zmodload zsh/zpty
+        # Corrections
+        setopt correct
+        
+        # History stuff
+        setopt append_history
+        setopt inc_append_history
+        setopt share_history
+        setopt extended_history
+        setopt hist_reduce_blanks
+        setopt hist_ignore_space
+        
+        # Disable annoying beep
+        setopt no_beep
+        # Fix comments
+        setopt interactive_comments
+
+        bindkey '^[[H' beginning-of-line # Home
+        bindkey '^[[F' end-of-line # End
+        bindkey "^[[1;5C" forward-word # Ctrl+Right
+        bindkey "^[[1;5D" backward-word # Ctrl+Left
+        # Menu selection
+        bindkey -M menuselect '^@' accept-and-infer-next-history # Ctrl+Space
+        # Make Alt-Backspace delete till ~!#$%^&*(){}[]<>?+; the way OMZ does
+        backward-delete-word-but-better () {
+          local WORDCHARS='~!#$%^&*(){}[]<>?+;'
+          zle backward-delete-word
+        }
+        zle -N backward-delete-word-but-better
+        
+        bindkey '\e^?' backward-delete-word-but-better
+
+        # Completions
+        #
+        # Cache so it's a bit quicker
+        zstyle ':completion:*' use-cache on
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+        # File list like ls -l
+        zstyle ':completion:*' file-list all
+        # Glorious menu
+        zstyle ':completion:*' menu select
+        # Always tab complete
+        zstyle ':completion:*' insert-tab false
+        # Comments
+        zstyle ':completion:*' verbose yes
+        # Tab key behaviour
+        zstyle ':autocomplete:tab:*' widget-style menu-complete
+        # Make set // to be / instead of default /*/
+        zstyle ':completion:*' squeeze-slashes true
+        # Complete options
+        zstyle ':completion:*' complete-options true
+        # Complete partial words (such as 3912 > _DSC3912.JPG)
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+        # Move around completion menu with Vi keys
+        bindkey -M menuselect 'h' vi-backward-char
+        bindkey -M menuselect 'k' vi-up-line-or-history
+        bindkey -M menuselect 'j' vi-down-line-or-history
+        bindkey -M menuselect 'l' vi-forward-char
+
+      '';
+
       # setOptions = [
       #   # Corrections
       #   "CORRECT"
@@ -54,7 +120,8 @@
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
-        nvim = "nix run /home/liv/Development/nixvim --";
+        # nvim = "nix run /home/liv/Development/nixvim --";
+        vim = "nvim";
         doas = "sudo";
 
         # NixOS

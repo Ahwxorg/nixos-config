@@ -29,5 +29,6 @@
     wget
     xxd
     inputs.alejandra.defaultPackage.${system}
+    inputs.nixvim.defaultPackage.${system}
   ];
 }
