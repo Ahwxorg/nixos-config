@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    pinta                             # "Paint.NET-like editor"
+    kdenlive                          # Video editor
     translate-shell                   # Google Translate but in the CLI
     wireguard-tools                   # VPN connections
     openresolv                        # required for wireguard-tools
