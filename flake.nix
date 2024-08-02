@@ -30,10 +30,6 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
-
-    iceshrimp = {
-      url = "git+https://iceshrimp.dev/iceshrimp/packaging";
-    };
   };
 
   outputs = { nixpkgs, self, iceshrimp, catppuccin, ...} @ inputs:
