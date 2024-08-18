@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    audacity                          # Record audio stuff
+    obs-studio                        # Record video stuff
+    exiftool                          # Read exif data from CLI
     pinta                             # "Paint.NET-like editor"
     kdenlive                          # Video editor
     translate-shell                   # Google Translate but in the CLI
@@ -12,7 +15,6 @@
     wdisplays
     htop
     firefox
-    lxappearance
     nsxiv
     eza
     file
@@ -23,15 +25,12 @@
     libreoffice
     xfce.thunar
     prismlauncher
-    modrinth-app
     lunar-client
     jdk
     ripgrep
     yt-dlp
     wineWowPackages.wayland
     element-desktop-wayland
-    tut
-    iamb
     spotify
     thunderbird
     neofetch
