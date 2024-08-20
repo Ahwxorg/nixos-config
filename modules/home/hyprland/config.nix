@@ -21,7 +21,6 @@
         "waybar &"
         "mako &"
         "wl-paste --watch cliphist store &"
-        "element-desktop &"
       ];
 
       input = {
