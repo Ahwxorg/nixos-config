@@ -32,7 +32,7 @@
     };
   };
 
-  outputs = { nixpkgs, self, iceshrimp, catppuccin, ...} @ inputs:
+  outputs = { nixpkgs, self, catppuccin, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
     username = "liv";
@@ -66,7 +66,7 @@
         modules = [(
           import ./hosts/violet
         )];
-        specialArgs = { host="violet"; inherit self inputs username iceshrimp ; };
+        specialArgs = { host="violet"; inherit self inputs username; };
       };
 
       vm = nixpkgs.lib.nixosSystem {
