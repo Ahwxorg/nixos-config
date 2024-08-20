@@ -33,6 +33,11 @@
         zmodload zsh/zpty
         # Corrections
         setopt correct
+
+        # Enable Ctrl-X Ctrl-E
+        autoload edit-command-line
+        zle -N edit-command-line
+        bindkey '^Xe' edit-command-line
         
         # History stuff
         setopt append_history
