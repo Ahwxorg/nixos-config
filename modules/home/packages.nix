@@ -31,7 +31,7 @@
     ripgrep
     yt-dlp
     wineWowPackages.wayland
-    element-desktop
+    element-desktop # wayland version is very laggy for me
     spotify
     thunderbird
     neofetch
