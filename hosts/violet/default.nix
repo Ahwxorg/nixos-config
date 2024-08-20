@@ -9,6 +9,10 @@
 
   networking.hostName = "violet";
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "jitsi-meet-1.0.8043"
+  ];
+
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
