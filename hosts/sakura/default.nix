@@ -7,6 +7,10 @@
 
   networking.hostName = "sakura";
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "jitsi-meet-1.0.8043"
+  ];
+
   environment.systemPackages = with pkgs; [
     acpi
     brightnessctl
