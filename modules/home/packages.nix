@@ -31,7 +31,7 @@
     ripgrep
     yt-dlp
     wineWowPackages.wayland
-    element-desktop-wayland
+    element-desktop
     spotify
     thunderbird
     neofetch
