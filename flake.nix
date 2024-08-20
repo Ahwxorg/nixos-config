@@ -30,16 +30,9 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
-
-    agenix.url = "github:ryantm/agenix";
-    agenix.inputs.nixpkgs.follows = "nixpkgs";
-
-    iceshrimp = {
-      url = "git+https://iceshrimp.dev/iceshrimp/packaging";
-    };
   };
 
-  outputs = { nixpkgs, self, iceshrimp, agenix, catppuccin, ...} @ inputs:
+  outputs = { nixpkgs, self, iceshrimp, catppuccin, ...} @ inputs:
   let
     selfPkgs = import ./pkgs;
     username = "liv";
@@ -73,7 +66,7 @@
         modules = [(
           import ./hosts/violet
         )];
-        specialArgs = { host="violet"; inherit self inputs username agenix iceshrimp ; };
+        specialArgs = { host="violet"; inherit self inputs username iceshrimp ; };
       };
 
       vm = nixpkgs.lib.nixosSystem {

@@ -22,6 +22,7 @@
     gimp
     darktable
     lazygit
+    gitleaks                          # TODO: adds pre-commit hook
     libreoffice
     xfce.thunar
     prismlauncher

@@ -1,2 +1,2 @@
 secrets/
-modules/services/matrix/secrets.yaml
+modules/services/matrix/default.nix
