@@ -2,6 +2,8 @@
 {
   home.packages = with pkgs; [
     jq
+    wireguard-tools                   # VPN connections
+    openresolv                        # required for wireguard-tools
     tmux
     htop
     eza
