@@ -1,8 +1,8 @@
 { ... }:
 {
   imports =
-       [(import ./bootloader.nix)]
-    ++ [(import ./hardware.nix)]
+       # [(import ./bootloader.nix)]
+       [(import ./hardware.nix)]
     ++ [(import ./xserver.nix)]
     ++ [(import ./network.nix)]
     ++ [(import ./pipewire.nix)]
