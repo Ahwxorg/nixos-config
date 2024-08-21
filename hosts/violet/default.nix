@@ -10,7 +10,9 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "jitsi-meet-1.0.8043"
+    "olm-3.2.16"
   ];
+
 
   time.timeZone = "Europe/Amsterdam";
 
@@ -25,14 +27,6 @@
     thermald.enable = true;
     # cpupower-gui.enable = true;
     # power-profiles-daemon.enable = true;
- 
-    upower = {
-      enable = true;
-      percentageLow = 20;
-      percentageCritical = 5;
-      percentageAction = 3;
-      criticalPowerAction = "PowerOff";
-    };
 
     # auto-cpufreq = {
     #   enable = true;
