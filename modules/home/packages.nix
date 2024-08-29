@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    vimv                              # Bulk rename
     audacity                          # Record audio stuff
     obs-studio                        # Record video stuff
     exiftool                          # Read exif data from CLI
