@@ -56,7 +56,7 @@
       };
 
       dwindle = {
-        no_gaps_when_only = true;
+        no_gaps_when_only = false; # Is ugly with current Waybar setup
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
