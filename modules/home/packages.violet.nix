@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    vimv
     jq
     wireguard-tools                   # VPN connections
     openresolv                        # required for wireguard-tools

@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    anki-bin                          # Learn languages
+    vimv                              # Bulk rename
     audacity                          # Record audio stuff
     obs-studio                        # Record video stuff
     exiftool                          # Read exif data from CLI

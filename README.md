@@ -26,14 +26,12 @@
    </div>
 </h1>
 
-<!--
-
 ### Gallery
 
 <p align="center">
-   <img src="./.github/assets/screenshots/1.png" /> <br>
-   Screenshots last updated <b>2024-04-09</b>
-</p> -->
+   <img src="./.github/assets/screenshots/sakura-desktop.png" /> <br>
+   Screenshots last updated <b>2024-09-04</b>
+</p>
 
 # Overview
 
@@ -217,6 +215,7 @@ Other dotfiles that I learned / copy from:
 
 - [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config): This is the repository that I cloned and changed to my needs. Their credits are in their repository's readme.
 - [notthebee/nix-config](https://github.com/notthebee/nix-config)
+- [Ruixi-rebirth/melted-flakes](https://github.com/Ruixi-rebirth/melted-flakes): Waybar configuration mostly
 
 <!-- Links -->
 [Hyprland]: https://github.com/hyprwm/Hyprland
