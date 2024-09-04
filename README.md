@@ -26,14 +26,12 @@
    </div>
 </h1>
 
-<!--
-
 ### Gallery
 
 <p align="center">
-   <img src="./.github/assets/screenshots/1.png" /> <br>
+   <img src="./.github/assets/screenshots/sakura-desktop.png" /> <br>
    Screenshots last updated <b>2024-04-09</b>
-</p> -->
+</p>
 
 # Overview
 
