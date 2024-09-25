@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, host, ...}:
+{ pkgs, inputs, config, username, host, ...}:
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
@@ -22,9 +22,15 @@
   };
 
   users.users.${username} = {
+    # extraGroups = if (config.virtualisation.docker.enable == true) then
+      # [ "networkmanager" "wheel" "docker" ]
+    # else
+      # [ "networkmanager" "wheel" ];
+    # if (config.virtualisation.docker.enable = true) then
+      # extraGroups = [ "docker" ];
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
   };
   nix.settings.allowed-users = [ "${username}" ];
