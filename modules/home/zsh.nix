@@ -18,6 +18,7 @@
         # KEYTIMEOUT = 1;
         LANG = "en_US.UTF-8";
         EDITOR = "nvim";
+        SYSTEMD_LESS = "FRXMK"; # Fix weird sideways scrolling in systemctl status ...
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
         ZSH_AUTOSUGGEST_USE_ASYNC = 1;
         HISTSIZE = 100000;
@@ -93,7 +94,7 @@
         bindkey -M menuselect 'h' vi-backward-char
         bindkey -M menuselect 'k' vi-up-line-or-history
         bindkey -M menuselect 'j' vi-down-line-or-history
-        bindkey -M menuselect 'l' Vi-forward-char
+        bindkey -M menuselect 'l' vi-forward-char
 
 
       '';
