@@ -2,6 +2,7 @@
 {
   imports =
        [(import ./bootloader.nix)]
+    ++ [(import ./docker.nix)]                    # enable docker support
     ++ [(import ./hardware.nix)]
     ++ [(import ./xserver.nix)]
     ++ [(import ./network.nix)]
