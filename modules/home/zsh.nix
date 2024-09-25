@@ -17,6 +17,7 @@
         # Make Vi mode transitions faster (in hundredths of a second)
         # KEYTIMEOUT = 1;
         LANG = "en_US.UTF-8";
+        EDITOR = "nvim";
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
         ZSH_AUTOSUGGEST_USE_ASYNC = 1;
         HISTSIZE = 100000;
@@ -92,9 +93,30 @@
         bindkey -M menuselect 'h' vi-backward-char
         bindkey -M menuselect 'k' vi-up-line-or-history
         bindkey -M menuselect 'j' vi-down-line-or-history
-        bindkey -M menuselect 'l' vi-forward-char
+        bindkey -M menuselect 'l' Vi-forward-char
+
 
       '';
+
+      zsh-abbr = {
+        enable = true;
+        abbreviations = {
+          mkdir="mkdir -p";
+          vim="nvim";
+          v="nvim";
+          vi="nvim";
+          nv="nvim";
+          nvi="nvim";
+          gc="git clone";
+          ga="git add .";
+          gcm="git commit -m";
+          gph="git push -u origin main";
+          g="git";
+
+          calc="eva";
+          wikipedia="wikit";
+        };
+      };
 
       # setOptions = [
       #   # Corrections
@@ -148,16 +170,6 @@
             sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
           };
           file = "zsh-syntax-highlighting.zsh";
-        }
-        {
-          name = "zsh-abbr";
-          src = fetchFromGitHub {
-            owner = "olets";
-            repo = "zsh-abbr";
-            rev = "752e9fcc4daff680545c30f8f857913d66f6f5e6";
-            sha256 = "sha256-HY/F43fpWn1PBYb2c+qp0CyF3hpSFHUZdZLZRS1d9Yc=";
-          };
-          file = "zsh-abbr.sh";
         }
         {
           name = "zsh-autopair";
