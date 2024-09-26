@@ -4,6 +4,7 @@
     # wikit                             # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                            # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                              # edit filenames in batch with $EDITOR
+    iamb                              # Try CLI Matrix
     pastel                            # generate, analyze, convert and manipulate colors
     glow                              # Render Markdown from the terminal
     htmlq                             # jq but for HTML
