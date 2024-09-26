@@ -9,7 +9,6 @@
     enable = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
-    clientMaxBodySize = "40M";
     virtualHosts = {
       "video.liv.town" = {
         forceSSL = true;
