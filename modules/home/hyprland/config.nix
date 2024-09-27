@@ -148,7 +148,7 @@
 
 	"$mainMod SHIFT, F, exec, firefox"
 	"$mainMod SHIFT, T, exec, thunderbird"
-	"$mainMod SHIFT, P, exec, pavucontrol"
+	"$mainMod SHIFT, P, exec, pavucontrol-qt"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
@@ -266,6 +266,7 @@
         "opacity 1.0 override 1.0 override, class:(Unity)"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit fullscreen, class:^(firefox)$"
+        "float,class:^(pavucontrol-qt)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(SoundWireServer)$"
         "float,class:^(.sameboy-wrapped)$"
