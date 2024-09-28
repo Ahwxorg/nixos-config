@@ -16,7 +16,14 @@
       greetd.u2fAuth = true;
       sudo.u2fAuth = true;
       hyprlock.u2fAuth = true;
+      swaylock.fprintAuth = true;
+      hyprlock.fprintAuth = true;
+      # pam.services.swaylock = {}; # Already enabled
     };
+  };
+
+  services = {
+    fprintd.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
