@@ -1,28 +1,29 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    # wikit                             # Wikipedia summaries from the terminal, not added to Nix yet
-    # reader                            # Firefox reader mode but in the terminal, not added to Nix yet
-    vimv                              # edit filenames in batch with $EDITOR
-    iamb                              # Try CLI Matrix
-    pastel                            # generate, analyze, convert and manipulate colors
-    glow                              # Render Markdown from the terminal
-    htmlq                             # jq but for HTML
-    lemmeknow                         # Identify anything
-    android-tools                     # ADB/Fastboot
-    eva                               # Calculator
-    tofi                              # drun type launcher
-    # termpdfpy                         # Read PDFs from the terminal, errors out for now
-    anki-bin                          # Learn languages
-    vimv                              # Bulk rename
-    audacity                          # Record audio stuff
-    obs-studio                        # Record video stuff
-    exiftool                          # Read exif data from CLI
-    pinta                             # "Paint.NET-like editor"
-    kdenlive                          # Video editor
-    translate-shell                   # Google Translate but in the CLI
-    wireguard-tools                   # VPN connections
-    openresolv                        # required for wireguard-tools
+    linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
+    # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
+    # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
+    vimv                                            # edit filenames in batch with $EDITOR
+    iamb                                            # Try CLI Matrix
+    pastel                                          # generate, analyze, convert and manipulate colors
+    glow                                            # Render Markdown from the terminal
+    htmlq                                           # jq but for HTML
+    lemmeknow                                       # Identify anything
+    android-tools                                   # ADB/Fastboot
+    eva                                             # Calculator
+    tofi                                            # drun type launcher
+    # termpdfpy                                       # Read PDFs from the terminal, errors out for now
+    anki-bin                                        # Learn languages
+    vimv                                            # Bulk rename
+    audacity                                        # Record audio stuff
+    obs-studio                                      # Record video stuff
+    exiftool                                        # Read exif data from CLI
+    pinta                                           # "Paint.NET-like editor"
+    kdenlive                                        # Video editor
+    translate-shell                                 # Google Translate but in the CLI
+    wireguard-tools                                 # VPN connections
+    openresolv                                      # required for wireguard-tools
     prusa-slicer
     blender
     progress
