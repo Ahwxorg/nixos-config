@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core
+    ./../../modules/core/default.violet.nix
     ./../../modules/services/violet.nix
   ];
 
