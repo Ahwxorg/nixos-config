@@ -97,6 +97,11 @@
         bindkey -M menuselect 'l' vi-forward-char
 
 
+        function jitsi-link() {
+          url=$(printf "https://meet.jit.si/%s" "$(uuidgen)")
+          printf "%s" "''${url}" | wl-copy
+          printf "%s\n" "''${url}"
+        }
       '';
 
       zsh-abbr = {
