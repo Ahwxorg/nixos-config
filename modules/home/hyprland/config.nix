@@ -39,7 +39,7 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgb(cba6f7) rgb(94e2d5) 45deg";
+        "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
         "col.inactive_border" = "0x00000000";
         border_part_of_window = false;
         no_border_on_floating = false;
@@ -56,7 +56,7 @@
       };
 
       dwindle = {
-        no_gaps_when_only = false; # Is ugly with current Waybar setup
+        no_gaps_when_only = true;
         force_split = 0;
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
@@ -67,7 +67,7 @@
 
       master = {
         special_scale_factor = 1;
-        no_gaps_when_only = false;
+        no_gaps_when_only = true;
       };
 
       decoration = {
@@ -77,7 +77,7 @@
         # fullscreen_opacity = 1.0;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 1;
           passes = 1;
           # size = 4;
@@ -146,9 +146,9 @@
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
-	"$mainMod SHIFT, F, exec, firefox"
-	"$mainMod SHIFT, T, exec, thunderbird"
-	"$mainMod SHIFT, P, exec, pavucontrol-qt"
+        "$mainMod SHIFT, F, exec, firefox"
+        "$mainMod SHIFT, T, exec, thunderbird"
+        "$mainMod SHIFT, P, exec, pavucontrol-qt"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
