@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    gajim                                           # XMPP client
+    nheko                                           # Matrix client
     linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
@@ -52,7 +54,7 @@
     ripgrep
     yt-dlp
     wineWowPackages.wayland
-    element-desktop # wayland version is very laggy for me
+    # element-desktop # wayland version is very laggy for me
     spotify
     thunderbird
     neofetch
