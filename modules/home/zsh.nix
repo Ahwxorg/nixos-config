@@ -143,6 +143,7 @@
       # ];
 
       shellAliases = {
+        convert = "magick";
         ls = "eza -lh --git";
         la = "eza -A --git";
         ll = "eza -l --git";
