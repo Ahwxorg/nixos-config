@@ -1,16 +1,37 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    anki-bin                          # Learn languages
-    vimv                              # Bulk rename
-    audacity                          # Record audio stuff
-    obs-studio                        # Record video stuff
-    exiftool                          # Read exif data from CLI
-    pinta                             # "Paint.NET-like editor"
-    kdenlive                          # Video editor
-    translate-shell                   # Google Translate but in the CLI
-    wireguard-tools                   # VPN connections
-    openresolv                        # required for wireguard-tools
+    gajim                                           # XMPP client
+    nheko                                           # Matrix client
+    linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
+    # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
+    # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
+    vimv                                            # edit filenames in batch with $EDITOR
+    iamb                                            # Try CLI Matrix
+    pastel                                          # generate, analyze, convert and manipulate colors
+    glow                                            # Render Markdown from the terminal
+    htmlq                                           # jq but for HTML
+    lemmeknow                                       # Identify anything
+    android-tools                                   # ADB/Fastboot
+    eva                                             # Calculator
+    tofi                                            # drun type launcher
+    # termpdfpy                                       # Read PDFs from the terminal, errors out for now
+    anki-bin                                        # Learn languages
+    vimv                                            # Bulk rename
+    audacity                                        # Record audio stuff
+    obs-studio                                      # Record video stuff
+    exiftool                                        # Read exif data from CLI
+    pinta                                           # "Paint.NET-like editor"
+    kdenlive                                        # Video editor
+    translate-shell                                 # Google Translate but in the CLI
+    wireguard-tools                                 # VPN connections
+    openresolv                                      # required for wireguard-tools
+    prusa-slicer
+    blender
+    progress
+    epy
+    zip
+    ripdrag
     pwgen
     jq
     tmux
@@ -33,10 +54,11 @@
     ripgrep
     yt-dlp
     wineWowPackages.wayland
-    element-desktop # wayland version is very laggy for me
+    # element-desktop # wayland version is very laggy for me
     spotify
     thunderbird
     neofetch
+    nodejs_22
     yarn
 
     # C / C++
@@ -53,7 +75,7 @@
     mpv                               # video player
     openssl
     pamixer                           # pulseaudio command line mixer
-    pavucontrol                       # pulseaudio volume controle (GUI)
+    lxqt.pavucontrol-qt                    # pulseaudio volume controle (GUI)
     playerctl                         # controller for media players
     wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
     cliphist                          # clipboard history manager
@@ -65,4 +87,8 @@
     inputs.alejandra.defaultPackage.${system}
     inputs.nixvim.packages.${pkgs.system}.default
   ];
+
+  # environment.systemPackages = with pkgs; [
+    # nodePackages.
+  # ]
 }

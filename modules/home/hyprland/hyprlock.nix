@@ -1,106 +1,100 @@
 { pkgs, ... }:
+let 
+  text = "rgb(251, 241, 199)";
+in
 {
-  programs.hyprlock = {
-    enable = true;
+  home.packages = [ pkgs.hyprlock ];
+  xdg.configFile."hypr/hyprlock.conf".text = ''
+    # BACKGROUND
+    background {
+      monitor =
+      path = ${/home/liv/Pictures/wallpapers/others/liv-schiermonnikoog-zonsondergang.jpeg}
+      blur_passes = 1
+      contrast = 0.8916
+      brightness = 0.8172
+      vibrancy = 0.1696
+      vibrancy_darkness = 0.0
+    }
 
-    extraConfig = ''
-      source = $HOME/nixos-config/modules/home/hyprland/mocha.conf
+    # GENERAL
+    general {
+      hide_cursor = true
+      no_fade_in = false
+      grace = 0
+      disable_loading_bar = false
+    }
 
-      $accent = 0xb3$tealAlpha
-      $accentAlpha = $tealAlpha
-      $font = JetBrainsMono Nerd Font
-      
-      # GENERAL
-      general {
-          disable_loading_bar = true
-          hide_cursor = true
-      }
-      
-      # BACKGROUND
-      background {
-          monitor =
-          path = ~/Pictures/wallpapers/others/street-by-ahwx.jpg
-          blur_passes = 2
-          color = $base
-      }
-      
-      # TIME
-      label {
-          monitor =
-          text = cmd[update:30000] echo "$(date +"%R")"
-          color = $text
-          font_size = 90
-          font_family = $font
-          position = -130, -100
-          halign = right
-          valign = top
-          shadow_passes = 2
-      }
-      
-      # DATE 
-      label {
-          monitor = 
-          text = cmd[update:43200000] echo "$(date +"%A, %d %B %Y")"
-          color = $text
-          font_size = 25
-          font_family = $font
-          position = -130, -250
-          halign = right
-          valign = top
-          shadow_passes = 2
-      }
-      
-      # KEYBOARD LAYOUT
-      label {
-          monitor =
-          text = $LAYOUT
-          color = $text
-          font_size = 20
-          font_family = $font
-          rotate = 0 # degrees, counter-clockwise
-      
-          position = -130, -310
-          halign = right
-          valign = top
-          shadow_passes = 2
-      }
-      
-      # USER AVATAR
-      image {
-          monitor = 
-          path = $HOME/.face
-          size = 350
-          border_color = $accent
-          rounding = -1
-      
-          position = 0, 75
-          halign = center
-          valign = center
-          shadow_passes = 2
-      }
-      
-      # INPUT FIELD
-      input-field {
-          monitor =
-          size = 400, 70
-          outline_thickness = 4
-          dots_size = 0.2
-          dots_spacing = 0.2
-          dots_center = true
-          outer_color = $accent
-          inner_color = $surface0
-          font_color = $text
-          fade_on_empty = false
-          placeholder_text = <span foreground="##$textAlpha">󰌾 Logged in as $USER</span>
-          hide_input = false
-          check_color = $accent
-          fail_color = $red
-          fail_text = <i>$FAIL <b>($ATTEMPTS)</b></i>
-          capslock_color = $yellow
-          position = 0, -185
-          halign = center
-          valign = center
-          shadow_passes = 2
-      }'';
-  };
+    # Time
+    label {
+      monitor = 
+      text = cmd[update:1000] echo "$(date +"%k:%M")"
+      color = rgba(235, 219, 178, .9)
+      font_size = 111
+      font_family = JetBrainsMono NF Bold
+      position = 0, 270
+      halign = center
+      valign = center
+    }
+
+    # Day
+    label {
+      monitor =
+      text = cmd[update:1000] echo "- $(date +"%A, %B %d") -"
+      color = rgba(235, 219, 178, .9)
+      font_size = 20
+      font_family = CaskaydiaCove Nerd Font
+      position = 0, 160
+      halign = center
+      valign = center
+    }
+
+
+    # USER-BOX
+    shape {
+      monitor =
+      size = 350, 50
+      color = rgba(225, 225, 225, .2)
+      rounding = 15
+      border_size = 0
+      border_color = rgba(255, 255, 255, 0)
+      rotate = 0
+
+      position = 0, -230
+      halign = center
+      valign = center
+    }
+
+    # USER
+    label {
+      monitor =
+      text =   $USER
+      color = rgba(235, 219, 178, .9)
+      font_size = 16
+      font_family = CaskaydiaCove Nerd Font
+      position = 0, -230
+      halign = center
+      valign = center
+    }
+
+    # INPUT FIELD
+    input-field {
+      monitor =
+      size = 350, 50
+      outline_thickness = 0
+      rounding = 15
+      dots_size = 0.25 # Scale of input-field height, 0.2 - 0.8
+      dots_spacing = 0.4 # Scale of dots' absolute size, 0.0 - 1.0
+      dots_center = true
+      outer_color = rgba(255, 255, 255, 0)
+      inner_color = rgba(225, 225, 225, 0.2)
+      color = rgba(235, 219, 178, .9)
+      font_color = rgba(235, 219, 178, .9)
+      fade_on_empty = false
+      placeholder_text = <i><span foreground="##ebdbb2e5">Enter Password</span></i>
+      hide_input = false
+      position = 0, -300
+      halign = center
+      valign = center
+    }
+  '';
 }

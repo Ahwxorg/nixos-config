@@ -58,6 +58,7 @@
       '';
     plugins = with pkgs.tmuxPlugins; [
       yank 
+      fzf-tmux-url
     ];
   };
 }

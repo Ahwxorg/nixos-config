@@ -2,6 +2,7 @@
   imports =
        [(import ./bat.nix)]                       # better cat command
     ++ [(import ./git.nix)]                       # version control
+    ++ [(import ./security.nix)]                  # yubikey-touch-detector for now
     ++ [(import ./gtk.nix)]                       # gtk theme
     ++ [(import ./hyprland)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
