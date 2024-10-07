@@ -1,10 +1,10 @@
-{ globals, lib, config, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
   services.komga = {
     enable = true;
     port = 2872;
     stateDir = "/var/lib/komga";
     openFirewall = true;
-    user = globals.user;
+    user = "liv";
   };
 
   services = {
