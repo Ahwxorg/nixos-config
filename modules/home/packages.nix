@@ -1,13 +1,13 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    bitwarden-cli
     gajim                                           # XMPP client
     nheko                                           # Matrix client
     linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                                            # edit filenames in batch with $EDITOR
-    iamb                                            # Try CLI Matrix
     pastel                                          # generate, analyze, convert and manipulate colors
     glow                                            # Render Markdown from the terminal
     htmlq                                           # jq but for HTML
