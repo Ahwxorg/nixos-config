@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    yubikey-touch-detector
     bitwarden-cli
     gajim                                           # XMPP client
     nheko                                           # Matrix client
