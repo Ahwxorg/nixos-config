@@ -15,8 +15,15 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   
     hyprland = {
+      # type = "git";
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
     };
   
     home-manager = {
