@@ -1,5 +1,50 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
+  fonts.fontconfig.enable = true;
+  home.packages = [
+    pkgs.nerdfonts
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    pkgs.twemoji-color-font
+    pkgs.noto-fonts-emoji
+  ];
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "orchis-theme";
+      package = pkgs.orchis-theme;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 11;
+    };
+  };
+
+  # home.pointerCursor = {
+  #   gtk.enable = true;
+  #   # x11.enable = true;
+  #   package = pkgs.bibata-cursors;
+  #   name = "Bibata-Modern-Classic";
+  #   size = 16;
+  # };
+
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+  };
+
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -128,9 +173,6 @@
       };
 
       bind = [
-        # show keybinds list
-        "$mainMod, F1, exec, show-keybinds"
-
         # keybindings
         "$mainMod, Return, exec, kitty"
         "$mainMod, Q, killactive,"
@@ -147,6 +189,7 @@
         "$mainMod SHIFT, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
 
         "$mainMod SHIFT, F, exec, firefox"
+        "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
 
