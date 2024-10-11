@@ -21,5 +21,8 @@
     };
     # enableNvidiaPatches = false;
     systemd.enable = true;
+    plugins = [
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+    ];
   };
 }
