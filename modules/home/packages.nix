@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    lm_sensors
     yubikey-touch-detector
     bitwarden-cli
     gajim                                           # XMPP client
