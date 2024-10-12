@@ -10,23 +10,56 @@
 
   gtk = {
     enable = true;
+    font = {
+      name = "CaskaydiaCove Nerd Font";
+      size = 12;
+    };
     theme = {
-      name = "orchis-theme";
-      package = pkgs.orchis-theme;
+      name = "Gruvbox-Green-Dark";
+      package = pkgs.gruvbox-gtk-theme.override {
+        colorVariants = [ "dark" ];
+        themeVariants = [ "green" ];
+        tweakVariants = [ "macos" ];
+      };
     };
     iconTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme.override {
+        color = "black";
+      };
     };
     cursorTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-    };
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 11;
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 24;
     };
   };
+  
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
+
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Orchis-Dark";
+  #     package = pkgs.orchis-theme;
+  #   };
+  #   iconTheme = {
+  #     name = "Adwaita";
+  #     package = pkgs.gnome.adwaita-icon-theme;
+  #   };
+  #   cursorTheme = {
+  #     name = "Adwaita";
+  #     package = pkgs.gnome.adwaita-icon-theme;
+  #   };
+  #   font = {
+  #     name = "JetBrainsMono Nerd Font";
+  #     size = 11;
+  #   };
+  # };
 
   # home.pointerCursor = {
   #   gtk.enable = true;
@@ -62,7 +95,7 @@
         "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
         "poweralertd &"
         "waybar &"
-        "mako &"
+        "swaync &"
         "wl-paste --watch cliphist store &"
         "yubikey-touch-detector --libnotify"
       ];
@@ -75,6 +108,11 @@
         touchpad = {
           natural_scroll = false;
         };
+      };
+
+      gestures = { 
+        workspace_swipe = true;
+        workspace_swipe_invert = true;
       };
 
       general = {
