@@ -25,7 +25,12 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
     };
-  
+
+    Hyswipe = {
+      url = "github:KZDKM/Hyswipe";
+      inputs.hyprland.follows = "hyprland"; # Hyswipe uses latest Hyprland. We declare this to keep them in sync.
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
