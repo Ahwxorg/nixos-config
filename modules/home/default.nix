@@ -2,6 +2,7 @@
   imports =
        [(import ./bat.nix)]                       # better cat command
     ++ [(import ./git.nix)]                       # version control
+    ++ [(import ./swaync/default.nix)]            # notification panel
     ++ [(import ./hyprland)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
