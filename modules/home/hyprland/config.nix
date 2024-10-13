@@ -215,7 +215,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, pkill wofi || wofi --show drun"
+        "$mainMod, D, exec, bemenu-run"
         "SUPER SHIFT, L, exec, hyprlock"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
