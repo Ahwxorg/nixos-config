@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    tesseract
+    pixcat
     lm_sensors
     yubikey-touch-detector
     bitwarden-cli
