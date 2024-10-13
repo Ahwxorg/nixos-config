@@ -233,6 +233,7 @@
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
         "$mainMod SHIFT, S, exec, grimblast --notify --cursor  copy area"
+        "$mainMod SHIFT, G, exec, slurp | xargs -I {} grim -s 2 -t png -g {} - | tesseract - - | wl-copy -n"
 
         # switch focus
         "$mainMod, H, movefocus, l"
