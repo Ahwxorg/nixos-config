@@ -1,11 +1,12 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    tesseract
-    pixcat
-    lm_sensors
-    yubikey-touch-detector
-    bitwarden-cli
+    socat                                           # Required for `hyprland-smart-borders`
+    tesseract                                       # Screen grabbing text from images/PDFs/etc
+    pixcat                                          # Display images in the terminal
+    lm_sensors                                      # Show sensor outputs, i.e. temperatures
+    yubikey-touch-detector                          # Display notification when YubiKey requires a headpat
+    bitwarden-cli                                   # Use Bitwarden as a CLI secrets manager
     gajim                                           # XMPP client
     nheko                                           # Matrix client
     linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
