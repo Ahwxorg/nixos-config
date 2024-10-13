@@ -4,9 +4,9 @@
     enable = true;
     ports = [22];
     settings = {
-      PasswordAuthentication = true;
+      PasswordAuthentication = false;
       AllowUsers = null;
-      PermitRootLogin = "yes";
+      PermitRootLogin = "no";
       LoginGraceTime = 0;
     };
   };
