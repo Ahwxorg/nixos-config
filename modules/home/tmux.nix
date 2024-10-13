@@ -59,6 +59,7 @@
     plugins = with pkgs.tmuxPlugins; [
       yank 
       fzf-tmux-url
+      vim-tmux-navigator
     ];
   };
 }
