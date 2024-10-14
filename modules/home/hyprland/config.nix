@@ -220,7 +220,7 @@
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W,exec, pkill wofi || wallpaper-picker"
+        "$mainMod, W ,exec, pkill wofi || wallpaper-picker"
 
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 | cliphist decode | wl-copy"
@@ -229,6 +229,7 @@
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
+        "$mainMod SHIFT, N ,exec, ~/.local/bin/notes"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
