@@ -13,6 +13,12 @@ cd "$NOTEDIR" || mkdir -p "$NOTEDIR" && cd "$NOTEDIR" || echo 'Error with moving
 echo "Check if connected to internet and pull changes from Git"
 ping -c1 github.com >/dev/null && notify-send "$(git pull)" # Pull most recent changes, be sure to not create conficts...
 
-kitty -e nvim "$CHOSEN" # Finally open chosen note
+if [ "$CHOSEN" ]; then
+  kitty -e nvim "$CHOSEN" # Finally open chosen note
 
-git add "$CHOSEN" && git commit -m "chore: updates (auto)" && git push && notify-send "Changes pushed"
+  git add "$CHOSEN" && git commit -m "chore: updates (auto)" && git push && notify-send "Changes pushed"
+else
+  cd "$NOTEDIR" || exit 1
+  kitty -e nvim
+fi
+
