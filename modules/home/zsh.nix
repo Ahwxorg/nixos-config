@@ -102,6 +102,15 @@
           printf "%s" "''${url}" | wl-copy
           printf "%s\n" "''${url}"
         }
+
+        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+
+        if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
+          alias imv="sxiv"
+        elif [[ $(which nsxiv&>/dev/null && echo 1) == "1" ]]; then
+          alias imv="nsxiv"
+          alias sxiv="nsxiv"
+        fi
       '';
 
       zsh-abbr = {
