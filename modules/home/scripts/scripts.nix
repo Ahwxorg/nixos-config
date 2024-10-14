@@ -3,7 +3,8 @@
   wallpaper-picker = pkgs.writeShellScriptBin "wallpaper-picker" (builtins.readFile ./scripts/wallpaper-picker.sh);
   runbg = pkgs.writeShellScriptBin "runbg" (builtins.readFile ./scripts/runbg.sh);
 
-  notes = pkgs.writeShellScriptBin "runbg" (builtins.readFile ./scripts/runbg.sh);
+  notes = pkgs.writeShellScriptBin "notes" (builtins.readFile ./scripts/notes.sh);
+  grabtext = pkgs.writeShellScriptBin "grabtext" (builtins.readFile ./scripts/grabtext.sh);
   
   toggle_blur = pkgs.writeScriptBin "toggle_blur" (builtins.readFile ./scripts/toggle_blur.sh);
   toggle_oppacity = pkgs.writeScriptBin "toggle_oppacity" (builtins.readFile ./scripts/toggle_oppacity.sh);
@@ -20,6 +21,7 @@ in {
     runbg
 
     notes
+    grabtext
 
     ascii
   
