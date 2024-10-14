@@ -229,12 +229,12 @@
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
-        "$mainMod SHIFT, N ,exec, ~/.local/bin/notes"
+        "$mainMod SHIFT, N ,exec, notes"  # should be added by scripts/custom packages
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
         "$mainMod SHIFT, S, exec, grimblast --notify --cursor  copy area"
-        "$mainMod SHIFT, G, exec, slurp | xargs -I {} grim -s 2 -t png -g {} - | tesseract - - | wl-copy -n"
+        "$mainMod SHIFT, G, exec, grabtext"
 
         # switch focus
         "$mainMod, H, movefocus, l"
