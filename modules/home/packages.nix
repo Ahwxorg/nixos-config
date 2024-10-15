@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    signal-desktop                                  # Since the bridge is broken :(
     socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
     pixcat                                          # Display images in the terminal
