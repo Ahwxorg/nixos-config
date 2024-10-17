@@ -7,29 +7,9 @@
 
     nixvim.url = "github:ahwxorg/nixvim-config";
   
-    hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-  
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
   
     nix-gaming.url = "github:fufexan/nix-gaming";
-  
-    hyprland = {
-      # type = "git";
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      # submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-    };
-
-    Hyswipe = {
-      url = "github:KZDKM/Hyswipe";
-      inputs.hyprland.follows = "hyprland"; # Hyswipe uses latest Hyprland. We declare this to keep them in sync.
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,10 +17,22 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
-
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
+  
+    hyprland = {
+      # type = "git";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      # submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hypr-contrib.url = "github:hyprwm/contrib";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
+    };
+    Hyswipe = {
+      url = "github:KZDKM/Hyswipe";
+      inputs.hyprland.follows = "hyprland"; # Hyswipe uses latest Hyprland. We declare this to keep them in sync.
     };
   };
 

@@ -1,7 +1,6 @@
 { ...}: {
   imports =
-       [(import ./bat.nix)]                       # better cat command
-    ++ [(import ./git.nix)]                       # version control
+       [(import ./git.nix)]                       # version control
     ++ [(import ./nvim.nix)]                      # neovim editor
     ++ [(import ./packages.violet.nix)]           # other packages
     ++ [(import ./scripts/scripts.nix)]           # personal scripts
