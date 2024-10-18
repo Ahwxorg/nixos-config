@@ -111,22 +111,6 @@
         "type": "github"
       }
     },
-    "catppuccin-bat": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1722864529,
-        "narHash": "sha256-s0CHTihXlBMCKmbBBb8dUhfgOOQu9PBCQ+uviy7o47w=",
-        "owner": "catppuccin",
-        "repo": "bat",
-        "rev": "d3feec47b16a8e99eabb34cdfbaa115541d374fc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "bat",
-        "type": "github"
-      }
-    },
     "devshell": {
       "inputs": {
         "nixpkgs": [
@@ -974,7 +958,6 @@
         "Hyswipe": "Hyswipe",
         "alejandra": "alejandra",
         "catppuccin": "catppuccin",
-        "catppuccin-bat": "catppuccin-bat",
         "home-manager": "home-manager",
         "hypr-contrib": "hypr-contrib",
         "hyprland": "hyprland",
