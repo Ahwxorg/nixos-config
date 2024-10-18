@@ -38,7 +38,7 @@
 
   outputs = { nixpkgs, self, catppuccin, ...} @ inputs:
   let
-    selfPkgs = import ./pkgs;
+    # selfPkgs = import ./pkgs;
     username = "liv";
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -48,7 +48,7 @@
     lib = nixpkgs.lib;
   in
   {
-    overlays.default = selfPkgs.overlay;
+    # overlays.default = selfPkgs.overlay;
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -80,14 +80,6 @@
         )];
         specialArgs = { host="vm"; inherit self inputs username ; };
       };
-      server = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [(
-          import ./hosts/server
-        )];
-        specialArgs = { host="server"; inherit self inputs username ; };
-      };
-
     };
   };
 }
