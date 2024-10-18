@@ -5,6 +5,12 @@
     ./../../modules/core
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "jitsi-meet-1.0.8043"
+    "olm-3.2.16"
+  ];
+
+
   # kvm/qemu doesn't use UEFI firmware mode by default.
   # so we force-override the setting here 
   # and configure GRUB instead.
@@ -22,9 +28,9 @@
     enable = true;
     ports = [22];
     settings = {
-      PasswordAuthentication = true;
+      # PasswordAuthentication = lib.mkOverride true;
       AllowUsers = null;
-      PermitRootLogin = "yes";
+      # PermitRootLogin = "yes";
     };
   };
 }
