@@ -38,7 +38,7 @@
 
   outputs = { nixpkgs, self, catppuccin, ...} @ inputs:
   let
-    # selfPkgs = import ./pkgs;
+    overlays = import ./overlays/default.nix;
     username = "liv";
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -48,7 +48,7 @@
     lib = nixpkgs.lib;
   in
   {
-    # overlays.default = selfPkgs.overlay;
+    overlays.default = overlays.addition;
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
