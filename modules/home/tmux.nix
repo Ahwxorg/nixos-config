@@ -55,6 +55,9 @@
       set -g base-index 1
       setw -g pane-base-index 1
       set -g pane-border-format " #P: #{pane_current_command} "
+
+      # Allow passthrough so that image.nvim works.
+      set -gq allow-passthrough on
       '';
     plugins = with pkgs.tmuxPlugins; [
       yank 
