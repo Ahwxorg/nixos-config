@@ -5,6 +5,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
     nixvim.url = "github:ahwxorg/nixvim-config";
   
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
@@ -43,7 +45,6 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;
     };
     lib = nixpkgs.lib;
   in
