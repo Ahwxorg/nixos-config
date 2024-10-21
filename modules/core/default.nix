@@ -4,7 +4,7 @@
        [(import ./bootloader.nix)]
     ++ [(import ./docker.nix)]
     ++ [(import ./hardware.nix)]
-    ++ [(import ../roles)]
+    ++ [(import ../../roles)]
     ++ [(import ./xserver.nix)]
     ++ [(import ./network.nix)]
     ++ [(import ./pipewire.nix)]
