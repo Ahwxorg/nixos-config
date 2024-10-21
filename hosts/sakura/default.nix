@@ -9,7 +9,7 @@
   hardware.framework.amd-7040.preventWakeOnAC = true;
   networking.hostName = "sakura";
 
-  laptop = true;
+  liv.laptop = true;
 
   services = {    
     thermald.enable = true;
