@@ -1,4 +1,4 @@
-{ ... }: 
+{ pkgs, ... }: 
 {
   programs = {
     dconf.enable = true;
@@ -9,4 +9,9 @@
       # pinentryFlavor = "";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    wget
+    git
+  ];
 }
