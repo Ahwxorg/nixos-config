@@ -10,6 +10,5 @@
     "olm-3.2.16"
   ];
 
-
-  powerManagement.cpuFreqGovernor = "performance";
+  liv.desktop = true;
 }
