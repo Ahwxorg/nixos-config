@@ -14,20 +14,29 @@
       options = "--delete-older-than 7d";
     };
   };
-  nixpkgs = {
+
+  # nixpkgs = {
+  #   overlays = [
+  #     self.overlays.default
+  #     inputs.nur.overlay
+  #   ];
+  # };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "jitsi-meet-1.0.8043"
+      "olm-3.2.16"
+    ];
     overlays = [
       self.overlays.default
       inputs.nur.overlay
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-  ];
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
-  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "24.05";
 }

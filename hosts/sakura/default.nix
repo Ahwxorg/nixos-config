@@ -1,16 +1,13 @@
-{ pkgs, config, ... }: 
+{ inputs, lib, pkgs, config, ... }: 
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
+  hardware.framework.amd-7040.preventWakeOnAC = true;
   networking.hostName = "sakura";
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "jitsi-meet-1.0.8043"
-    "olm-3.2.16"
-  ];
 
   environment.systemPackages = with pkgs; [
     acpi
