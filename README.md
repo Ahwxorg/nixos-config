@@ -35,6 +35,9 @@
 
 # Overview
 
+> [!WARNING]
+> This flake/config has quite high "sometimes I want to quit technology and become a farmer" levels. Stability is not guaranteed.
+
 ### Layout
 
 - [flake.nix](flake.nix): base of the configuration
