@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, config, ... }: 
+{ inputs, ... }: 
 {
   imports = [
     ./hardware-configuration.nix
@@ -9,13 +9,8 @@
   hardware.framework.amd-7040.preventWakeOnAC = true;
   networking.hostName = "sakura";
 
-  environment.systemPackages = with pkgs; [
-    acpi
-    brightnessctl
-    cpupower-gui
-    powertop
-  ];
-  
+  laptop = true;
+
   services = {    
     thermald.enable = true;
     cpupower-gui.enable = true;
@@ -28,29 +23,5 @@
       percentageAction = 3;
       criticalPowerAction = "PowerOff";
     };
-
-    auto-cpufreq = {
-      enable = false;
-      settings = {
-        battery = {
-          governor = "powersave";
-          turbo = "auto";
-        };
-        charger = {
-          governor = "performance";
-          turbo = "auto";
-        };
-      };
-    };
-  };
-
-  boot = {
-    kernelModules = ["acpi_call"];
-    extraModulePackages = with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-      ]
-      ++ [pkgs.cpupower-gui];
   };
 }
