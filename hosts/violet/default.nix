@@ -17,6 +17,7 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
+    pkgs.kitty.terminfo
     acpi
     brightnessctl
     cpupower-gui
