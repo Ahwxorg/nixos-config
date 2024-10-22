@@ -11,7 +11,7 @@ in {
     home-manager = {
       users.${username} = {
         home.packages = with pkgs; [
-          reader
+          # reader
           acpi
           brightnessctl
         ];
@@ -32,7 +32,7 @@ in {
       };
     services = {    
       # thermald.enable = true; # Enable if on Intel, should be a if-statement.
-      # power-profiles-daemon.enable = mkDefault true;
+      power-profiles-daemon.enable = true;
  
       upower = {
         enable = true;
@@ -42,7 +42,7 @@ in {
         criticalPowerAction = "Hibernate";
       };
     };
-    # powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = true;
   };
 }
 
