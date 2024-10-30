@@ -1,10 +1,6 @@
 { username, pkgs, ... }:
 {
   services = {
-    # displayManager.autoLogin = {
-    #   enable = true;
-    #   user = "${username}";
-    # };
     libinput = {
       enable = true;
       # mouse = {
