@@ -1,4 +1,4 @@
 { ... }: {
-  powerManagement.cpuFreqGovernor = "performance";
+  # system.powerManagement.cpuFreqGovernor = "performance";
 }
 
