@@ -335,6 +335,10 @@
         "move 0 0,title:^(Firefox — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
+        "workspace 10, thunderbird"
+        "workspace 8, nheko"
+        "workspace 8, element-desktop"
+        "workspace 9, spotify"
       ];
 
       # windowrulev2
@@ -370,6 +374,8 @@
 
     extraConfig = "
       monitor=,preferred,auto,auto
+
+      # debug:disable_logs = false
 
       xwayland {
         force_zero_scaling = true
