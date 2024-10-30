@@ -16,34 +16,6 @@
 
   time.timeZone = "Europe/Amsterdam";
 
-  environment.systemPackages = with pkgs; [
-    pkgs.kitty.terminfo
-    acpi
-    brightnessctl
-    cpupower-gui
-    powertop
-  ];
-  
-  services = {    
-    thermald.enable = true;
-    # cpupower-gui.enable = true;
-    # power-profiles-daemon.enable = true;
-
-    # auto-cpufreq = {
-    #   enable = true;
-    #   settings = {
-    #     battery = {
-    #       governor = "powersave";
-    #       turbo = "auto";
-    #     };
-    #     charger = {
-    #       governor = "performance";
-    #       turbo = "auto";
-    #     };
-    #   };
-    # };
-  };
-
   boot = {
     loader.grub = {
       enable = true;
