@@ -215,7 +215,7 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, bemenu-run -l 5"
+        "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
         "SUPER SHIFT, L, exec, hyprlock"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
@@ -223,7 +223,7 @@
         "$mainMod, W ,exec, pkill wofi || wallpaper-picker"
 
         # clipboard manager
-        "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 | cliphist decode | wl-copy"
+        "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
         "$mainMod SHIFT, F, exec, firefox"
         "$mainMod SHIFT, W, exec, wdisplays"

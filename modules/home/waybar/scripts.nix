@@ -111,7 +111,7 @@
           tmp="$2"
           if [ "$tmp" = "" ] 
           then
-            tmp=$($0 list | bemenu)
+            tmp=$($0 list | bemenu --ignorecase)
           fi
           device=$(get_addr_or_fail "$tmp")
           is_connected=$(bluetoothctl info $device | grep -i 'connected: yes')
