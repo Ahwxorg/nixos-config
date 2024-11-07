@@ -18,7 +18,5 @@ if [ "$CHOSEN" ]; then
 
   git add "$CHOSEN" && git commit -m "chore: updates (auto)" && git push && notify-send "Changes pushed"
 else
-  cd "$NOTEDIR" || exit 1
-  kitty -e nvim
+  exit 1
 fi
-
