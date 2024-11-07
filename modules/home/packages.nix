@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    iamb
     signal-desktop                                  # Since the bridge is broken :(
     socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
