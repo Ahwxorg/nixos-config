@@ -6,6 +6,7 @@
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://localhost:3000";
+        proxyWebsockets = true;
       };
     };
   };
