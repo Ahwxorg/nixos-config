@@ -10,7 +10,7 @@
     ++ [(import ./nginx.nix)]
     ++ [(import ./komga.nix)]
     ++ [(import ./frp.nix)]
-    ++ [(import ./nextcloud.nix)]
+    # ++ [(import ./nextcloud.nix)]
     ++ [(import ./matrix/default.nix)];
     # ++ [(import ./tmux.nix)];
 }
