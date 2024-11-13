@@ -21,7 +21,7 @@ in {
     networking.networkmanager.enable = true;
 
     environment.systemPackages = with pkgs; [
-      powertop
+      # powertop
     ];
     boot = {
       kernelModules = ["acpi_call"];
@@ -42,7 +42,7 @@ in {
         criticalPowerAction = "Hibernate";
       };
     };
-    powerManagement.powertop.enable = true;
+    # powerManagement.powertop.enable = true;
   };
 }
 
