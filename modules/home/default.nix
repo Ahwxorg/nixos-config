@@ -3,6 +3,7 @@
        [(import ./git.nix)]                       # version control
     ++ [(import ./swaync/default.nix)]            # notification panel
     ++ [(import ./hyprland)]                      # window manager
+    ++ [(import ./sway)]                      # window manager
     ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./nvim.nix)]                      # neovim editor
