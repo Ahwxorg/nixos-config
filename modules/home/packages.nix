@@ -1,7 +1,9 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    iamb
+    element-desktop                                 # Nheko is kinda shit so sadly this has to happen
+    yewtube                                         # Play YouTube videos via the terminal
+    iamb                                            # In-terminal-Matrix-messaging
     signal-desktop                                  # Since the bridge is broken :(
     socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
