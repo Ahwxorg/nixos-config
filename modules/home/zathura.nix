@@ -8,7 +8,7 @@
       adjust-open = "width";
       statusbar-basename = true;
       render-loading = false;
-      scroll-step = 920;
+      scroll-step = 50;
     };
   };
 }
