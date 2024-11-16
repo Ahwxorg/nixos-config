@@ -7,7 +7,7 @@
 
 NOTEDIR="$HOME/Notes"
 
-CHOSEN=$(find "$HOME/Notes" -follow | grep -E '.md$' | bemenu -l 10)
+CHOSEN=$(find "$HOME/Notes" -follow | grep -E '.md$' | bemenu -l 10 --ignorecase)
 
 cd "$NOTEDIR" || mkdir -p "$NOTEDIR" && cd "$NOTEDIR" || echo 'Error with moving into directory, is "$NOTEDIR" set?' # Change dir to notes dir, if it doesn't exist, create it and try again. Otherwise it should just die, I guess?
 echo "Check if connected to internet and pull changes from Git"
