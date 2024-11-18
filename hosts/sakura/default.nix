@@ -22,7 +22,7 @@
   networking.hostName = "sakura";
 
   boot = {
-    kernelParams = [ "mem_sleep_default=deep" ];
+    kernelParams = [ "mem_sleep_default=deep acpi_osi='!Windows 2020'" ];
     kernelModules = ["acpi_call"];
     extraModulePackages = with config.boot.kernelPackages;
       [
