@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    bandwhich                                       # Terminal bandwidth utilization tool
+    powertop
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
     yewtube                                         # Play YouTube videos via the terminal
     iamb                                            # In-terminal-Matrix-messaging
