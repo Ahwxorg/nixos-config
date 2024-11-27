@@ -18,6 +18,8 @@
 
   liv.laptop.enable = true;
 
+  services.hardware.bolt.enable = true;
+
   hardware.framework.amd-7040.preventWakeOnAC = true;
   networking.hostName = "sakura";
 
