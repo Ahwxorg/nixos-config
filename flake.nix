@@ -2,28 +2,16 @@
   description = "liv's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    nixvim.url = "github:ahwxorg/nixvim-config";
-  
+    agenix.url = "github:ryantm/agenix";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-  
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
+    catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    catppuccin.url = "github:catppuccin/nix";
   
     hyprland = {
-      # type = "git";
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      # submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -36,9 +24,14 @@
       url = "github:KZDKM/Hyswipe";
       inputs.hyprland.follows = "hyprland"; # Hyswipe uses latest Hyprland. We declare this to keep them in sync.
     };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixvim.url = "github:ahwxorg/nixvim-config";
+    nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { nixpkgs, self, catppuccin, ...} @ inputs:
+  outputs = { self, nixpkgs, catppuccin, agenix, ...} @ inputs:
   let
     overlays = import ./overlays/default.nix;
     username = "liv";
@@ -62,7 +55,7 @@
         inherit system;
         modules = [(
           import ./hosts/sakura
-          #agenix.nixosModules.default # TODO: Should use this for en/decrypting secret values.
+          agenix.nixosModules.default
         )];
         specialArgs = { host="sakura"; inherit self inputs username ; };
       };
