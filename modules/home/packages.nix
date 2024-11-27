@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
+    pciutils                                        # List PCI(e) devices and controllers
     bandwhich                                       # Terminal bandwidth utilization tool
     powertop
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
