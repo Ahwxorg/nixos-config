@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, agenix, ... }: 
 {
   programs = {
     dconf.enable = true;
@@ -13,5 +13,6 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    # agenix.packages.x86_64-linux.default
   ];
 }
