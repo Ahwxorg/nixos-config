@@ -13,8 +13,11 @@
     "olm-3.2.16"
   ];
 
-
   time.timeZone = "Europe/Amsterdam";
+
+  environment.systemPackages = with pkgs; [
+    pkgs.kitty.terminfo
+  ];
 
   boot = {
     loader.grub = {
