@@ -14,27 +14,18 @@
     lm_sensors                                      # Show sensor outputs, i.e. temperatures
     yubikey-touch-detector                          # Display notification when YubiKey requires a headpat
     bitwarden-cli                                   # Use Bitwarden as a CLI secrets manager
-    gajim                                           # XMPP client
-    nheko                                           # Matrix client
-    linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                                            # edit filenames in batch with $EDITOR
     pastel                                          # generate, analyze, convert and manipulate colors
     glow                                            # Render Markdown from the terminal
     htmlq                                           # jq but for HTML
-    lemmeknow                                       # Identify anything
     android-tools                                   # ADB/Fastboot
     eva                                             # Calculator
-    tofi                                            # drun type launcher
-    # termpdfpy                                       # Read PDFs from the terminal, errors out for now
-    anki-bin                                        # Learn languages
+    anki-bin                                        # Flashcards
     vimv                                            # Bulk rename
-    audacity                                        # Record audio stuff
     obs-studio                                      # Record video stuff
     exiftool                                        # Read exif data from CLI
-    pinta                                           # "Paint.NET-like editor"
-    kdenlive                                        # Video editor
     translate-shell                                 # Google Translate but in the CLI
     wireguard-tools                                 # VPN connections
     openresolv                                      # required for wireguard-tools
@@ -60,12 +51,10 @@
     gitleaks                          # TODO: adds pre-commit hook
     libreoffice
     xfce.thunar
-    prismlauncher
     lunar-client
-    jdk
     ripgrep
     yt-dlp
-    wineWowPackages.wayland
+    # wineWowPackages.wayland
     # element-desktop # wayland version is very laggy for me
     spotify
     thunderbird
