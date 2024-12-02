@@ -2,8 +2,9 @@
   imports =
        [(import ./git.nix)]                       # version control
     ++ [(import ./swaync/default.nix)]            # notification panel
+    ++ [(import ./fonts.nix)]                     # fonts
     ++ [(import ./hyprland)]                      # window manager
-    ++ [(import ./sway)]                      # window manager
+    ++ [(import ./sway)]                          # window manager
     ++ [(import ./kitty.nix)]                     # terminal
     ++ [(import ./mako.nix)]                      # notification deamon
     ++ [(import ./nvim.nix)]                      # neovim editor
