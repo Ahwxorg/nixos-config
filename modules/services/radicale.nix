@@ -12,24 +12,25 @@
     };
   };
 
-  # services.nginx = {
-  #   enable = true;
-  #   recommendedProxySettings = true;
-  #   recommendedTlsSettings = true;
-  #   virtualHosts = {
-  #     "calendar.liv.town" = {
-  #       forceSSL = true;
-  #       enableACME = true;
-  #       # locations."/radicale/" = {
-  #       locations."/" = {
-  #         proxyPass = "http://127.0.0.1:5232/";
-  #         extraConfig = ''
-  #           # proxy_set_header X-Script-Name /radicale;
-  #           proxy_set_header X-Script-Name /;
-  #           proxy_pass_header Authorization;
-  #         '';
-  #       };
-  #     };
-  #   };
-  # };
+  services.nginx = {
+    enable = true;
+    recommendedProxySettings = true;
+    recommendedTlsSettings = true;
+    virtualHosts = {
+      "calendar.liv.town" = {
+        forceSSL = true;
+        sslCertificate = "/var/lib/acme/liv.town/cert.pem";
+        sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
+        # locations."/radicale/" = {
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:5232/";
+          # extraConfig = ''
+          #   # proxy_set_header X-Script-Name /radicale;
+          #   # proxy_set_header X-Script-Name /;
+          #   proxy_pass_header Authorization;
+          # '';
+        };
+      };
+    };
+  };
 }
