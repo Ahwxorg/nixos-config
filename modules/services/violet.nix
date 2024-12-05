@@ -10,6 +10,8 @@
     ++ [(import ./nginx.nix)]
     ++ [(import ./komga.nix)]
     ++ [(import ./frp.nix)]
+    ++ [(import ./radicale.nix)]
+    # ++ [(import ./jitsi-meet.nix)]
     # ++ [(import ./nextcloud.nix)]
     ++ [(import ./matrix/default.nix)];
     # ++ [(import ./tmux.nix)];
