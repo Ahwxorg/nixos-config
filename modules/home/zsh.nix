@@ -152,6 +152,7 @@
       # ];
 
       shellAliases = {
+        spt = "spotify_player";
         convert = "magick";
         ls = "eza -lh --git";
         la = "eza -A --git";

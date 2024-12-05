@@ -57,6 +57,7 @@
     # wineWowPackages.wayland
     # element-desktop # wayland version is very laggy for me
     spotify
+    spotify_player
     thunderbird
     neofetch
     nodejs_22
