@@ -70,6 +70,7 @@
     spotify
     thunderbird
     neofetch
+    hyfetch
     nodejs_22
     yarn
 
