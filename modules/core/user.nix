@@ -11,6 +11,8 @@
           [ ./../home/default.desktop.nix ] 
         else if (host == "violet") then
           [ ./../home/default.violet.nix ]
+        else if (host == "yoshino") then
+          [ ./../home/default.yoshino.nix ]
         else [ ./../home ];
         home = {
           username = "${username}";
