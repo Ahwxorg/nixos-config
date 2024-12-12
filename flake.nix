@@ -59,6 +59,14 @@
         ];
         specialArgs = { host="sakura"; inherit self inputs username ; };
       };
+      yoshino = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          (import ./hosts/yoshino)
+          agenix.nixosModules.default
+        ];
+        specialArgs = { host="yoshino"; inherit self inputs username ; };
+      };
       violet = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
