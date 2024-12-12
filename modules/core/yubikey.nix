@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, inputs, config, username, host, ...}:
 
 {
   services.udev.packages = [ pkgs.yubikey-personalization ];
@@ -16,14 +16,14 @@
       greetd.u2fAuth = true;
       sudo.u2fAuth = true;
       hyprlock.u2fAuth = true;
-      swaylock.fprintAuth = true;
-      hyprlock.fprintAuth = true;
       # pam.services.swaylock = {}; # Already enabled
     };
   };
 
   services = {
-    fprintd.enable = true;
+    fprintd.enable = if (host == "sakura") then true else false;
+    swaylock.fprintAuth = if (host == "sakura") then true else false;
+    hyprlock.fprintAuth = if (host == "sakura") then true else false;
   };
 
   environment.systemPackages = with pkgs; [
