@@ -5,10 +5,8 @@
     bandwhich                                       # Terminal bandwidth utilization tool
     powertop
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
-    yewtube                                         # Play YouTube videos via the terminal
     iamb                                            # In-terminal-Matrix-messaging
     signal-desktop                                  # Since the bridge is broken :(
-    socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
     pixcat                                          # Display images in the terminal
     lm_sensors                                      # Show sensor outputs, i.e. temperatures
@@ -17,22 +15,18 @@
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                                            # edit filenames in batch with $EDITOR
-    pastel                                          # generate, analyze, convert and manipulate colors
+    # pastel                                          # generate, analyze, convert and manipulate colors
     glow                                            # Render Markdown from the terminal
-    htmlq                                           # jq but for HTML
+    # htmlq                                           # jq but for HTML
     android-tools                                   # ADB/Fastboot
     eva                                             # Calculator
     anki-bin                                        # Flashcards
-    vimv                                            # Bulk rename
     obs-studio                                      # Record video stuff
     exiftool                                        # Read exif data from CLI
     translate-shell                                 # Google Translate but in the CLI
     wireguard-tools                                 # VPN connections
     openresolv                                      # required for wireguard-tools
-    prusa-slicer
-    blender
     progress
-    epy
     zip
     ripdrag
     pwgen
@@ -57,7 +51,7 @@
     # wineWowPackages.wayland
     # element-desktop # wayland version is very laggy for me
     spotify
-    spotify_player
+    spotify-player
     thunderbird
     neofetch
     nodejs_22
@@ -73,7 +67,6 @@
     ffmpeg
     killall
     libnotify
-    man-pages			              # extra man pages
     mpv                               # video player
     openssl
     pamixer                           # pulseaudio command line mixer
