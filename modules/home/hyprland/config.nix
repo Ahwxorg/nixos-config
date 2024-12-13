@@ -228,8 +228,10 @@
         "$mainMod SHIFT, F, exec, firefox"
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
+        "$mainMod SHIFT, E, exec, element-desktop"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
         "$mainMod SHIFT, N ,exec, notes"  # should be added by scripts/custom packages
+        "$mainMod, N,exec, swaync-client -t"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
