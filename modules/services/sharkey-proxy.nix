@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ ... }:
 {
   services = {
     nginx.virtualHosts."quack.social" = {
