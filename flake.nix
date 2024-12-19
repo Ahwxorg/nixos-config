@@ -16,6 +16,7 @@
     };
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprsunset.url = "github:hyprwm/hyprsunset";
     Hyprspace = {
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
@@ -66,6 +67,13 @@
           agenix.nixosModules.default
         ];
         specialArgs = { host="yoshino"; inherit self inputs username ; };
+      ichiyo = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          (import ./hosts/ichiyo)
+          agenix.nixosModules.default
+        ];
+        specialArgs = { host="sakura"; inherit self inputs username ; };
       };
       violet = nixpkgs.lib.nixosSystem {
         inherit system;

@@ -5,43 +5,28 @@
     bandwhich                                       # Terminal bandwidth utilization tool
     powertop
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
-    yewtube                                         # Play YouTube videos via the terminal
     iamb                                            # In-terminal-Matrix-messaging
     signal-desktop                                  # Since the bridge is broken :(
-    socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
     pixcat                                          # Display images in the terminal
     lm_sensors                                      # Show sensor outputs, i.e. temperatures
     yubikey-touch-detector                          # Display notification when YubiKey requires a headpat
     bitwarden-cli                                   # Use Bitwarden as a CLI secrets manager
-    gajim                                           # XMPP client
-    nheko                                           # Matrix client
-    linuxKernel.packages.linux_hardened.v4l2loopback # Use A7ii as webcam
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                                            # edit filenames in batch with $EDITOR
-    pastel                                          # generate, analyze, convert and manipulate colors
+    # pastel                                          # generate, analyze, convert and manipulate colors
     glow                                            # Render Markdown from the terminal
-    htmlq                                           # jq but for HTML
-    lemmeknow                                       # Identify anything
+    # htmlq                                           # jq but for HTML
     android-tools                                   # ADB/Fastboot
     eva                                             # Calculator
-    tofi                                            # drun type launcher
-    # termpdfpy                                       # Read PDFs from the terminal, errors out for now
-    anki-bin                                        # Learn languages
-    vimv                                            # Bulk rename
-    audacity                                        # Record audio stuff
+    anki-bin                                        # Flashcards
     obs-studio                                      # Record video stuff
     exiftool                                        # Read exif data from CLI
-    pinta                                           # "Paint.NET-like editor"
-    kdenlive                                        # Video editor
     translate-shell                                 # Google Translate but in the CLI
     wireguard-tools                                 # VPN connections
     openresolv                                      # required for wireguard-tools
-    prusa-slicer
-    blender
     progress
-    epy
     zip
     ripdrag
     pwgen
@@ -60,14 +45,13 @@
     gitleaks                          # TODO: adds pre-commit hook
     libreoffice
     xfce.thunar
-    prismlauncher
     lunar-client
-    jdk
     ripgrep
     yt-dlp
-    wineWowPackages.wayland
+    # wineWowPackages.wayland
     # element-desktop # wayland version is very laggy for me
     spotify
+    spotify-player
     thunderbird
     neofetch
     hyfetch
@@ -84,7 +68,6 @@
     ffmpeg
     killall
     libnotify
-    man-pages			              # extra man pages
     mpv                               # video player
     openssl
     pamixer                           # pulseaudio command line mixer
