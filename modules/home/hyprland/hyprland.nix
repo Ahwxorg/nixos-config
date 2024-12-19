@@ -11,6 +11,7 @@
     glib
     wayland
     direnv
+    inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
   ];
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
@@ -22,7 +23,7 @@
     # enableNvidiaPatches = false;
     systemd.enable = true;
     plugins = [
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
       inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
     ];
   };
