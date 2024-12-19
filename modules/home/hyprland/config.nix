@@ -213,7 +213,7 @@
         # keybindings
         "$mainMod, Return, exec, kitty"
         "$mainMod, Q, killactive,"
-        "$mainMod, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
+        "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
         "SUPER SHIFT, L, exec, hyprlock"
@@ -373,6 +373,13 @@
     };
 
     extraConfig = "
+      # If desktop
+      # input:accel_profile=flat
+
+      # input {
+      #   force_no_accel = true
+      # }
+
       monitor=,preferred,auto,auto
 
       # debug:disable_logs = false
