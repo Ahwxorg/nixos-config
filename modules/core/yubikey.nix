@@ -16,15 +16,12 @@
       greetd.u2fAuth = true;
       sudo.u2fAuth = true;
       hyprlock.u2fAuth = true;
-      # pam.services.swaylock = {}; # Already enabled
+      swaylock.fprintAuth = if (host == "sakura") then true else false;
+      hyprlock.fprintAuth = if (host == "sakura") then true else false;
     };
   };
-
-  services = {
-    fprintd.enable = if (host == "sakura") then true else false;
-    swaylock.fprintAuth = if (host == "sakura") then true else false;
-    hyprlock.fprintAuth = if (host == "sakura") then true else false;
-  };
+  
+  services.fprintd.enable = if (host == "sakura") then true else false;
 
   environment.systemPackages = with pkgs; [
     yubikey-manager
