@@ -23,8 +23,8 @@
     # enableNvidiaPatches = false;
     systemd.enable = true;
     plugins = [
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
     ];
   };
 }
