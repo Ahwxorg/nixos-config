@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./../../modules/core/virtualization.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
   
@@ -16,7 +17,11 @@
     fwupd                                           # Update firmware for Framework Laptop 13
   ];
 
-  liv.laptop.enable = true;
+  liv = { 
+    laptop.enable = true;
+    desktop.enable = true;
+    creative.enable = true;
+  };
 
   services.hardware.bolt.enable = true;
 

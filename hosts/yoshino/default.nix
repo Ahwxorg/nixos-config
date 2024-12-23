@@ -12,7 +12,10 @@
     cpuFreqGovernor = lib.mkDefault "performance";
   };
 
-  liv.laptop.enable = false;
+  liv = {
+    desktop.enable = true;
+    creative.enable = true;
+  };
 
   networking = {
     hostName = "yoshino";
