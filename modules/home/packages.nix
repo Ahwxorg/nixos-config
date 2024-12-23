@@ -18,7 +18,6 @@
     # pastel                                          # generate, analyze, convert and manipulate colors
     glow                                            # Render Markdown from the terminal
     # htmlq                                           # jq but for HTML
-    android-tools                                   # ADB/Fastboot
     eva                                             # Calculator
     anki-bin                                        # Flashcards
     obs-studio                                      # Record video stuff
@@ -39,8 +38,6 @@
     eza
     file
     fzf
-    gimp
-    darktable
     lazygit
     gitleaks                          # TODO: adds pre-commit hook
     libreoffice

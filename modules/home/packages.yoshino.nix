@@ -5,7 +5,6 @@
     bandwhich                                       # Terminal bandwidth utilization tool
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
     signal-desktop                                  # Since the bridge is broken :(
-    socat                                           # Required for `hyprland-smart-borders`
     tesseract                                       # Screen grabbing text from images/PDFs/etc
     pixcat                                          # Display images in the terminal
     lm_sensors                                      # Show sensor outputs, i.e. temperatures
@@ -22,10 +21,7 @@
     # termpdfpy                                       # Read PDFs from the terminal, errors out for now
     anki-bin                                        # Review flashcards
     vimv                                            # Bulk rename
-    audacity                                        # Record audio stuff
-    obs-studio                                      # Record video stuff
     exiftool                                        # Read exif data from CLI
-    kdenlive                                        # Video editor
     translate-shell                                 # Google Translate but in the CLI
     wireguard-tools                                 # VPN connections
     openresolv                                      # required for wireguard-tools
@@ -42,8 +38,6 @@
     eza
     file
     fzf
-    gimp
-    darktable
     lazygit
     gitleaks                          # TODO: adds pre-commit hook
     xfce.thunar
@@ -52,7 +46,6 @@
     ripgrep
     yt-dlp
     wineWowPackages.wayland
-    # element-desktop # wayland version is very laggy for me
     spotify
     thunderbird
     neofetch
