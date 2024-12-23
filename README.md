@@ -42,9 +42,10 @@
 
 - [flake.nix](flake.nix): base of the configuration
 - [hosts](hosts): per-host configurations that contain machine specific configurations
-  - [desktop](hosts/desktop/): Desktop specific configuration
+  - [desktop](hosts/yoshino/): Desktop (yoshino) specific configuration
   - [sakura](hosts/sakura/): Laptop (sakura) specific configuration
-  - [violet](hosts/violet/): Server (sakura) specific configuration
+  - [sakura](hosts/ichiyo/): Laptop (ichiyo) specific configuration
+  - [violet](hosts/violet/): Server (violet) specific configuration
 - [modules](modules): modularized NixOS configurations
   - [core](modules/core/): core NixOS configuration
   - [homes](modules/home/): my [Home-Manager](https://github.com/nix-community/home-manager) config
