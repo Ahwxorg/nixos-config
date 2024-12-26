@@ -67,6 +67,7 @@
           agenix.nixosModules.default
         ];
         specialArgs = { host="yoshino"; inherit self inputs username ; };
+      };
       ichiyo = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
@@ -93,5 +94,4 @@
       };
     };
   };
-};
 }
