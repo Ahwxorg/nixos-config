@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./../../modules/home/nfs.nix
     ./../../modules/core/virtualization.nix
   ];
   
