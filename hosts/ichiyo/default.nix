@@ -4,6 +4,9 @@
     ./hardware-configuration.nix
     ./../../modules/core
   ];
+
+  # Enable fancy boot animations
+  boot.plymouth.enable = true;
   
   powerManagement = {
     enable = true;
@@ -14,18 +17,17 @@
   liv.laptop.enable = true;
 
   # Bootloader stuff
-  boot.loader.grub.enable = lib.mkForce true;
-  boot.loader.grub.device = lib.mkForce "/dev/sda";
-  boot.loader.grub.useOSProber = lib.mkForce true;
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-  boot.loader.grub.enableCryptodisk = lib.mkForce true;
-  boot.initrd.luks.devices."luks-729500c5-557b-45c8-ab3f-5c365db28284".keyFile = lib.mkForce "/crypto_keyfile.bin";
-
-  networking.hostName = "ichiyo";
-
   boot = {
+    loader.grub = {
+      enable = lib.mkForce true;
+      device = lib.mkForce "/dev/sda";
+      enableCryptodisk = lib.mkForce true;
+      useOSProber = lib.mkForce true;
+    };
+    initrd.secrets = {
+      "/crypto_keyfile.bin" = null;
+    };
+    initrd.luks.devices."luks-729500c5-557b-45c8-ab3f-5c365db28284".keyFile = lib.mkForce "/crypto_keyfile.bin";
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
@@ -33,4 +35,6 @@
       ]
       ++ [pkgs.cpupower-gui];
   };
+
+  networking.hostName = "ichiyo";
 }
