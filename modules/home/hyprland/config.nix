@@ -101,6 +101,7 @@
       ];
 
       input = {
+        kb_options = "caps:ctrl_modifier";
         kb_layout = "us";
         numlock_by_default = true;
         follow_mouse = 1;
