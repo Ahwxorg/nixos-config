@@ -19,6 +19,14 @@
     pkgs.kitty.terminfo
   ];
 
+  # NVIDIA drivers
+  hardware = {
+    graphics.enable = true;
+    nvidia.open = false; # Set to false/true for proprietary/open drivers
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   boot = {
     loader.grub = {
       enable = true;
