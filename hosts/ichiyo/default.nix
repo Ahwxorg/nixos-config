@@ -18,6 +18,7 @@
 
   # Bootloader stuff
   boot = {
+    kernelParams = [ "quiet" "loglevel=3" "systemd.show_status=false" "splash" ];
     loader.grub = {
       enable = lib.mkForce true;
       device = lib.mkForce "/dev/sda";
