@@ -24,6 +24,12 @@
 
     # Hardened TLS and HSTS preloading
     appendHttpConfig = ''
+      # Most important header
+      add_header meow "nya!";
+      add_header pronouns "any but neopronouns";
+      add_header gender "maybe";
+      add_header locale "[en_US, nl_NL]";
+
       # Add HSTS header with preloading to HTTPS requests.
       # Do not add HSTS header to HTTP requests.
       map $scheme $hsts_header {
