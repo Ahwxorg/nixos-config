@@ -4,6 +4,7 @@
        [(import ./bootloader.nix)]
     ++ [(import ./docker.nix)]
     ++ [(import ./hardware.nix)]
+    ++ [(import ./displaylink.nix)]
     # ++ [(import ./openrgb.nix)]
     ++ [(import ./xserver.nix)]
     ++ [(import ./network.nix)]
