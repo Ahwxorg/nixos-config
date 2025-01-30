@@ -6,6 +6,9 @@
     ./../../modules/core/virtualization.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
+
+  # Enable fancy boot animations
+  boot.plymouth.enable = true;
   
   powerManagement = {
     enable = true;

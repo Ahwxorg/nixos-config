@@ -36,7 +36,19 @@
 
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
+  
+  # Font packages
+  environment.systemPackages = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    ipaexfont
+  ];
+
+  time.timeZone = "Europe/Amsterdam";
   system.stateVersion = "24.05";
 }
