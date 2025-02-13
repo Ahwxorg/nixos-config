@@ -101,8 +101,8 @@
       ];
 
       input = {
-        kb_options = "caps:ctrl_modifier";
-        kb_layout = "us";
+        kb_layout = "us,jp";
+        kb_options = "caps:ctrl_modifier" "grp:caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
@@ -217,7 +217,7 @@
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER SHIFT, L, exec, hyprlock"
+        "SUPER SHIFT, L, exec, swaylock"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
