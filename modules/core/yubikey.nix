@@ -15,9 +15,10 @@
       login.u2fAuth = true;
       greetd.u2fAuth = true;
       sudo.u2fAuth = true;
-      hyprlock.u2fAuth = true;
       swaylock.fprintAuth = if (host == "sakura") then true else false;
-      hyprlock.fprintAuth = if (host == "sakura") then true else false;
+      # No longer using Hyprlock, might stay here for if I ever switch to it again.
+      # hyprlock.u2fAuth = true;
+      # hyprlock.fprintAuth = if (host == "sakura") then true else false;
     };
   };
   
