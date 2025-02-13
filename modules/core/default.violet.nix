@@ -1,7 +1,6 @@
 { ... }:
 {
   imports =
-       # [(import ./bootloader.nix)]
        [(import ./hardware.nix)]
     ++ [(import ./network.nix)]
     ++ [(import ./program.nix)]

@@ -34,6 +34,12 @@
   boot = {
     kernelParams = [ "mem_sleep_default=deep" "acpi_osi=\"!Windows 2020\"" ];
     kernelModules = ["acpi_call"];
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call

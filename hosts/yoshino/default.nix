@@ -26,11 +26,17 @@
   boot = {
     kernelParams = [ ];
     kernelModules = ["acpi_call"];
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
         cpupower
       ]
       ++ [pkgs.cpupower-gui];
-  };
+    };
 }
