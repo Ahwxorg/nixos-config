@@ -102,7 +102,7 @@
 
       input = {
         kb_layout = "us,jp";
-        kb_options = "caps:ctrl_modifier" "grp:caps_toggle";
+        kb_options = "caps:ctrl_modifier";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
