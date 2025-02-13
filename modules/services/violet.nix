@@ -18,7 +18,6 @@
     ++ [(import ./lidarr.nix)]
     # ++ [(import ./scrutiny.nix)]
     # ++ [(import ./jitsi-meet.nix)]
-    # ++ [(import ./nextcloud.nix)]
+    ++ [(import ./forgejo.nix)]
     ++ [(import ./matrix/default.nix)];
-    # ++ [(import ./tmux.nix)];
 }
