@@ -69,7 +69,7 @@
 | **Fonts**                   | [nerd fonts][Nerd fonts] |
 | **Color Scheme**            | [catppuccin][Catppuccin] |
 | **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
-| **Lockscreen**              | [hyprlock][hyprlock] |
+| **Lockscreen**              | [swaylock][swaylock] |
 | **Image Viewer**            | [nsxiv][nsxiv] |
 | **Media Player**            | [mpv][mpv] |
 | **Screenshot Software**     | [grimblast][grimblast] |
@@ -169,8 +169,6 @@ runbg.sh
    ```
 4. **Reboot**
 
-   After rebooting, you'll be greeted by hyprlock prompting for your password, with its wallpaper in the background.
-
 5. **Manual config**
 
    Even though I use home manager, there is still a little bit of manual configuration to do:
@@ -228,7 +226,7 @@ Other dotfiles that I learned / copy from:
 [Waybar]: https://github.com/Alexays/Waybar
 [wofi]: https://hg.sr.ht/~scoopta/wofi
 [zsh]: https://ohmyz.sh/
-[hyprlock]: https://github.com/hyprwm/Hyprlock
+[swaylock]: https://github.com/swaywm/swaylock
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]:https://vscodium.com/
 [Neovim]: https://github.com/neovim/neovim
