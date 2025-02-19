@@ -1,9 +1,6 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    pciutils                                        # List PCI(e) devices and controllers
-    bandwhich                                       # Terminal bandwidth utilization tool
-    powertop
     element-desktop                                 # Nheko is kinda shit so sadly this has to happen
     iamb                                            # In-terminal-Matrix-messaging
     signal-desktop                                  # Since the bridge is broken :(
@@ -11,7 +8,7 @@
     pixcat                                          # Display images in the terminal
     lm_sensors                                      # Show sensor outputs, i.e. temperatures
     yubikey-touch-detector                          # Display notification when YubiKey requires a headpat
-    bitwarden-cli                                   # Use Bitwarden as a CLI secrets manager
+    pass                                            # Passwords but CLI
     # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
     # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
     vimv                                            # edit filenames in batch with $EDITOR
@@ -27,7 +24,6 @@
     openresolv                                      # required for wireguard-tools
     progress
     zip
-    ripdrag
     pwgen
     jq
     tmux
@@ -39,14 +35,12 @@
     file
     fzf
     lazygit
-    gitleaks                          # TODO: adds pre-commit hook
+    gitleaks
     libreoffice
     xfce.thunar
     lunar-client
     ripgrep
     yt-dlp
-    # wineWowPackages.wayland
-    # element-desktop # wayland version is very laggy for me
     spotify
     spotify-player
     thunderbird
