@@ -221,7 +221,7 @@
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W ,exec, pkill wofi || wallpaper-picker"
+        "$mainMod, W ,exec, wallpaper-picker"
 
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
@@ -326,9 +326,6 @@
         "size 950 600,title:^(float_kitty)$"
         "float,audacious"
         "workspace 8 silent, audacious"
-        "pin,wofi"
-        "float,wofi"
-        "noborder,wofi"
         "tile, neovide"
         "idleinhibit focus,mpv"
         "float,udiskie"
