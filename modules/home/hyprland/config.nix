@@ -226,7 +226,7 @@
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
-        "$mainMod SHIFT, F, exec, firefox"
+        "$mainMod SHIFT, F, exec, librewolf"
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"
@@ -235,8 +235,8 @@
         "$mainMod, N,exec, swaync-client -t"
 
         # screenshot
-        "SUPER SHIFT, S, exec, grimblast --notify --cursor save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-        "$mainMod SHIFT, S, exec, grimblast --notify --cursor  copy area"
+        "SUPER SHIFT, S, exec, grimblast save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        "$mainMod SHIFT, S, exec, grimblast copy area"
         "$mainMod SHIFT, G, exec, grabtext"
 
         # switch focus
@@ -334,8 +334,8 @@
         "float,udiskie"
         "float,title:^(Transmission)$"
         "float,title:^(Volume Control)$"
-        "float,title:^(Firefox — Sharing Indicator)$"
-        "move 0 0,title:^(Firefox — Sharing Indicator)$"
+        "float,title:^(Librewolf — Sharing Indicator)$"
+        "move 0 0,title:^(Librewolf — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
         "workspace 10, thunderbird"
@@ -355,7 +355,7 @@
         "opacity 1.0 override 1.0 override, class:(Aseprite)"
         "opacity 1.0 override 1.0 override, class:(Unity)"
         "idleinhibit focus, class:^(mpv)$"
-        "idleinhibit fullscreen, class:^(firefox)$"
+        "idleinhibit fullscreen, class:^(librewolf)$"
         "float,class:^(pavucontrol-qt)$"
         "float,class:^(pavucontrol)$"
         "float,class:^(SoundWireServer)$"
