@@ -5,14 +5,12 @@
     ++ [(import ./fonts.nix)]
     ++ [(import ./hyprland)]
     ++ [(import ./kitty.nix)]
-    ++ [(import ./mako.nix)]
     ++ [(import ./nvim.nix)]
     ++ [(import ./zathura.nix)]
     ++ [(import ./packages.nix)]
     ++ [(import ./scripts/scripts.nix)]
     ++ [(import ./swaylock.nix)]
     ++ [(import ./waybar)]
-    ++ [(import ./wofi.nix)]
     ++ [(import ./zsh.nix)]
     ++ [(import ./tmux.nix)];
 }
