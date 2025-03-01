@@ -58,7 +58,7 @@
 | --------------------------- | :---------------------------------------------------------------------------------------------:
 | **Window Manager**          | [Hyprland][Hyprland] |
 | **Bar**                     | [Waybar][waybar] |
-| **Application Launcher**    | [wofi][wofi] |
+| **Application Launcher**    | [bemenu][bemenu] |
 | **Notification Daemon**     | [Mako][mako] |
 | **Terminal Emulator**       | [Kitty][kitty] |
 | **Shell**                   | [zsh][zsh] |
@@ -224,7 +224,7 @@ Other dotfiles that I learned / copy from:
 [Hyprland]: https://github.com/hyprwm/Hyprland
 [Kitty]: https://github.com/kovidgoyal/kitty
 [Waybar]: https://github.com/Alexays/Waybar
-[wofi]: https://hg.sr.ht/~scoopta/wofi
+[bemenu]: https://github.com/Cloudef/bemenu
 [zsh]: https://ohmyz.sh/
 [swaylock]: https://github.com/swaywm/swaylock
 [mpv]: https://github.com/mpv-player/mpv
