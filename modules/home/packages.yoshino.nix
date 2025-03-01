@@ -33,7 +33,7 @@
     tmux
     wdisplays
     htop
-    firefox
+    librewolf
     nsxiv
     eza
     file
