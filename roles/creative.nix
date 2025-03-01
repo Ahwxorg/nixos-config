@@ -15,7 +15,7 @@ in {
           darktable
           audacity
           obs-studio
-          kdenlive
+          kdePackages.kdenlive
         ];
       };
     };
