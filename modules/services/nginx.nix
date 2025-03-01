@@ -24,12 +24,6 @@
 
     # Hardened TLS and HSTS preloading
     appendHttpConfig = ''
-      # Most important header
-      add_header meow "nya!";
-      add_header pronouns "any but neopronouns";
-      add_header gender "maybe";
-      add_header locale "[en_US, nl_NL]";
-
       # Add HSTS header with preloading to HTTPS requests.
       # Do not add HSTS header to HTTP requests.
       map $scheme $hsts_header {
@@ -48,6 +42,13 @@
 
       #   # This might create errors
       #   # proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+
+      # Most important headers
+      add_header meow "nya!";
+      add_header matrix "https://matrix.to/#/@liv:liv.town"
+      add_header pronouns "any but neopronouns";
+      add_header gender "maybe";
+      add_header locale "[en_US, nl_NL]";
     '';
   };
 }
