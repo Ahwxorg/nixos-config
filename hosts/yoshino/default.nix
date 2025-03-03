@@ -36,6 +36,7 @@
       [
         acpi_call
         cpupower
+        v4l2loopback
       ]
       ++ [pkgs.cpupower-gui];
     };

@@ -1,87 +1,86 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = with pkgs; [
-    pciutils                                        # List PCI(e) devices and controllers
-    bandwhich                                       # Terminal bandwidth utilization tool
-    powertop
-    element-desktop                                 # Nheko is kinda shit so sadly this has to happen
-    iamb                                            # In-terminal-Matrix-messaging
-    signal-desktop                                  # Since the bridge is broken :(
-    tesseract                                       # Screen grabbing text from images/PDFs/etc
-    pixcat                                          # Display images in the terminal
-    lm_sensors                                      # Show sensor outputs, i.e. temperatures
-    yubikey-touch-detector                          # Display notification when YubiKey requires a headpat
-    bitwarden-cli                                   # Use Bitwarden as a CLI secrets manager
-    # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
-    # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
-    vimv                                            # edit filenames in batch with $EDITOR
-    # pastel                                          # generate, analyze, convert and manipulate colors
-    glow                                            # Render Markdown from the terminal
-    # htmlq                                           # jq but for HTML
-    eva                                             # Calculator
-    anki-bin                                        # Flashcards
-    obs-studio                                      # Record video stuff
-    exiftool                                        # Read exif data from CLI
-    translate-shell                                 # Google Translate but in the CLI
-    wireguard-tools                                 # VPN connections
-    openresolv                                      # required for wireguard-tools
+    # Environment shit
+    tesseract
+    yubikey-touch-detector
+    wireguard-tools
+    openresolv
+    xdg-utils
+    killall
+    libnotify
+    openssl
+    pamixer
+    playerctl
+    wl-clipboard
+    cliphist
+    poweralertd
+    ffmpeg
+    unzip
+    wget
+    xxd
+    gcc
+    gnumake
+    python3
+
+    # CLI shit
+    vimv
+    iamb
+    pass
+    pixcat
+    lm_sensors
+    neofetch
+    hyfetch
+    glow
+    eva
+    exiftool
+    translate-shell
     progress
     zip
-    ripdrag
     pwgen
     jq
     tmux
-    wdisplays
     htop
-    firefox
-    nsxiv
     eza
     file
     fzf
     lazygit
-    gitleaks                          # TODO: adds pre-commit hook
-    libreoffice
-    xfce.thunar
-    lunar-client
+    gitleaks
     ripgrep
     yt-dlp
-    # wineWowPackages.wayland
-    # element-desktop # wayland version is very laggy for me
-    spotify
     spotify-player
-    thunderbird
-    neofetch
-    hyfetch
     nodejs_22
     yarn
+    # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
+    # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
+    # pastel                                          # generate, analyze, convert and manipulate colors
 
-    # C / C++
-    gcc
-    gnumake
+    # GUI shit
+    element-desktop
+    signal-desktop
+    anki-bin
+    obs-studio
+    wdisplays
+    librewolf
+    ungoogled-chromium
+    nsxiv
+    libreoffice
+    xfce.thunar
+    spotify
+    thunderbird
+    lxqt.pavucontrol-qt
+    mpv
 
-    # Python
-    python3
+    # Gaming
+    lunar-client
 
-    ffmpeg
-    killall
-    libnotify
-    mpv                               # video player
-    openssl
-    pamixer                           # pulseaudio command line mixer
-    lxqt.pavucontrol-qt                    # pulseaudio volume controle (GUI)
-    playerctl                         # controller for media players
-    wl-clipboard                      # clipboard utils for wayland (wl-copy, wl-paste)
-    cliphist                          # clipboard history manager
-    poweralertd
-    unzip
-    wget
-    xdg-utils
-    xxd
     inputs.alejandra.defaultPackage.${system}
     inputs.nixvim.packages.${pkgs.system}.default
-  ];
 
-  # environment.systemPackages = with pkgs; [
-    # nodePackages.
-  # ]
+    # Email/calendar/etc
+    neomutt
+    khard
+    khal
+    w3m
+  ];
 }
