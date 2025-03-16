@@ -13,10 +13,19 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/8d603f3d-0d75-4cae-b68f-ab8e218f5b2c";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/8d603f3d-0d75-4cae-b68f-ab8e218f5b2c";
+    fsType = "ext4";
+  };
+
+  fileSystems."/mnt/array" = {
+   device = "/dev/disk/by-uuid/c503088f-95aa-4bb0-85eb-d1de1e0158d0";
+   fsType = "ext4";
+   options = [
+     "nofail" # Prevent system from failing if this drive doesn't mount
+   ];
+ };
+
 
   swapDevices = [ ];
 
