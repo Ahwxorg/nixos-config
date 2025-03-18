@@ -61,8 +61,9 @@
     anki-bin
     obs-studio
     wdisplays
-    librewolf
-    ungoogled-chromium
+    librewolf # main
+    ungoogled-chromium # for things that don't work with librewolf
+    qutebrowser # focus
     nsxiv
     libreoffice
     xfce.thunar
