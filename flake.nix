@@ -84,6 +84,14 @@
         ];
         specialArgs = { host="violet"; inherit self inputs username; };
       };
+      dandelion = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          (import ./hosts/dandelion)
+          agenix.nixosModules.default
+        ];
+        specialArgs = { host="dandelion"; inherit self inputs username; };
+      };
 
       vm = nixpkgs.lib.nixosSystem {
         inherit system;
