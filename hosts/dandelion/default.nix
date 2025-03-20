@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core/default.dandelion.nix
+    ./../../modules/core/default.server.nix
   ];
 
   networking.hostName = "dandelion";
