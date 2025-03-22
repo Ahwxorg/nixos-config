@@ -2,7 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./variables.nix
     ./../../modules/core/default.server.nix
+    ./../../modules/services/dandelion.nix
   ];
 
   networking.hostName = "dandelion";
@@ -15,7 +17,8 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
-    pkgs.kitty.terminfo
+    kitty.terminfo
+    zfs
   ];
 
   boot = {
@@ -23,5 +26,20 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    supportedFilesystems = [ "zfs" ];
   };
+
+  networking.hostId = "8a6b2565";
+
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
+  };
+
+  boot.zfs.extraPools = [ "terrabite" ];
+
+  # fileSystems."/terrabite/main" = {
+  #   device = "terrabite/main";
+  #   fsType = "zfs";
+  # };
 }
