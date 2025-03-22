@@ -1,5 +1,6 @@
 { ... }: {
   imports =
        [(import ./docker.nix)]
-    ++ [(import ./scrutiny.nix)];
+    ++ [(import ./immich.nix)];
+    # ++ [(import ./scrutiny.nix)];
 }
