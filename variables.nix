@@ -13,5 +13,12 @@ in {
       readOnly = true;
       description = "My primary domain";
     };
+
+    ntfyURL = mkOption {
+      default = "notify.${variables.liv.primaryDomain}";
+      type = types.str;
+      readOnly = true;
+      description = "Notification service";
+    };
   };
 }
