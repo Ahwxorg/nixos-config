@@ -1,7 +1,8 @@
 { ... }:
 {
   imports =
-       [(import ./docker.nix)]
+       [(import ./../../variables.nix)] # Does not really fit here but I have no clue where else
+    ++ [(import ./docker.nix)]
     ++ [(import ./hardware.nix)]
     ++ [(import ./displaylink.nix)]
     # ++ [(import ./printing.nix)]

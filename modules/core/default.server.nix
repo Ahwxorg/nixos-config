@@ -1,7 +1,8 @@
 { ... }:
 {
   imports =
-       [(import ./hardware.nix)]
+       [(import ./../../variables.nix)]
+    ++ [(import ./hardware.nix)]
     ++ [(import ./network.nix)]
     ++ [(import ./program.nix)]
     ++ [(import ./sshd.nix)]
