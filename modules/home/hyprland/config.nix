@@ -28,18 +28,18 @@
         color = "black";
       };
     };
-    # cursorTheme = {
-    #   name = "Bibata-Modern-Ice";
-    #   package = pkgs.bibata-cursors;
-    #   size = 24;
-    # };
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
   };
   
-  # home.pointerCursor = {
-  #   name = "Bibata-Modern-Ice";
-  #   package = pkgs.bibata-cursors;
-  #   size = 24;
-  # };
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
+    size = 24;
+  };
 
   # gtk = {
   #   enable = true;
@@ -84,7 +84,7 @@
       source = "~/nixos-config/modules/home/hyprland/displays.conf";
 
       "debug:disable_scale_checks" = true;
-      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
+      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5"; # this works as I only have one computer using eDP-1 as a display, I could also add LVDS or DP-1 since that'd also be machine-specific.
 
       # autostart
       exec-once = [
@@ -226,6 +226,8 @@
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
         "$mainMod SHIFT, F, exec, librewolf"
+        "$mainMod SHIFT, C, exec, chromium"
+        "$mainMod SHIFT, Q, exec, qutebrowser"
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"

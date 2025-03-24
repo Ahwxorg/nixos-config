@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core/default.violet.nix
+    ./../../modules/core/default.server.nix
     ./../../modules/services/violet.nix
   ];
 
@@ -24,6 +24,8 @@
     graphics.enable = true;
     nvidia.open = false; # Set to false/true for proprietary/open drivers
   };
+
+  liv.nvidia.enable = true;
 
   services.xserver.videoDrivers = [ "nvidia" ];
 

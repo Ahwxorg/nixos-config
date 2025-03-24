@@ -14,11 +14,6 @@
     ripgrep
     yt-dlp
     neofetch
-    yarn
-
-    # C / C++
-    gcc
-    gnumake
 
     # Python
     python3

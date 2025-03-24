@@ -16,6 +16,7 @@
   liv = {
     desktop.enable = true;
     creative.enable = true;
+    amdgpu.enable = true;
   };
 
   networking = {

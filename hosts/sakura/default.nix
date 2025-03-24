@@ -24,6 +24,7 @@
     laptop.enable = true;
     desktop.enable = true;
     creative.enable = true;
+    amdgpu.enable = true;
   };
 
   services.hardware.bolt.enable = true;
