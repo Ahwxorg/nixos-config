@@ -1,6 +1,6 @@
 { pkgs, inputs, config, username, host, ...}:
 {
-  imports = [ inputs.home-manager.nixosModules.home-manager ] ++ [ ./../../roles ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ] ++ [ ./../../roles ] ++ [./../../variables.nix];
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
