@@ -25,6 +25,8 @@
     nvidia.open = false; # Set to false/true for proprietary/open drivers
   };
 
+  liv.nvidia.enable = true;
+
   services.xserver.videoDrivers = [ "nvidia" ];
 
   boot = {
