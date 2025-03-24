@@ -2,7 +2,6 @@
   services.immich = {
     enable = true;
     port = 2283;
-    accelerationDevices = /dev/dri/card0;
   };
 
   # services.nginx.virtualHosts."" = {
