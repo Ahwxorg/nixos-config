@@ -57,25 +57,22 @@
 ### Components
 |                             | NixOS + Hyprland                                                                              |
 | --------------------------- | :---------------------------------------------------------------------------------------------:
-| **Window Manager**          | [Hyprland][Hyprland] |
-| **Bar**                     | [Waybar][waybar] |
-| **Application Launcher**    | [bemenu][bemenu] |
-| **Notification Daemon**     | [Mako][mako] |
-| **Terminal Emulator**       | [Kitty][kitty] |
+| **Compositor**          | [hyprland][hyprland] |
+| **Bar**                     | [waybar][waybar] |
+| **Application launcher**    | [bemenu][bemenu] |
+| **Notification daemon**     | [swaync][swaync] |
+| **Terminal emulator**       | [kitty][kitty] |
 | **Shell**                   | [zsh][zsh] |
-| **Text Editor**             | [Neovim][Neovim] + [VSCodium][VSCodium] |
-| **network management tool** | [NetworkManager][NetworkManager] + [network-manager-applet][network-manager-applet] |
-| **System resource monitor** | [htop][htop] |
-| **File Manager**            | [thunar][thunar]
-| **Fonts**                   | [nerd fonts][Nerd fonts] |
-| **Color Scheme**            | [catppuccin][Catppuccin] |
-| **Icons**                   | [catppuccin-papirus-folders][catppuccin-papirus-folders] |
+| **Text editor**             | [neovim][neovim] |
+| **Network management tool** | [networkmanager][networkmanager] |
+| **File manager**            | [thunar][thunar]
+| **Fonts**                   | [nerd fonts][nerd fonts] |
 | **Lockscreen**              | [swaylock][swaylock] |
-| **Image Viewer**            | [nsxiv][nsxiv] |
-| **Media Player**            | [mpv][mpv] |
-| **Screenshot Software**     | [grimblast][grimblast] |
+| **Image viewer**            | [nsxiv][nsxiv] + [imv] |
+| **Media player**            | [mpv][mpv] |
+| **Screenshot software**     | [grimblast][grimblast] |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
-| **Color Picker**            | [hyprpicker][hyprpicker] |
+| **Color picker**            | [hyprpicker][hyprpicker] |
 
 
 ### Shell aliases
@@ -222,24 +219,22 @@ Other dotfiles that I learned / copy from:
 - [mrusme/dotfiles](https://github.com/mrusme/dotfiles)
 
 <!-- Links -->
-[Hyprland]: https://github.com/hyprwm/Hyprland
-[Kitty]: https://github.com/kovidgoyal/kitty
-[Waybar]: https://github.com/Alexays/Waybar
+[hyprland]: https://github.com/hyprwm/Hyprland
+[kitty]: https://github.com/kovidgoyal/kitty
+[waybar]: https://github.com/Alexays/Waybar
 [bemenu]: https://github.com/Cloudef/bemenu
 [zsh]: https://ohmyz.sh/
 [swaylock]: https://github.com/swaywm/swaylock
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]:https://vscodium.com/
-[Neovim]: https://github.com/neovim/neovim
+[neovim]: https://github.com/neovim/neovim
 [grimblast]: https://github.com/hyprwm/contrib
 [htop]: https://github.com/htop-dev/htop
 [thunar]: https://docs.xfce.org/xfce/thunar/start
 [nsxiv]: https://nsxiv.codeberg.page
-[mako]: https://github.com/emersion/mako
+[swaync]: https://github.com/ErikReider/SwayNotificationCenter
 [nerd fonts]: https://github.com/ryanoasis/nerd-fonts
-[NetworkManager]: https://wiki.gnome.org/Projects/NetworkManager
+[networkmanager]: https://wiki.gnome.org/Projects/NetworkManager
 [network-manager-applet]: https://gitlab.gnome.org/GNOME/network-manager-applet/
 [wl-clip-persist]: https://github.com/Linus789/wl-clip-persist
 [hyprpicker]: https://github.com/hyprwm/hyprpicker
-[catppuccin]: https://github.com/catppuccin/catppuccin
-[catppuccin-papirus-folders]: https://github.com/catppuccin/papirus-folders
