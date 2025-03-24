@@ -1,18 +1,16 @@
-{ ... }:
-
-{
+{ config, ... }: {
   services.scrutiny = {
     enable = true;
     collector.enable = true;
     settings.web.listen.port = 8181;
     settings.notify.urls = [
-      "ntfy://notify.liv.town/violet"
+      "ntfy://${config.liv.variables.ntfyURL}/${config.networking.hostName}"
     ];
   };
 
-  services.nginx.virtualHosts."scrutiny.liv.town" = {
-    locations."/" = {
-      proxyPass = "http://localhost:8181/";
-    };
-  };
+  # services.nginx.virtualHosts."" = {
+  #   locations."/" = {
+  #     proxyPass = "http://localhost:8181/";
+  #   };
+  # };
 }
