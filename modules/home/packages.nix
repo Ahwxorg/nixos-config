@@ -24,6 +24,7 @@
     python3
 
     # CLI shit
+    termpdfpy
     vimv
     iamb
     pass
@@ -51,9 +52,8 @@
     spotify-player
     nodejs_22
     yarn
-    # wikit                                           # Wikipedia summaries from the terminal, not added to Nix yet
-    # reader                                          # Firefox reader mode but in the terminal, not added to Nix yet
-    # pastel                                          # generate, analyze, convert and manipulate colors
+    # wikit
+    # reader
 
     # GUI shit
     element-desktop
