@@ -1,2 +1,3 @@
 secrets/
 modules/services/matrix/default.nix
+result
