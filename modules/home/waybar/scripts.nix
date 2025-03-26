@@ -144,6 +144,14 @@
       #   '';
       # };
     };
+    "/home/${username}/.local/bin/waybar-minutes" = {
+      executable = true;
+      text = ''
+        #!/bin/sh
+
+        echo $(( (24 - $(date +%H)) * 60 - $(date +%M) ))
+      '';
+    };
   };
   home.packages = with pkgs; [
     wf-recorder

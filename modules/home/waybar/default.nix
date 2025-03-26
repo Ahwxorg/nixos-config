@@ -268,14 +268,14 @@
               "critical": 10
             },
             "format-time": "{H}:{m}",
-            "format": "{icon}  {time} <span color='#aaaaaa'>{capacity}%</span>",
-            "format-discharging": "{icon}  <span color='#aaaaaa'>{capacity}%</span>",
-            "format-discharging-warning": "{icon}  <span color='#FF5F1F'>{capacity}%</span>",
-            "format-discharging-critical": "{icon}  <span color='#FF3131'>{capacity}%</span>",
-            "format-charging": "{icon}  <span color='#DAF7A6'>{capacity}%</span><span color='#aaaaaa'> @ {power:2.0f}W</span>",
-            "format-full": "󱐥  <span color='#aaaaaa'>{capacity}%</span>",
-            "format-not-charging": "󱐤  <span color='#aaaaaa'>{capacity}%</span>",
-            "format-icons": ["", "", "", "", ""],
+            "format": "{icon}   {time} <span color='#aaaaaa'>{capacity}%</span>",
+            "format-discharging": "{icon}   <span color='#aaaaaa'>{capacity}%</span>",
+            "format-discharging-warning": "{icon}   <span color='#FF5F1F'>{capacity}%</span>",
+            "format-discharging-critical": "{icon}   <span color='#FF3131'>{capacity}%</span>",
+            "format-charging": "{icon}   <span color='#DAF7A6'>{capacity}%</span><span color='#aaaaaa'> @ {power:2.0f}W</span>",
+            "format-full": "󱐥   <span color='#aaaaaa'>{capacity}%</span>",
+            "format-not-charging": "󱐤   <span color='#aaaaaa'>{capacity}%</span>",
+            "format-icons": [" ", " ", " ", " ", " "],
           },
         
           "custom/notification": {
@@ -301,7 +301,7 @@
         
           "group/clock": {
             "orientation": "horizontal",
-            "modules": [ "clock#time", "clock#date" ],
+            "modules": [ "custom/clock#minutes", "clock#time", "clock#date" ],
             "drawer": {
               "transition-left-to-right": false,
               "transition-duration": 500
@@ -334,18 +334,18 @@
         
           "clock#time": {
             "interval": 60,
-            "format": "   <span color='#aaaaaa'>{:%I:%M %p (%Z)}</span>",
-            "tooltip": true,
-            "tooltip-format": "{tz_list}",
-            "timezones": [
-                "Europe/Amsterdam",
-            ],
+            "format": "   {:%I:%M %p}",
             "actions":  {
               "on-scroll-up": "tz_up",
               "on-scroll-down": "tz_down"
             }
+          },
+
+          "custom/clock#minutes": {
+            "interval": 60,
+            "format": "   <span color='#aaaaaa'>{}</span>  ",
+            "exec": "~/.local/bin/waybar-minutes"
           }
-        
         }
         ]
       '';
