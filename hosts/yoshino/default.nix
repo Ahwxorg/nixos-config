@@ -17,6 +17,7 @@
     desktop.enable = true;
     creative.enable = true;
     amdgpu.enable = true;
+    wine.enable = true;
   };
 
   networking = {
