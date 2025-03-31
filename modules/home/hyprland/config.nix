@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   fonts.fontconfig.enable = true;
   home.packages = [
@@ -34,7 +34,7 @@
       size = 24;
     };
   };
-  
+
   home.pointerCursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
@@ -111,7 +111,7 @@
         };
       };
 
-      gestures = { 
+      gestures = {
         workspace_swipe = true;
         workspace_swipe_invert = true;
       };
@@ -216,7 +216,7 @@
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER SHIFT, L, exec, swaylock"
+        "SUPER SHIFT, L, exec, hyprlock"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C ,exec, hyprpicker -a"
@@ -232,7 +232,7 @@
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
-        "$mainMod SHIFT, N ,exec, notes"  # should be added by scripts/custom packages
+        "$mainMod SHIFT, N ,exec, notes" # should be added by scripts/custom packages
         "$mainMod, N,exec, swaync-client -t"
 
         # screenshot
@@ -245,7 +245,7 @@
         "$mainMod, L, movefocus, r"
         "$mainMod, K, movefocus, u"
         "$mainMod, J, movefocus, d"
-        
+
         "$mainMod SHIFT, H, movewindow, l"
         "$mainMod SHIFT, L, movewindow, r"
         "$mainMod SHIFT, K, movewindow, u"
