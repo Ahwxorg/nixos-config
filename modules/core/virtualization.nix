@@ -1,4 +1,4 @@
-{ ... }:
 {
-  virtualisation.vmware.host.enable = true;
+  # Causes issues for now :p
+  # virtualisation.vmware.host.enable = true;
 }
