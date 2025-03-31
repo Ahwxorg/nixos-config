@@ -1,10 +1,10 @@
-{ ... }: 
+{ ... }:
 {
   programs.kitty = {
     enable = true;
 
-    theme = "Atelier Cave Dark";
-    
+    theme = "3024 Night";
+
     font = {
       name = "JetBrainsMono Nerd Font";
       size = 9;
@@ -12,12 +12,12 @@
 
     settings = {
       confirm_os_window_close = 0;
-      background_opacity = "0.75";  
+      background_opacity = "0.75";
       window_padding_width = 10;
       scrollback_lines = 10000;
       enable_audio_bell = false;
       mouse_hide_wait = 60;
-      
+
       ## Tabs
       tab_title_template = "{index}";
       active_tab_font_style = "normal";
@@ -30,7 +30,7 @@
       inactive_tab_background = "#313244";
     };
 
-    keybindings = {  
+    keybindings = {
       ## Unbind
       "ctrl+shift+left" = "no_op";
       "ctrl+shift+right" = "no_op";
