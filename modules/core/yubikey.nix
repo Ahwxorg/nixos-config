@@ -1,5 +1,11 @@
-{ pkgs, inputs, config, username, host, ...}:
-
+{
+  pkgs,
+  inputs,
+  config,
+  username,
+  host,
+  ...
+}:
 {
   services.udev.packages = [ pkgs.yubikey-personalization ];
 
@@ -17,11 +23,11 @@
       sudo.u2fAuth = true;
       swaylock.fprintAuth = if (host == "sakura") then true else false;
       # No longer using Hyprlock, might stay here for if I ever switch to it again.
-      # hyprlock.u2fAuth = true;
-      # hyprlock.fprintAuth = if (host == "sakura") then true else false;
+      hyprlock.u2fAuth = true;
+      hyprlock.fprintAuth = if (host == "sakura") then true else false;
     };
   };
-  
+
   services.fprintd.enable = if (host == "sakura") then true else false;
 
   environment.systemPackages = with pkgs; [
