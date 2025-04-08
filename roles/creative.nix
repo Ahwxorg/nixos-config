@@ -16,6 +16,7 @@ in {
           audacity
           obs-studio
           kdePackages.kdenlive
+          orca-slicer
         ];
       };
     };
