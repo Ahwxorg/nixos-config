@@ -12,17 +12,24 @@ in {
       graphics = {
         enable = true;
       };
-      enableRedistributableFirmware = true;
       opengl = {
         extraPackages = with pkgs; [
+          mesa
+          libva
+          libvdpau-va-gl
+          vulkan-loader
+          vulkan-validation-layers
           amdvlk
+          mesa.opencl
         ];
-        # For 32 bit applications as well
         extraPackages32 = with pkgs; [
-          driversi686Linux.amdvlk
+          driversi686Linux.amdvlk # Install amdvlk for 32 bit applications as well
         ];
       };
+      enableRedistributableFirmware = true;
     };
+    
+    boot.initrd.kernelModules=[ "amdgpu" ];
 
     environment.systemPackages = with pkgs; [
       amdvlk
