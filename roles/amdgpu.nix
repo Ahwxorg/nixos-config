@@ -1,8 +1,14 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.amdgpu;
-in {
+in
+{
   options.liv.amdgpu = {
     enable = mkEnableOption "Enable amdgpu drivers";
   };
@@ -11,8 +17,6 @@ in {
     hardware = {
       graphics = {
         enable = true;
-      };
-      opengl = {
         extraPackages = with pkgs; [
           mesa
           libva
@@ -28,8 +32,8 @@ in {
       };
       enableRedistributableFirmware = true;
     };
-    
-    boot.initrd.kernelModules=[ "amdgpu" ];
+
+    boot.initrd.kernelModules = [ "amdgpu" ];
 
     environment.systemPackages = with pkgs; [
       amdvlk
