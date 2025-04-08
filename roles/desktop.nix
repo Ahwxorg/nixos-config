@@ -1,8 +1,16 @@
-{ lib, pkgs, config, username, home-manager, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.desktop;
-in {
+in
+{
   options.liv.desktop = {
     enable = mkEnableOption "Enable desktop";
   };
@@ -12,6 +20,7 @@ in {
       users.${username} = {
         home.packages = with pkgs; [
           # Home packages
+          swaylock
         ];
       };
     };
@@ -19,22 +28,21 @@ in {
     networking.networkmanager.enable = true;
 
     boot = {
-      kernelModules = ["acpi_call"];
-      extraModulePackages = with config.boot.kernelPackages;
-        [
-          acpi_call
-        ];
-      };
-    services = {    
+      kernelModules = [ "acpi_call" ];
+      extraModulePackages = with config.boot.kernelPackages; [
+        acpi_call
+      ];
+    };
+    services = {
       thermald.enable = true;
-      hardware.openrgb = { 
-        enable = true; 
-        package = pkgs.openrgb-with-all-plugins; 
-        motherboard = "amd"; 
-        server = { 
-          port = 6742; 
-          # autoStart = true; 
-        }; 
+      hardware.openrgb = {
+        enable = true;
+        package = pkgs.openrgb-with-all-plugins;
+        motherboard = "amd";
+        server = {
+          port = 6742;
+          # autoStart = true;
+        };
       };
     };
   };
