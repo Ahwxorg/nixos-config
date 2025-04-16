@@ -122,7 +122,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
+        # "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
+        "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
         no_border_on_floating = false;
       };
