@@ -77,7 +77,7 @@
         # WEATHER 
         label {
             monitor =
-            text = cmd[update:1000] echo "$(bash /home/${username}/.local/bin/weather.sh)"
+            text = cmd[update:6000000] echo "$(bash /home/${username}/.local/bin/weather.sh)"
             color = rgba(255, 255, 255, 1)
             font_size = 10
             font_family = JetBrains Mono Nerd Font Mono ExtraBold
