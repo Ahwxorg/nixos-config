@@ -1,8 +1,14 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.amdgpu;
-in {
+in
+{
   options.liv.amdgpu = {
     enable = mkEnableOption "Enable amdgpu drivers";
   };
@@ -11,18 +17,23 @@ in {
     hardware = {
       graphics = {
         enable = true;
+        extraPackages = with pkgs; [
+          mesa
+          libva
+          libvdpau-va-gl
+          vulkan-loader
+          vulkan-validation-layers
+          amdvlk
+          mesa.opencl
+        ];
+        extraPackages32 = with pkgs; [
+          driversi686Linux.amdvlk # Install amdvlk for 32 bit applications as well
+        ];
       };
       enableRedistributableFirmware = true;
-      opengl = {
-        extraPackages = with pkgs; [
-          amdvlk
-        ];
-        # For 32 bit applications as well
-        extraPackages32 = with pkgs; [
-          driversi686Linux.amdvlk
-        ];
-      };
     };
+
+    boot.initrd.kernelModules = [ "amdgpu" ];
 
     environment.systemPackages = with pkgs; [
       amdvlk

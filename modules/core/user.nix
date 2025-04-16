@@ -13,8 +13,8 @@
           [ ./../home/default.server.nix ]
         else if (host == "dandelion") then
           [ ./../home/default.server.nix ]
-        else if (host == "yoshino") then
-          [ ./../home/default.yoshino.nix ]
+        # else if (host == "yoshino") then
+          # [ ./../home/default.nix ]
         else [ ./../home ];
         home = {
           username = "${username}";
