@@ -122,7 +122,8 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
+        # "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
+        "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
         no_border_on_floating = false;
       };
@@ -315,31 +316,20 @@
 
       # windowrule
       windowrule = [
-        "float,imv"
-        "center,imv"
-        "size 1200 725,imv"
-        "float,mpv"
-        "center,mpv"
-        "tile,Aseprite"
-        "size 1200 725,mpv"
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
-        "float,audacious"
-        "workspace 8 silent, audacious"
-        "tile, neovide"
-        "idleinhibit focus,mpv"
-        "float,udiskie"
-        "float,title:^(Transmission)$"
+        "idleinhibit focus,title:(mpv)$"
+        "float,title:^(udiskie)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Librewolf — Sharing Indicator)$"
         "move 0 0,title:^(Librewolf — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
-        "workspace 10, thunderbird"
-        "workspace 8, nheko"
-        "workspace 8, element-desktop"
-        "workspace 9, spotify"
+        "workspace 10, title:^(thunderbird)$"
+        "workspace 8, title:^(nheko)$"
+        "workspace 8, title:^(element-desktop)$"
+        "workspace 9, title:^(spotify)$"
       ];
 
       # windowrulev2
@@ -350,7 +340,6 @@
         "pin, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
         "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "opacity 1.0 override 1.0 override, class:(Aseprite)"
         "opacity 1.0 override 1.0 override, class:(Unity)"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit fullscreen, class:^(librewolf)$"
