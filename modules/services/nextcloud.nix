@@ -1,6 +1,7 @@
-{ ... }: {
+{ ... }:
+{
   services.nextcloud = {
-    enable = true;
+    enable = false;
     config.dbtype = "sqlite";
     configureRedis = true;
     home = "/home/liv/nextcloud";
