@@ -1,10 +1,12 @@
-{ config, ... }: {
+{ config, ... }:
+{
   services.scrutiny = {
     enable = true;
     collector.enable = true;
     settings.web.listen.port = 8181;
     settings.notify.urls = [
-      "ntfy://${config.liv.variables.ntfyURL}/${config.networking.hostName}"
+      # "ntfy://${config.liv.variables.ntfyURL}/${config.networking.hostName}"
+      "ntfy://notify.liv.town/${config.networking.hostName}"
     ];
   };
 
