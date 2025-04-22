@@ -1,8 +1,16 @@
-{ lib, pkgs, config, username, home-manager, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.server;
-in {
+in
+{
   options.liv.server = {
     enable = mkEnableOption "Enable server";
   };
@@ -12,9 +20,10 @@ in {
       pkgs.kitty.terminfo
       powertop
     ];
-    
-    services = {    
+
+    services = {
       thermald.enable = true;
+      vnstat.enable = true;
       # cpupower-gui.enable = true;
       # power-profiles-daemon.enable = true;
 
