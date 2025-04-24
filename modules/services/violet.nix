@@ -7,6 +7,7 @@
     ++ [ (import ./sharkey-proxy.nix) ]
     ++ [ (import ./librey-proxy.nix) ]
     ++ [ (import ./binternet-proxy.nix) ]
+    ++ [ (import ./grafana.nix) ]
     ++ [ (import ./monitoring.nix) ]
     ++ [ (import ./docker.nix) ]
     ++ [ (import ./gokapi.nix) ]

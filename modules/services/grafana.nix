@@ -18,5 +18,5 @@
         proxyWebsockets = true;
       };
     };
-  }:
+  };
 }
