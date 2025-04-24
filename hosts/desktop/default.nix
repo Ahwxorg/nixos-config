@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,5 +10,6 @@
     "olm-3.2.16"
   ];
 
-  liv.desktop = true;
+  liv.desktop.enable = true;
+  liv.gui.enable = true;
 }

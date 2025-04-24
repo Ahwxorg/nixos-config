@@ -31,6 +31,7 @@
     desktop.enable = false;
     creative.enable = true;
     amdgpu.enable = true;
+    gui.enable = true;
   };
 
   services.hardware.bolt.enable = true;

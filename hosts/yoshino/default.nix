@@ -1,4 +1,10 @@
-{ inputs, pkgs, config, lib, ... }: 
+{
+  inputs,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -6,7 +12,7 @@
     # ./../../modules/home/nfs.nix
     ./../../modules/core/virtualization.nix
   ];
-  
+
   powerManagement = {
     enable = true;
     # powertop.enable = true;
@@ -18,6 +24,7 @@
     creative.enable = true;
     amdgpu.enable = true;
     wine.enable = true;
+    gui.enable = true;
   };
 
   networking = {
@@ -27,19 +34,20 @@
 
   boot = {
     kernelParams = [ ];
-    kernelModules = ["acpi_call"];
+    kernelModules = [ "acpi_call" ];
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
     };
-    extraModulePackages = with config.boot.kernelPackages;
+    extraModulePackages =
+      with config.boot.kernelPackages;
       [
         acpi_call
         cpupower
         v4l2loopback
       ]
-      ++ [pkgs.cpupower-gui];
-    };
+      ++ [ pkgs.cpupower-gui ];
+  };
 }
