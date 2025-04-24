@@ -5,5 +5,5 @@
     ++ [ (import ./immich.nix) ]
     ++ [ (import ./nextcloud.nix) ]
     ++ [ (import ./home-assistant.nix) ]
-    ++ [ (import ./scrutiny.nix) ];
+    ++ [ (import ./smart-monitoring.nix) ];
 }

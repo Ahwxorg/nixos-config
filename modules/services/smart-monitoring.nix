@@ -10,6 +10,19 @@
     ];
   };
 
+  services.smartd = {
+    enable = true;
+    autodetect = true;
+    notifications = {
+      mail = {
+        enable = true;
+        # mailer = "/path/to/mailer/binary";
+        sender = "${config.liv.variables.fromEmail}";
+        recipient = "${config.liv.variables.toEmail}";
+      };
+    };
+  };
+
   # services.nginx.virtualHosts."" = {
   #   locations."/" = {
   #     proxyPass = "http://localhost:8181/";
