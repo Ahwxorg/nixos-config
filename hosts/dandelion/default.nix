@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -8,6 +8,8 @@
   ];
 
   networking.hostName = "dandelion";
+
+  liv.server.enable = true;
 
   nixpkgs.config.permittedInsecurePackages = [
     "jitsi-meet-1.0.8043"
@@ -36,7 +38,7 @@
     trim.enable = true;
   };
 
-  boot.zfs.extraPools = [ "terrabite" ];
+  # boot.zfs.extraPools = [ "terrabite" ];
 
   # fileSystems."/terrabite/main" = {
   #   device = "terrabite/main";
