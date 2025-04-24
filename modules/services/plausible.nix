@@ -3,7 +3,7 @@
   ...
 }:
 let
-  domain = "statistics.liv.town";
+  domain = "analyze.liv.town";
 in
 {
   services = {
@@ -28,7 +28,7 @@ in
 
       server = {
         baseUrl = "https://${domain}";
-        # secretKeybaseFile = config.age.secrets.plausibleSecretKeybase.path;
+        secretKeybaseFile = "/home/liv/secrets/plausibleKeybaseFile";
       };
     };
   };
