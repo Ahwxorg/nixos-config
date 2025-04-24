@@ -18,6 +18,7 @@ in
       enableRedistributableFirmware = true;
       graphics = {
         enable = true;
+        nvidia.open = false; # Set to false/true for proprietary/open drivers
         extraPackages = with pkgs; [
           # amdvlk
         ];

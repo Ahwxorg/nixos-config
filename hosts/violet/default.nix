@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
@@ -19,10 +24,9 @@
     pkgs.kitty.terminfo
   ];
 
-  # NVIDIA drivers
-  hardware = {
-    graphics.enable = true;
-    nvidia.open = false; # Set to false/true for proprietary/open drivers
+  services.smartd = {
+    enable = lib.mkForce false;
+    autodetect = lib.mkForce false;
   };
 
   liv.nvidia.enable = true;
