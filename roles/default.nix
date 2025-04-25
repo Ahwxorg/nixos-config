@@ -7,5 +7,6 @@
     ++ [ (import ./server.nix) ]
     ++ [ (import ./desktop.nix) ]
     ++ [ (import ./wine.nix) ]
-    ++ [ (import ./creative.nix) ];
+    ++ [ (import ./creative.nix) ]
+    ++ [ (import ./gui.nix) ];
 }
