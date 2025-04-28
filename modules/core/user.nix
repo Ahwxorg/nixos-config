@@ -36,6 +36,8 @@
     };
   };
 
+  users.groups.gay = { };
+
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -44,6 +46,7 @@
       "wheel"
       "docker"
       "input"
+      "gay"
     ];
     shell = pkgs.zsh;
   };
