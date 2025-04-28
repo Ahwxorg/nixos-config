@@ -1,4 +1,10 @@
-{ hostname, config, pkgs, host, ...}: 
+{
+  hostname,
+  config,
+  pkgs,
+  host,
+  ...
+}:
 {
   programs = {
     zsh = {
@@ -27,7 +33,7 @@
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
       };
 
-      initExtra = ''
+      initContent = ''
         autoload -U add-zsh-hook
         autoload -U compinit
         zmodload zsh/complist
@@ -40,7 +46,7 @@
         autoload edit-command-line
         zle -N edit-command-line
         bindkey '^Xe' edit-command-line
-        
+
         # History stuff
         setopt append_history
         setopt inc_append_history
@@ -48,7 +54,7 @@
         setopt extended_history
         setopt hist_reduce_blanks
         setopt hist_ignore_space
-        
+
         # Disable annoying beep
         setopt no_beep
         # Fix comments
@@ -66,7 +72,7 @@
           zle backward-delete-word
         }
         zle -N backward-delete-word-but-better
-        
+
         bindkey '\e^?' backward-delete-word-but-better
 
         # Completions
@@ -116,27 +122,27 @@
       zsh-abbr = {
         enable = true;
         abbreviations = {
-          mkdir="mkdir -p";
-          vim="nvim";
-          v="nvim";
-          vi="nvim";
-          nv="nvim";
-          nvi="nvim";
-          gc="git clone";
-          ga="git add .";
-          gcm="git commit -m";
-          gph="git push -u origin main";
-          g="git";
+          mkdir = "mkdir -p";
+          vim = "nvim";
+          v = "nvim";
+          vi = "nvim";
+          nv = "nvim";
+          nvi = "nvim";
+          gc = "git clone";
+          ga = "git add .";
+          gcm = "git commit -m";
+          gph = "git push -u origin main";
+          g = "git";
 
-          calc="eva";
-          wikipedia="wikit";
+          calc = "eva";
+          wikipedia = "wikit";
         };
       };
 
       # setOptions = [
       #   # Corrections
       #   "CORRECT"
-      #   
+      #
       #   # History stuff
       #   "APPEND_HISTORY"
       #   "INC_APPEND_HOSTORY"
@@ -144,7 +150,7 @@
       #   "EXTENDED_HISTORY"
       #   "HIST_REDUCT_BLANKS"
       #   "HIST_IGNORE_SPACE"
-      #   
+      #
       #   # Disable annoying beep
       #   "NO_BEEP"
       #   # Fix comments
@@ -202,9 +208,9 @@
     };
 
     fzf = {
-        enable = true;
-        enableZshIntegration = true;
-      };
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     zoxide = {
       enable = true;
