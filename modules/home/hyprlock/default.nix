@@ -20,6 +20,15 @@
           text_trim = true
         }
 
+        auth {
+            fingerprint {
+                enabled = true
+                ready_message = Scan fingerprint to unlock
+                present_message = Scanning...
+                retry_delay = 250 # in milliseconds
+            }
+        }
+
         #BACKGROUND
         background {
             monitor = 
@@ -99,7 +108,7 @@
             font_color = rgba(200, 200, 200, 1)
             fade_on_empty = false
             font_family = JetBrains Mono Nerd Font Mono
-            placeholder_text = <span foreground="##cdd6f4"> $USER</span>
+            placeholder_text = <span foreground="##cdd6f4"> </span>
             hide_input = false
             position = 0, -470
             halign = center
