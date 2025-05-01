@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...}: 
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     # swww
@@ -24,7 +24,7 @@
     systemd.enable = true;
     plugins = [
       # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
+      # inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
     ];
   };
 }
