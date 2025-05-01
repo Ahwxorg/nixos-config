@@ -41,8 +41,9 @@
 ### Layout
 
 - [flake.nix](flake.nix): base of the configuration
-- [hosts](hosts): per-host configurations that contain machine specific configurations
-  - [desktop](hosts/yoshino/): Desktop (yoshino) specific configuration
+- [variables.nix](variables.nix): base variables useful for all hosts
+- [hosts](hosts): per-host configurations that contain host specific settings
+  - [yoshino](hosts/yoshino/): Desktop (yoshino) specific configuration
   - [sakura](hosts/sakura/): Laptop (sakura) specific configuration
   - [ichiyo](hosts/ichiyo/): Laptop (ichiyo) specific configuration
   - [violet](hosts/violet/): Server (violet) specific configuration
@@ -52,7 +53,7 @@
   - [homes](modules/home/): my [Home-Manager](https://github.com/nix-community/home-manager) config
   - [services](modules/services/): services ran on my servers
 - [pkgs](flake/pkgs): packages exported by my flake
-- [wallpapers](wallpapers/): wallpaper collection
+- [roles](roles/): roles to easier define tasks per host
 
 ### Components
 
@@ -69,7 +70,7 @@
 | **File manager**            |          [thunar][thunar]          |
 | **Fonts**                   |      [nerd fonts][nerd fonts]      |
 | **Lockscreen**              |        [hyprlock][hyprlock]        |
-| **Image viewer**            |       [nsxiv][nsxiv] + [imv]       |
+| **Image viewer**            |           [nsxiv][nsxiv]           |
 | **Media player**            |             [mpv][mpv]             |
 | **Screenshot software**     |       [grimblast][grimblast]       |
 | **Clipboard**               | [wl-clip-persist][wl-clip-persist] |
@@ -82,13 +83,10 @@
 NixOS (expand)
 </summary>
 
-> TODO: ${host} is either `desktop` or `laptop`
+> TODO: ${host} is one of the above-defined hosts
 
-- `cdnix` $\rightarrow$ `cd ~/nixos-config && codium ~/nixos-config`
 - `ns` $\rightarrow$ `nix-shell --run zsh`
 - `nix-switch` $\rightarrow$ `sudo nixos-rebuild switch --flake ~/nixos-config#${host}`
-- `nix-switchu` $\rightarrow$ `sudo nixos-rebuild switch --upgrade --flake ~/nixos-config#${host}`
-- `nix-flake-update` $\rightarrow$ `sudo nix flake update ~/nixos-config#`
 - `nix-clean` $\rightarrow$ `sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d`
 </details>
 
@@ -119,15 +117,6 @@ toggle_oppacity.sh
 </details>
 
 <details>
-<summary>
-runbg.sh 
-</summary>
-
-**Description:** This script runs a provided command along with its arguments and detaches it from the terminal. Handy for launching apps from the command line without blocking it.
-
-**Usage:** `runbg <command> <arg1> <arg2> <...>`
-
-</details>
 
 # Installation
 
@@ -142,19 +131,17 @@ runbg.sh
 
    First install nixos using any [graphical ISO image](https://nixos.org/download.html#nixos-iso).
 
-   > Only been tested using the Gnome graphical installer and choosing the `No desktop` option durring instalation.
-
 2. **Clone the repo**
 
    ```
    nix-shell -p git
-   git clone https://github.com/Frost-Phoenix/nixos-config
+   git clone https://github.com/ahwxorg/nixos-config
    cd nixos-config
    ```
 
 3. **Install script**
 
-   > First make sure to read the install script, it isn't long
+   > TODO: change the install script to work with all hosts, allow for new host creation, etc.
 
    Execute and follow the installation script :
 
@@ -162,62 +149,11 @@ runbg.sh
    ./install.sh
    ```
 
-   > You will need to change the git account yourself in ./modules/home/git.nix
-
-   ```
-      programs.git = {
-         ...
-         userName = "Frost-Phoenix";
-         userEmail = "67cyril6767@gmail.com";
-         ...
-      };
-   ```
-
 4. **Reboot**
 
 5. **Manual config**
 
-   Even though I use home manager, there is still a little bit of manual configuration to do:
-
-   - Set Aseprite theme (they are in the folder `./nixos-config/modules/home/aseprite/themes`).
-   - Enable Discord theme (in Discord settings under VENCORD > Themes).
-   - Configure the browser (for now, all browser configuration is done manually).
-
-### Install script walkthrough
-
-A brief walkthrough of what the install script does.
-
-1. **Get username**
-
-   You will receive a prompt to enter your username, with a confirmation check.
-
-2. **Set username**
-
-   The script will replace all occurancies of the default usename `CURRENT_USERNAME` by the given one stored in `$username`
-
-3. Create basic directories
-
-   The following directories will be created:
-
-   - `~/Music`
-   - `~/Documents`
-   - `~/Pictures/wallpapers/others`
-
-4. Copy the wallpapers
-
-   Then the wallpapers will be copied into `~/Pictures/wallpapers/others` which is the folder in which the `wallpaper-picker.sh` script will be looking for them.
-
-5. Get the hardware configuration
-
-   It will also automatically copy the hardware configuration from `/etc/nixos/hardware-configuration.nix` to `./hosts/nixos/hardware-configuration.nix` so that the hardware configuration used is yours and not the default one.
-
-6. Choose a host (desktop / laptop)
-
-   Now you will need to choose the host you want. It depend on whether you are using a desktop or laptop.
-
-7. Build the system
-
-   Lastly, it will build the system, which includes both the flake config and home-manager config.
+> Even though I use home manager, there is still a little bit of manual configuration to do, namely SSH keys and browser configuration.
 
 # 👥 Credits
 
@@ -225,7 +161,6 @@ Other dotfiles that I learned / copy from:
 
 - [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config): This is the repository that I cloned and changed to my needs. Their credits are in their repository's readme.
 - [notthebee/nix-config](https://github.com/notthebee/nix-config)
-- [Ruixi-rebirth/melted-flakes](https://github.com/Ruixi-rebirth/melted-flakes): Waybar configuration mostly
 - [mrusme/dotfiles](https://github.com/mrusme/dotfiles)
 
 <!-- Links -->
@@ -234,7 +169,7 @@ Other dotfiles that I learned / copy from:
 [kitty]: https://github.com/kovidgoyal/kitty
 [waybar]: https://github.com/Alexays/Waybar
 [bemenu]: https://github.com/Cloudef/bemenu
-[zsh]: https://ohmyz.sh/
+[zsh]: https://en.wikipedia.org/wiki/Z_shell
 [hyprlock]: https://github.com/hyprwm/hyprlock
 [mpv]: https://github.com/mpv-player/mpv
 [VSCodium]: https://vscodium.com/
