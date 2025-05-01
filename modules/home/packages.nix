@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: 
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     # Environment shit
@@ -16,6 +16,7 @@
     cliphist
     poweralertd
     ffmpeg
+    zip
     unzip
     wget
     xxd
@@ -37,7 +38,6 @@
     exiftool
     translate-shell
     progress
-    zip
     pwgen
     jq
     tmux
@@ -52,8 +52,10 @@
     spotify-player
     nodejs_22
     yarn
-    # wikit
-    # reader
+    cargo
+    rustc
+    wikit
+    reader
 
     # GUI shit
     element-desktop
@@ -82,6 +84,6 @@
     neomutt
     khard
     khal
-    w3m
+    vdirsyncer
   ];
 }
