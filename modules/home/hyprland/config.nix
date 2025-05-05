@@ -6,6 +6,7 @@
     # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     pkgs.twemoji-color-font
     pkgs.noto-fonts-emoji
+    pkgs.swww
   ];
 
   gtk = {
@@ -92,7 +93,7 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
         "wl-clip-persist --clipboard both"
-        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+        "swww-daemon &"
         "poweralertd &"
         "waybar &"
         "swaync &"
@@ -319,17 +320,11 @@
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
-        "idleinhibit focus,title:(mpv)$"
-        "float,title:^(udiskie)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Librewolf — Sharing Indicator)$"
         "move 0 0,title:^(Librewolf — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
-        "workspace 10, title:^(thunderbird)$"
-        "workspace 8, title:^(nheko)$"
-        "workspace 8, title:^(element-desktop)$"
-        "workspace 9, title:^(spotify)$"
       ];
 
       # windowrulev2
@@ -340,7 +335,6 @@
         "pin, title:^(Picture-in-Picture)$"
         "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
         "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "opacity 1.0 override 1.0 override, class:(Unity)"
         "idleinhibit focus, class:^(mpv)$"
         "idleinhibit fullscreen, class:^(librewolf)$"
         "float,class:^(pavucontrol-qt)$"
@@ -364,11 +358,11 @@
 
     extraConfig = "
       # If desktop
-      # input:accel_profile=flat
+      input:accel_profile=flat
 
-      # input {
-      #   force_no_accel = true
-      # }
+      input {
+        force_no_accel = true
+      }
 
       monitor=,preferred,auto,auto
 
