@@ -13,5 +13,6 @@
     ++ [ (import ./scripts/scripts.nix) ]
     ++ [ (import ./waybar) ]
     ++ [ (import ./zsh.nix) ]
+    ++ [ (import ./qutebrowser.nix) ]
     ++ [ (import ./tmux.nix) ];
 }
