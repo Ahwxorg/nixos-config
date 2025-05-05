@@ -2,7 +2,7 @@
 
 {
   home.file = {
-    "/home/${username}/.config/sxiv/exec/key-handler" = {
+    "/home/${username}/.config/nsxiv/exec/key-handler" = {
       executable = true;
       text = ''
         #!/bin/sh
@@ -19,19 +19,19 @@
     "/home/${username}/.local/bin/setbg" = {
       executable = true;
       text = ''
-        #!/bin/sh
+        #!/usr/bin/env bash
 
-        convert "$1" ~/.local/share/bg.png
+        magick convert "$1" ~/.local/share/bg.png
         swww img ~/.local/share/bg.png --transition-type fade
       '';
     };
     "/home/${username}/.local/bin/walp" = {
       executable = true;
       text = ''
-        #!/bin/sh
+        #!/usr/bin/env bash
 
         which swiv &>/dev/null && SIV=swiv || SIV=nsxiv # todo: switch to swiv, but that is not packaged for Nix yet.
-        $SIV -t ~/Pictures/wallpapers/other/*
+        $SIV -t ~/Pictures/wallpapers/others/*
       '';
     };
   };
