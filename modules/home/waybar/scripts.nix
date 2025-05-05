@@ -52,7 +52,7 @@
 
         output_off="{\"text\": \"<span color='#aaaaaa'></span>\", \"tooltip\": \"Not recording\", \"alt\": \"\", \"class\": \"\" }"
         output_rec="{\"text\": \"<span color='#e98989'></span>\", \"tooltip\": \"Recording\", \"alt\": \"\", \"class\": \"\" }"
-        
+
         pidof wf-recorder > /dev/null 2>&1
         if [ $? -eq 0 ]
         then
@@ -86,57 +86,57 @@
     "/home/${username}/.local/bin/waybar-bluetooth" = {
       executable = true;
       text = ''
-      #!/usr/bin/env zsh
+        #!/usr/bin/env zsh
 
-      typeset -A known=(
-        'headphones' '38:18:4C:D1:AE:48'
-        'airpods' '2C:18:09:EF:BD:11'
-      )
-      
-      function get_addr_or_fail () {
-        if [ "$known[$1]" = "" ]
-        then
-          printf 'No device specified\n'
-          exit 1 
-        fi
-        printf "$known[$1]"
-      }
-      
-      case "$1" in
-        "list")
-          for k v ("''${(@kv)known}") printf "$k\n"
-          ;;
-        "toggle")
-          device=""
-          tmp="$2"
-          if [ "$tmp" = "" ] 
+        typeset -A known=(
+          'headphones' '38:18:4C:D1:AE:48'
+          'airpods' '2C:18:09:EF:BD:11'
+        )
+
+        function get_addr_or_fail () {
+          if [ "$known[$1]" = "" ]
           then
-            tmp=$($0 list | bemenu --ignorecase)
+            printf 'No device specified\n'
+            exit 1 
           fi
-          device=$(get_addr_or_fail "$tmp")
-          is_connected=$(bluetoothctl info $device | grep -i 'connected: yes')
-          if [ "$is_connected" != "" ]
-          then
-            bluetoothctl disconnect $device
-          else
-            bluetoothctl connect $device
-          fi
-          ;;
-        "status")
-          device=$(get_addr_or_fail "$2")
-          is_connected=$(bluetoothctl info $device | grep -i 'connected: yes')
-          if [ "$is_connected" != "" ]
-          then
-            echo "{\"text\": \"Connected\", \"class\": \"custom-btdevice\", \"alt\": \"connected\" }"
-          else 
-            echo "{\"text\": \"Disconnected\", \"class\": \"custom-btdevice\", \"alt\": \"disconnected\" }"
-          fi
-          ;;
-        *)
-          printf "$0 list|toggle <device>|status <device>\n"
-          exit 1
-          ;;
-      esac
+          printf "$known[$1]"
+        }
+
+        case "$1" in
+          "list")
+            for k v ("''${(@kv)known}") printf "$k\n"
+            ;;
+          "toggle")
+            device=""
+            tmp="$2"
+            if [ "$tmp" = "" ] 
+            then
+              tmp=$($0 list | bemenu --ignorecase)
+            fi
+            device=$(get_addr_or_fail "$tmp")
+            is_connected=$(bluetoothctl info $device | grep -i 'connected: yes')
+            if [ "$is_connected" != "" ]
+            then
+              bluetoothctl disconnect $device
+            else
+              bluetoothctl connect $device
+            fi
+            ;;
+          "status")
+            device=$(get_addr_or_fail "$2")
+            is_connected=$(bluetoothctl info $device | grep -i 'connected: yes')
+            if [ "$is_connected" != "" ]
+            then
+              echo "{\"text\": \"Connected\", \"class\": \"custom-btdevice\", \"alt\": \"connected\" }"
+            else 
+              echo "{\"text\": \"Disconnected\", \"class\": \"custom-btdevice\", \"alt\": \"disconnected\" }"
+            fi
+            ;;
+          *)
+            printf "$0 list|toggle <device>|status <device>\n"
+            exit 1
+            ;;
+        esac
       '';
       # "/home/${username}/.local/bin/waybar-cpu" = {
       #   executable = true;
@@ -152,10 +152,35 @@
         echo $(( (24 - $(date +%H)) * 60 - $(date +%M) ))
       '';
     };
+    "/home/${username}/.local/bin/waybar-music" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+
+        class=$(playerctl metadata --player=ncspot --format '{{lc(status)}}')
+
+        if [[ $class == "playing" ]]; then
+          info=$(playerctl metadata --player=ncspot --format '{{artist}} - {{title}}')
+          if [[ $\{#info} > 40 ]]; then
+            info=$(echo $info | cut -c1-40)"..."
+          fi
+          text="$info"
+        elif [[ $class == "paused" ]]; then
+          info=$(playerctl metadata --player=ncspot --format '{{artist}} - {{title}}')
+          if [[ $\{#info} > 40 ]]; then
+            info=$(echo $info | cut -c1-40)"..."
+          fi
+          text=" $info"
+        elif [[ $class == "stopped" ]]; then
+          text=""
+        fi
+
+        echo -e "{\"text\":\""$text"\", \"class\":\""$class"\"}"
+      '';
+    };
   };
   home.packages = with pkgs; [
     wf-recorder
     bemenu
   ];
 }
-
