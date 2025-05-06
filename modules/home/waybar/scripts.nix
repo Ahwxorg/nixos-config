@@ -182,5 +182,6 @@
   home.packages = with pkgs; [
     wf-recorder
     bemenu
+    ncspot
   ];
 }
