@@ -13,19 +13,6 @@
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
-  # Enable fancy boot animations
-  boot.plymouth.enable = true;
-
-  powerManagement = {
-    enable = true;
-    # powertop.enable = true;
-    cpuFreqGovernor = lib.mkDefault "ondemand";
-  };
-
-  environment.systemPackages = with pkgs; [
-    fwupd # Update firmware for Framework Laptop 13
-  ];
-
   liv = {
     laptop.enable = true;
     desktop.enable = false;
@@ -34,12 +21,22 @@
     gui.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [ fwupd ];
+  hardware.framework = {
+    amd-7040.preventWakeOnAC = true;
+    laptop13.audioEnhancement.enable = true;
+  };
   services.hardware.bolt.enable = true;
 
-  hardware.framework.amd-7040.preventWakeOnAC = true;
   networking.hostName = "sakura";
 
+  powerManagement = {
+    enable = true;
+    # powertop.enable = true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
+  };
   boot = {
+    plymouth.enable = true;
     kernelParams = [
       "mem_sleep_default=deep"
       "acpi_osi=\"!Windows 2020\""
