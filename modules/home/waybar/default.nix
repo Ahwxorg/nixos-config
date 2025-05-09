@@ -30,8 +30,8 @@
                                     "privacy",
                                     "network",
                                     "custom/vpn",
-                                    "custom/spotify",
                                     "custom/devices",
+                                    "custom/spotify",
                                     "tray",
                                   ],
 
