@@ -183,32 +183,34 @@
       text = ''
         #!/usr/bin/env bash
 
-        if [[ $(cat /proc/acpi/button/lid/LID0/state | grep "open") ]]; then
-        	LTEXT="󰌢 "
-        else
-        	LTEXT="󰛧 "
+        if [[ "$(hostname)" == "sakura" ]]; then
+          if [[ $(cat /proc/acpi/button/lid/LID0/state | grep "open") ]]; then
+          	LTEXT="󰌢 "
+          else
+          	LTEXT="󰛧 "
+          fi
+
+          MICROPHONE_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n2 | head -n1)"
+          CAMERA_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n1)"
+
+          if [[ "$(echo $MICROPHONE_STATE | grep 'Microphone: Connected')" ]]; then
+          	MIC=1
+          	MTEXT="󰍬 - available!"
+          else
+          	MIC=0
+          	MTEXT=" "
+          fi
+
+          if [[ "$(echo $CAMERA_STATE | grep 'Camera: Connected')" ]]; then
+          	CAM=1
+          	CTEXT="󰄀 - available!"
+          else
+          	CAM=0
+          	CTEXT="󰗟 "
+          fi
+
+          echo "$LTEXT $CTEXT $MTEXT"
         fi
-
-        MICROPHONE_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n2 | head -n1)"
-        CAMERA_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n1)"
-
-        if [[ "$(echo $MICROPHONE_STATE | grep 'Microphone: Connected')" ]]; then
-        	MIC=1
-        	MTEXT="󰍬 - available!"
-        else
-        	MIC=0
-        	MTEXT=" "
-        fi
-
-        if [[ "$(echo $CAMERA_STATE | grep 'Camera: Connected')" ]]; then
-        	CAM=1
-        	CTEXT="󰄀 - available!"
-        else
-        	CAM=0
-        	CTEXT="󰗟 "
-        fi
-
-        echo "$LTEXT $CTEXT $MTEXT"
       '';
     };
     "/home/${username}/.local/bin/waybar-powerdraw" = {
@@ -216,7 +218,7 @@
       text = ''
         #!/usr/bin/env zsh
 
-        if [[ "$(cat /sys/class/power_supply/BAT1/status)" == "Discharging" ]]; then; cat /sys/class/power_supply/BAT1/current_now /sys/class/power_supply/BAT1/voltage_now | xargs | awk '{print $1*$2/1e12 " W"}'; fi
+        if [[ -f /sys/class/power_supply/BAT1/status && "$(cat /sys/class/power_supply/BAT1/status)" == "Discharging" ]]; then; cat /sys/class/power_supply/BAT1/current_now /sys/class/power_supply/BAT1/voltage_now | xargs | awk '{print $1*$2/1e12 " W"}'; fi
       '';
     };
     "/home/${username}/.local/bin/waybar-vpn" = {
