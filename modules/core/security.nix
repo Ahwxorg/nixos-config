@@ -19,6 +19,10 @@
               command = "/etc/profiles/per-user/liv/bin/systemctl";
               options = [ "NOPASSWD" ];
             }
+            {
+              command = "/home/liv/.local/src/framework-system/target/debug/framework_tool";
+              options = [ "NOPASSWD" ];
+            }
           ];
         }
       ];
