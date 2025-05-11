@@ -14,5 +14,6 @@
   users.users.liv.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGXi00z/rxVrWLKgYr+tWIsbHsSQO75hUMSTThNm5wUw liv@sakura" # main laptop
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2nsQHyWnrmuQway0ehoMUcYYfhD8Ph/vpD0Tzip1b1 liv@meow" # main phone
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHv2zxCy22KU1tZOH2hA1p8fWVpOSrTYF68+3E5r330O liv@ichiyo" # 2nd laptop
   ];
 }
