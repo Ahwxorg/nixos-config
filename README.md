@@ -48,6 +48,7 @@
   - [ichiyo](hosts/ichiyo/): Laptop (ichiyo) specific configuration
   - [violet](hosts/violet/): Server (violet) specific configuration
   - [dandelion](hosts/dandelion/): Server (dandelion) specific configuration
+  - [lily](hosts/lily/): Router (lily) specific configuration
 - [modules](modules): modularized NixOS configurations
   - [core](modules/core/): core NixOS configuration
   - [homes](modules/home/): my [Home-Manager](https://github.com/nix-community/home-manager) config
