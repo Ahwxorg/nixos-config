@@ -81,6 +81,7 @@
 
     # Email/calendar/etc
     neomutt
+    w3m
     khard
     khal
     vdirsyncer
