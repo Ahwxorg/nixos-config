@@ -30,7 +30,7 @@
 
 <p align="center">
    <img src="./.github/assets/screenshots/sakura-desktop.png" /> <br>
-   Screenshots last updated <b>2024-09-04</b>
+   Screenshot last updated <b>2025-05-11</b>
 </p>
 
 # Overview
