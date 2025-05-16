@@ -18,19 +18,19 @@
   ];
 
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
     supportedFilesystems = [ "zfs" ];
   };
 
-  networking.hostId = "8wfk1d8a";
+  networking.hostId = "8ddb2a9b";
 
   services.zfs = {
     autoScrub.enable = true;
     trim.enable = true;
   };
+
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   # boot.zfs.extraPools = [ "terrabite" ];
 
