@@ -16,6 +16,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ./variables.nix
+    ./dns.nix
     ./../../modules/core/default.router.nix
   ];
 
@@ -87,20 +88,7 @@ in
 
   environment.systemPackages = with pkgs; [
     kitty.terminfo
-    zfs
+    tcpdump
+    dnsutils
   ];
-
-  networking.hostId = "8ddb2a9b";
-
-  services.zfs = {
-    autoScrub.enable = true;
-    trim.enable = true;
-  };
-
-  # boot.zfs.extraPools = [ "terrabite" ];
-
-  # fileSystems."/terrabite/main" = {
-  #   device = "terrabite/main";
-  #   fsType = "zfs";
-  # };
 }
