@@ -17,7 +17,9 @@ in
     ./hardware-configuration.nix
     ./variables.nix
     ./dns.nix
+    ./wireguard.nix
     ./../../modules/core/default.router.nix
+    ./../../modules/services/lily.nix
   ];
 
   liv = {
@@ -26,7 +28,6 @@ in
   };
 
   boot = {
-    supportedFilesystems = [ "zfs" ];
     loader.grub = {
       enable = true;
       device = "/dev/sda";
@@ -52,7 +53,7 @@ in
 
   networking = {
     firewall = {
-      enable = true;
+      enable = false;
       allowPing = true;
 
       # allow ssh on *all* interfaces, even wan.
