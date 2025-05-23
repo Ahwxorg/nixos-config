@@ -26,8 +26,6 @@
   networking.firewall = {
     allowedTCPPorts = [
       9001
-      22
-      9123 # always also allow ssh :screaming:
     ];
   };
 }
