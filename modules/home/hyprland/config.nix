@@ -214,6 +214,7 @@
       bind = [
         # keybindings
         "$mainMod, Return, exec, kitty"
+        "$mainMod, Backspace, exec, [float; center; size 950 650] kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
