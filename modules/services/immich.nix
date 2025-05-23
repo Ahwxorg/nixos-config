@@ -1,11 +1,11 @@
-{ config, ... }: {
+{ config, ... }:
+{
   services.immich = {
     enable = true;
     port = 2283;
   };
 
   # services.nginx.virtualHosts."" = {
-  #   enableACME = true;
   #   forceSSL = true;
   #   locations."/" = {
   #     proxyPass = "http://localhost:${toString config.services.immich.port}";
