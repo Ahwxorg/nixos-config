@@ -23,6 +23,8 @@
           [ ./../home/default.server.nix ]
         else if (host == "dandelion") then
           [ ./../home/default.server.nix ]
+        else if (host == "lily") then
+          [ ./../home/default.server.nix ]
         # else if (host == "yoshino") then
         # [ ./../home/default.nix ]
         else

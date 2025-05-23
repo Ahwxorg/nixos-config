@@ -9,7 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  
+
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,74 +32,113 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = { self, nixpkgs, catppuccin, agenix, ...} @ inputs:
-  let
-    overlays = import ./overlays/default.nix;
-    username = "liv";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-    lib = nixpkgs.lib;
-  in
-  {
-    overlays.default = overlays.addition;
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      catppuccin,
+      agenix,
+      ...
+    }@inputs:
+    let
+      overlays = import ./overlays/default.nix;
+      username = "liv";
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
         inherit system;
-        modules = [(
-          import ./hosts/desktop
-        )];
-        specialArgs = { host="desktop"; inherit self inputs username ; };
       };
-      sakura = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./hosts/sakura)
-          agenix.nixosModules.default
-        ];
-        specialArgs = { host="sakura"; inherit self inputs username ; };
-      };
-      yoshino = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./hosts/yoshino)
-          agenix.nixosModules.default
-        ];
-        specialArgs = { host="yoshino"; inherit self inputs username ; };
-      };
-      ichiyo = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./hosts/ichiyo)
-          agenix.nixosModules.default
-        ];
-        specialArgs = { host="ichiyo"; inherit self inputs username ; };
-      };
-      violet = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./hosts/violet)
-          agenix.nixosModules.default
-        ];
-        specialArgs = { host="violet"; inherit self inputs username; };
-      };
-      dandelion = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          (import ./hosts/dandelion)
-          agenix.nixosModules.default
-        ];
-        specialArgs = { host="dandelion"; inherit self inputs username; };
-      };
+      lib = nixpkgs.lib;
+    in
+    {
+      overlays.default = overlays.addition;
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/desktop)
+          ];
+          specialArgs = {
+            host = "desktop";
+            inherit self inputs username;
+          };
+        };
+        sakura = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/sakura)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "sakura";
+            inherit self inputs username;
+          };
+        };
+        yoshino = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/yoshino)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "yoshino";
+            inherit self inputs username;
+          };
+        };
+        ichiyo = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/ichiyo)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "ichiyo";
+            inherit self inputs username;
+          };
+        };
+        violet = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/violet)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "violet";
+            inherit self inputs username;
+          };
+        };
+        dandelion = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/dandelion)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "dandelion";
+            inherit self inputs username;
+          };
+        };
+        lily = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/lily)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "lily";
+            inherit self inputs username;
+          };
+        };
 
-      vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [(
-          import ./hosts/vm
-        )];
-        specialArgs = { host="vm"; inherit self inputs username ; };
+        vm = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/vm)
+          ];
+          specialArgs = {
+            host = "vm";
+            inherit self inputs username;
+          };
+        };
       };
     };
-  };
 }
