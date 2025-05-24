@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/core/virtualization.nix
+    ./../../modules/services/tailscale.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   services.openssh = {
     enable = true;
@@ -10,6 +10,8 @@
       LoginGraceTime = 0;
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ config.services.openssh.ports ];
 
   users.users.liv.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGXi00z/rxVrWLKgYr+tWIsbHsSQO75hUMSTThNm5wUw liv@sakura" # main laptop

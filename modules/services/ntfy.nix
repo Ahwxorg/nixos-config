@@ -2,7 +2,8 @@ let
   hostname = "notify.liv.town";
   port = 2586;
   url = "https://" + hostname;
-in {
+in
+{
   services = {
     ntfy-sh = {
       enable = true;
@@ -16,8 +17,9 @@ in {
       };
     };
     nginx.virtualHosts.${hostname} = {
-      useACMEHost = "liv.town";
       forceSSL = true;
+      sslCertificate = "/var/lib/acme/liv.town/cert.pem";
+      sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
         proxyPass = "http://127.0.0.1:${toString port}";
         proxyWebsockets = true;
