@@ -74,14 +74,93 @@ in
         };
       };
     };
+
+    # <100 is trusted; =>100 is untrusted.
+    vlans = {
+      lan = {
+        id = 1;
+        interface = "lan1";
+      };
+      servers = {
+        id = 10;
+        interface = "lan1";
+      };
+      management = {
+        id = 21;
+        interface = "lan1";
+      };
+      iot = {
+        id = 100;
+        interface = "lan1";
+      };
+      guest = {
+        id = 110;
+        interface = "lan1";
+      };
+    };
   };
 
-  services.udev.extraRules = ''
-    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:47:67:6e", ATTR{type}=="1", NAME="wan0"
-    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:47:67:6f", ATTR{type}=="1", NAME="lan0"
-    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:63:0f:80", ATTR{type}=="1", NAME="lan1"
-    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:63:0f:81", ATTR{type}=="1", NAME="lan2"
-  '';
+  services = {
+    udev.extraRules = ''
+      SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:47:67:6e", ATTR{type}=="1", NAME="wan0"
+      SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:47:67:6f", ATTR{type}=="1", NAME="lan0"
+      SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:63:0f:80", ATTR{type}=="1", NAME="lan1"
+      SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:25:90:63:0f:81", ATTR{type}=="1", NAME="lan2"
+    '';
+    dhcpd4 = {
+      enable = true;
+      interfaces = [
+        "lan"
+        "servers"
+        "management"
+        "iot"
+        "guest"
+      ];
+      extraConfig = ''
+        option domain-name-servers 9.9.9.9, 149.112.112.112;
+        option subnet-mask 255.255.255.0;
+
+        subnet 172.16.1.0 netmask 255.255.255.0 {
+          option broadcast-address 172.16.1.255;
+          option routers 172.16.1.1;
+          interface lan;
+          range 172.16.1.50 172.16.1.254;
+        }
+        subnet 172.16.10.0 netmask 255.255.255.0 {
+          option broadcast-address 172.16.10.255;
+          option routers 172.16.10.1;
+          interface servers;
+          range 172.16.10.50 172.16.10.254;
+        }
+        subnet 172.16.21.0 netmask 255.255.255.0 {
+          option broadcast-address 172.16.21.255;
+          option routers 172.16.21.1;
+          interface management;
+          range 172.16.21.50 172.16.21.254;
+        }
+        subnet 172.16.100.0 netmask 255.255.255.0 {
+          option broadcast-address 172.16.100.255;
+          option routers 172.16.100.1;
+          interface iot;
+          range 172.16.100.50 172.16.100.254;
+        }
+        subnet 172.16.110.0 netmask 255.255.255.0 {
+          option broadcast-address 172.16.110.255;
+          option routers 172.16.110.1;
+          interface guest;
+          range 172.16.110.50 172.16.110.254;
+        }
+      '';
+    };
+    avahi = {
+      enable = true;
+      reflector = true;
+      interfaces = [
+        "lan"
+        "iot"
+      ];
+    };
+  };
 
   networking.hostName = "lily";
 
@@ -91,5 +170,7 @@ in
     kitty.terminfo
     tcpdump
     dnsutils
+    bind
+    ethtool
   ];
 }

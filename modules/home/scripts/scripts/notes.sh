@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # MIT license
-# Ahwx <ahwx at ahwx dot org> https://ahwx.org - 2024
+# liv < liv at liv dot town > https://liv.town - 2024
 #
 # Dependencies: find/grep/bemenu/ping/git/
 
@@ -14,9 +14,9 @@ echo "Check if connected to internet and pull changes from Git"
 ping -c1 github.com >/dev/null && notify-send "$(git pull)" # Pull most recent changes, be sure to not create conficts...
 
 if [ "$CHOSEN" ]; then
-  kitty -e nvim "$CHOSEN" # Finally open chosen note
+	kitty -e nvim "$CHOSEN" # Finally open chosen note
 
-  git add "$CHOSEN" && git commit -m "chore: updates (auto)" && git push && notify-send "Changes pushed"
+	git add "$CHOSEN" && git commit -m "chore: updates (auto)" && git push && notify-send "Changes pushed"
 else
-  exit 1
+	exit 1
 fi
