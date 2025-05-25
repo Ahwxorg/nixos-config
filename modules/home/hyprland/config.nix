@@ -222,8 +222,11 @@
         "SUPER SHIFT, L, exec, hyprlock"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
-        "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W ,exec, wallpaper-picker"
+        "$mainMod, C,exec, hyprpicker -a"
+        "$mainMod, W,exec, wallpaper-picker"
+        "$mainMod, G, togglegroup,"
+        "SUPER, N, changegroupactive, f"
+        "SUPER, P, changegroupactive, b"
 
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
