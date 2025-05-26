@@ -42,34 +42,6 @@
     size = 24;
   };
 
-  # gtk = {
-  #   enable = true;
-  #   theme = {
-  #     name = "Orchis-Dark";
-  #     package = pkgs.orchis-theme;
-  #   };
-  #   iconTheme = {
-  #     name = "Adwaita";
-  #     package = pkgs.gnome.adwaita-icon-theme;
-  #   };
-  #   cursorTheme = {
-  #     name = "Adwaita";
-  #     package = pkgs.gnome.adwaita-icon-theme;
-  #   };
-  #   font = {
-  #     name = "JetBrainsMono Nerd Font";
-  #     size = 11;
-  #   };
-  # };
-
-  # home.pointerCursor = {
-  #   gtk.enable = true;
-  #   # x11.enable = true;
-  #   package = pkgs.bibata-cursors;
-  #   name = "Bibata-Modern-Classic";
-  #   size = 16;
-  # };
-
   dconf = {
     enable = true;
     settings = {
@@ -85,7 +57,7 @@
       source = "~/nixos-config/modules/home/hyprland/displays.conf";
 
       "debug:disable_scale_checks" = true;
-      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5"; # this works as I only have one computer using eDP-1 as a display, I could also add LVDS or DP-1 since that'd also be machine-specific.
+      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
 
       # autostart
       exec-once = [
@@ -151,7 +123,6 @@
 
       master = {
         special_scale_factor = 1;
-        # no_gaps_when_only = true; # Returns errors for some reason
       };
 
       decoration = {
@@ -227,6 +198,8 @@
         "$mainMod, G, togglegroup,"
         "SUPER, N, changegroupactive, f"
         "SUPER, P, changegroupactive, b"
+        "$mainMod, Tab, changegroupactive, f"
+        "$mainMod SHIFT, Tab, changegroupactive, b"
 
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
@@ -365,6 +338,7 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
 
     };
