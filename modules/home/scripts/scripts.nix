@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  setbg = pkgs.writeScriptBin "setbg" (builtins.readFile ./scripts/setbg);
+  walp = pkgs.writeScriptBin "walp" (builtins.readFile ./scripts/walp);
   runbg = pkgs.writeShellScriptBin "runbg" (builtins.readFile ./scripts/runbg.sh);
   notes = pkgs.writeShellScriptBin "notes" (builtins.readFile ./scripts/notes.sh);
   grabtext = pkgs.writeShellScriptBin "grabtext" (builtins.readFile ./scripts/grabtext.sh);
@@ -12,6 +14,8 @@ let
 in
 {
   home.packages = with pkgs; [
+    setbg
+    walp
     runbg
     notes
     grabtext

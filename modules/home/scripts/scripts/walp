@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+which swiv &>/dev/null && SIV=swiv || SIV=nsxiv # todo: switch to swiv, but that is not packaged for Nix yet.
+$SIV -t ~/Pictures/wallpapers/others/*

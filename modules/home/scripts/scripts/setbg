@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+magick convert "$1" ~/.local/share/bg.png
+swww img ~/.local/share/bg.png --transition-type fade
