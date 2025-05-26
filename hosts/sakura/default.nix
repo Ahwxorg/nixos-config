@@ -14,6 +14,8 @@
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
+  environment.etc.hosts.mode = "0700";
+
   liv = {
     laptop.enable = true;
     desktop.enable = false;
