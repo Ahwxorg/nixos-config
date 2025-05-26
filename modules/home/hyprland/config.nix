@@ -214,7 +214,7 @@
       bind = [
         # keybindings
         "$mainMod, Return, exec, kitty"
-        "$mainMod, Backspace, exec, [float; center; size 950 650] kitty"
+        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] kitty"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
@@ -238,7 +238,7 @@
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
-        "$mainMod SHIFT, N ,exec, notes" # should be added by scripts/custom packages
+        "$mainMod SHIFT, N ,exec, notes"
         "$mainMod, N,exec, swaync-client -t"
 
         # screenshot
@@ -319,6 +319,11 @@
         "$mainMod, mouse:273, resizewindow"
       ];
 
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
       # windowrule
       windowrule = [
         "float,title:^(float_kitty)$"
@@ -329,6 +334,10 @@
         "move 0 0,title:^(Librewolf — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
       ];
 
       # windowrulev2
