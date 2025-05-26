@@ -21,10 +21,6 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
     };
-    Hyswipe = {
-      url = "github:KZDKM/Hyswipe";
-      inputs.hyprland.follows = "hyprland"; # Hyswipe uses latest Hyprland. We declare this to keep them in sync.
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
