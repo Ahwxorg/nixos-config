@@ -38,11 +38,30 @@
     # powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+  # change battery led to blue on suspend to indicate device is in suspend mode
+  systemd.services."suspend-led-set" = {
+    description = "blue led for sleep";
+    wantedBy = [ "suspend.target" ];
+    before = [ "systemd-suspend.service" ];
+    serviceConfig.type = "simple";
+    script = ''
+      ${pkgs.fw-ectool}/bin/ectool led battery blue
+    '';
+  };
+  systemd.services."suspend-led-unset" = {
+    description = "auto led after sleep";
+    wantedBy = [ "suspend.target" ];
+    after = [ "systemd-suspend.service" ];
+    serviceConfig.type = "simple";
+    script = ''
+      ${pkgs.fw-ectool}/bin/ectool led battery auto
+    '';
+  };
   boot = {
     plymouth.enable = true;
     kernelParams = [
       "mem_sleep_default=deep"
-      "acpi_osi=\"!Windows 2020\""
+      "acpi_osi=\"!Windows 2020\"" # otherwise GPU does weird shit that makes the computer look like the RAM is broken
     ];
     kernelModules = [ "acpi_call" ];
     kernelPackages = pkgs.linuxPackages_latest;
