@@ -49,6 +49,7 @@
       "docker"
       "input"
       "gay"
+      "dialout"
     ];
     shell = pkgs.zsh;
   };
