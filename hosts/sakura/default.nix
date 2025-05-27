@@ -14,7 +14,14 @@
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
-  environment.etc.hosts.mode = "0700";
+  # install some system-utilities; set hosts to be editable by the user.
+  environment = {
+    systemPackages = with pkgs; [
+      fwupd
+      fw-ectool
+    ];
+    etc.hosts.mode = "0700";
+  };
 
   liv = {
     laptop.enable = true;
@@ -24,7 +31,6 @@
     gui.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ fwupd ];
   hardware.framework = {
     amd-7040.preventWakeOnAC = true;
     laptop13.audioEnhancement.enable = true;
