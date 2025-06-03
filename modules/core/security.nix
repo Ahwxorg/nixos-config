@@ -36,7 +36,7 @@
             --replace "incorrect password attempts" "nuu silly, try again ~ >.< ~" \
             --replace "incorrect password attempt" "nuu silly, try again ~ >.< ~" \
             --replace "authentication failure" "oepsie woepsie alles is stukkie wukkie :3" \
-            --replace "a password is required" "no password for me? 🥺\n"
+            --replace "a password is required" "no password? 😭\n"
           '';
         configureFlags =
           (builtins.filter (x: !(lib.strings.hasPrefix x "--with-passprompt=")) old.configureFlags)
