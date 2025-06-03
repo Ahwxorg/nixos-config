@@ -1,8 +1,16 @@
-{ lib, pkgs, config, username, home-manager, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.creative;
-in {
+in
+{
   options.liv.creative = {
     enable = mkEnableOption "Enable creative workflow";
   };
@@ -17,6 +25,7 @@ in {
           obs-studio
           kdePackages.kdenlive
           orca-slicer
+          freecad
         ];
       };
     };
