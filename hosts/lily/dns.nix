@@ -2,7 +2,7 @@
 {
   services = {
     dnsmasq = {
-      enable = true;
+      enable = false; # try some other options first
       settings = {
         cache-size = 10000; # Specifies the size of the DNS query cache. It will store up to n cached DNS queries to improve response times for frequently accessed domains.
         server = [

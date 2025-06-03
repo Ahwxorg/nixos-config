@@ -111,12 +111,12 @@
 
         export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
 
-        if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
-          alias imv="sxiv"
-        elif [[ $(which nsxiv&>/dev/null && echo 1) == "1" ]]; then
-          alias imv="nsxiv"
-          alias sxiv="nsxiv"
-        fi
+        # if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
+        #   alias imv="sxiv"
+        # elif [[ $(which nsxiv&>/dev/null && echo 1) == "1" ]]; then
+        #   alias imv="nsxiv"
+        #   alias sxiv="nsxiv"
+        # fi
       '';
 
       zsh-abbr = {
@@ -173,6 +173,7 @@
         # nvim = "nix run /home/liv/Development/nixvim --";
         vim = "nvim";
         doas = "sudo";
+        sxiv = "nsxiv";
 
         # NixOS
         ns = "nix-shell --run zsh";

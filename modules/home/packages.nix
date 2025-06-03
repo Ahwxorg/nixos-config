@@ -66,6 +66,7 @@
     librewolf # main
     ungoogled-chromium # for things that don't work with librewolf
     nsxiv
+    imv
     libreoffice
     xfce.thunar
     spotify

@@ -2,6 +2,6 @@
 {
   services.murmur = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
   };
 }
