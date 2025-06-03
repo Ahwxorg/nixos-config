@@ -2,7 +2,7 @@
 {
   services.openssh = {
     enable = true;
-    ports = [ 22 ];
+    ports = [ 9123 ];
     settings = {
       PasswordAuthentication = lib.mkDefault false;
       AllowUsers = null;
