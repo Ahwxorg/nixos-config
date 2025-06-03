@@ -155,27 +155,24 @@
     "/home/${username}/.local/bin/waybar-music" = {
       executable = true;
       text = ''
-        #!/usr/bin/env bash
+        #!/usr/bin/env sh
 
-        class=$(playerctl metadata --player=ncspot --format '{{lc(status)}}')
+        META="{{ trunc(artist,17) }} - {{ trunc(title,17) }}"
+        PLAYERS="spotify ncspot mpv mpd"
 
-        if [[ $class == "playing" ]]; then
-          info=$(playerctl metadata --player=ncspot --format '{{artist}} - {{title}}')
-          if [[ $\{#info} > 40 ]]; then
-            info=$(echo $info | cut -c1-40)"..."
-          fi
-          text="$info"
-        elif [[ $class == "paused" ]]; then
-          info=$(playerctl metadata --player=ncspot --format '{{artist}} - {{title}}')
-          if [[ $\{#info} > 40 ]]; then
-            info=$(echo $info | cut -c1-40)"..."
-          fi
-          text=" $info"
-        elif [[ $class == "stopped" ]]; then
-          text=""
-        fi
+        for PLAYER in $PLAYERS; do
+        	# if the player is not playing, continue to the next player, until we find one that is playing
+        	[ "$(playerctl --player=$PLAYER status 2>/dev/null)" != "Playing" ] && continue
+        	text=$(playerctl metadata --player $PLAYER --format "$META")
+        	echo -e "{\"text\":\""$text"\", \"class\":\"Playing\"}"
+        	exit 0
+        done
 
-        echo -e "{\"text\":\""$text"\", \"class\":\""$class"\"}"
+        ICON="❚❚ "
+        PAUSERS="spotify ncspot mpd"
+        for PAUSER in $PAUSERS; do
+        	[ "$(playerctl --player=$PAUSER status 2>/dev/null)" == "Paused" ] || [ "$(playerctl --player=$PAUSER status 2>/dev/null)" == "Stopped" ] && text="$ICON"$(playerctl metadata --player $PAUSER --format "$META") && echo -e "{\"text\":\""$text"\", \"class\":\""paused"\"}" && exit 0
+        done
       '';
     };
     "/home/${username}/.local/bin/waybar-devices" = {
