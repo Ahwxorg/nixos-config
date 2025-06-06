@@ -9,16 +9,8 @@
     ./hardware-configuration.nix
     ./../../modules/core/default.server.nix
     ./../../modules/services/violet.nix
+    # ./backups.nix # disable for now, test first.
   ];
-
-  services.borgbackup.jobs.liv-violet = {
-    paths = "/home/liv";
-    encryption.mode = "none";
-    environment.BORG_RSH = "ssh -i /home/liv/.ssh/id_ed25519";
-    repo = "ssh://liv@100.115.178.50:9123/spinners/rootvol/backups/servers/liv-violet";
-    compression = "auto,zstd";
-    startAt = "daily";
-  };
 
   networking.hostName = "violet";
 
@@ -33,14 +25,15 @@
     pkgs.kitty.terminfo
   ];
 
-  services.smartd = {
-    enable = lib.mkForce false;
-    autodetect = lib.mkForce false;
+  services = {
+    smartd = {
+      enable = lib.mkForce false;
+      autodetect = lib.mkForce false;
+    };
+    xserver.videoDrivers = [ "nvidia" ];
   };
 
   liv.nvidia.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   boot = {
     loader.grub = {
