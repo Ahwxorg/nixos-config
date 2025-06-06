@@ -11,6 +11,15 @@
     ./../../modules/services/violet.nix
   ];
 
+  services.borgbackup.jobs.liv-violet = {
+    paths = "/home/liv";
+    encryption.mode = "none";
+    environment.BORG_RSH = "ssh -i /home/liv/.ssh/id_ed25519";
+    repo = "ssh://liv@100.115.178.50:9123/spinners/rootvol/backups/servers/liv-violet";
+    compression = "auto,zstd";
+    startAt = "daily";
+  };
+
   networking.hostName = "violet";
 
   nixpkgs.config.permittedInsecurePackages = [
