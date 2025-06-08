@@ -12,6 +12,10 @@
     ./../../modules/services/dandelion.nix
   ];
 
+  users.users.liv.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOLdcB5JFWx6OK2BAr8J0wPHNhr2VP2/Ci6fv3a+DPfo liv@violet" # allow violet to log in over ssh to do back ups
+  ];
+
   networking.hostName = "dandelion";
 
   liv.server.enable = true;

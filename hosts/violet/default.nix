@@ -9,6 +9,7 @@
     ./hardware-configuration.nix
     ./../../modules/core/default.server.nix
     ./../../modules/services/violet.nix
+    # ./backups.nix # disable for now, test first.
   ];
 
   networking.hostName = "violet";
@@ -24,14 +25,15 @@
     pkgs.kitty.terminfo
   ];
 
-  services.smartd = {
-    enable = lib.mkForce false;
-    autodetect = lib.mkForce false;
+  services = {
+    smartd = {
+      enable = lib.mkForce false;
+      autodetect = lib.mkForce false;
+    };
+    xserver.videoDrivers = [ "nvidia" ];
   };
 
   liv.nvidia.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   boot = {
     loader.grub = {

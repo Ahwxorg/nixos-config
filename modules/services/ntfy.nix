@@ -12,7 +12,7 @@ in
         listen-http = "127.0.0.1:${toString port}";
         behind-proxy = true;
         visitor-attachment-daily-bandwidth-limit = "10M";
-        visitor-request-limit-burst = 5;
+        visitor-request-limit-burst = 15;
         visitor-request-limit-replenish = "15s";
       };
     };

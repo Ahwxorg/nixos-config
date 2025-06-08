@@ -20,6 +20,7 @@
     ++ [ (import ./nginx.nix) ]
     # ++ [(import ./komga.nix)]
     ++ [ (import ./radicale.nix) ]
+    ++ [ (import ./tailscale.nix) ]
     ++ [ (import ./readarr.nix) ];
   # ++ [(import ./smart-monitoring.nix)]
   # ++ [(import ./jitsi-meet.nix)]

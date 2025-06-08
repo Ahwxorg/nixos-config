@@ -23,7 +23,7 @@
     desktop.enable = true;
     creative.enable = true;
     amdgpu.enable = true;
-    wine.enable = true;
+    wine.enable = false;
     gui.enable = true;
   };
 
