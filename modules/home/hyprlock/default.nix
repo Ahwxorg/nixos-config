@@ -130,7 +130,7 @@
             color = rgba(209, 207, 207, 0.75)
             #color = rgba(255, 255, 255, 0.6)
             font_size = 17  
-            font_family = JetBrains Mono Nerd Font Mono ExtraBold
+            font_family = GohuFont 14 Nerd Font Mono
             position = 0, -200
             halign = center
             valign = center
@@ -141,7 +141,7 @@
             text = cmd[update:6000000] echo "$(bash /home/liv/.local/bin/weather.sh)"
             color = rgba(255, 255, 255, 1)
             font_size = 10
-            font_family = JetBrains Mono Nerd Font Mono ExtraBold
+            font_family = GohuFont 14 Nerd Font Mono
             position = 0, 50
             halign = center
             valign = top
@@ -152,7 +152,7 @@
             text = cmd[update:1000] echo -e "$(/home/liv/.local/bin/hyprlock-battery.sh)"
             color = rgba(255, 255, 255, 1)
             font_size = 12
-            font_family = JetBrains Mono Nerd Font Mono ExtraBold
+            font_family = GohuFont 14 Nerd Font Mono
             position = 0, 0
             halign = right
             valign = bottom

@@ -12,8 +12,8 @@
   gtk = {
     enable = true;
     font = {
-      name = "CaskaydiaCove Nerd Font";
-      size = 12;
+      name = "GohuFont 14 Nerd Font Mono";
+      size = 14;
     };
     theme = {
       name = "Gruvbox-Green-Dark";

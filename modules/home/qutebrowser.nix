@@ -36,8 +36,8 @@ in
 
     settings = {
       fonts = {
-        default_family = "FiraCode Nerd Font";
-        default_size = "10pt";
+        default_family = "GohuFont 14 Nerd Font Mono";
+        default_size = "14pt";
       };
 
       tabs = {
