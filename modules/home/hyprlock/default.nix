@@ -51,7 +51,7 @@
             rounding = 32
             fail_color = rgba(191, 97, 106, 0.75)
             check_color = rgba(235, 203, 139, 0.75)
-            placeholder_text = <span foreground="##cdd6f4"></span>
+            placeholder_text = <span foreground="##cdd6f4">Password</span>
             hide_input = false
             position = 0, -400
             halign = center
@@ -126,7 +126,7 @@
 
         label {
             monitor =
-            text = cmd[update:1000] echo "$(waybar-music | jq .text | cut -d\" -f2)" 
+            text = cmd[update:1000] echo "$(waybar-music | jq .text --raw-output)" 
             color = rgba(209, 207, 207, 0.75)
             #color = rgba(255, 255, 255, 0.6)
             font_size = 17  
