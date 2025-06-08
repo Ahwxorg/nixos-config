@@ -10,14 +10,14 @@
     "/home/${username}/.config/hypr/hyprlock.conf" = {
       executable = false;
       text = ''
-        # GENERAL
-        general {
-          no_fade_in = true
-          grace = 1
-          disable_loading_bar = false
-          hide_cursor = true
-          ignore_empty_input = true
-          text_trim = true
+        background {
+            monitor =
+            path = /home/liv/.local/share/bg.png
+            blur_passes = 2
+            contrast = 1
+            brightness = 0.6
+            vibrancy = 0.2
+            vibrancy_darkness = 0.2
         }
 
         auth {
@@ -29,102 +29,133 @@
             }
         }
 
-        #BACKGROUND
-        background {
-            monitor = 
-            path = screenshot
-            blur_passes = 2
-            contrast = 0.8916
-            brightness = 0.7172
-            vibrancy = 0.1696
-            vibrancy_darkness = 0
+        general {
+            no_fade_in = false
+            no_fade_out = false
+            hide_cursor = false
+            grace = 0
+            disable_loading_bar = false
         }
 
-        # TIME HR
-        label {
-            monitor =
-            text = cmd[update:1000] echo -e "$(date +"%H")"
-            color = rgba(255, 255, 255, 1)
-            shadow_pass = 2
-            shadow_size = 3
-            shadow_color = rgb(0,0,0)
-            shadow_boost = 1.2
-            font_size = 150
-        #    font_family = JetBrains Mono Nerd Font Mono ExtraBold
-            font_family = AlfaSlabOne 
-            position = 0, -250
-            halign = center
-            valign = top
-        }
-
-        # TIME
-        label {
-            monitor =
-            text = cmd[update:1000] echo -e "$(date +"%M")"
-        #    color = 0xff$color0
-            color = rgba(255, 255, 255, 1)
-            font_size = 150
-        #    font_family = JetBrains Mono Nerd Font Mono ExtraBold
-            font_family = AlfaSlabOne
-            position = 0, -420
-            halign = center
-            valign = top
-        }
-
-        # DATE
-        label {
-            monitor =
-            text = cmd[update:1000] echo -e "$(date +"%d %b %A")"
-            color = rgba(255, 255, 255, 1)
-            font_size = 14
-            font_family = JetBrains Mono Nerd Font Mono ExtraBold
-            position = 0, -130
-            halign = center
-            valign = center
-        }
-
-        # WEATHER 
-        label {
-            monitor =
-            text = cmd[update:6000000] echo "$(bash /home/${username}/.local/bin/weather.sh)"
-            color = rgba(255, 255, 255, 1)
-            font_size = 10
-            font_family = JetBrains Mono Nerd Font Mono ExtraBold
-            position = 0, 465
-            halign = center
-            valign = center
-        }
-
-        # INPUT FIELD
         input-field {
             monitor =
             size = 250, 60
-            outline_thickness = 0
-            outer_color = rgba(0, 0, 0, 1)
-            dots_size = 0.1 # Scale of input-field height, 0.2 - 0.8
-            dots_spacing = 1 # Scale of dots' absolute size, 0.0 - 1.0
+            outline_thickness = 2
+            dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
+            dots_spacing = 0.35 # Scale of dots' absolute size, 0.0 - 1.0
             dots_center = true
-            inner_color = rgba(0, 0, 0, 1)
-            font_color = rgba(200, 200, 200, 1)
+            outer_color = rgba(0, 0, 0, 0)
+            inner_color = rgba(0, 0, 0, 0.2)
+            font_color = rgb(209, 207, 207)
             fade_on_empty = false
-            font_family = JetBrains Mono Nerd Font Mono
-            placeholder_text = <span foreground="##cdd6f4"> </span>
+            rounding = 32
+            fail_color = rgba(191, 97, 106, 0.75)
+            check_color = rgba(235, 203, 139, 0.75)
+            placeholder_text = <span foreground="##cdd6f4"></span>
             hide_input = false
-            position = 0, -470
+            position = 0, -400
             halign = center
             valign = center
-            zindex = 10
         }
-        # Information
+
+        label {
+          monitor =
+          text = cmd[update:1000] echo "$(date +"%A, %B %d")"
+          color = rgba(209, 207, 207, 0.75)
+          font_size = 22
+          font_family = JetBrains Mono
+          position = 0, 300
+          halign = center
+          valign = center
+        }
+
+        label {
+          monitor = 
+          text = cmd[update:1000] echo "$(date +"%-H:%M")"
+          color = rgba(209, 207, 207, 0.75)
+          font_size = 95
+          font_family = JetBrains Mono Extrabold
+          position = 0, 200
+          halign = center
+          valign = center
+        }
+
+        # Profile Picture
+        # image {
+        #     monitor =
+        #     path = /home/liv/.face
+        #     size = 100
+        #     border_size = 3
+        #     rounding = 64
+        #     border_color =  rgb(133, 180, 234) 
+        #     position = 0, -100
+        #     halign = center
+        #     valign = center
+        # }
+
+        # CURRENT SONG
+        image {
+            monitor = 
+            size = 256 # lesser side if not 1:1 ratio
+            rounding = 6 # negative values mean circle
+            border_size = 2
+            border_color =  rgb(133, 180, 234)
+            rotate = -6 # degrees, counter-clockwise
+            reload_time = 2
+            reload_cmd = ~/.local/bin/hyprlock-art.sh
+            position = 0, -25
+            halign = center
+            valign = center
+            opacity = 1
+        }
+
+        image {
+            monitor = 
+            size = 256 # lesser side if not 1:1 ratio
+            rounding = 6 # negative values mean circle
+            border_size = 3
+            border_color =  rgb(133, 180, 234)
+            rotate = 0 # degrees, counter-clockwise
+            reload_time = 2
+            reload_cmd = /home/liv/.local/bin/hyprlock-art.sh
+            position = 0, -25
+            halign = center
+            valign = center
+            opacity = 1
+        }
+
         label {
             monitor =
-            text = cmd[update:1000] echo -e "$(/home/${username}/.local/bin/hyprlock-battery.sh)"
+            text = cmd[update:1000] echo "$(waybar-music | jq .text | cut -d\" -f2)" 
+            color = rgba(209, 207, 207, 0.75)
+            #color = rgba(255, 255, 255, 0.6)
+            font_size = 17  
+            font_family = JetBrains Mono Nerd Font Mono ExtraBold
+            position = 0, -200
+            halign = center
+            valign = center
+        }
+
+        label {
+            monitor =
+            text = cmd[update:6000000] echo "$(bash /home/liv/.local/bin/weather.sh)"
+            color = rgba(255, 255, 255, 1)
+            font_size = 10
+            font_family = JetBrains Mono Nerd Font Mono ExtraBold
+            position = 0, 50
+            halign = center
+            valign = top
+        }
+
+        label {
+            monitor =
+            text = cmd[update:1000] echo -e "$(/home/liv/.local/bin/hyprlock-battery.sh)"
             color = rgba(255, 255, 255, 1)
             font_size = 12
             font_family = JetBrains Mono Nerd Font Mono ExtraBold
-            position = -20, -510
+            position = 0, 0
             halign = right
-            valign = center
+            valign = bottom
         }
       '';
     };

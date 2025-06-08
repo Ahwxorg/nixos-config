@@ -43,5 +43,27 @@
         echo "$battery_percentage% $battery_icon"
       '';
     };
+    "/home/${username}/.local/bin/hyprlock-art.sh" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        url=$(playerctl metadata mpris:artUrl)
+        artist=$(playerctl metadata xesam:artist)
+        album=$(playerctl metadata xesam:album)
+        metadata=$(printf "$artist - $album")
+
+        if [ "$url" == "No player found" ]; then
+        	exit
+        elif [ -f "/home/${username}/.cache/albumart/$metadata.png" ]; then
+        	echo "/home/${username}/.cache/albumart/$metadata.png"
+        else
+        	mkdir -p "/home/${username}/.cache/albumart"
+        	curl -s "$url" -o "/home/${username}/.cache/albumart/$metadata"
+        	magick "/home/${username}/.cache/albumart/$metadata" "/home/${username}/.cache/albumart/$metadata.png"
+        	rm "/home/${username}/.cache/albumart/$metadata"
+        	echo "/home/${username}/.cache/albumart/$metadata.png"
+        fi
+      '';
+    };
   };
 }
