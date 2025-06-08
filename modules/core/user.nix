@@ -38,6 +38,8 @@
     };
   };
 
+  fonts.fontconfig.antialias = false;
+
   users.groups.gay = { };
 
   users.users.${username} = {
