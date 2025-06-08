@@ -31,11 +31,15 @@
     gui.enable = true;
   };
 
+  services = {
+    vnstat.enable = true;
+    hardware.bolt.enable = true;
+  };
+
   hardware.framework = {
     amd-7040.preventWakeOnAC = true;
     laptop13.audioEnhancement.enable = true;
   };
-  services.hardware.bolt.enable = true;
 
   networking.hostName = "sakura";
 
