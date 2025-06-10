@@ -95,10 +95,19 @@
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        # "col.active_border" = "rgb(cda5ef) rgb(cda5ef) 45deg";
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
         no_border_on_floating = false;
+      };
+      group = {
+        "col.border_active" = "rgb(ffffff) rgb(ffffff) 45deg";
+        "col.border_inactive" = "0x00000000";
+        groupbar = {
+          font_family = "GohuFont 11 Nerd Font Mono";
+          font_size = 11;
+          "col.active" = "rgb(efa8a5) rgb(efa8a5) 45deg";
+          "col.inactive" = "rgb(a5ecef) rgb(a5ecef) 45deg";
+        };
       };
 
       misc = {
