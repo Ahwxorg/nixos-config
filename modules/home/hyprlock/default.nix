@@ -52,6 +52,7 @@
             fail_color = rgba(191, 97, 106, 0.75)
             check_color = rgba(235, 203, 139, 0.75)
             placeholder_text = <span foreground="##cdd6f4">Password</span>
+            font_family = GohuFont 14 Nerd Font Mono
             hide_input = false
             position = 0, -400
             halign = center
@@ -63,7 +64,7 @@
           text = cmd[update:1000] echo "$(date +"%A, %B %d")"
           color = rgba(209, 207, 207, 0.75)
           font_size = 22
-          font_family = JetBrains Mono
+          font_family = GohuFont 14 Nerd Font Mono
           position = 0, 300
           halign = center
           valign = center
@@ -74,7 +75,7 @@
           text = cmd[update:1000] echo "$(date +"%-H:%M")"
           color = rgba(209, 207, 207, 0.75)
           font_size = 95
-          font_family = JetBrains Mono Extrabold
+          font_family = GohuFont 14 Nerd Font Mono
           position = 0, 200
           halign = center
           valign = center
