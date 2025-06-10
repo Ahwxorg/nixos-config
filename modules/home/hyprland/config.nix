@@ -7,6 +7,7 @@
     pkgs.twemoji-color-font
     pkgs.noto-fonts-emoji
     pkgs.swww
+    pkgs.swaylock
   ];
 
   gtk = {
