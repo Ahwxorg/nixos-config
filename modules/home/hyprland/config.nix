@@ -118,6 +118,12 @@
         animate_manual_resizes = false;
         enable_swallow = true;
         focus_on_activate = true;
+        enable_anr_dialog = false;
+      };
+
+      ecosystem = {
+        no_update_news = true;
+        no_donation_nag = true;
       };
 
       dwindle = {
