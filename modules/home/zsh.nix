@@ -174,6 +174,8 @@
         vim = "nvim";
         doas = "sudo";
         sxiv = "nsxiv";
+        enby = "man";
+        woman = "man";
 
         # NixOS
         ns = "nix-shell --run zsh";
