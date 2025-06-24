@@ -21,6 +21,7 @@
     # ++ [(import ./komga.nix)]
     ++ [ (import ./radicale.nix) ]
     ++ [ (import ./tailscale.nix) ]
+    ++ [ (import ./guacamole.nix) ]
     ++ [ (import ./readarr.nix) ];
   # ++ [(import ./smart-monitoring.nix)]
   # ++ [(import ./jitsi-meet.nix)]
