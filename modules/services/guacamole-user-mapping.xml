@@ -1,0 +1,8 @@
+<user-mapping>
+ <authorize username="marty" password="dingoVncTest">
+     <protocol>vnc</protocol>
+     <param name="hostname">localhost</param>
+     <param name="port">5901</param>
+     <param name="password">dingoVncTest</param>
+ </authorize>
+</user-mapping>
