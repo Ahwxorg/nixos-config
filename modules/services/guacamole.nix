@@ -1,15 +1,17 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   services = {
     guacamole-server = {
-      enable = true;
+      enable = false;
+      package = pkgs.guacamole-server;
       host = "127.0.0.1";
       port = 4822;
       userMappingXml = ./guacamole-user-mapping.xml;
     };
     guacamole-client = {
-      enable = true;
-      enableWebserver = true;
+      enable = false;
+      package = pkgs.guacamole-client;
+      enableWebserver = false;
       settings = {
         guacd-port = 4822;
         guacd-hostname = "localhost";
