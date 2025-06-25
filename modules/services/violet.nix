@@ -16,6 +16,7 @@
     ++ [ (import ./mumble.nix) ]
     ++ [ (import ./monitoring.nix) ]
     ++ [ (import ./ntfy.nix) ]
+    ++ [ (import ./bluemap-proxy.nix) ]
     ++ [ (import ./sharkey-proxy.nix) ]
     ++ [ (import ./nginx.nix) ]
     # ++ [(import ./komga.nix)]
