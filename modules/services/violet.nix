@@ -3,6 +3,7 @@
   imports =
     [ (import ./invidious.nix) ]
     ++ [ (import ./anubis.nix) ]
+    ++ [ (import ./borg.nix) ]
     ++ [ (import ./binternet-proxy.nix) ]
     ++ [ (import ./docker.nix) ]
     ++ [ (import ./frp.nix) ]
