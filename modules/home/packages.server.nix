@@ -1,10 +1,10 @@
-{ inputs, pkgs, ... }: 
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     vimv
     jq
-    wireguard-tools                   # VPN connections
-    openresolv                        # required for wireguard-tools
+    wireguard-tools
+    openresolv # required for wireguard-tools
     tmux
     htop
     eza
@@ -21,11 +21,12 @@
     ffmpeg
     killall
     libnotify
-    man-pages			      # extra man pages
+    man-pages
     openssl
     unzip
     wget
     xxd
+    borgbackup
     inputs.alejandra.defaultPackage.${system}
     inputs.nixvim.packages.${pkgs.system}.default
   ];
