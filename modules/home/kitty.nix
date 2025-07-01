@@ -6,7 +6,7 @@
     theme = "3024 Night";
 
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "GohuFont 14 Nerd Font Mono";
       size = 9;
     };
 

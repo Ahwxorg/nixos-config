@@ -22,346 +22,347 @@
   home.file = {
     "/home/${username}/.config/waybar/config" = {
       text = ''
-                                [{
-                                  "layer": "top",
-                                  "position": "top",
+                                        [{
+                                          "layer": "top",
+                                          "position": "top",
 
-                                  "modules-left": [
-                                    "privacy",
-                                    "network",
-                                    "custom/vpn",
-                                    "custom/devices",
-                                    "custom/spotify",
-                                    "tray",
-                                  ],
+                                          "modules-left": [
+                                            "privacy",
+                                            "network",
+                                            "custom/vpn",
+                                            "custom/devices",
+                                            "custom/spotify",
+                                            "tray",
+                                          ],
 
-                                  "modules-center": [
-                                    "hyprland/workspaces",
-                                  ],
+                                          "modules-center": [
+                                            "hyprland/workspaces",
+                                          ],
 
-                                  "modules-right": [
-                                    "custom/yubikey#icon",
-                                    "custom/yubikey#data",
-                                    "group/hardware",
-                                    "group/resources",
-                                    "bluetooth",
-                                    // "wireplumber",
-                                    "group/audio",
-                                    "group/battery",
-                                    "group/clock"
-                                  ],
+                                          "modules-right": [
+                                            "custom/yubikey#icon",
+                                            "custom/yubikey#data",
+                                            "group/hardware",
+                                            "group/resources",
+                                            "bluetooth",
+                                            // "wireplumber",
+                                            "group/audio",
+                                            "group/battery",
+                                            "group/clock"
+                                          ],
 
-                                  "hyprland/window": {
-                                    "format": "{}",
-                                    "rewrite": {
-                                      "(.*) - zsh": "> [$1]"
-                                    },
-                                    "separate-outputs": true
-                                  },
+                                          "hyprland/window": {
+                                            "format": "{}",
+                                            "rewrite": {
+                                              "(.*) - zsh": "> [$1]"
+                                            },
+                                            "separate-outputs": true
+                                          },
 
-                                  "sway/workspaces": {
-                                    "all-outputs": true,
-                                    "disable-scroll": true,
-                                    "format": "{name}"
-                                  },
+                                          "sway/workspaces": {
+                                            "all-outputs": true,
+                                            "disable-scroll": true,
+                                            "format": "{name}"
+                                          },
 
-                                  "hyprland/workspaces": {
-                                    "all-outputs": true,
-                                    "disable-scroll": true,
-                                    "format": "{name}"
-                                  },
+                                          "hyprland/workspaces": {
+                                            "all-outputs": true,
+                                            "disable-scroll": true,
+                                            "format": "{name}"
+                                          },
 
-                                  // "group/network": {
-                                  //   "orientation": "horizontal",
-                                  //   "modules": [ 
-                                  //     "network",
-                                  //     "custom/vpn",
-                                  //   ],
-                                  //   "drawer": {
-                                  //     "transition-left-to-right": true,
-                                  //     "transition-duration": 500
-                                  //   }
-                                  // },
-                                  
-                                  "network": {
-                                    "format": "󰈀 {ifname}",
-                                    "format-wifi": "  {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
-                                    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-                                    "format-disconnected": "󰈂",
-                                    "tooltip-format": "{ifname} via {gwaddr}",
-                                    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-                                    "tooltip-format-ethernet": "{ifname}",
-                                    "tooltip-format-disconnected": "Disconnected"
-                                  },
+                                          // "group/network": {
+                                          //   "orientation": "horizontal",
+                                          //   "modules": [ 
+                                          //     "network",
+                                          //     "custom/vpn",
+                                          //   ],
+                                          //   "drawer": {
+                                          //     "transition-left-to-right": true,
+                                          //     "transition-duration": 500
+                                          //   }
+                                          // },
+                                          
+                                          "network": {
+                                            "format": "󰈀 {ifname}",
+                                            "format-wifi": "  {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
+                                            "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+                                            "format-disconnected": "󰈂",
+                                            "tooltip-format": "{ifname} via {gwaddr}",
+                                            "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+                                            "tooltip-format-ethernet": "{ifname}",
+                                            "tooltip-format-disconnected": "Disconnected"
+                                          },
 
-                                  "custom/vpn": {
-        			    "format": "{icon}",
-        			    "tooltip-format": "{text}",
-        			    "format-icons": [ "","" ],
-                                    "return-type": "json",
-                                    "exec": "~/.local/bin/waybar-vpn",
-                                    "interval": 30
-                                  },
+                                          "custom/vpn": {
+                			    "format": "{icon}",
+                			    "tooltip-format": "{text}",
+                			    "format-icons": [ "","" ],
+                                            "return-type": "json",
+                                            "exec": "~/.local/bin/waybar-vpn",
+                                            "interval": 30
+                                          },
 
-                        	  "custom/spotify": {
-                                    "interval": 5,
-                                    "return-type": "json",
-                                    "exec": "~/.local/bin/waybar-music",
-                                    "on-click": "playerctl play-pause",
-                                    "escape": true
-                                  },
+                                	  "custom/spotify": {
+                                            "interval": 5,
+                                            "return-type": "json",
+                                            "exec": "~/.local/bin/waybar-music",
+                                            "on-click": "playerctl play-pause",
+                                            "escape": true
+                                          },
 
-                        	  "custom/devices": {
-                                    "interval": 60,
-                                    // "return-type": "json",
-                                    "exec": "~/.local/bin/waybar-devices",
-                                  },
+                                	  "custom/devices": {
+                                            "interval": 60,
+        				    "font-size": 14,
+                                            // "return-type": "json",
+                                            "exec": "~/.local/bin/waybar-devices",
+                                          },
 
-                                  "privacy": {
-                                    "icon-spacing": 8,
-                                    "icon-size": 14,
-                                    "transition-duration": 250,
-                                    "modules": [
-                                      {
-                                        "type": "screenshare",
-                                        "tooltip": true,
-                                        "tooltip-icon-size": 24
-                                      },
-                                      {
-                                        "type": "audio-out",
-                                        "tooltip": true,
-                                        "tooltip-icon-size": 24
-                                      },
-                                      {
-                                        "type": "audio-in",
-                                        "tooltip": true,
-                                        "tooltip-icon-size": 24
-                                      }
-                                    ]
-                                  },
+                                          "privacy": {
+                                            "icon-spacing": 8,
+                                            "icon-size": 14,
+                                            "transition-duration": 250,
+                                            "modules": [
+                                              {
+                                                "type": "screenshare",
+                                                "tooltip": true,
+                                                "tooltip-icon-size": 24
+                                              },
+                                              {
+                                                "type": "audio-out",
+                                                "tooltip": true,
+                                                "tooltip-icon-size": 24
+                                              },
+                                              {
+                                                "type": "audio-in",
+                                                "tooltip": true,
+                                                "tooltip-icon-size": 24
+                                              }
+                                            ]
+                                          },
 
-                                  "tray": {
-                                    "icon-size": 12,
-                                    "spacing": 0
-                                  },
+                                          "tray": {
+                                            "icon-size": 12,
+                                            "spacing": 0
+                                          },
 
-                                  "sway/mode": {
-                                    "format": " {}",
-                                    "tooltip": false
-                                  },
+                                          "sway/mode": {
+                                            "format": " {}",
+                                            "tooltip": false
+                                          },
 
-                                  "custom/yubikey#icon": {
-                                    "exec": "~/.local/bin/waybar-yubikey 0",
-                                    "return-type": "json"
-                                  },
+                                          "custom/yubikey#icon": {
+                                            "exec": "~/.local/bin/waybar-yubikey 0",
+                                            "return-type": "json"
+                                          },
 
-                                  "custom/yubikey#data": {
-                                    "exec": "~/.local/bin/waybar-yubikey 1",
-                                    "return-type": "json"
-                                  },
+                                          "custom/yubikey#data": {
+                                            "exec": "~/.local/bin/waybar-yubikey 1",
+                                            "return-type": "json"
+                                          },
 
-                                  "group/hardware": {
-                                    "orientation": "horizontal",
-                                    "modules": [ 
-                                      "cpu", 
-                                      "temperature#cpu",
-                                      "temperature#gpu",
-                                      "temperature#nvme",
-                                      "temperature#wifi"
-                                    ],
-                                    "drawer": {
-                                      "transition-left-to-right": false,
-                                      "transition-duration": 500
-                                    }
-                                  },
+                                          "group/hardware": {
+                                            "orientation": "horizontal",
+                                            "modules": [ 
+                                              "cpu", 
+                                              "temperature#cpu",
+                                              "temperature#gpu",
+                                              "temperature#nvme",
+                                              "temperature#wifi"
+                                            ],
+                                            "drawer": {
+                                              "transition-left-to-right": false,
+                                              "transition-duration": 500
+                                            }
+                                          },
 
-                                  "cpu": {
-                                    "interval": 30,
-                                    "format": " {avg_frequency:3.2f}GHz <span color='#aaaaaa'>{usage}%</span>",
-                                    "states": {
-                                      "warning": 70,
-                                      "critical": 90
-                                    },
-                                  },
+                                          "cpu": {
+                                            "interval": 30,
+                                            "format": " {avg_frequency:3.2f}GHz <span color='#aaaaaa'>{usage}%</span>",
+                                            "states": {
+                                              "warning": 70,
+                                              "critical": 90
+                                            },
+                                          },
 
-                                  "temperature#cpu": {
-                                    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
-                                    "critical-threshold": 80,
-                                    "format": " CPU <span color='#aaaaaa'>{temperatureC}°C</span>"
-                                  },
+                                          "temperature#cpu": {
+                                            "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+                                            "critical-threshold": 80,
+                                            "format": " CPU <span color='#aaaaaa'>{temperatureC}°C</span>"
+                                          },
 
-                                  "temperature#gpu": {
-                                    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
-                                    "critical-threshold": 80,
-                                    "format": "· GPU <span color='#aaaaaa'>{temperatureC}°C</span>"
-                                  },
+                                          "temperature#gpu": {
+                                            "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+                                            "critical-threshold": 80,
+                                            "format": "· GPU <span color='#aaaaaa'>{temperatureC}°C</span>"
+                                          },
 
-                                  "temperature#nvme": {
-                                    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-                                    "critical-threshold": 80,
-                                    "format": "· NVMe <span color='#aaaaaa'>{temperatureC}°C</span>"
-                                  },
+                                          "temperature#nvme": {
+                                            "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+                                            "critical-threshold": 80,
+                                            "format": "· NVMe <span color='#aaaaaa'>{temperatureC}°C</span>"
+                                          },
 
-                                  "temperature#wifi": {
-                                    "hwmon-path": "/sys/class/hwmon/hwmon11/temp1_input",
-                                    "critical-threshold": 80,
-                                    "format": "· WiFi <span color='#aaaaaa'>{temperatureC}°C</span>"
-                                  },
+                                          "temperature#wifi": {
+                                            "hwmon-path": "/sys/class/hwmon/hwmon11/temp1_input",
+                                            "critical-threshold": 80,
+                                            "format": "· WiFi <span color='#aaaaaa'>{temperatureC}°C</span>"
+                                          },
 
-                                  "group/resources": {
-                                    "orientation": "horizontal",
-                                    "modules": [ "memory", "disk#root" ],
-                                    "drawer": {
-                                      "transition-left-to-right": false,
-                                      "transition-duration": 500
-                                    }
-                                  },
+                                          "group/resources": {
+                                            "orientation": "horizontal",
+                                            "modules": [ "memory", "disk#root" ],
+                                            "drawer": {
+                                              "transition-left-to-right": false,
+                                              "transition-duration": 500
+                                            }
+                                          },
 
-                                  "memory": {
-                                    "interval": 60,
-                                    "format": "󰘚 {used:3.1f}GiB/<span color='#aaaaaa'>{total:3.1f}GiB</span>"
-                                  },
+                                          "memory": {
+                                            "interval": 60,
+                                            "format": "󰘚 {used:3.1f}GiB/<span color='#aaaaaa'>{total:3.1f}GiB</span>"
+                                          },
 
-                                  "disk#root": {
-                                    "interval": 360,
-                                    "format": "  {used}/<span color='#aaaaaa'>{total}</span>",
-                                    "path": "/"
-                                  },
+                                          "disk#root": {
+                                            "interval": 360,
+                                            "format": "  {used}/<span color='#aaaaaa'>{total}</span>",
+                                            "path": "/"
+                                          },
 
-                                  "bluetooth": {
-                                    // "controller": "controller1",
-                                    "on-click": "~/.local/bin/waybar-bluetooth toggle",
-                                    "format": "<span color='#aaaaaa'>󰂲</span>",
-                                    "format-disabled": "<span color='#333333'></span>",
-                                    "format-connected": "",
-                                    "format-connected-battery": " {device_battery_percentage}%",
-                                    "tooltip-format": "{controller_alias}\t\t[{controller_address}]",
-                                    "tooltip-format-connected": "{controller_alias}\t\t[{controller_address}]\n\n{device_enumerate}",
-                                    "tooltip-format-connected-battery": "{controller_alias}\t\t[{controller_address}]\n\n{device_enumerate}",
-                                    "tooltip-format-enumerate-connected": "{device_alias}\t\t[{device_address}]",
-                                    "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage})\t\t[{device_address}]"
-                                  },
+                                          "bluetooth": {
+                                            // "controller": "controller1",
+                                            "on-click": "~/.local/bin/waybar-bluetooth toggle",
+                                            "format": "<span color='#aaaaaa'>󰂲</span>",
+                                            "format-disabled": "<span color='#333333'></span>",
+                                            "format-connected": "",
+                                            "format-connected-battery": " {device_battery_percentage}%",
+                                            "tooltip-format": "{controller_alias}\t\t[{controller_address}]",
+                                            "tooltip-format-connected": "{controller_alias}\t\t[{controller_address}]\n\n{device_enumerate}",
+                                            "tooltip-format-connected-battery": "{controller_alias}\t\t[{controller_address}]\n\n{device_enumerate}",
+                                            "tooltip-format-enumerate-connected": "{device_alias}\t\t[{device_address}]",
+                                            "tooltip-format-enumerate-connected-battery": "{device_alias} ({device_battery_percentage})\t\t[{device_address}]"
+                                          },
 
-                                  "group/audio": {
-                                    "orientation": "horizontal",
-                                    "modules": [ 
-                                      "wireplumber", 
-                                      "custom/audio-internal",
-                                      "custom/audio-headphones",
-                                      "custom/audio-hdmi"
-                                    ],
-                                    "drawer": {
-                                      "transition-left-to-right": false,
-                                      "transition-duration": 500
-                                    }
-                                  },
+                                          "group/audio": {
+                                            "orientation": "horizontal",
+                                            "modules": [ 
+                                              "wireplumber", 
+                                              "custom/audio-internal",
+                                              "custom/audio-headphones",
+                                              "custom/audio-hdmi"
+                                            ],
+                                            "drawer": {
+                                              "transition-left-to-right": false,
+                                              "transition-duration": 500
+                                            }
+                                          },
 
-                                  "wireplumber": {
-                                    "format": "{icon}  {node_name}/<span color='#aaaaaa'>{volume}</span>",
-                                    "format-muted": "",
-                                    "on-click": "pavucontrol-qt",
-                                    "on-click-right": "helvum",
-                                    "format-icons": ["", "", ""]
-                                  },
+                                          "wireplumber": {
+                                            "format": "{icon}  {node_name}/<span color='#aaaaaa'>{volume}</span>",
+                                            "format-muted": "",
+                                            "on-click": "pavucontrol-qt",
+                                            "on-click-right": "helvum",
+                                            "format-icons": ["", "", ""]
+                                          },
 
-                                  "custom/audio-internal": {
-                                    "format": "󱡬 ",
-                                    "tooltip-format": "Internal",
-                                    "on-click": "audio-router analog",
-                                    "interval": "once"
-                                  },
+                                          "custom/audio-internal": {
+                                            "format": "󱡬 ",
+                                            "tooltip-format": "Internal",
+                                            "on-click": "audio-router analog",
+                                            "interval": "once"
+                                          },
 
-                                  "custom/audio-hdmi": {
-                                    "format": "󰡁 ",
-                                    "tooltip-format": "HDMI",
-                                    "on-click": "audio-router hdmi",
-                                    "interval": "once"
-                                  },
+                                          "custom/audio-hdmi": {
+                                            "format": "󰡁 ",
+                                            "tooltip-format": "HDMI",
+                                            "on-click": "audio-router hdmi",
+                                            "interval": "once"
+                                          },
 
-                                  "group/battery": {
-                                    "orientation": "horizontal",
-                                    "modules": [ 
-                                      "battery",
-                                      "custom/powerdraw"
-                                    ],
-                                    "drawer": {
-                                      "transition-left-to-right": false,
-                                      "transition-duration": 500
-                                    }
-                                  },
+                                          "group/battery": {
+                                            "orientation": "horizontal",
+                                            "modules": [ 
+                                              "battery",
+                                              "custom/powerdraw"
+                                            ],
+                                            "drawer": {
+                                              "transition-left-to-right": false,
+                                              "transition-duration": 500
+                                            }
+                                          },
 
-                                  "battery": {
-                                    "bat": "BAT1",
-                                    "interval": 30,
-                                    "states": {
-                                      "warning": 20,
-                                      "critical": 10
-                                    },
-                                    "format-time": "{H}:{m}",
-                                    "format": "{icon}   {time} <span color='#aaaaaa'>{capacity}%</span>",
-                                    "format-discharging": "{icon}   <span color='#aaaaaa'>{capacity}%</span>",
-                                    "format-discharging-warning": "{icon}   <span color='#FF5F1F'>{capacity}%</span>",
-                                    "format-discharging-critical": "{icon}   <span color='#FF3131'>{capacity}%</span>",
-                                    "format-charging": "{icon}   <span color='#DAF7A6'>{capacity}%</span><span color='#aaaaaa'> @ {power:2.0f}W</span>",
-                                    "format-full": "󱐥   <span color='#aaaaaa'>{capacity}%</span>",
-                                    "format-not-charging": "󱐤   <span color='#aaaaaa'>{capacity}%</span>",
-                                    "format-icons": [" ", " ", " ", " ", " "],
-                                  },
+                                          "battery": {
+                                            "bat": "BAT1",
+                                            "interval": 30,
+                                            "states": {
+                                              "warning": 20,
+                                              "critical": 10
+                                            },
+                                            "format-time": "{H}:{m}",
+                                            "format": "{icon}   {time} <span color='#aaaaaa'>{capacity}%</span>",
+                                            "format-discharging": "{icon}   <span color='#aaaaaa'>{capacity}%</span>",
+                                            "format-discharging-warning": "{icon}   <span color='#FF5F1F'>{capacity}%</span>",
+                                            "format-discharging-critical": "{icon}   <span color='#FF3131'>{capacity}%</span>",
+                                            "format-charging": "{icon}   <span color='#DAF7A6'>{capacity}%</span><span color='#aaaaaa'> @ {power:2.0f}W</span>",
+                                            "format-full": "󱐥   <span color='#aaaaaa'>{capacity}%</span>",
+                                            "format-not-charging": "󱐤   <span color='#aaaaaa'>{capacity}%</span>",
+                                            "format-icons": [" ", " ", " ", " ", " "],
+                                          },
 
-                		  "custom/powerdraw": {
-                                    "interval": 60,
-                                    "exec": "~/.local/bin/waybar-powerdraw",
-                                  },
+                        		  "custom/powerdraw": {
+                                            "interval": 60,
+                                            "exec": "~/.local/bin/waybar-powerdraw",
+                                          },
 
-                                  "group/clock": {
-                                    "orientation": "horizontal",
-                                    "modules": [ "custom/clock#minutes", "clock#time", "clock#date" ],
-                                    "drawer": {
-                                      "transition-left-to-right": false,
-                                      "transition-duration": 500
-                                    }
-                                  },
+                                          "group/clock": {
+                                            "orientation": "horizontal",
+                                            "modules": [ "custom/clock#minutes", "clock#time", "clock#date" ],
+                                            "drawer": {
+                                              "transition-left-to-right": false,
+                                              "transition-duration": 500
+                                            }
+                                          },
 
-                                  "clock#date": {
-                                    "interval": 60,
-                                    "format": " <span color='#ffffff'> {:%a %e %b %Y}</span>",
-                                    "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
-                                    "calendar": {
-                                      "mode"          : "year",
-                                      "mode-mon-col"  : 2,
-                                      "weeks-pos"     : "right",
-                                      "on-scroll"     : 1,
-                                      "format": {
-                                        "months":     "<span color='#ffead3'><b>{}</b></span>",
-                                        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                                        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                                        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                                        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                                      }
-                                    },
-                                    "actions":  {
-                                      "on-click-right": "mode",
-                                      "on-scroll-up": "shift_up",
-                                      "on-scroll-down": "shift_down"
-                                    }
-                                  },
+                                          "clock#date": {
+                                            "interval": 60,
+                                            "format": " <span color='#ffffff'> {:%a %e %b %Y}</span>",
+                                            "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
+                                            "calendar": {
+                                              "mode"          : "year",
+                                              "mode-mon-col"  : 2,
+                                              "weeks-pos"     : "right",
+                                              "on-scroll"     : 1,
+                                              "format": {
+                                                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                                                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                                                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                                                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                                                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                                              }
+                                            },
+                                            "actions":  {
+                                              "on-click-right": "mode",
+                                              "on-scroll-up": "shift_up",
+                                              "on-scroll-down": "shift_down"
+                                            }
+                                          },
 
-                                  "clock#time": {
-                                    "interval": 60,
-                                    "format": "   {:%I:%M %p}",
-                                    "actions":  {
-                                      "on-scroll-up": "tz_up",
-                                      "on-scroll-down": "tz_down"
-                                    }
-                                  },
+                                          "clock#time": {
+                                            "interval": 60,
+                                            "format": "   {:%I:%M %p}",
+                                            "actions":  {
+                                              "on-scroll-up": "tz_up",
+                                              "on-scroll-down": "tz_down"
+                                            }
+                                          },
 
-                                  "custom/clock#minutes": {
-                                    "interval": 60,
-                                    "format": "   <span color='#aaaaaa'>{}</span>  ",
-                                    "exec": "~/.local/bin/waybar-minutes"
-                                  }
-                                }
-                                ]
+                                          "custom/clock#minutes": {
+                                            "interval": 60,
+                                            "format": "   <span color='#aaaaaa'>{}</span>  ",
+                                            "exec": "~/.local/bin/waybar-minutes"
+                                          }
+                                        }
+                                        ]
       '';
     };
     "/home/${username}/.config/waybar/style.css" = {
@@ -369,7 +370,7 @@
                         * {
                           border: none;
                           border-radius: 0;
-                          font-family: 'CommitMono Nerd Font';
+                          font-family: 'GohuFont 11 Nerd Font Mono';
                           font-weight: 400;
                           font-size: 11px;
                           min-height: 26px;

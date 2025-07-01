@@ -41,6 +41,9 @@
     laptop13.audioEnhancement.enable = true;
   };
 
+  # Disable light sensors and accelerometers as they are not used and consume extra battery
+  hardware.sensor.iio.enable = lib.mkForce false;
+
   networking.hostName = "sakura";
 
   powerManagement = {

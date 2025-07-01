@@ -1,4 +1,4 @@
-{ pkgs, agenix, ... }: 
+{ pkgs, agenix, ... }:
 {
   programs = {
     dconf.enable = true;
@@ -13,6 +13,8 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+    dig
+    traceroute
     # agenix.packages.x86_64-linux.default
   ];
 }

@@ -73,12 +73,15 @@
     thunderbird
     lxqt.pavucontrol-qt
     mpv
+    plasma5Packages.kdeconnect-kde
 
     # Gaming
     lunar-client
 
     inputs.alejandra.defaultPackage.${system}
     inputs.nixvim.packages.${pkgs.system}.default
+    mermaid-cli
+    gnuplot
 
     # Email/calendar/etc
     neomutt
