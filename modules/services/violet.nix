@@ -21,6 +21,7 @@
     ++ [ (import ./nginx.nix) ]
     # ++ [(import ./komga.nix)]
     ++ [ (import ./radicale.nix) ]
+    ++ [ (import ./prosody.nix) ]
     ++ [ (import ./tailscale.nix) ]
     ++ [ (import ./guacamole.nix) ]
     ++ [ (import ./readarr.nix) ];
