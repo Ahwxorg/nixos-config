@@ -11,6 +11,7 @@
     ./../../modules/core
     # ./../../modules/home/nfs.nix
     ./../../modules/core/virtualization.nix
+    ./../../modules/services/tailscale.nix
   ];
 
   powerManagement = {
