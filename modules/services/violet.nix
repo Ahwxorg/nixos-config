@@ -23,9 +23,9 @@
     ++ [ (import ./radicale.nix) ]
     ++ [ (import ./readarr.nix) ]
     ++ [ (import ./sharkey-proxy.nix) ]
-    # ++ [(import ./komga.nix)]
+    # ++ [ (import ./komga.nix) ]
     # ++ [ (import ./prosody.nix) ]
-    ++ [ (import ./tailscale.nix) ]
-    # ++ [(import ./smart-monitoring.nix)]
-    ++ [(import ./jitsi-meet.nix)]:
+    ++ [ (import ./tailscale.nix) ];
+  # ++ [ (import ./smart-monitoring.nix) ]
+  # ++ [ (import ./jitsi-meet.nix) ]
 }
