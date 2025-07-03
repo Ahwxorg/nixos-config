@@ -59,6 +59,7 @@
 
     # GUI shit
     element-desktop
+    gajim
     signal-desktop
     anki-bin
     obs-studio
