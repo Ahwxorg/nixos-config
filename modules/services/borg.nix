@@ -45,7 +45,10 @@ in
           ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-lib) completed succesfully with exit status $exitStatus"
         fi
       '';
-      user = "${username}";
+      # user = "${username}";
+      environment = {
+        BORG_RSH = "ssh -p 9123 -i /home/liv/.ssh/id_ed25519";
+      };
     };
   };
 }
