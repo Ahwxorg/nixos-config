@@ -27,6 +27,19 @@
 
   time.timeZone = "Europe/Amsterdam";
 
+  systemd.network.networks."99-local" = {
+    matchConfig.name = "ens3s1";
+    address = [
+      "192.168.1.100/24"
+    ];
+    routes = [
+      {
+        Gateway = "172.16.10.1";
+        GatewayOnLink = false;
+      }
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     kitty.terminfo
     zfs

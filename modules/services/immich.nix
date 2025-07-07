@@ -1,9 +1,12 @@
 { config, ... }:
 {
-  services.immich = {
-    enable = true;
-    port = 2283;
-  };
+  # services.immich = {
+  # enable = true;
+  # port = 2283;
+  # mediaLocation = "/spinners/rootvol/immich/";
+  # openFirewall = true;
+  # machine-learning.enable = true;
+  # };
 
   # services.nginx.virtualHosts."" = {
   #   forceSSL = true;

@@ -1,7 +1,12 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 let
   hostname = "violet";
-  repo = "ssh://dandelion.booping.local:${toString config.services.openssh.ports}/spinners/rootvol/backups/${hostname}";
+  baseRepo = "ssh://liv@dandelion:9123/spinners/rootvol/backups/${hostname}";
 in
 {
   services.borgbackup.jobs = {
@@ -9,55 +14,41 @@ in
       paths = [
         "/home/liv/MinecraftDocker"
       ];
-      repo = "${repo}/MinecraftDocker-tulip";
-      compression = "auto,zstd";
-      startAt = "daily";
+      repo = "ssh://liv@dandelion:9123/spinners/rootvol/backups/violet/MinecraftDocker-tulip";
+      encryption.mode = "none";
+      compression = "auto,zstd,10";
+      startAt = [ "3:00" ];
       postHook = ''
         if [ $exitStatus -eq 2 ]; then
-          ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-minecraft) failed with errors"
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-minecraft) failed with errors"
         else
-          ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-minecraft) completed succesfully with exit status $exitStatus"
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-minecraft) completed succesfully with exit status $exitStatus"
         fi
       '';
+      user = "${username}";
+      environment = {
+        BORG_RSH = "ssh -p 9123 -i /home/liv/.ssh/id_ed25519";
+      };
     };
     "violet-lib" = {
       paths = [
         "/var/lib"
       ];
-      repo = "${repo}/var-lib";
+      repo = "${baseRepo}/var-lib";
+      encryption.mode = "none";
       compression = "auto,zstd";
       startAt = "daily";
       postHook = ''
         if [ $exitStatus -eq 2 ]; then
-          ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-lib) failed with errors"
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-lib) failed with errors"
         else
-          ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-lib) completed succesfully with exit status $exitStatus"
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${hostname} "borgbackup: ${hostname} backup (violet-lib) completed succesfully with exit status $exitStatus"
         fi
       '';
+      # user = "${username}";
+      environment = {
+        BORG_RSH = "ssh -p 9123 -i /home/liv/.ssh/id_ed25519";
+      };
     };
-    # "violet-random" = {
-    #   paths = [
-    #     "/random"
-    #   ];
-    #   exclude = [
-    #     "/random/a"
-    #     "/random/a"
-    #   ];
-    #  encryption = {
-    #    mode = "";
-    #    passCommand = "";
-    #  };
-    #  environment.BORG_RSH = "ssh -i ${config.sops.secrets."ssh_private_key_violet".path}";
-    #  repo = "${repo}/violet/random";
-    #  compression = "auto,zstd";
-    #  startAt = "daily";
-    #  postHook = ''
-    #    if [ $exitStatus -eq 2 ]; then
-    #      ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.${domain}/nixbox "BorgBackup: nixbox backup failed with errors"
-    #    else
-    #      ${pkgs.ntfy-sh}/bin/ntfy send https://ntfy.${domain}/nixbox "BorgBackup: nixbox backup completed succesfully with exit status $exitStatus"
-    #    fi
-    #  '';
-    # };
   };
 }

@@ -226,6 +226,7 @@
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"
+        "$mainMod SHIFT, X, exec, gajim"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
         "$mainMod SHIFT, N ,exec, notes"
         "$mainMod, N,exec, swaync-client -t"
