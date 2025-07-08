@@ -7,7 +7,6 @@
     ++ [ (import ./binternet-proxy.nix) ]
     ++ [ (import ./bluemap-proxy.nix) ]
     ++ [ (import ./docker.nix) ]
-    # ++ [ (import ./frp.nix) ]
     ++ [ (import ./forgejo.nix) ]
     ++ [ (import ./grafana.nix) ]
     ++ [ (import ./guacamole.nix) ]
@@ -24,7 +23,7 @@
     ++ [ (import ./readarr.nix) ]
     ++ [ (import ./sharkey-proxy.nix) ]
     # ++ [ (import ./komga.nix) ]
-    # ++ [ (import ./prosody.nix) ]
+    # ++ [ (import ./xmpp.nix) ]
     ++ [ (import ./tailscale.nix) ];
   # ++ [ (import ./smart-monitoring.nix) ]
   # ++ [ (import ./jitsi-meet.nix) ]
