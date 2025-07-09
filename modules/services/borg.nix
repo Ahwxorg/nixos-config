@@ -26,6 +26,9 @@ in
         fi
       '';
       user = "${username}";
+      extraCreateArgs = [
+        "--stats"
+      ];
       environment = {
         BORG_RSH = "ssh -p 9123 -i /home/liv/.ssh/id_ed25519";
       };
@@ -46,6 +49,9 @@ in
         fi
       '';
       # user = "${username}";
+      extraCreateArgs = [
+        "--stats"
+      ];
       environment = {
         BORG_RSH = "ssh -p 9123 -i /home/liv/.ssh/id_ed25519";
       };
