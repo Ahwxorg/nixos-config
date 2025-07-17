@@ -172,7 +172,7 @@
       };
 
       animations = {
-        enabled = true;
+        enabled = false;
 
         bezier = [
           "fluent_decel, 0, 0.2, 0.4, 1"
