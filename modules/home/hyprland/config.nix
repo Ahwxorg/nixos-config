@@ -71,7 +71,8 @@
         "waybar &"
         "swaync &"
         "wl-paste --watch cliphist store &"
-        "yubikey-touch-detector --libnotify"
+        "yubikey-touch-detector --libnotify &"
+        "mpDris2 &"
       ];
 
       input = {
