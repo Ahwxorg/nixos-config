@@ -25,6 +25,10 @@ unfuck_wallpaper() {
   swww img ~/.local/share/bg.png
 }
 
+unfuck_fingerprint() {
+  systemctl restart fprintd.service
+}
+
 unfuck_bar() {
   pkill waybar
   setsid waybar &
@@ -81,6 +85,7 @@ everything)
   unfuck_bar
   unfuck_spotify
   unfuck_wallpaper
+  unfuck_fingerprint
   ;;
 *)
   eval "unfuck_$1"
