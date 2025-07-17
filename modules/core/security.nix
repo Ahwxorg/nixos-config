@@ -27,7 +27,7 @@
         }
       ];
 
-      package = (pkgs.sudo.override { withInsults = true; }).overrideAttrs (old: {
+      package = (pkgs.sudo.override { withInsults = false; }).overrideAttrs (old: {
         postPatch =
           (old.postPatch or "")
           + ''
