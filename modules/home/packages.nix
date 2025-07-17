@@ -29,7 +29,6 @@
     vimv
     iamb
     pass
-    pixcat
     lm_sensors
     neofetch
     hyfetch
@@ -56,6 +55,11 @@
     rustc
     wikit
     reader
+    nmap
+    speedtest-go
+    delta
+    powertop
+    android-tools
 
     # GUI shit
     element-desktop
