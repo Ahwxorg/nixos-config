@@ -9,6 +9,7 @@
     mpc
     mpdris2
     ncmpcpp
+    rmpc
   ];
 
   services.mpd = {
