@@ -24,7 +24,8 @@
     ++ [ (import ./sharkey-proxy.nix) ]
     # ++ [ (import ./komga.nix) ]
     # ++ [ (import ./xmpp.nix) ]
-    ++ [ (import ./tailscale.nix) ];
+    ++ [ (import ./tailscale.nix) ]
+    ++ [ (import ./vaultwarden.nix) ];
   # ++ [ (import ./smart-monitoring.nix) ]
   # ++ [ (import ./jitsi-meet.nix) ]
 }
