@@ -60,6 +60,7 @@
     delta
     powertop
     android-tools
+    sshpass
 
     # GUI shit
     element-desktop
@@ -79,6 +80,7 @@
     lxqt.pavucontrol-qt
     mpv
     plasma5Packages.kdeconnect-kde
+    # onthespot-overlay
 
     # Gaming
     lunar-client
