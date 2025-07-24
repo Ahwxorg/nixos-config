@@ -7,6 +7,7 @@
 }:
 {
   programs = {
+    command-not-found.enable = true;
     zsh = {
       enable = true;
       autocd = true;
@@ -27,8 +28,8 @@
         SYSTEMD_LESS = "FRXMK"; # Fix weird sideways scrolling in systemctl status ...
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
         ZSH_AUTOSUGGEST_USE_ASYNC = 1;
-        HISTSIZE = 100000;
-        SAVEHIST = 100000;
+        HISTSIZE = 10000000;
+        SAVEHIST = 10000000;
         HISTFILE = "~/.zsh_history";
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
       };
