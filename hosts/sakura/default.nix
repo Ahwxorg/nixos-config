@@ -76,7 +76,7 @@
   '';
   services.logind.lidSwitch = "suspend-then-hibernate";
   boot = {
-    plymouth.enable = true;
+    # plymouth.enable = true; # is a module now
     kernelParams = [
       "mem_sleep_default=deep"
       "acpi_osi=\"!Windows 2020\"" # otherwise GPU does weird shit that makes the computer look like the RAM is broken
