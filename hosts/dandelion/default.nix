@@ -60,10 +60,16 @@
     trim.enable = true;
   };
 
-  # boot.zfs.extraPools = [ "terrabite" ];
+  boot.zfs.extraPools = [ "spinners" ];
 
-  # fileSystems."/terrabite/main" = {
-  #   device = "terrabite/main";
-  #   fsType = "zfs";
-  # };
+  fileSystems = {
+    "/spinners/rootvol" = {
+      device = "terrabite/rootvol";
+      fsType = "zfs";
+    };
+    "/spinners/ahwx" = {
+      device = "terrabite/ahwx";
+      fsType = "zfs";
+    };
+  };
 }
