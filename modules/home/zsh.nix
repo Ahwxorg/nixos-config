@@ -110,7 +110,7 @@
           printf "%s\n" "''${url}"
         }
 
-        function nixcd () {                             sakura
+        function nixcd () {
           PACKAGE_NAME="$1"
           if [[ "$PACKAGE_NAME" = "" ]]; then
             echo "Usage: nixcd <package name>"
