@@ -33,6 +33,14 @@
     xserver.videoDrivers = [ "nvidia" ];
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      80
+      443
+      25565
+    ];
+  };
+
   liv.nvidia.enable = true;
 
   boot = {
