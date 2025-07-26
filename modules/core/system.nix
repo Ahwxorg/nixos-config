@@ -1,12 +1,20 @@
-{ self, pkgs, lib, inputs, ...}: 
 {
-  # imports = [ inputs.nix-gaming.nixosModules.default ];
+  self,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+{
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = [ "https://nix-gaming.cachix.org" ];
-      trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      # substituters = [ "" ];
+      # trusted-public-keys = [ "" ];
     };
     gc = {
       automatic = true;
@@ -41,7 +49,7 @@
     "en_US.UTF-8/UTF-8"
     "ja_JP.UTF-8/UTF-8"
   ];
-  
+
   # Font packages
   environment.systemPackages = with pkgs; [
     noto-fonts-cjk-sans

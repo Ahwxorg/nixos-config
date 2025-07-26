@@ -17,9 +17,7 @@
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       imports =
-        if (host == "desktop") then
-          [ ./../home/default.desktop.nix ]
-        else if (host == "violet") then
+        if (host == "violet") then
           [ ./../home/default.server.nix ]
         else if (host == "dandelion") then
           [ ./../home/default.server.nix ]
