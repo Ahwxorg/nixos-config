@@ -71,6 +71,10 @@
       ${pkgs.fw-ectool}/bin/ectool led battery auto
     '';
   };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+  '';
+  services.logind.lidSwitch = "suspend-then-hibernate";
   boot = {
     plymouth.enable = true;
     kernelParams = [
