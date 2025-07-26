@@ -111,6 +111,17 @@
             inherit self inputs username;
           };
         };
+        zinnia = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/zinnia)
+            agenix.nixosModules.default
+          ];
+          specialArgs = {
+            host = "zinnia";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
