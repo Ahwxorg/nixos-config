@@ -4,7 +4,6 @@
   inputs = {
     agenix.url = "github:ryantm/agenix";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,14 +24,14 @@
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      catppuccin,
       agenix,
       ...
     }@inputs:
@@ -48,16 +47,6 @@
     {
       overlays.default = overlays.addition;
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/desktop)
-          ];
-          specialArgs = {
-            host = "desktop";
-            inherit self inputs username;
-          };
-        };
         sakura = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -121,17 +110,6 @@
           ];
           specialArgs = {
             host = "lily";
-            inherit self inputs username;
-          };
-        };
-
-        vm = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/vm)
-          ];
-          specialArgs = {
-            host = "vm";
             inherit self inputs username;
           };
         };
