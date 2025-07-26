@@ -110,6 +110,20 @@
           printf "%s\n" "''${url}"
         }
 
+        function nixcd () {                             sakura
+          PACKAGE_NAME="$1"
+          if [[ "$PACKAGE_NAME" = "" ]]; then
+            echo "Usage: nixcd <package name>"
+          fi
+          PKGINSTORE="$(NIXPKGS_ALLOW_UNFREE=1 nix path-info nixpkgs#$PACKAGE_NAME --impure)"
+          if [[ -d "$PKGINSTORE" ]]; then
+            cd $PKGINSTORE
+          else
+            echo "Could not find path for package: $PKGINSTORE"
+            return 1
+          fi
+        }
+
         export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
 
         # if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
