@@ -147,6 +147,7 @@
           gcm = "git commit -m";
           gph = "git push -u origin main";
           g = "git";
+          gp = "git pull";
 
           calc = "eva";
           wikipedia = "wikit";
