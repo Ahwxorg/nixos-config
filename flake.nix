@@ -24,8 +24,6 @@
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
