@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 {
   fonts.fontconfig.enable = true;
   home.packages = [
@@ -58,7 +58,14 @@
       source = "~/nixos-config/modules/home/hyprland/displays.conf";
 
       "debug:disable_scale_checks" = true;
-      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
+      # monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
+      monitor =
+        if (host == "sakura") then
+          "eDP-1, 2256x1504@60, 0x0, 1.5"
+        else if (host == "zinnia") then
+          "eDP-1, 1920x1080@60, 0x0, 1.0"
+        else
+          ", preferred, auto, 1";
 
       # autostart
       exec-once = [
