@@ -62,6 +62,13 @@
     android-tools
     sshpass
 
+    # Install pip packages
+    # python3
+    # python3Packages.pip
+    # (writeShellScriptBin "install-pip-packages" '' # This script does not run, yet.
+    #   pip install --user --break-system-packages <package>
+    # '')
+
     # GUI shit
     element-desktop
     gajim
