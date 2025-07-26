@@ -9,6 +9,7 @@
     ++ [ (import ./network.nix) ]
     ++ [ (import ./pipewire.nix) ]
     ++ [ (import ./program.nix) ]
+    ++ [ (import ./plymouth.nix) ]
     ++ [ (import ./sshd.nix) ]
     ++ [ (import ./security.nix) ]
     ++ [ (import ./services.nix) ]
