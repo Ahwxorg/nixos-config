@@ -8,6 +8,6 @@
 }:
 {
   environment.systemPackages = [
-    inputs.agenix.packages."${system}".default
+    inputs.agenix.packages.${pkgs.system}.default
   ];
 }
