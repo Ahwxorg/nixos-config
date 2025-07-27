@@ -2,6 +2,7 @@
 {
   imports =
     [ (import ./docker.nix) ]
+    ++ [ (import ./agenix.nix) ]
     ++ [ (import ./hardware.nix) ]
     # ++ [(import ./displaylink.nix)]
     # ++ [(import ./printing.nix)]
