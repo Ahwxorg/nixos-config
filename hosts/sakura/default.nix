@@ -12,6 +12,7 @@
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
+    ./../../modules/services/smart-monitoring.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
