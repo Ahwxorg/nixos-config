@@ -10,6 +10,7 @@
   imports =
     [ inputs.home-manager.nixosModules.home-manager ]
     ++ [ ./../../roles/default.nix ]
+    ++ [ ./sops.nix ]
     ++ [ ./../../variables.nix ];
   home-manager = {
     useUserPackages = true;
@@ -38,8 +39,6 @@
 
   fonts.fontconfig.antialias = false;
 
-  users.groups.gay = { };
-
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -48,8 +47,8 @@
       "wheel"
       "docker"
       "input"
-      "gay"
       "dialout"
+      "wheel"
     ];
     shell = pkgs.zsh;
   };
