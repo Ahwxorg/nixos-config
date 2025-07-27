@@ -2,35 +2,26 @@
   description = "liv's NixOS configuration";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprsunset.url = "github:hyprwm/hyprsunset";
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      agenix,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -49,7 +40,7 @@
           inherit system;
           modules = [
             (import ./hosts/sakura)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "sakura";
@@ -60,7 +51,7 @@
           inherit system;
           modules = [
             (import ./hosts/yoshino)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "yoshino";
@@ -71,7 +62,7 @@
           inherit system;
           modules = [
             (import ./hosts/ichiyo)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "ichiyo";
@@ -82,7 +73,7 @@
           inherit system;
           modules = [
             (import ./hosts/violet)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "violet";
@@ -93,7 +84,7 @@
           inherit system;
           modules = [
             (import ./hosts/dandelion)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "dandelion";
@@ -104,7 +95,7 @@
           inherit system;
           modules = [
             (import ./hosts/lily)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "lily";
@@ -115,7 +106,7 @@
           inherit system;
           modules = [
             (import ./hosts/zinnia)
-            agenix.nixosModules.default
+            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "zinnia";
