@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   networking = {
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "stable-ssid";
+    };
     nameservers = [ "9.9.9.9" ];
     firewall = {
       enable = true;
