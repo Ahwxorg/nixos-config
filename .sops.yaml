@@ -1,5 +1,6 @@
 keys:
   - &sakura age1yzapmznelujajfyrpw5mxmy86ckg377494w5ap4yej39jatewursfxls9w
+  - &violet age1zegau3chyn53tqvkwud6tuyggpkazc88pdkqv8cknavaudu49enqm2f0h3
 creation_rules:
   - path_regex: secrets/secrets.yaml
     key_groups:
