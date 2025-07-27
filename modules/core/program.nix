@@ -1,4 +1,4 @@
-{ pkgs, agenix, ... }:
+{ pkgs, ... }:
 {
   programs = {
     dconf.enable = true;
@@ -15,6 +15,5 @@
     git
     dig
     traceroute
-    # agenix.packages.x86_64-linux.default
   ];
 }
