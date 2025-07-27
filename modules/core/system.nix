@@ -8,13 +8,12 @@
 {
   nix = {
     settings = {
+      allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      # substituters = [ "" ];
-      # trusted-public-keys = [ "" ];
     };
     gc = {
       automatic = true;
