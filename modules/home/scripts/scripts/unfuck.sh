@@ -62,6 +62,8 @@ unfuck_audio() {
     devices+=("$device")
   done
   systemctl --user restart wireplumber pipewire pipewire-pulse bluetooth
+  rfkill block bluetooth
+  rfkill unblock bluetooth
   bluetoothctl power off
   bluetoothctl power on
   for device in ${devices[*]}; do
