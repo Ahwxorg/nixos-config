@@ -40,7 +40,6 @@
           inherit system;
           modules = [
             (import ./hosts/sakura)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "sakura";
@@ -51,7 +50,6 @@
           inherit system;
           modules = [
             (import ./hosts/yoshino)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "yoshino";
@@ -62,7 +60,6 @@
           inherit system;
           modules = [
             (import ./hosts/ichiyo)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "ichiyo";
@@ -73,7 +70,6 @@
           inherit system;
           modules = [
             (import ./hosts/violet)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "violet";
@@ -84,7 +80,6 @@
           inherit system;
           modules = [
             (import ./hosts/dandelion)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "dandelion";
@@ -95,7 +90,6 @@
           inherit system;
           modules = [
             (import ./hosts/lily)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "lily";
@@ -106,10 +100,19 @@
           inherit system;
           modules = [
             (import ./hosts/zinnia)
-            # sops-nix.nixosModules.sops
           ];
           specialArgs = {
             host = "zinnia";
+            inherit self inputs username;
+          };
+        };
+        posy = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            (import ./hosts/posy)
+          ];
+          specialArgs = {
+            host = "posy";
             inherit self inputs username;
           };
         };
