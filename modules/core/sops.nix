@@ -3,6 +3,7 @@
   inputs,
   username,
   host,
+  config,
   ...
 }:
 {
@@ -17,7 +18,9 @@
         {
           "systemMailerPassword" = { };
           "forgejoWorkerSecret" = { };
-          "matrixRegistrationSecret" = { };
+          "matrixRegistrationSecret" = {
+            owner = "matrix-synapse";
+          };
         }
       else if (host == "sakura") then
         {
