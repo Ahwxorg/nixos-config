@@ -15,6 +15,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
     sops-nix.url = "github:Mic92/sops-nix";
+    disko.url = "github:nix-community/disko/latest";
   };
 
   outputs =
@@ -22,6 +23,7 @@
       self,
       nixpkgs,
       sops-nix,
+      disko,
       ...
     }@inputs:
     let
@@ -113,6 +115,16 @@
           ];
           specialArgs = {
             host = "posy";
+            inherit self inputs username;
+          };
+        };
+        hazel = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/hazel)
+          ];
+          specialArgs = {
+            host = "hazel";
             inherit self inputs username;
           };
         };
