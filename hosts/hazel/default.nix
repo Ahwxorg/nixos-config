@@ -8,7 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./disko.nix
+    # ./disko.nix
     ./../../modules/core/default.server.nix
     # ./../../modules/services/hazel.nix
   ];
