@@ -6,4 +6,8 @@ creation_rules:
     key_groups:
       - age:
           - *sakura
+  - path_regex: secrets/violet/secrets.yaml
+    key_groups:
+      - age:
+          - *sakura
           - *violet
