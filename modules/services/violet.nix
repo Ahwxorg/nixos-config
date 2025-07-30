@@ -24,7 +24,6 @@
     ++ [ (import ./remote-build.nix) ]
     ++ [ (import ./readarr.nix) ]
     ++ [ (import ./sharkey-proxy.nix) ]
-    ++ [ (import ./smokeping.nix) ]
     # ++ [ (import ./komga.nix) ]
     # ++ [ (import ./xmpp.nix) ]
     ++ [ (import ./tailscale.nix) ]
