@@ -75,7 +75,7 @@
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
   '';
-  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.lidSwitch = "suspend";
   boot = {
     # plymouth.enable = true; # is a module now
     kernelParams = [
