@@ -2,18 +2,29 @@
   pkgs,
   inputs,
   username,
+  host,
   ...
 }:
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
   sops = {
-    defaultSopsFile = ../../secrets/secrets.yaml;
+    defaultSopsFile = ../../secrets/${host}/secrets.yaml;
     defaultSopsFormat = "yaml";
     age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
-    secrets = {
-      "systemMailerPassword" = { };
-    };
+    secrets =
+      if (host == "violet") then
+        {
+          "systemMailerPassword" = { };
+          "forgejoWorkerSecret" = { };
+          "matrixRegistrationSecret" = { };
+        }
+      else if (host == "sakura") then
+        {
+          "systemMailerPassword" = { };
+        }
+      else
+        { };
   };
 
   environment.systemPackages = with pkgs; [
