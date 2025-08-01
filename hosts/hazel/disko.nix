@@ -5,11 +5,11 @@
   ];
   disko.devices = {
     disk = {
-      my-disk = {
+      sda = {
         device = "/dev/sda";
         type = "disk";
         content = {
-          type = "gpt";
+          type = "mbr";
           partitions = {
             ESP = {
               type = "EF00";
