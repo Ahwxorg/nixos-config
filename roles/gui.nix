@@ -46,6 +46,9 @@ in
 
       # Gaming
       lunar-client
+
+      # Not GUI but specific to GUI usage
+      sshuttle
     ];
   };
 }
