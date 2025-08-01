@@ -21,5 +21,31 @@ in
       gnome.gnome-keyring.enable = true;
       dbus.enable = true;
     };
+
+    home-manager.users.${username}.home.packages = with pkgs; [
+      element-desktop
+      gajim
+      signal-desktop
+      anki-bin
+      obs-studio
+      wdisplays
+      librewolf # main
+      ungoogled-chromium # for things that don't work with librewolf
+      nsxiv
+      imv
+      libreoffice
+      xfce.thunar
+      spotify
+      spotify-player
+      thunderbird
+      lxqt.pavucontrol-qt
+      mpv
+      plasma5Packages.kdeconnect-kde
+      winbox
+      # onthespot-overlay
+
+      # Gaming
+      lunar-client
+    ];
   };
 }
