@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   networking = {
     networkmanager = {
@@ -11,6 +11,6 @@
     };
   };
   services = {
-    avahi.enable = false;
+    avahi.enable = lib.mkDefault false;
   };
 }
