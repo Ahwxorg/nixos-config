@@ -26,6 +26,10 @@
         {
           "systemMailerPassword" = { };
         }
+      else if (host == "dandelion") then
+        {
+          "systemMailerPassword" = { };
+        }
       else
         { };
   };
