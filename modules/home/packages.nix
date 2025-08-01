@@ -28,6 +28,7 @@ let
         lxqt.pavucontrol-qt
         mpv
         plasma5Packages.kdeconnect-kde
+        winbox
         # onthespot-overlay
 
         # Gaming
