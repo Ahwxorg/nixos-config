@@ -128,6 +128,16 @@
             inherit self inputs username;
           };
         };
+        daisy = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/daisy)
+          ];
+          specialArgs = {
+            host = "daisy";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
