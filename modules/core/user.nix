@@ -57,6 +57,7 @@
       "wheel"
     ];
     shell = pkgs.zsh;
+    initialPassword = "temporary-password";
   };
   nix.settings.allowed-users = [ "${username}" ];
 }
