@@ -11,6 +11,18 @@
       enable = true;
       autocd = true;
       autosuggestion.enable = true;
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = [
+          "main"
+          "brackets"
+          "pattern"
+          "regexp"
+          "cursor"
+          "root"
+          "line"
+        ];
+      };
       enableCompletion = true;
       # enableGlobalCompInit = true; # Should be a thing according to NixOS options but is not a thing?
 
@@ -137,6 +149,7 @@
         enable = true;
         abbreviations = {
           mkdir = "mkdir -p";
+          mv = "mv --interactive";
           vim = "nvim";
           v = "nvim";
           vi = "nvim";
@@ -191,6 +204,7 @@
         sxiv = "nsxiv";
         enby = "man";
         woman = "man";
+        mkcd = "mkdir $1 && cd $1";
 
         # NixOS
         ns = "nix-shell --run zsh";
@@ -202,16 +216,16 @@
       };
 
       plugins = with pkgs; [
-        {
-          name = "zsh-syntax-highlighting";
-          src = fetchFromGitHub {
-            owner = "zsh-users";
-            repo = "zsh-syntax-highlighting";
-            rev = "0.6.0";
-            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-          };
-          file = "zsh-syntax-highlighting.zsh";
-        }
+        #{
+        #  name = "zsh-syntax-highlighting";
+        #  src = fetchFromGitHub {
+        #    owner = "zsh-users";
+        #    repo = "zsh-syntax-highlighting";
+        #    rev = "0.6.0";
+        #    sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+        #  };
+        #  file = "zsh-syntax-highlighting.zsh";
+        #}
         {
           name = "zsh-autopair";
           src = fetchFromGitHub {
