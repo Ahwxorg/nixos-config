@@ -954,11 +954,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1753605519,
-        "narHash": "sha256-RJTIXX9JMeUOA3sJuiqJRBXFzzQLM6GrOFrL8+Iy6hg=",
+        "lastModified": 1754172548,
+        "narHash": "sha256-8lWMN23VGQHTN5Kg5Kz1UMakt42brOlMz2IKxFBvKog=",
         "owner": "ahwxorg",
         "repo": "nixvim-config",
-        "rev": "20053a4d7a90b56cb7fe38d9557d71aeecd2cb47",
+        "rev": "fe2f1c27fa532489800b8f4d17f12c13299afa8d",
         "type": "github"
       },
       "original": {
