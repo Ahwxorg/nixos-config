@@ -40,6 +40,15 @@
     ];
   };
 
+  networking.firewall = {
+    allowedTCPPorts = [
+      5201
+    ];
+    allowedUDPPorts = [
+      5201
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     kitty.terminfo
     zfs
@@ -60,16 +69,22 @@
     trim.enable = true;
   };
 
-  boot.zfs.extraPools = [ "spinners" ];
+  boot.zfs.extraPools = [
+    "spinners"
+  ];
 
-  fileSystems = {
-    "/spinners/rootvol" = {
-      device = "terrabite/rootvol";
-      fsType = "zfs";
-    };
-    "/spinners/ahwx" = {
-      device = "terrabite/ahwx";
-      fsType = "zfs";
-    };
-  };
+  # fileSystems = {
+  #   "/spinners/rootvol" = {
+  #     device = "spinners/rootvol";
+  #     fsType = "zfs";
+  #   };
+  #   "/spinners/ahwx" = {
+  #     device = "spinners/ahwx";
+  #     fsType = "zfs";
+  #   };
+  #   "/spinners/violet" = {
+  #     device = "spinners/violet";
+  #     fsType = "zfs";
+  #   };
+  # };
 }
