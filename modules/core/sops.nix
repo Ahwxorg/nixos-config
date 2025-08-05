@@ -25,10 +25,14 @@
       else if (host == "sakura") then
         {
           "systemMailerPassword" = { };
+          "dandelionSyncthingId" = { };
+          "sakuraSyncthingId" = { };
         }
       else if (host == "dandelion") then
         {
           "systemMailerPassword" = { };
+          "dandelionSyncthingId" = { };
+          "sakuraSyncthingId" = { };
         }
       else
         { };
