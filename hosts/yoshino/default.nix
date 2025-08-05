@@ -20,17 +20,30 @@
     cpuFreqGovernor = lib.mkDefault "performance";
   };
 
+  networking = {
+    hostName = "yoshino";
+    networkmanager.enable = true;
+  };
+
+  systemd.network.networks."99-local" = {
+    matchConfig.name = "enp68s0";
+    address = [
+      "192.168.1.100/24"
+    ];
+    routes = [
+      {
+        Gateway = "172.16.10.1";
+        GatewayOnLink = false;
+      }
+    ];
+  };
+
   liv = {
     desktop.enable = true;
     creative.enable = true;
     amdgpu.enable = true;
     wine.enable = false;
     gui.enable = true;
-  };
-
-  networking = {
-    hostName = "yoshino";
-    networkmanager.enable = true;
   };
 
   boot = {
