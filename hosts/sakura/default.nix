@@ -12,6 +12,7 @@
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
+    ./../../modules/services/syncthing.nix
     ./../../modules/services/smart-monitoring.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
@@ -46,7 +47,10 @@
   # Disable light sensors and accelerometers as they are not used and consume extra battery
   hardware.sensor.iio.enable = lib.mkForce false;
 
-  networking.hostName = "sakura";
+  networking = {
+    hostName = "sakura";
+    networkmanager.ethernet.macAddress = "13:37:13:37:13:37";
+  };
 
   powerManagement = {
     enable = true;
