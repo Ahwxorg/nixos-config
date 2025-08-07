@@ -39,7 +39,7 @@ in
           USER = config.liv.variables.senderEmail;
         };
       };
-      mailerPasswordFile = config.sops.secrets.systemMailerPassword.path;
+      secrets.mailer.PASSWD = config.sops.secrets.systemMailerPassword.path;
     };
     gitea-actions-runner = {
       package = pkgs.forgejo-runner;
