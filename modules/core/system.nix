@@ -14,12 +14,19 @@
         "nix-command"
         "flakes"
       ];
+      # substituters = [ "http://violet.booping.local" ];
+      # trusted-public-keys = [ "violet.booping.local:2gshN3xfGSL7eKFc8tGkqSoIb3WQxuB2RJ8DuakLLqc=%" ];
     };
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [ ];
   };
 
   # nixpkgs = {
@@ -56,6 +63,6 @@
     ipaexfont
   ];
 
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = lib.mkDefault "Europe/Amsterdam";
   system.stateVersion = "24.05";
 }
