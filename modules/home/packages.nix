@@ -62,7 +62,6 @@
     reader
     nmap
     speedtest-go
-    delta
     powertop
     android-tools
     sshpass
