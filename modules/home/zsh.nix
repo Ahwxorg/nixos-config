@@ -3,6 +3,7 @@
   config,
   pkgs,
   host,
+  lib,
   ...
 }:
 {
@@ -46,6 +47,8 @@
       };
 
       initContent = ''
+        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+
         autoload -U add-zsh-hook
         autoload -U compinit
         zmodload zsh/complist
@@ -135,7 +138,11 @@
           fi
         }
 
-        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+        # Enter a 'nix shell' with packages selected by fzf
+        source ${pkgs.nix-search-fzf.zsh-shell-widget}
+        zle -N nix-search-fzf-shell-widget
+        bindkey '^O' nix-search-fzf-shell-widget
+
 
         # if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
         #   alias imv="sxiv"
@@ -149,7 +156,6 @@
         enable = true;
         abbreviations = {
           mkdir = "mkdir -p";
-          mv = "mv --interactive";
           vim = "nvim";
           v = "nvim";
           vi = "nvim";
@@ -198,13 +204,19 @@
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
-        # nvim = "nix run /home/liv/Development/nixvim --";
-        vim = "nvim";
         doas = "sudo";
         sxiv = "nsxiv";
         enby = "man";
         woman = "man";
         mkcd = "mkdir $1 && cd $1";
+        du = "dust";
+        cp = "cp -i -v";
+        mv = "mv -i -v";
+        rm = "rm -i -v";
+        cat = "${lib.getExe pkgs.bat} --plain";
+        diff = "${lib.getExe pkgs.delta} --color-only";
+        battery-left = "${lib.getExe pkgs.acpi} | cut -d' ' -f5";
+        github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
 
         # NixOS
         ns = "nix-shell --run zsh";
@@ -249,4 +261,11 @@
       enableZshIntegration = true;
     };
   };
+  home.packages = with pkgs; [
+    dust
+    fd
+    delta
+    bat
+    nix-search-fzf.zsh-shell-widget
+  ];
 }
