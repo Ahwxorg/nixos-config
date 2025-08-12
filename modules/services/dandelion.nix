@@ -7,7 +7,6 @@
     ++ [ (import ./home-assistant.nix) ]
     ++ [ (import ./monitoring.nix) ]
     ++ [ (import ./smart-monitoring.nix) ]
-    ++ [ (import ./syncthing.nix) ]
     ++ [ (import ./tailscale.nix) ]
     ++ [ (import ./nfs.nix) ]
     ++ [ (import ./hd-idle.nix) ];
