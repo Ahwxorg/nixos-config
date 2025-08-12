@@ -8,6 +8,7 @@
     pkgs.noto-fonts-emoji
     pkgs.swww
     pkgs.swaylock
+    pkgs.pywal16
   ];
 
   gtk = {
