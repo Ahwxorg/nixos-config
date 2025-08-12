@@ -49,6 +49,10 @@ in
 
       # Not GUI but specific to GUI usage
       sshuttle
+      sshfs
+
+      # try out for a bit
+      niri
     ];
   };
 }
