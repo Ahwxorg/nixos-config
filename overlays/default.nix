@@ -1,3 +1,3 @@
 {
-  addition = final: _: import ../pkgs { pkgs = final; };
+  addition = final: _: import ../pkgs/default.nix { pkgs = final; };
 }
