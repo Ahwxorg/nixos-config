@@ -14,6 +14,7 @@
 
   users.users.liv.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOLdcB5JFWx6OK2BAr8J0wPHNhr2VP2/Ci6fv3a+DPfo liv@violet" # allow violet to log in over ssh to do back ups
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDi8gt51xGRzLSqaNr1LKSdrJ0VHps8U8FME71YCrs6K liv@posy" # allow posy to log in over ssh to mount music folder
   ];
 
   liv.server.enable = true;

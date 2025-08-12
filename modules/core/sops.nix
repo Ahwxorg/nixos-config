@@ -18,6 +18,7 @@
         {
           "systemMailerPassword" = { };
           "forgejoWorkerSecret" = { };
+          "minioRootCredentials" = { };
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
