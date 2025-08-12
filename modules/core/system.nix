@@ -29,18 +29,19 @@
     libraries = with pkgs; [ ];
   };
 
-  # nixpkgs = {
-  #   overlays = [
-  #     self.overlays.default
-  #     inputs.nur.overlay
-  #   ];
-  # };
+  nixpkgs = {
+    overlays = [
+      self.overlays.default
+      # inputs.nur.overlay
+    ];
+  };
 
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
       "jitsi-meet-1.0.8043"
       "olm-3.2.16"
+      "libsoup-2.74.3"
     ];
     overlays = [
       self.overlays.default
