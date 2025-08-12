@@ -49,7 +49,7 @@
 
   networking = {
     hostName = "sakura";
-    networkmanager.ethernet.macAddress = "13:37:13:37:13:37";
+    # networkmanager.ethernet.macAddress = "13:37:6a:8a:ed:a4";
   };
 
   powerManagement = {
