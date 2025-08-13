@@ -8,7 +8,7 @@
   coreutils,
   bash,
   nix-search-fzf,
-  writeShellScript,
+  writeShellScriptBin,
 }:
 
 let
@@ -28,7 +28,7 @@ createScript "nix-search-fzf" src {
   ];
 
   # Enter a 'nix shell' with packages selected by this script
-  passthru.zsh-shell-widget = writeShellScript "nix-search-fzf-shell-widget" ''
+  passthru.zsh-shell-widget = writeShellScriptBin "nix-search-fzf-shell-widget" ''
     nix-search-fzf-shell-widget() {
       setopt localoptions pipefail no_aliases 2> /dev/null
       local cmd="$(eval "${nix-search-fzf}/bin/nix-search-fzf -c")"
