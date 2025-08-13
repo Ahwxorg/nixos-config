@@ -12,18 +12,21 @@
       enable = true;
       autocd = true;
       autosuggestion.enable = true;
-      syntaxHighlighting = {
-        enable = true;
-        highlighters = [
-          "main"
-          "brackets"
-          "pattern"
-          "regexp"
-          "cursor"
-          "root"
-          "line"
-        ];
-      };
+      #syntaxHighlighting = {
+      #  enable = true;
+      #  highlighters = [
+      #    "main"
+      #    "brackets"
+      #    "pattern"
+      #    "regexp"
+      #    "cursor"
+      #    "root"
+      #    "line"
+      #  ];
+      #};
+
+      defaultKeymap = "viins";
+
       enableCompletion = true;
       # enableGlobalCompInit = true; # Should be a thing according to NixOS options but is not a thing?
 
@@ -44,6 +47,7 @@
         SAVEHIST = 10000000;
         HISTFILE = "~/.zsh_history";
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
+        KEYTIMEOUT = 1; # make Vi-mode transitions faster
       };
 
       initContent = ''
@@ -139,7 +143,7 @@
         }
 
         # Enter a 'nix shell' with packages selected by fzf
-        source ${pkgs.nix-search-fzf.zsh-shell-widget}
+        source ${pkgs.nix-search-fzf.zsh-shell-widget}/bin/nix-search-fzf-shell-widget
         zle -N nix-search-fzf-shell-widget
         bindkey '^O' nix-search-fzf-shell-widget
 
@@ -228,16 +232,16 @@
       };
 
       plugins = with pkgs; [
-        #{
-        #  name = "zsh-syntax-highlighting";
-        #  src = fetchFromGitHub {
-        #    owner = "zsh-users";
-        #    repo = "zsh-syntax-highlighting";
-        #    rev = "0.6.0";
-        #    sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-        #  };
-        #  file = "zsh-syntax-highlighting.zsh";
-        #}
+        {
+          name = "zsh-syntax-highlighting";
+          src = fetchFromGitHub {
+            owner = "zsh-users";
+            repo = "zsh-syntax-highlighting";
+            rev = "0.6.0";
+            sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
+          };
+          file = "zsh-syntax-highlighting.zsh";
+        }
         {
           name = "zsh-autopair";
           src = fetchFromGitHub {
@@ -247,6 +251,16 @@
             sha256 = "1h0vm2dgrmb8i2pvsgis3lshc5b0ad846836m62y8h3rdb3zmpy1";
           };
           file = "autopair.zsh";
+        }
+        {
+          name = "zsh-vi-mode";
+          file = "zsh-vi-mode.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "jeffreytse";
+            repo = "zsh-vi-mode";
+            rev = "3eeca1bc6db172edee5a2ca13d9ff588b305b455";
+            sha256 = "0na6b5b46k4473c53mv1wkb009i6b592gxpjq94bdnlz1kkcqwg6";
+          };
         }
       ];
     };
