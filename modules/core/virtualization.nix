@@ -1,9 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 {
   virtualisation = {
     # vmware.host.enable = true; # Causes issues for now :p
-    waydroid.enable = true;
-    libvirtd.enable = true;
+    waydroid.enable = if (host == "sakura") then true else false;
+    libvirtd.enable =
+      if (host == "violet") then
+        true
+      else if (host == "sakura") then
+        true
+      else if (host == "yoshino") then
+        true
+      else
+        false;
     spiceUSBRedirection.enable = true;
   };
 
