@@ -26,6 +26,7 @@ in
       element-desktop
       gajim
       signal-desktop
+      mumble
       anki-bin
       obs-studio
       wdisplays
