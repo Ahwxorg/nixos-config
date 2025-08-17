@@ -1,4 +1,9 @@
-{ pkgs, host, ... }:
+{
+  pkgs,
+  host,
+  username,
+  ...
+}:
 {
   fonts.fontconfig.enable = true;
   home.packages = [
@@ -59,7 +64,6 @@
       source = "~/nixos-config/modules/home/hyprland/displays.conf";
 
       "debug:disable_scale_checks" = true;
-      # monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
       monitor =
         if (host == "sakura") then
           "eDP-1, 2256x1504@60, 0x0, 1.5"
@@ -215,7 +219,7 @@
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER SHIFT, L, exec, hyprlock"
+        "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C,exec, hyprpicker -a"
