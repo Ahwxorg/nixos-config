@@ -22,6 +22,7 @@
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
+          "smbLoginDetails" = { };
         }
       else if (host == "sakura") then
         {
