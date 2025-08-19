@@ -147,6 +147,19 @@
         zle -N nix-search-fzf-shell-widget
         bindkey '^O' nix-search-fzf-shell-widget
 
+        # Use fzf as a history widget
+        zle -N fzf-history-widget
+        bindkey '^R' fzf-history-widget
+        bindkey -M viins '^R' fzf-history-widget
+        bindkey -M vicmd '^R' fzf-history-widget
+
+        # Use fzf as a cd completion widget
+        zle -N fzf-cd-widget
+        bindkey '^G' fzf-cd-widget
+
+        # Use fzf as a file completion widget
+        zle -N fzf-file-widget
+        bindkey '^F' fzf-file-widget
 
         # if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
         #   alias imv="sxiv"
@@ -172,8 +185,7 @@
           g = "git";
           gp = "git pull";
 
-          calc = "eva";
-          wikipedia = "wikit";
+          wiki = "wikit";
         };
       };
 
@@ -262,9 +274,18 @@
             sha256 = "0na6b5b46k4473c53mv1wkb009i6b592gxpjq94bdnlz1kkcqwg6";
           };
         }
+        {
+          name = "fzf-zsh-plugin";
+          src = fetchFromGitHub {
+            owner = "unixorn";
+            repo = "fzf-zsh-plugin";
+            rev = "04ae801499a7844c87ff1d7b97cdf57530856c65";
+            sha256 = "sha256-FEGhx36Z5pqHEOgPsidiHDN5SXviqMsf6t6hUZo+I8A=";
+          };
+          file = "fzf-zsh-plugin.plugin.zsh";
+        }
       ];
     };
-
     fzf = {
       enable = true;
       enableZshIntegration = true;
