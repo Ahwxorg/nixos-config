@@ -56,6 +56,7 @@
     # powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+
   # change battery led to blue on suspend to indicate device is in suspend mode
   systemd.services."suspend-led-set" = {
     description = "blue led for sleep";
@@ -80,7 +81,6 @@
   '';
   services.logind.lidSwitch = "suspend";
   boot = {
-    # plymouth.enable = true; # is a module now
     kernelParams = [
       "mem_sleep_default=deep"
       "acpi_osi=\"!Windows 2020\"" # otherwise GPU does weird shit that makes the computer look like the RAM is broken
