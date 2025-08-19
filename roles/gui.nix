@@ -17,7 +17,10 @@ in
 
   config = mkIf cfg.enable {
     services = {
-      gvfs.enable = true;
+      gvfs = {
+        enable = true;
+        package = lib.mkForce pkgs.gnome.gvfs;
+      };
       gnome.gnome-keyring.enable = true;
       dbus.enable = true;
     };
