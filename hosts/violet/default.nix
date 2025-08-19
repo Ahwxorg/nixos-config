@@ -22,7 +22,8 @@
   time.timeZone = "Europe/Amsterdam";
 
   environment.systemPackages = with pkgs; [
-    pkgs.kitty.terminfo
+    kitty.terminfo
+    cifs-utils
   ];
 
   services = {
@@ -61,5 +62,15 @@
         cpupower
       ]
       ++ [ pkgs.cpupower-gui ];
+  };
+
+  fileSystems."/mnt/nfs/violet" = {
+    device = "//172.16.10.130/spinners/violet"; # not ideal, should get the static IP from dandelion from a config attribute but whatever...
+    fsType = "cifs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+      "credentials=${config.sops.secrets.smbLoginDetails.path}"
+    ];
   };
 }
