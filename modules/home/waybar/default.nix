@@ -85,7 +85,7 @@
                                           
                                           "network": {
                                             "format": "󰈀 {ifname}",
-                                            "format-wifi": "  {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
+                                            "format-wifi": "  {essid} - {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
                                             "format-ethernet": "󰈀 {ipaddr}/{cidr}",
                                             "format-disconnected": "󰈂",
                                             "tooltip-format": "{ifname} via {gwaddr}",
@@ -316,7 +316,7 @@
 
                                           "group/clock": {
                                             "orientation": "horizontal",
-                                            "modules": [ "custom/clock#minutes", "clock#time", "clock#date" ],
+                                            "modules": [ "clock#time", "custom/clock#minutes", "clock#date" ],
                                             "drawer": {
                                               "transition-left-to-right": false,
                                               "transition-duration": 500
@@ -349,7 +349,7 @@
 
                                           "clock#time": {
                                             "interval": 60,
-                                            "format": "   {:%I:%M %p}",
+                                            "format": "   <span color='#aaaaaa'>{:%I:%M %p}</span>",
                                             "actions":  {
                                               "on-scroll-up": "tz_up",
                                               "on-scroll-down": "tz_down"
