@@ -388,6 +388,22 @@
       xwayland {
         force_zero_scaling = true
       }
+
+      plugin {
+        hyprbars {
+          bar_height = 38
+          bar_color = rgb(1e1e1e)
+          col.text = $foreground
+          bar_text_size = 12
+          bar_text_font = GohuFont 11 Nerd Font Propo
+          bar_button_padding = 12
+          bar_padding = 10
+          bar_precedence_over_border = true
+          hyprbars-button = $color1, 20, , hyprctl dispatch killactive
+          hyprbars-button = $color3, 20, , hyprctl dispatch fullscreen 2
+          hyprbars-button = $color4, 20, , hyprctl dispatch togglefloating
+        }
+      }
     ";
   };
 }
