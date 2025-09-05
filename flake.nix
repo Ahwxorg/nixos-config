@@ -138,6 +138,16 @@
             inherit self inputs username;
           };
         };
+        iris = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/iris)
+          ];
+          specialArgs = {
+            host = "iris";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
