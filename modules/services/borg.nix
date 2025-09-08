@@ -37,6 +37,12 @@ in
       paths = [
         "/var/lib"
       ];
+      exclude = [
+        "/var/lib/matrix-synapse"
+        "/var/lib/mautrix-signal"
+        "/var/lib/mautrix-whatsapp"
+        "/var/lib/bitwarden_rs"
+      ];
       repo = "${baseRepo}/var-lib";
       encryption.mode = "none";
       compression = "auto,zstd";

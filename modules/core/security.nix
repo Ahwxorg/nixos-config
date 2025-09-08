@@ -8,9 +8,17 @@
   security = {
     rtkit.enable = true;
     pam.services.swaylock = { };
+    auditd.enable = true;
+    audit = {
+      enable = true;
+      rules = [
+        "-a exit,always -F arch=b64 -S execve"
+      ];
+    };
 
     sudo = {
       enable = true;
+      execWheelOnly = true;
       extraRules = [
         {
           groups = [ "wheel" ];
@@ -20,7 +28,7 @@
               options = [ "NOPASSWD" ];
             }
             {
-              command = "/home/liv/.local/src/framework-system/target/debug/framework_tool";
+              command = "/run/current-system/sw/bin/framework_tool --privacy";
               options = [ "NOPASSWD" ];
             }
           ];

@@ -2,38 +2,28 @@
   description = "liv's NixOS configuration";
 
   inputs = {
-    agenix.url = "github:ryantm/agenix";
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    catppuccin.url = "github:catppuccin/nix";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
     hyprsunset.url = "github:hyprwm/hyprsunset";
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland"; # Hyprspace uses latest Hyprland. We declare this to keep them in sync.
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    sops-nix.url = "github:Mic92/sops-nix";
+    disko.url = "github:nix-community/disko/latest";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      catppuccin,
-      agenix,
+      sops-nix,
+      disko,
       ...
     }@inputs:
     let
@@ -48,21 +38,10 @@
     {
       overlays.default = overlays.addition;
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/desktop)
-          ];
-          specialArgs = {
-            host = "desktop";
-            inherit self inputs username;
-          };
-        };
         sakura = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             (import ./hosts/sakura)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "sakura";
@@ -73,7 +52,6 @@
           inherit system;
           modules = [
             (import ./hosts/yoshino)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "yoshino";
@@ -84,7 +62,6 @@
           inherit system;
           modules = [
             (import ./hosts/ichiyo)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "ichiyo";
@@ -95,7 +72,6 @@
           inherit system;
           modules = [
             (import ./hosts/violet)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "violet";
@@ -106,7 +82,6 @@
           inherit system;
           modules = [
             (import ./hosts/dandelion)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "dandelion";
@@ -117,21 +92,59 @@
           inherit system;
           modules = [
             (import ./hosts/lily)
-            agenix.nixosModules.default
           ];
           specialArgs = {
             host = "lily";
             inherit self inputs username;
           };
         };
-
-        vm = nixpkgs.lib.nixosSystem {
+        zinnia = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            (import ./hosts/vm)
+            (import ./hosts/zinnia)
           ];
           specialArgs = {
-            host = "vm";
+            host = "zinnia";
+            inherit self inputs username;
+          };
+        };
+        posy = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            (import ./hosts/posy)
+          ];
+          specialArgs = {
+            host = "posy";
+            inherit self inputs username;
+          };
+        };
+        hazel = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/hazel)
+          ];
+          specialArgs = {
+            host = "hazel";
+            inherit self inputs username;
+          };
+        };
+        daisy = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/daisy)
+          ];
+          specialArgs = {
+            host = "daisy";
+            inherit self inputs username;
+          };
+        };
+        iris = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/iris)
+          ];
+          specialArgs = {
+            host = "iris";
             inherit self inputs username;
           };
         };

@@ -12,6 +12,7 @@
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
+    ./../../modules/services/smart-monitoring.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
   ];
 
@@ -45,13 +46,17 @@
   # Disable light sensors and accelerometers as they are not used and consume extra battery
   hardware.sensor.iio.enable = lib.mkForce false;
 
-  networking.hostName = "sakura";
+  networking = {
+    hostName = "sakura";
+    # networkmanager.ethernet.macAddress = "13:37:6a:8a:ed:a4";
+  };
 
   powerManagement = {
     enable = true;
     # powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+
   # change battery led to blue on suspend to indicate device is in suspend mode
   systemd.services."suspend-led-set" = {
     description = "blue led for sleep";
@@ -71,8 +76,11 @@
       ${pkgs.fw-ectool}/bin/ectool led battery auto
     '';
   };
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30m
+  '';
+  services.logind.lidSwitch = "suspend";
   boot = {
-    plymouth.enable = true;
     kernelParams = [
       "mem_sleep_default=deep"
       "acpi_osi=\"!Windows 2020\"" # otherwise GPU does weird shit that makes the computer look like the RAM is broken
@@ -89,7 +97,11 @@
       [
         acpi_call
         cpupower
+        v4l2loopback
       ]
       ++ [ pkgs.cpupower-gui ];
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+    '';
   };
 }

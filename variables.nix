@@ -29,5 +29,11 @@ in
       readOnly = true;
       description = "My primary email";
     };
+    senderEmail = mkOption {
+      default = "notifications@liv.town";
+      type = types.str;
+      readOnly = true;
+      description = "Emailaddress used to send mails from the system";
+    };
   };
 }

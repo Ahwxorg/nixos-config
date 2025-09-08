@@ -187,8 +187,8 @@
           	LTEXT="󰛧 "
           fi
 
-          MICROPHONE_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n2 | head -n1)"
-          CAMERA_STATE="$(sudo /home/liv/.local/src/framework-system/target/debug/framework_tool --privacy | tail -n1)"
+          MICROPHONE_STATE="$(sudo framework_tool --privacy | tail -n2 | head -n1)"
+          CAMERA_STATE="$(sudo framework_tool --privacy | tail -n1)"
 
           if [[ "$(echo $MICROPHONE_STATE | grep 'Microphone: Connected')" ]]; then
           	MIC=1

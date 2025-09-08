@@ -44,6 +44,7 @@
 - [variables.nix](variables.nix): base variables useful for all hosts
 - [hosts](hosts): per-host configurations that contain host specific settings
   - [yoshino](hosts/yoshino/): Desktop (yoshino) specific configuration
+  - [iris](hosts/iris/): Desktop (iris) specific configuration
   - [sakura](hosts/sakura/): Laptop (sakura) specific configuration
   - [ichiyo](hosts/ichiyo/): Laptop (ichiyo) specific configuration
   - [violet](hosts/violet/): Server (violet) specific configuration
@@ -161,6 +162,7 @@ toggle_oppacity.sh
 Other dotfiles that I learned / copy from:
 
 - [Frost-Phoenix/nixos-config](https://github.com/Frost-Phoenix/nixos-config): This is the repository that I cloned and changed to my needs. Their credits are in their repository's readme.
+- [IvarWithoutBones/dotfiles](https://github.com/IvarWithoutBones/dotfiles)
 - [notthebee/nix-config](https://github.com/notthebee/nix-config)
 - [mrusme/dotfiles](https://github.com/mrusme/dotfiles)
 

@@ -22,8 +22,8 @@
     # enableNvidiaPatches = false;
     systemd.enable = true;
     plugins = [
-      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
-      # inputs.Hyswipe.packages.${pkgs.system}.Hyswipe
+      pkgs.hyprlandPlugins.hyprbars
+      # pkgs.hyprlandPlugins.hyprspace # causes hyprland to crash on 4-finger swipe; great software
     ];
   };
 }

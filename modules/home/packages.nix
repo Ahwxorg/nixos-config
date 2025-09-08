@@ -1,4 +1,10 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   home.packages = with pkgs; [
     # Environment shit
@@ -48,7 +54,6 @@
     gitleaks
     ripgrep
     yt-dlp
-    spotify-player
     nodejs_22
     yarn
     cargo
@@ -57,31 +62,18 @@
     reader
     nmap
     speedtest-go
-    delta
     powertop
     android-tools
+    sshpass
+    net-tools
+    nmap
 
-    # GUI shit
-    element-desktop
-    gajim
-    signal-desktop
-    anki-bin
-    obs-studio
-    wdisplays
-    librewolf # main
-    ungoogled-chromium # for things that don't work with librewolf
-    nsxiv
-    imv
-    libreoffice
-    xfce.thunar
-    spotify
-    thunderbird
-    lxqt.pavucontrol-qt
-    mpv
-    plasma5Packages.kdeconnect-kde
-
-    # Gaming
-    lunar-client
+    # Install pip packages
+    # python3
+    # python3Packages.pip
+    # (writeShellScriptBin "install-pip-packages" '' # This script does not run, yet.
+    #   pip install --user --break-system-packages <package>
+    # '')
 
     inputs.alejandra.defaultPackage.${system}
     inputs.nixvim.packages.${pkgs.system}.default

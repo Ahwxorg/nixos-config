@@ -1,0 +1,19 @@
+keys:
+  - &sakura age1yzapmznelujajfyrpw5mxmy86ckg377494w5ap4yej39jatewursfxls9w
+  - &violet age1zegau3chyn53tqvkwud6tuyggpkazc88pdkqv8cknavaudu49enqm2f0h3
+  - &dandelion age1dpzajxcx7dcumda55qc3hncxqd43a7k85t2cdwtcvy5qsgp6k5tsugxqmd
+creation_rules:
+  - path_regex: secrets/sakura/secrets.yaml
+    key_groups:
+      - age:
+          - *sakura
+  - path_regex: secrets/violet/secrets.yaml
+    key_groups:
+      - age:
+          - *sakura
+          - *violet
+  - path_regex: secrets/dandelion/secrets.yaml
+    key_groups:
+      - age:
+          - *sakura
+          - *dandelion

@@ -3,6 +3,7 @@
   config,
   pkgs,
   host,
+  lib,
   ...
 }:
 {
@@ -11,6 +12,21 @@
       enable = true;
       autocd = true;
       autosuggestion.enable = true;
+      #syntaxHighlighting = {
+      #  enable = true;
+      #  highlighters = [
+      #    "main"
+      #    "brackets"
+      #    "pattern"
+      #    "regexp"
+      #    "cursor"
+      #    "root"
+      #    "line"
+      #  ];
+      #};
+
+      defaultKeymap = "viins";
+
       enableCompletion = true;
       # enableGlobalCompInit = true; # Should be a thing according to NixOS options but is not a thing?
 
@@ -27,13 +43,16 @@
         SYSTEMD_LESS = "FRXMK"; # Fix weird sideways scrolling in systemctl status ...
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE = "fg=#808080";
         ZSH_AUTOSUGGEST_USE_ASYNC = 1;
-        HISTSIZE = 100000;
-        SAVEHIST = 100000;
+        HISTSIZE = 10000000;
+        SAVEHIST = 10000000;
         HISTFILE = "~/.zsh_history";
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
+        KEYTIMEOUT = 1; # make Vi-mode transitions faster
       };
 
       initContent = ''
+        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+
         autoload -U add-zsh-hook
         autoload -U compinit
         zmodload zsh/complist
@@ -109,7 +128,38 @@
           printf "%s\n" "''${url}"
         }
 
-        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+        function nixcd () {
+          PACKAGE_NAME="$1"
+          if [[ "$PACKAGE_NAME" = "" ]]; then
+            echo "Usage: nixcd <package name>"
+          fi
+          PKGINSTORE="$(NIXPKGS_ALLOW_UNFREE=1 nix path-info nixpkgs#$PACKAGE_NAME --impure)"
+          if [[ -d "$PKGINSTORE" ]]; then
+            cd $PKGINSTORE
+          else
+            echo "Could not find path for package: $PKGINSTORE"
+            return 1
+          fi
+        }
+
+        # Enter a 'nix shell' with packages selected by fzf
+        source ${pkgs.nix-search-fzf.zsh-shell-widget}/bin/nix-search-fzf-shell-widget
+        zle -N nix-search-fzf-shell-widget
+        bindkey '^O' nix-search-fzf-shell-widget
+
+        # Use fzf as a history widget
+        zle -N fzf-history-widget
+        bindkey '^R' fzf-history-widget
+        bindkey -M viins '^R' fzf-history-widget
+        bindkey -M vicmd '^R' fzf-history-widget
+
+        # Use fzf as a cd completion widget
+        zle -N fzf-cd-widget
+        bindkey '^G' fzf-cd-widget
+
+        # Use fzf as a file completion widget
+        zle -N fzf-file-widget
+        bindkey '^F' fzf-file-widget
 
         # if [[ $(which sxiv&>/dev/null && echo 1) == "1" ]]; then
         #   alias imv="sxiv"
@@ -133,9 +183,9 @@
           gcm = "git commit -m";
           gph = "git push -u origin main";
           g = "git";
+          gp = "git pull";
 
-          calc = "eva";
-          wikipedia = "wikit";
+          wiki = "wikit";
         };
       };
 
@@ -170,12 +220,19 @@
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
         open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
-        # nvim = "nix run /home/liv/Development/nixvim --";
-        vim = "nvim";
         doas = "sudo";
         sxiv = "nsxiv";
         enby = "man";
         woman = "man";
+        mkcd = "mkdir $1 && cd $1";
+        du = "dust";
+        cp = "cp -i -v";
+        mv = "mv -i -v";
+        rm = "rm -i -v";
+        cat = "${lib.getExe pkgs.bat} --plain";
+        diff = "${lib.getExe pkgs.delta} --color-only";
+        battery-left = "${lib.getExe pkgs.acpi} | cut -d' ' -f5";
+        github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
 
         # NixOS
         ns = "nix-shell --run zsh";
@@ -207,9 +264,28 @@
           };
           file = "autopair.zsh";
         }
+        {
+          name = "zsh-vi-mode";
+          file = "zsh-vi-mode.plugin.zsh";
+          src = pkgs.fetchFromGitHub {
+            owner = "jeffreytse";
+            repo = "zsh-vi-mode";
+            rev = "3eeca1bc6db172edee5a2ca13d9ff588b305b455";
+            sha256 = "0na6b5b46k4473c53mv1wkb009i6b592gxpjq94bdnlz1kkcqwg6";
+          };
+        }
+        {
+          name = "fzf-zsh-plugin";
+          src = fetchFromGitHub {
+            owner = "unixorn";
+            repo = "fzf-zsh-plugin";
+            rev = "04ae801499a7844c87ff1d7b97cdf57530856c65";
+            sha256 = "sha256-FEGhx36Z5pqHEOgPsidiHDN5SXviqMsf6t6hUZo+I8A=";
+          };
+          file = "fzf-zsh-plugin.plugin.zsh";
+        }
       ];
     };
-
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -220,4 +296,11 @@
       enableZshIntegration = true;
     };
   };
+  home.packages = with pkgs; [
+    dust
+    fd
+    delta
+    bat
+    nix-search-fzf.zsh-shell-widget
+  ];
 }

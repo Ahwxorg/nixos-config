@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  host,
+  username,
+  ...
+}:
 {
   fonts.fontconfig.enable = true;
   home.packages = [
@@ -8,6 +13,7 @@
     pkgs.noto-fonts-emoji
     pkgs.swww
     pkgs.swaylock
+    pkgs.pywal16
   ];
 
   gtk = {
@@ -58,7 +64,13 @@
       source = "~/nixos-config/modules/home/hyprland/displays.conf";
 
       "debug:disable_scale_checks" = true;
-      monitor = "eDP-1, 2256x1504@60, 0x0, 1.5";
+      monitor =
+        if (host == "sakura") then
+          "eDP-1, 2256x1504@60, 0x0, 1.5"
+        else if (host == "zinnia") then
+          "eDP-1, 1920x1080@60, 0x0, 1.0"
+        else
+          ", preferred, auto, 1";
 
       # autostart
       exec-once = [
@@ -207,7 +219,7 @@
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER SHIFT, L, exec, hyprlock"
+        "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C,exec, hyprpicker -a"
@@ -375,6 +387,22 @@
 
       xwayland {
         force_zero_scaling = true
+      }
+
+      plugin {
+        hyprbars {
+          bar_height = 38
+          bar_color = rgb(1e1e1e)
+          col.text = $foreground
+          bar_text_size = 12
+          bar_text_font = GohuFont 11 Nerd Font Propo
+          bar_button_padding = 12
+          bar_padding = 10
+          bar_precedence_over_border = true
+          hyprbars-button = $color1, 20, , hyprctl dispatch killactive
+          hyprbars-button = $color3, 20, , hyprctl dispatch fullscreen 2
+          hyprbars-button = $color4, 20, , hyprctl dispatch togglefloating
+        }
       }
     ";
   };

@@ -23,8 +23,8 @@
     "/home/${username}/.config/waybar/config" = {
       text = ''
                                         [{
-                                          "layer": "top",
-                                          "position": "top",
+                                          "layer": "bottom",
+                                          "position": "bottom",
 
                                           "modules-left": [
                                             "privacy",
@@ -85,7 +85,7 @@
                                           
                                           "network": {
                                             "format": "󰈀 {ifname}",
-                                            "format-wifi": "  {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
+                                            "format-wifi": "  {essid} - {ipaddr}/{cidr} <span color='#aaaaaa'>{signalStrength}%</span>",
                                             "format-ethernet": "󰈀 {ipaddr}/{cidr}",
                                             "format-disconnected": "󰈂",
                                             "tooltip-format": "{ifname} via {gwaddr}",
@@ -316,7 +316,7 @@
 
                                           "group/clock": {
                                             "orientation": "horizontal",
-                                            "modules": [ "custom/clock#minutes", "clock#time", "clock#date" ],
+                                            "modules": [ "clock#time", "custom/clock#minutes", "clock#date" ],
                                             "drawer": {
                                               "transition-left-to-right": false,
                                               "transition-duration": 500
@@ -349,7 +349,7 @@
 
                                           "clock#time": {
                                             "interval": 60,
-                                            "format": "   {:%I:%M %p}",
+                                            "format": "   <span color='#aaaaaa'>{:%I:%M %p}</span>",
                                             "actions":  {
                                               "on-scroll-up": "tz_up",
                                               "on-scroll-down": "tz_down"
@@ -377,9 +377,9 @@
                           /* margin: 0 0px; */
                         }
 
-                        window#waybar.top {
+                        window#waybar.bottom {
                           /* background-color: rgba(115, 116, 116, 0.22); */
-                          background-color: rgba(0, 0, 0, 0.75);
+                          background-color: rgba(0, 0, 0, 0.25);
                           border-bottom: none;
                           color: #eeeeee;
                           transition-property: background-color;
@@ -387,7 +387,7 @@
                         }
 
                         window#waybar.hidden {
-                          opacity: 0.5;
+                          opacity: 0.25;
                         }
 
                         label#window {

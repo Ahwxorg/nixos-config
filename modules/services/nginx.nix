@@ -37,24 +37,6 @@
     recommendedProxySettings = true;
     clientMaxBodySize = lib.mkDefault "10G";
 
-    #defaultListen =
-    #  let
-    #    listen = [
-    #      {
-    #        addr = "[::]";
-    #        port = 80;
-    #        extraParameters = [ "proxy_protocol" ];
-    #      }
-    #      {
-    #        addr = "[::]";
-    #        port = 443;
-    #        ssl = true;
-    #        extraParameters = [ "proxy_protocol" ];
-    #      }
-    #    ];
-    #  in
-    #  map (x: (x // { addr = "0.0.0.0"; })) listen ++ listen;
-
     # Hardened TLS and HSTS preloading
     appendHttpConfig = ''
       # Proxying

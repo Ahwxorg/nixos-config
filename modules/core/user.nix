@@ -10,6 +10,7 @@
   imports =
     [ inputs.home-manager.nixosModules.home-manager ]
     ++ [ ./../../roles/default.nix ]
+    ++ [ ./sops.nix ]
     ++ [ ./../../variables.nix ];
   home-manager = {
     useUserPackages = true;
@@ -17,13 +18,17 @@
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       imports =
-        if (host == "desktop") then
-          [ ./../home/default.desktop.nix ]
-        else if (host == "violet") then
+        if (host == "violet") then
           [ ./../home/default.server.nix ]
         else if (host == "dandelion") then
           [ ./../home/default.server.nix ]
         else if (host == "lily") then
+          [ ./../home/default.server.nix ]
+        else if (host == "posy") then
+          [ ./../home/default.server.nix ]
+        else if (host == "hazel") then
+          [ ./../home/default.server.nix ]
+        else if (host == "daisy") then
           [ ./../home/default.server.nix ]
         # else if (host == "yoshino") then
         # [ ./../home/default.nix ]
@@ -40,8 +45,6 @@
 
   fonts.fontconfig.antialias = false;
 
-  users.groups.gay = { };
-
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
@@ -50,10 +53,11 @@
       "wheel"
       "docker"
       "input"
-      "gay"
       "dialout"
+      "wheel"
     ];
     shell = pkgs.zsh;
+    initialPassword = "temporary-password";
   };
   nix.settings.allowed-users = [ "${username}" ];
 }

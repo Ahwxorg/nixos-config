@@ -12,9 +12,6 @@
     ./../../modules/services/tailscale.nix
   ];
 
-  # Enable fancy boot animations
-  boot.plymouth.enable = true;
-
   powerManagement = {
     enable = true;
     # powertop.enable = true;

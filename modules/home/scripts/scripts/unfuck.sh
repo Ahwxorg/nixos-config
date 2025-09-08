@@ -26,7 +26,9 @@ unfuck_wallpaper() {
 }
 
 unfuck_fingerprint() {
-  systemctl restart fprintd.service
+  notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
+  sleep 10
+  sudo systemctl restart fprintd.service
 }
 
 unfuck_bar() {
@@ -37,6 +39,8 @@ unfuck_bar() {
 unfuck_networkmanager() {
   # sudo modprobe -r iwlwifi
   # sudo modprobe iwlwifi
+  notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
+  sleep 10
   sudo systemctl restart NetworkManager
 }
 
@@ -58,6 +62,8 @@ unfuck_audio() {
     devices+=("$device")
   done
   systemctl --user restart wireplumber pipewire pipewire-pulse bluetooth
+  rfkill block bluetooth
+  rfkill unblock bluetooth
   bluetoothctl power off
   bluetoothctl power on
   for device in ${devices[*]}; do
