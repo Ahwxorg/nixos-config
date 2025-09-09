@@ -31,6 +31,8 @@
     python3
 
     # CLI shit
+    imagemagick
+    foot
     termpdfpy
     vimv
     iamb
