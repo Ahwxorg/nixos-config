@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs = {
     dconf.enable = true;
@@ -15,5 +15,6 @@
     git
     dig
     traceroute
+    inputs.iamb.packages.${pkgs.stdenv.targetPlatform.system}.default
   ];
 }
