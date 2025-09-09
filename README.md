@@ -44,6 +44,7 @@
 - [variables.nix](variables.nix): base variables useful for all hosts
 - [hosts](hosts): per-host configurations that contain host specific settings
   - [yoshino](hosts/yoshino/): Desktop (yoshino) specific configuration
+  - [iris](hosts/iris/): Desktop (iris) specific configuration
   - [sakura](hosts/sakura/): Laptop (sakura) specific configuration
   - [ichiyo](hosts/ichiyo/): Laptop (ichiyo) specific configuration
   - [violet](hosts/violet/): Server (violet) specific configuration

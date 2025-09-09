@@ -16,6 +16,8 @@
         true
       else if (host == "yoshino") then
         true
+      else if (host == "iris") then
+        true
       else
         false;
     spiceUSBRedirection.enable =
