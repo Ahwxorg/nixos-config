@@ -13,6 +13,7 @@
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
+    ./../../modules/services/ollama.nix
   ];
 
   powerManagement = {
