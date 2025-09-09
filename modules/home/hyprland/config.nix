@@ -85,6 +85,7 @@
         "wl-paste --watch cliphist store &"
         "yubikey-touch-detector --libnotify &"
         "mpDris2 &"
+        "foot --server"
       ];
 
       input = {
@@ -213,8 +214,8 @@
 
       bind = [
         # keybindings
-        "$mainMod, Return, exec, kitty"
-        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] kitty"
+        "$mainMod, Return, exec, footclient"
+        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] footclient"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
@@ -332,6 +333,9 @@
         "float,title:^(float_kitty)$"
         "center,title:^(float_kitty)$"
         "size 950 600,title:^(float_kitty)$"
+        "float,title:^(float_foot)$"
+        "center,title:^(float_foot)$"
+        "size 950 600,title:^(float_foot)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Librewolf — Sharing Indicator)$"
         "move 0 0,title:^(Librewolf — Sharing Indicator)$"
