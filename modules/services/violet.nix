@@ -23,6 +23,7 @@
     ++ [ (import ./ntfy.nix) ]
     ++ [ (import ./nginx.nix) ]
     ++ [ (import ./nix-serve.nix) ]
+    ++ [ (import ./ollama.nix) ]
     ++ [ (import ./paperless-ngx.nix) ]
     ++ [ (import ./radicale.nix) ]
     ++ [ (import ./remote-build.nix) ]
