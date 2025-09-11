@@ -44,7 +44,7 @@ in
       thunderbird
       lxqt.pavucontrol-qt
       mpv
-      plasma5Packages.kdeconnect-kde
+      kdePackages.kdeconnect-kde
       winbox
       # onthespot-overlay
 
