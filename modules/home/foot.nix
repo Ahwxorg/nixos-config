@@ -1,6 +1,6 @@
 { pkgs, username, ... }:
 {
-  home.file."/home/${username}.config/foot/foot.ini" = ''
+  home.file."/home/${username}.config/foot/foot.ini".text = ''
     # -*- conf -*-
 
     # font=GohuFont 14 Nerd Font Mono:size=9
