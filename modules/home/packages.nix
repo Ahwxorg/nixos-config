@@ -31,6 +31,7 @@
     python3
 
     # CLI shit
+    fff
     imagemagick
     foot
     termpdfpy
