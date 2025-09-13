@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    scientifica
     # nerd-fonts._0xproto
     # nerd-fonts._3270
     # nerd-fonts.agave
