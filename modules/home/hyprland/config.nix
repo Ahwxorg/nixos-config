@@ -99,10 +99,10 @@
         };
       };
 
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_invert = true;
-      };
+      #gestures = {
+      #  workspace_swipe = true;
+      #  workspace_swipe_invert = true;
+      #};
 
       general = {
         "$mainMod" = "ALT";
