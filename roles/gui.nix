@@ -27,7 +27,7 @@ in
 
     home-manager.users.${username}.home.packages = with pkgs; [
       element-desktop
-      gajim
+      dino
       signal-desktop
       mumble
       anki-bin
