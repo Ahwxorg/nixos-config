@@ -2,6 +2,7 @@
 {
   services.murmur = {
     enable = true;
-    openFirewall = false;
+    openFirewall = true;
+    bandwidth = 192000;
   };
 }
