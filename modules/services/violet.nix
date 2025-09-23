@@ -13,6 +13,7 @@
     ++ [ (import ./guacamole.nix) ]
     ++ [ (import ./gokapi.nix) ]
     ++ [ (import ./jellyfin.nix) ]
+    # ++ [ (import ./jitsi-meet.nix) ]
     ++ [ (import ./librey-proxy.nix) ]
     ++ [ (import ./lidarr.nix) ]
     ++ [ (import ./matrix/default.nix) ]
@@ -34,5 +35,4 @@
     ++ [ (import ./tailscale.nix) ]
     ++ [ (import ./vaultwarden.nix) ];
   # ++ [ (import ./smart-monitoring.nix) ]
-  # ++ [ (import ./jitsi-meet.nix) ]
 }
