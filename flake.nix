@@ -16,7 +16,6 @@
     nixvim.url = "github:ahwxorg/nixvim-config";
     sops-nix.url = "github:Mic92/sops-nix";
     disko.url = "github:nix-community/disko/latest";
-    iamb.url = "github:ulyssa/iamb";
   };
 
   outputs =
@@ -25,7 +24,6 @@
       nixpkgs,
       sops-nix,
       disko,
-      iamb,
       ...
     }@inputs:
     let
