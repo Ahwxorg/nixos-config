@@ -35,20 +35,20 @@
       allowedUDPPorts = [
         5201
       ];
-      interfaces."ens4s1".allowedTCPPorts = [
-        # allow everything for local link
-        {
-          from = 1;
-          to = 65354;
-        }
-      ];
-      interfaces."ens4s1".allowedUDPPorts = [
-        # allow everything for local link
-        {
-          from = 1;
-          to = 65354;
-        }
-      ];
+      #interfaces."ens4s1".allowedTCPPorts = [
+      #  # allow everything for local link
+      #  {
+      #    from = 0;
+      #    to = 60000;
+      #  }
+      #];
+      #interfaces."ens4s1".allowedUDPPorts = [
+      #  # allow everything for local link
+      #  {
+      #    from = 0;
+      #    to = 65536;
+      #  }
+      #];
     };
   };
 
@@ -82,6 +82,7 @@
 
   services.zfs = {
     autoScrub.enable = true;
+    autoScrub.interval = "weekly";
     trim.enable = true;
   };
 

@@ -23,6 +23,7 @@
             owner = "matrix-synapse";
           };
           "smbLoginDetails" = { };
+          "syncplay" = { };
         }
       else if (host == "sakura") then
         {
