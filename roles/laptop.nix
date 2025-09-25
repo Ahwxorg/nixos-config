@@ -15,13 +15,6 @@ in
     enable = mkEnableOption "Enable laptop";
   };
 
-  # DisplayLink
-  services.xserver.videoDrivers = [
-    "displaylink"
-    "modesetting"
-  ];
-  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
-
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       cifs-utils
@@ -35,6 +28,13 @@ in
         ];
       };
     };
+
+    # DisplayLink
+    services.xserver.videoDrivers = [
+      "displaylink"
+      "modesetting"
+    ];
+    systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
     networking.networkmanager.enable = true;
 
@@ -56,6 +56,6 @@ in
         criticalPowerAction = "Hibernate";
       };
     };
-    # powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = true;
   };
 }
