@@ -9,7 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    # ./../../modules/home/nfs.nix
+    ./../../modules/home/steam.nix
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
