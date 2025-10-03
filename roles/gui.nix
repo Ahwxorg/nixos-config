@@ -27,7 +27,7 @@ in
 
     home-manager.users.${username}.home.packages = with pkgs; [
       element-desktop
-      gajim
+      dino
       signal-desktop
       mumble
       anki-bin
@@ -44,7 +44,7 @@ in
       thunderbird
       lxqt.pavucontrol-qt
       mpv
-      plasma5Packages.kdeconnect-kde
+      kdePackages.kdeconnect-kde
       winbox
       # onthespot-overlay
 

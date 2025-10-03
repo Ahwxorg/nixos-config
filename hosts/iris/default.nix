@@ -9,10 +9,11 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    # ./../../modules/home/nfs.nix
+    ./../../modules/home/steam.nix
     ./../../modules/core/virtualization.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
+    ./../../modules/services/ollama.nix
   ];
 
   powerManagement = {
@@ -26,17 +27,15 @@
     networkmanager.enable = true;
   };
 
-  systemd.network.networks."99-local" = {
-    matchConfig.name = "enp68s0";
-    address = [
-      "192.168.1.100/24"
-    ];
-    routes = [
-      {
-        Gateway = "172.16.10.1";
-        GatewayOnLink = false;
-      }
-    ];
+  networking = {
+    interfaces.ens4d1 = {
+      ipv4.addresses = [
+        {
+          address = "192.168.1.101";
+          prefixLength = 24;
+        }
+      ];
+    };
   };
 
   liv = {

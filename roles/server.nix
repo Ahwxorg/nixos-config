@@ -17,7 +17,8 @@ in
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      pkgs.kitty.terminfo
+      kitty.terminfo
+      foot.terminfo
       powertop
     ];
 

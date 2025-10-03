@@ -13,6 +13,7 @@
     ++ [ (import ./guacamole.nix) ]
     ++ [ (import ./gokapi.nix) ]
     ++ [ (import ./jellyfin.nix) ]
+    # ++ [ (import ./jitsi-meet.nix) ]
     ++ [ (import ./librey-proxy.nix) ]
     ++ [ (import ./lidarr.nix) ]
     ++ [ (import ./matrix/default.nix) ]
@@ -23,6 +24,7 @@
     ++ [ (import ./ntfy.nix) ]
     ++ [ (import ./nginx.nix) ]
     ++ [ (import ./nix-serve.nix) ]
+    ++ [ (import ./ollama.nix) ]
     ++ [ (import ./paperless-ngx.nix) ]
     ++ [ (import ./radicale.nix) ]
     ++ [ (import ./remote-build.nix) ]
@@ -33,5 +35,4 @@
     ++ [ (import ./tailscale.nix) ]
     ++ [ (import ./vaultwarden.nix) ];
   # ++ [ (import ./smart-monitoring.nix) ]
-  # ++ [ (import ./jitsi-meet.nix) ]
 }
