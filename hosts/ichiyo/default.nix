@@ -9,6 +9,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    ./../../modules/services/tailscale.nix
   ];
 
   powerManagement = {

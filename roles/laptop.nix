@@ -56,6 +56,6 @@ in
         criticalPowerAction = "Hibernate";
       };
     };
-    powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = false; # somehow figure out how to let this not apply to specific USB devices, as they will auto suspend and that is annoying.
   };
 }
