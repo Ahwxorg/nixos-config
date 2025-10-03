@@ -16,6 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [ cifs-utils ];
     home-manager = {
       users.${username} = {
         home.packages = with pkgs; [

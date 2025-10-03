@@ -1,13 +1,25 @@
-{ lib, pkgs, config, username, home-manager, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.laptop;
-in {
+in
+{
   options.liv.laptop = {
     enable = mkEnableOption "Enable laptop";
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      cifs-utils
+      powertop
+    ];
     home-manager = {
       users.${username} = {
         home.packages = with pkgs; [
@@ -17,22 +29,25 @@ in {
       };
     };
 
+    # DisplayLink
+    services.xserver.videoDrivers = [
+      "displaylink"
+      "modesetting"
+    ];
+    systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+
     networking.networkmanager.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      # powertop
-    ];
     boot = {
-      kernelModules = ["acpi_call"];
-      extraModulePackages = with config.boot.kernelPackages;
-        [
-          acpi_call
-        ];
-      };
-    services = {    
+      kernelModules = [ "acpi_call" ];
+      extraModulePackages = with config.boot.kernelPackages; [
+        acpi_call
+      ];
+    };
+    services = {
       thermald.enable = true;
       power-profiles-daemon.enable = true;
- 
+
       upower = {
         enable = true;
         percentageLow = 20;
@@ -41,6 +56,6 @@ in {
         criticalPowerAction = "Hibernate";
       };
     };
-    # powerManagement.powertop.enable = true;
+    powerManagement.powertop.enable = true;
   };
 }

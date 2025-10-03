@@ -181,12 +181,6 @@
         #!/usr/bin/env bash
 
         if [[ "$(hostname)" == "sakura" ]]; then
-          if [[ $(cat /proc/acpi/button/lid/LID0/state | grep "open") ]]; then
-          	LTEXT="󰌢 "
-          else
-          	LTEXT="󰛧 "
-          fi
-
           MICROPHONE_STATE="$(sudo framework_tool --privacy | tail -n2 | head -n1)"
           CAMERA_STATE="$(sudo framework_tool --privacy | tail -n1)"
 
@@ -206,7 +200,7 @@
           	CTEXT="󰗟 "
           fi
 
-          echo "$LTEXT $CTEXT $MTEXT"
+          echo "$CTEXT $MTEXT"
         fi
       '';
     };

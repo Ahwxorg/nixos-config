@@ -12,6 +12,8 @@
     libvirtd.enable =
       if (host == "violet") then
         true
+      else if (host == "dandelion") then
+        true
       else if (host == "sakura") then
         true
       else if (host == "yoshino") then
@@ -36,7 +38,7 @@
   #    { };
 
   users.groups.libvirtd.members =
-    if (config.virtualisation.waydroid.enable == true) then [ username ] else [ ];
+    if (config.virtualisation.libvirtd.enable == true) then [ username ] else [ ];
 
   # Enable qemu etc
   environment.systemPackages = with pkgs; [

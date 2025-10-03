@@ -18,8 +18,8 @@
     };
 
     services = {
-      login.u2fAuth = true;
-      greetd.u2fAuth = true;
+      login.u2fAuth = false;
+      greetd.u2fAuth = false;
       sudo.u2fAuth = true;
       swaylock.fprintAuth =
         if (host == "sakura") then
@@ -29,7 +29,7 @@
         else
           false;
       # No longer using Hyprlock, might stay here for if I ever switch to it again.
-      hyprlock.u2fAuth = true;
+      hyprlock.u2fAuth = false;
       hyprlock.fprintAuth =
         if (host == "sakura") then
           true

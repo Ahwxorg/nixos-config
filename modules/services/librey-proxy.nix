@@ -3,7 +3,7 @@
   services = {
     anubis.instances.librey = {
       settings = {
-        TARGET = "http://localhost:8080";
+        TARGET = "http://localhost:8078";
         BIND = ":8079";
         BIND_NETWORK = "tcp";
       };
