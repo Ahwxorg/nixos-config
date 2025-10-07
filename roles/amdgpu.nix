@@ -23,11 +23,11 @@ in
           libvdpau-va-gl
           vulkan-loader
           vulkan-validation-layers
-          amdvlk
+          # amdvlk # error: 'amdvlk' has been removed since it was deprecated by AMD. Its replacement, RADV, is enabled by default.
           mesa.opencl
         ];
         extraPackages32 = with pkgs; [
-          driversi686Linux.amdvlk # Install amdvlk for 32 bit applications as well
+          # driversi686Linux.amdvlk # Install amdvlk for 32 bit applications as well
         ];
       };
       enableRedistributableFirmware = true;
@@ -36,7 +36,7 @@ in
     boot.initrd.kernelModules = [ "amdgpu" ];
 
     environment.systemPackages = with pkgs; [
-      amdvlk
+      # amdvlk
     ];
   };
 }
