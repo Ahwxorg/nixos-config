@@ -2,11 +2,14 @@
   lib,
   pkgs,
   config,
+  host,
+  username,
   ...
 }:
 let
   cfg = config.services.forgejo;
   srv = cfg.settings.server;
+  baseRepo = "ssh://liv@dandelion:9123/spinners/rootvol/backups/${host}";
 in
 {
   services = {
@@ -21,6 +24,8 @@ in
           # You need to specify this to remove the port from URLs in the web UI.
           ROOT_URL = "https://${srv.DOMAIN}/";
           HTTP_PORT = 3050;
+          DISABLE_SSH = false;
+          SSH_PORT = 2222;
         };
         # You can temporarily allow registration to create an admin user.
         service.DISABLE_REGISTRATION = true;
@@ -68,6 +73,31 @@ in
       locations."/" = {
         proxyPass = "http://localhost${toString config.services.anubis.instances.forgejo.settings.BIND}";
         proxyWebsockets = true;
+      };
+    };
+    borgbackup.jobs."violet-forgejo" = {
+      paths = [ "/var/lib/forgejo" ];
+      repo = "${baseRepo}/var-forgejo";
+      encryption.mode = "none";
+      compression = "auto,zstd";
+      startAt = "daily";
+      preHook = ''
+        systemctl stop forgejo
+      '';
+      postHook = ''
+        systemctl start forgejo
+        if [ $exitStatus -eq 2 ]; then
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) failed with errors"
+        else
+          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) completed succesfully with exit status $exitStatus"
+        fi
+      '';
+      user = "root";
+      extraCreateArgs = [
+        "--stats"
+      ];
+      environment = {
+        BORG_RSH = "ssh -p 9123 -i /home/${username}/.ssh/id_ed25519";
       };
     };
   };
