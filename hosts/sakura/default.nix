@@ -57,6 +57,8 @@
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
 
+  services.logind.lidSwitchDocked = "ignore";
+
   # change battery led to blue on suspend to indicate device is in suspend mode
   systemd.services."suspend-led-set" = {
     description = "blue led for sleep";
