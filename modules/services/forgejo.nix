@@ -25,7 +25,7 @@ in
           ROOT_URL = "https://${srv.DOMAIN}/";
           HTTP_PORT = 3050;
           DISABLE_SSH = false;
-          SSH_PORT = 2222;
+          SSH_PORT = 9123;
         };
         # You can temporarily allow registration to create an admin user.
         service.DISABLE_REGISTRATION = true;
