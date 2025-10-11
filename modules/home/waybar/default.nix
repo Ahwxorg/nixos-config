@@ -114,7 +114,7 @@
 
           "custom/devices": {
             "interval": 60,
-            "font-size": 14,
+            "font-size": 18,
             // "return-type": "json",
             "exec": "~/.local/bin/waybar-devices",
           },
@@ -374,7 +374,7 @@
                           border-radius: 0;
                           font-family: 'GohuFont 11 Nerd Font Mono';
                           font-weight: 400;
-                          font-size: 11px;
+                          font-size: 14px;
                           min-height: 26px;
                           /* margin: 0 0px; */
                         }
