@@ -148,6 +148,16 @@
             inherit self inputs username;
           };
         };
+        sunflower = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/sunflower)
+          ];
+          specialArgs = {
+            host = "sunflower";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
