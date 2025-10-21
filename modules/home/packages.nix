@@ -7,6 +7,7 @@
 }:
 {
   home.packages = with pkgs; [
+    swayfx
     # Environment shit
     tesseract
     yubikey-touch-detector
@@ -31,7 +32,7 @@
     python3
 
     # CLI shit
-    fff
+    bitwarden-cli
     imagemagick
     foot
     termpdfpy
