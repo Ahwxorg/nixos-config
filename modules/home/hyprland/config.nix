@@ -85,7 +85,8 @@
         "wl-paste --watch cliphist store &"
         "yubikey-touch-detector --libnotify &"
         "mpDris2 &"
-        "foot --server"
+        "foot --server &"
+        "hyprfloat &"
       ];
 
       input = {
@@ -185,7 +186,7 @@
       };
 
       animations = {
-        enabled = false;
+        enabled = true;
 
         bezier = [
           "fluent_decel, 0, 0.2, 0.4, 1"
@@ -212,10 +213,15 @@
         ];
       };
 
+      gesture = [
+        "3, horizontal, workspace"
+        # "4, horizontal, move"
+      ];
+
       bind = [
         # keybindings
         "$mainMod, Return, exec, footclient"
-        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] footclient"
+        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] footclient --title 'float_foot'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
@@ -231,6 +237,9 @@
         "$mainMod, Tab, changegroupactive, f"
         "$mainMod SHIFT, Tab, changegroupactive, b"
 
+        # password manager
+        "$mainMod SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
+
         # clipboard manager
         "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
@@ -240,10 +249,9 @@
         "$mainMod SHIFT, W, exec, wdisplays"
         "$mainMod SHIFT, T, exec, thunderbird"
         "$mainMod SHIFT, E, exec, element-desktop"
-        "$mainMod SHIFT, X, exec, gajim"
         "$mainMod SHIFT, P, exec, pavucontrol-qt"
-        "$mainMod SHIFT, N ,exec, notes"
-        "$mainMod, N,exec, swaync-client -t"
+        "$mainMod SHIFT, N, exec, notes"
+        "$mainMod      , N, exec, swaync-client -t"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
@@ -338,6 +346,7 @@
         "size 950 600,title:^(float_foot)$"
         "float,title:^(Volume Control)$"
         "float,title:^(Librewolf — Sharing Indicator)$"
+        "float,title:^(Export Image as PNG)$"
         "move 0 0,title:^(Librewolf — Sharing Indicator)$"
         "size 700 450,title:^(Volume Control)$"
         "move 40 55%,title:^(Volume Control)$"
@@ -372,6 +381,7 @@
         "float,title:^(branchdialog)$"
         "float,title:^(Confirm to replace files)$"
         "float,title:^(File Operation Progress)$"
+        "float,title:^(float_foot)$"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
 
