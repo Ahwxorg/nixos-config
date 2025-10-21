@@ -3,6 +3,7 @@
   imports =
     [ (import ./git.nix) ]
     ++ [ (import ./swaync/default.nix) ]
+    ++ [ (import ./sway/default.nix) ]
     ++ [ (import ./fonts.nix) ]
     ++ [ (import ./hyprland) ]
     ++ [ (import ./hyprlock) ]

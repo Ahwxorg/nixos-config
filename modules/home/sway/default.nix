@@ -1,9 +1,10 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, ... }:
+{
   home.packages = with pkgs; [
     swayfx
     autotiling
-    # libinput-gestures
-    # wmctrl
+    libinput-gestures
+    wmctrl
   ];
   #home.file = {
   #  "/home/${username}/.config/libinput-gestures/sway.conf" = {
