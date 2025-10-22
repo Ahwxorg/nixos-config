@@ -9,6 +9,12 @@
   security.acme = {
     acceptTerms = true;
     defaults.email = lib.mkDefault "ahwx@ahwx.org";
+    defaults = {
+      # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
+      # dnsPropagationCheck = false;
+      extraLegoFlags = [ "--dns.propagation-wait=300s" ];
+      dnsProvider = "ns1.desec.io:53";
+    };
     certs = {
       "liv.town" = {
         domain = "*.liv.town";
