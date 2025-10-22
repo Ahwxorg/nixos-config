@@ -3,7 +3,7 @@
   services = {
     uptime-kuma = {
       enable = true;
-      settings.PORT = 4800;
+      settings.PORT = "4800";
     };
     anubis.instances.uptime-kuma = {
       settings = {
