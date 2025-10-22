@@ -26,13 +26,14 @@
     ++ [ (import ./nix-serve.nix) ]
     ++ [ (import ./ollama.nix) ]
     ++ [ (import ./paperless-ngx.nix) ]
+    ++ [ (import ./prosody.nix) ]
     ++ [ (import ./radicale.nix) ]
     ++ [ (import ./remote-build.nix) ]
     ++ [ (import ./readarr.nix) ]
     ++ [ (import ./sharkey-proxy.nix) ]
     # ++ [ (import ./komga.nix) ]
-    # ++ [ (import ./xmpp.nix) ]
     ++ [ (import ./tailscale.nix) ]
+    ++ [ (import ./uptime-kuma.nix) ]
     ++ [ (import ./vaultwarden.nix) ];
   # ++ [ (import ./smart-monitoring.nix) ]
 }
