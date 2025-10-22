@@ -13,6 +13,7 @@
     ++ [ (import ./zathura.nix) ]
     ++ [ (import ./packages.nix) ]
     ++ [ (import ./scripts/scripts.nix) ]
+    ++ [ (import ./spotify.nix) ]
     ++ [ (import ./waybar) ]
     ++ [ (import ./zsh.nix) ]
     ++ [ (import ./qutebrowser.nix) ]
