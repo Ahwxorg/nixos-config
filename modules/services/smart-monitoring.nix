@@ -6,7 +6,7 @@
     enable =
       if (host == "dandelion") then
         true
-      else if (host == "lily") then
+      else if (host == "sunflower") then
         true
       else
         false;
