@@ -19,7 +19,7 @@
       sslCertificate = "/var/lib/acme/liv.town/cert.pem";
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
-        proxyPass = "http://localhost:8080";
+        proxyPass = "http://localhost:8070"; # TODO: add anubis
         proxyWebsockets = true;
       };
     };
