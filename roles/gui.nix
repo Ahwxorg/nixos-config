@@ -39,7 +39,7 @@ in
       imv
       libreoffice
       xfce.thunar
-      spotify
+      # spotify
       spotify-player
       thunderbird
       lxqt.pavucontrol-qt
