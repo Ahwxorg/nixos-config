@@ -16,6 +16,7 @@
     nixvim.url = "github:ahwxorg/nixvim-config";
     sops-nix.url = "github:Mic92/sops-nix";
     disko.url = "github:nix-community/disko/latest";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
