@@ -159,6 +159,16 @@
             inherit self inputs username;
           };
         };
+        imilia = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/imilia)
+          ];
+          specialArgs = {
+            host = "imilia";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
