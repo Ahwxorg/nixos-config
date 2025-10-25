@@ -69,6 +69,8 @@
           "eDP-1, 2256x1504@60, 0x0, 1.0"
         else if (host == "zinnia") then
           "eDP-1, 1920x1080@60, 0x0, 1.0"
+        else if (host == "imilia") then
+          "eDP-1, 1920x1080@60, 0x0, 1.0"
         else
           ", preferred, auto, 1";
 
