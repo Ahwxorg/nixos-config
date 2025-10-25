@@ -14,9 +14,17 @@ in
   };
 
   config = mkIf cfg.enable {
+    services.xserver.videoDrivers = [ "nvidia" ];
     hardware = {
+      nvidia = {
+        modesetting.enable = true;
+        powerManagement.enable = false;
+        powerManagement.finegrained = false;
+        open = false;
+        nvidiaSettings = true;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
+      };
       enableRedistributableFirmware = true;
-      nvidia.open = false; # Set to false/true for proprietary/open drivers
       graphics = {
         enable = true;
         extraPackages = with pkgs; [
@@ -31,6 +39,10 @@ in
 
     environment.systemPackages = with pkgs; [
       # amdvlk
+      #nvidia-x11
+      #nvidia-settings
+      #nvidia-persistenced
+      nvtopPackages.nvidia
     ];
   };
 }
