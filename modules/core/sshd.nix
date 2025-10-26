@@ -19,6 +19,7 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEDltZ7vfyrLrl32TIWCC3iUx40TrCtIz6Ssi/SZvikg liv@zinnia" # zinnia
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQtG69zrMFsoHForwZEi66y1tPvctqg1OgjQFrF3OI+ liv@iris" # iris
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINKI2KQn97mykFLIaMUWMftA1txJec9qW56hAMj5/MhE liv@dandelion" # dandelion
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILwDS8tXjGjUtk3eQAaPf0S0f9JgwEGPlNYQ7OvACX1Z liv@imilia" # imilia
 
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO7mHVQp99G0osUAtnVoq5TARR8x5wjCkdbe7ChnzLRa liv@azalea" # linux phone
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ2nsQHyWnrmuQway0ehoMUcYYfhD8Ph/vpD0Tzip1b1 liv@meow" # xz1c

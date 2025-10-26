@@ -20,6 +20,8 @@
         true
       else if (host == "iris") then
         true
+      else if (host == "imilia") then
+        true
       else
         false;
     spiceUSBRedirection.enable =
@@ -27,7 +29,7 @@
   };
 
   programs.virt-manager.enable =
-    if (config.virtualisation.waydroid.enable == true) then true else false;
+    if (config.virtualisation.libvirtd.enable == true) then true else false;
   #dconf.settings."org/virt-manager/virt-manager/connections" =
   #  if (config.programs.virt-manager.enable == true) then
   #    {
