@@ -110,8 +110,8 @@
       general = {
         "$mainMod" = "ALT";
         layout = "dwindle";
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 0;
+        gaps_out = 0;
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
