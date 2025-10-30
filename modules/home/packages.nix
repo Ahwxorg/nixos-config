@@ -7,7 +7,6 @@
 }:
 {
   home.packages = with pkgs; [
-    swayfx
     # Environment shit
     tesseract
     yubikey-touch-detector
