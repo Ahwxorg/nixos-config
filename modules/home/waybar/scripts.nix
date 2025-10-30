@@ -158,7 +158,7 @@
         #!/usr/bin/env sh
 
         META="{{ trunc(artist,17) }} - {{ trunc(title,17) }}"
-        PLAYERS="spotify ncspot mpv mpd"
+        PLAYERS="spotify ncspot mpv mpd spotify_player"
 
         for PLAYER in $PLAYERS; do
         	# if the player is not playing, continue to the next player, until we find one that is playing
