@@ -5,59 +5,6 @@
   ...
 }:
 {
-  fonts.fontconfig.enable = true;
-  home.packages = [
-    # pkgs.nerdfonts
-    # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    pkgs.twemoji-color-font
-    pkgs.noto-fonts-emoji
-    pkgs.swww
-    pkgs.swaylock
-    pkgs.pywal16
-  ];
-
-  gtk = {
-    enable = true;
-    font = {
-      name = "GohuFont 14 Nerd Font Mono";
-      size = 14;
-    };
-    theme = {
-      name = "Juno";
-      package = pkgs.juno-theme; # .override {
-      # colorVariants = [ "dark" ];
-      # themeVariants = [ "green" ];
-      # tweakVariants = [ "macos" ];
-      # };
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override {
-        color = "black";
-      };
-    };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
-  };
-
-  home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
-    size = 24;
-  };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-    };
-  };
-
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -101,11 +48,6 @@
           natural_scroll = true;
         };
       };
-
-      #gestures = {
-      #  workspace_swipe = true;
-      #  workspace_swipe_invert = true;
-      #};
 
       general = {
         "$mainMod" = "ALT";
