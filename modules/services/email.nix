@@ -1,14 +1,21 @@
 {
   pkgs,
   config,
+  username,
   ...
 }:
 {
+  environment.systemPackages = [ pkgs.mailutils ];
   programs.msmtp = {
     enable = true;
-    accounts.default = {
-      auth = true;
-      tls = true;
+    defaults = {
+      auth = "on";
+      tls = "on";
+      logfile = "/var/log/msmtpd.log";
+    };
+
+    accounts.${username} = {
+      tls_starttls = "off";
       port = 465;
       host = "smtp.migadu.com";
       from = config.liv.variables.senderEmail;
