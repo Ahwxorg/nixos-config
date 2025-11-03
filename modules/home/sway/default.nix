@@ -257,6 +257,28 @@ in
               }
             ];
       };
+      work = {
+        outputs = [
+          {
+            criteria = "eDP-1";
+            scale = 1.0;
+            status = "enable";
+            position = "0,0";
+          }
+          {
+            criteria = "HP Inc. HP E27q G5 CNC4190NG9";
+            scale = 1.0;
+            status = "enable";
+            position = "4816,0";
+          }
+          {
+            criteria = "HP Inc. HP E27q G5 CNC4081M2B";
+            scale = 1.0;
+            status = "enable";
+            position = "2256,0";
+          }
+        ];
+      };
     };
   };
 
