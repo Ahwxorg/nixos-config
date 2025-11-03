@@ -162,25 +162,24 @@ in
           "Mod1+Shift+n" = "exec --no-startup-id notes";
 
           # screenshot
-          "Mod1+Shift+s" = "exec --no-startup-id grimblast copy area";
+          "Mod1+Shift+s" = "exec grim -g \"\$(slurp)\" -t png - | wl-copy -t image/png";
+          # "Mod1+Shift+s" = "exec --no-startup-id grimblast copy area";
           "Mod1+Shift+g" = "exec --no-startup-id grabtext";
 
           # media and volume controls
-          # ",XF86AudioRaiseVolume,exec, pamixer -i 2"
-          # ",XF86AudioLowerVolume,exec, pamixer -d 2"
-          # ",XF86AudioMute,exec, pamixer -t"
-          # ",XF86AudioPlay,exec, playerctl play-pause"
-          # ",XF86AudioNext,exec, playerctl next"
-          # ",XF86AudioPrev,exec, playerctl previous"
-          # ",XF86AudioStop, exec, playerctl stop"
-          # "Mod1, mouse_down, workspace, e-1"
-          # "Mod1, mouse_up, workspace, e+1"
+          "XF86AudioRaiseVolume" = "exec pamixer -i 2";
+          "XF86AudioLowerVolume" = "exec pamixer -d 2";
+          "XF86AudioMute" = "exec pamixer -t";
+          "XF86AudioPlay" = "exec playerctl play-pause";
+          "XF86AudioNext" = "exec playerctl next";
+          "XF86AudioPrev" = "exec playerctl previous";
+          "XF86AudioStop" = "exec playerctl stop";
 
-          # # laptop brigthness
-          # ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-          # ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-          # "Mod1, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
-          # "Mod1, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+          # laptop brigthness
+          "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+          "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+          "Mod1+XF86MonBrightnessUp" = "exec brightnessctl set 100%+";
+          "Mod1+XF86MonBrightnessDown" = "exec brightnessctl set 100%-";
         }
       ];
       focus.followMouse = true;
