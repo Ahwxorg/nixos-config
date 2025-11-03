@@ -101,7 +101,7 @@ in
         # pkgs.nerdfonts
         # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         pkgs.twemoji-color-font
-        pkgs.noto-fonts-emoji
+        pkgs.noto-fonts-color-emoji
         pkgs.swww
         pkgs.swaylock
         pkgs.pywal16
