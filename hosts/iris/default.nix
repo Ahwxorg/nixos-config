@@ -46,6 +46,13 @@
     gui.enable = true;
   };
 
+  # Enable ROCM support
+  hardware.amdgpu.opencl.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    pkgs.davinci-resolve
+  ];
+
   boot = {
     kernelParams = [ ];
     kernelModules = [ "acpi_call" ];
