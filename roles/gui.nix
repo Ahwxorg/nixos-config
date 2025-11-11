@@ -24,39 +24,88 @@ in
       gnome.gnome-keyring.enable = true;
       dbus.enable = true;
     };
+    home-manager.users.${username} = {
+      fonts.fontconfig.enable = true;
+      gtk = {
+        enable = true;
+        font = {
+          name = "GohuFont 14 Nerd Font Mono";
+          size = 14;
+        };
+        theme = {
+          name = "Juno";
+          package = pkgs.juno-theme; # .override {
+          # colorVariants = [ "dark" ];
+          # themeVariants = [ "green" ];
+          # tweakVariants = [ "macos" ];
+          # };
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme.override {
+            color = "black";
+          };
+        };
+        cursorTheme = {
+          name = "Bibata-Modern-Ice";
+          package = pkgs.bibata-cursors;
+          size = 24;
+        };
+      };
 
-    home-manager.users.${username}.home.packages = with pkgs; [
-      element-desktop
-      dino
-      signal-desktop
-      mumble
-      anki-bin
-      obs-studio
-      wdisplays
-      librewolf # main
-      ungoogled-chromium # for things that don't work with librewolf
-      nsxiv
-      imv
-      libreoffice
-      xfce.thunar
-      # spotify
-      spotify-player
-      thunderbird
-      lxqt.pavucontrol-qt
-      mpv
-      kdePackages.kdeconnect-kde
-      winbox
-      # onthespot-overlay
+      home.pointerCursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 24;
+      };
 
-      # Gaming
-      lunar-client
+      dconf = {
+        enable = true;
+        settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
+      };
+      home.packages = with pkgs; [
+        element-desktop
+        dino
+        signal-desktop
+        mumble
+        anki-bin
+        obs-studio
+        wdisplays
+        librewolf # main
+        ungoogled-chromium # for things that don't work with librewolf
+        nsxiv
+        imv
+        libreoffice
+        xfce.thunar
+        # spotify
+        spotify-player
+        thunderbird
+        lxqt.pavucontrol-qt
+        mpv
+        kdePackages.kdeconnect-kde
+        winbox
+        # onthespot-overlay
 
-      # Not GUI but specific to GUI usage
-      sshuttle
-      sshfs
+        # Gaming
+        lunar-client
 
-      # try out for a bit
-      niri
-    ];
+        # Not GUI but specific to GUI usage
+        sshuttle
+        sshfs
+
+        # previously in hyprland config
+        # pkgs.nerdfonts
+        # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        pkgs.twemoji-color-font
+        pkgs.noto-fonts-color-emoji
+        pkgs.swww
+        pkgs.swaylock
+        pkgs.pywal16
+      ];
+    };
   };
 }

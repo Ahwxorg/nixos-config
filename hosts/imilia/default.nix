@@ -19,10 +19,16 @@
   environment = {
     systemPackages = with pkgs; [
       fwupd
-      fw-ectool
     ];
     etc.hosts.mode = "0700";
   };
+
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 64 * 1024;
+    }
+  ];
 
   liv = {
     laptop.enable = true;

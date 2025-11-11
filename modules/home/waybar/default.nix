@@ -29,13 +29,15 @@
           "modules-left": [
             "privacy",
             "network",
+            "custom/music",
             "custom/vpn",
             "custom/devices",
-            "custom/spotify",
+            "sway/mode",
             "tray",
           ],
 
           "modules-center": [
+            "sway/workspaces",
             "hyprland/workspaces",
           ],
 
@@ -104,7 +106,7 @@
             "interval": 30
           },
 
-          "custom/spotify": {
+          "custom/music": {
             "interval": 5,
             "return-type": "json",
             "exec": "~/.local/bin/waybar-music",
@@ -293,7 +295,7 @@
           },
 
           "battery": {
-            "bat": "BAT1",
+            "bat": "BAT0",
             "interval": 20,
             "states": {
               "warning": 20,
@@ -501,7 +503,7 @@
                           background: #f9409d;
                         }
 
-                	#custom-spotify {
+                	#custom-music {
                           color: #ffffff;
                           padding-right: 5px;
                         }
