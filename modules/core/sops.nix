@@ -19,11 +19,13 @@
           "systemMailerPassword" = { };
           "forgejoWorkerSecret" = { };
           "minioRootCredentials" = { };
+          "atticdEnvironment" = { };
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
           "smbLoginDetails" = { };
           "syncplay" = { };
+          "funkwhaleDjangoSecret" = { };
         }
       else if (host == "sakura") then
         {
