@@ -1,9 +1,11 @@
-{ inputs, ... }: 
+{ inputs, ... }:
 {
-  imports = [ (import ./hyprland.nix) ]
+  imports =
+    [ (import ./hyprland.nix) ]
     ++ [ (import ./config.nix) ]
     ++ [ (import ./scripts.nix) ]
     ++ [ (import ./variables.nix) ]
-    # ++ [ (import ./hyprlock.nix) ]
+    ++ [ (import ./../hyprsunset.nix) ]
+    ++ [ (import ./../hyprlock.nix) ]
     ++ [ inputs.hyprland.homeManagerModules.default ];
 }
