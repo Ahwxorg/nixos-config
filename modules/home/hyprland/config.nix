@@ -36,6 +36,7 @@
         "mpDris2 &"
         "foot --server &"
         "hyprfloat &"
+        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
       ];
 
       input = {
