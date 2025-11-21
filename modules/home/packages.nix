@@ -78,8 +78,8 @@
     #   pip install --user --break-system-packages <package>
     # '')
 
-    inputs.alejandra.defaultPackage.${system}
-    inputs.nixvim.packages.${pkgs.system}.default
+    inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     mermaid-cli
     gnuplot
 

@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     swww
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    inputs.hypr-contrib.packages.${pkgs.stdenv.hostPlatform.system}.grimblast
     hyprpicker
     grim
     slurp
@@ -10,7 +10,7 @@
     glib
     wayland
     direnv
-    inputs.hyprsunset.packages.${pkgs.system}.hyprsunset
+    inputs.hyprsunset.packages.${pkgs.stdenv.hostPlatform.system}.hyprsunset
   ];
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
