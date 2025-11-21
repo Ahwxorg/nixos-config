@@ -58,8 +58,11 @@
     cpuFreqGovernor = lib.mkDefault "performance";
   };
 
-  services.logind.lidSwitchDocked = "ignore";
-  services.logind.lidSwitch = "ignore";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchDocked = "ignore";
+  };
+
   boot = {
     kernelModules = [ "acpi_call" ];
     kernelPackages = pkgs.linuxPackages_latest;
