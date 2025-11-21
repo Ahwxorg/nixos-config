@@ -383,7 +383,7 @@
 
                         window#waybar.top {
                           /* background-color: rgba(115, 116, 116, 0.22); */
-                          background-color: rgba(0, 0, 0, 0.25);
+                          background-color: rgba(0, 0, 0, 0.75);
                           border-top: none;
                           color: #eeeeee;
                           transition-property: background-color;
