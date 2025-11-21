@@ -10,7 +10,6 @@
     glib
     wayland
     direnv
-    inputs.hyprsunset.packages.${pkgs.stdenv.hostPlatform.system}.hyprsunset
   ];
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
