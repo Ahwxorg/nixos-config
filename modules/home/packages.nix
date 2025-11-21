@@ -70,6 +70,7 @@
     sshpass
     net-tools
     nmap
+    aerc
 
     # Install pip packages
     # python3
