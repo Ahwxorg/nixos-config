@@ -36,11 +36,12 @@
         "mpDris2 &"
         "foot --server &"
         "hyprfloat &"
+        "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
       ];
 
       input = {
         kb_layout = "us,jp";
-        kb_options = "caps:ctrl_modifier";
+        kb_options = "caps:ctrl_modifier,compose:ralt";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
@@ -171,6 +172,7 @@
         "$mainMod, Space, togglefloating,"
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
         "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
+        "SUPER, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "$mainMod, E, exec, thunar"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C,exec, hyprpicker -a"
@@ -267,6 +269,10 @@
         ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
         "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+      ];
+
+      bindl = [
+        ",switch:[Lid Switch], exec, hyprlock"
       ];
 
       # mouse binding

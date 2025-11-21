@@ -295,7 +295,7 @@
           },
 
           "battery": {
-            "bat": "BAT0",
+            "bat": "BAT1",
             "interval": 20,
             "states": {
               "warning": 20,

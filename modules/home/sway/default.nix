@@ -198,11 +198,12 @@ in
         { command = "swaycons &"; }
         # { command = "wlsunset -S '06:30' -s '19:30' -d 1800 "; }
         { command = "foot --server &"; }
+        { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; }
         { command = "footclient"; }
       ];
       workspaceAutoBackAndForth = false;
     };
-    # systemd.enable = true; # ???
+    # systemd.enable = true; # why would anyone do this???
     wrapperFeatures = {
       gtk = true;
     };

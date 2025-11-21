@@ -19,6 +19,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     oisd.url = "https://big.oisd.nl/domainswild";
     oisd.flake = false;
+    funkwhale.url = "github:mmai/funkwhale-flake";
   };
 
   outputs =

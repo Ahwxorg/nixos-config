@@ -46,19 +46,28 @@ in
       };
       secrets.mailer.PASSWD = config.sops.secrets.systemMailerPassword.path;
     };
-    gitea-actions-runner = {
-      package = pkgs.forgejo-runner;
-      instances.code-liv-town = {
-        enable = true;
-        name = "forgejo-01";
-        tokenFile = "${config.sops.secrets.forgejoWorkerSecret.path}";
-        url = "https://code.liv.town";
-        labels = [
-          "node-22:docker://node:22-bookworm"
-          "nixos-latest:docker://nixos/nix"
-        ];
-      };
-    };
+    # gitea-actions-runner = {
+    #   package = pkgs.forgejo-runner;
+    #   instances.forgejo-01 = {
+    #     enable = true;
+    #     name = "forgejo-01";
+    #     tokenFile = "${config.sops.secrets.forgejoWorkerSecret.path}";
+    #     url = "https://code.liv.town";
+    #     labels = [
+    #       "node-22:docker://node:22-bookworm"
+    #       "nixos-latest:docker://nixos/nix"
+    #       # "docker:docker://node:24-alpine"
+    #       # "alpine-latest:docker://node:24-alpine"
+    #     ];
+    #     settings = {
+    #       log.level = "info";
+    #       runner = {
+    #         file = ".runner";
+    #         timeout = "3h";
+    #       };
+    #     };
+    #   };
+    # };
     anubis.instances.forgejo = {
       settings = {
         TARGET = "http://localhost:3050";
