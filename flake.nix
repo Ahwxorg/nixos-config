@@ -17,6 +17,8 @@
     sops-nix.url = "github:Mic92/sops-nix";
     disko.url = "github:nix-community/disko/latest";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    oisd.url = "https://big.oisd.nl/domainswild";
+    oisd.flake = false;
   };
 
   outputs =
@@ -25,6 +27,7 @@
       nixpkgs,
       sops-nix,
       disko,
+      oisd,
       ...
     }@inputs:
     let
