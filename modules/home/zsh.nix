@@ -167,6 +167,9 @@
         #   alias imv="nsxiv"
         #   alias sxiv="nsxiv"
         # fi
+        function preexec {
+          print -Pn "\e]0;$\{(q)1}\e\\"
+        }
       '';
 
       zsh-abbr = {
