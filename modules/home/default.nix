@@ -8,6 +8,7 @@
     ++ [ (import ./hyprland) ]
     ++ [ (import ./hyprlock) ]
     ++ [ (import ./kitty.nix) ]
+    ++ [ (import ./kanshi.nix) ]
     ++ [ (import ./foot.nix) ]
     ++ [ (import ./nvim.nix) ]
     ++ [ (import ./zathura.nix) ]
