@@ -3,7 +3,7 @@
   services.kanshi = {
     enable = true;
 
-    settings = {
+    profiles = {
       laptops = {
         outputs =
           if (host == "sakura") then
