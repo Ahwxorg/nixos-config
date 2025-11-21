@@ -206,80 +206,37 @@ in
     wrapperFeatures = {
       gtk = true;
     };
+    extraConfig = ''
+      set $font Ubuntu Mono
+      font pango:$font 7
+      set $title_options text_transform='lowercase'
+
+      # window styles
+      hide_edge_borders none
+      # title_align left
+      # default_border normal 4
+      # for_window [all] border normal 4, floating enable
+
+      # for_window [class="librewolf"], floating disable
+      # for_window [class="foot"], floating disable
+      # for_window [class="Element"], floating disable
+      # for_window [class="dino"], floating disable
+      # for_window [class="Signal"], floating disable
+      # for_window [class="libreoffice-writer"]  floating disable
+      # for_window [class="libreoffice-calc"]    floating disable
+      # for_window [class="libreoffice-draw"]    floating disable
+      # for_window [class="libreoffice-math"]    floating disable
+      # for_window [class="libreoffice-impress"] floating disable
+
+      for_window [window_role="(?i)GtkFileChooserDialog"] resize set 720 640
+      for_window [title="LibreWolf — Sharing Indicator"]    border none
+    '';
   };
 
   home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
     "export MOZ_ENABLE_WAYLAND=1"
     "export NIXOS_OZONE_WL=1" # Electron
   ];
-
-  services.kanshi = {
-    enable = true;
-
-    profiles = {
-      laptops = {
-        outputs =
-          if (host == "sakura") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "zinnia") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "imilia") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ];
-      };
-      work = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            scale = 1.0;
-            status = "enable";
-            position = "0,0";
-          }
-          {
-            criteria = "HP Inc. HP E27q G5 CNC4190NG9";
-            scale = 1.0;
-            status = "enable";
-            position = "4816,0";
-          }
-          {
-            criteria = "HP Inc. HP E27q G5 CNC4081M2B";
-            scale = 1.0;
-            status = "enable";
-            position = "2256,0";
-          }
-        ];
-      };
-    };
-  };
 
   programs.sway-easyfocus = {
     enable = true;
@@ -326,7 +283,7 @@ in
 
     [title]
     "(?i)Thunar" = { icon = "󰉖", color = "#6291d6" }
-    "(?i)vim" = { app_id = ["foot", "Alacritty"], icon = "", color = "#8fff6d" }
+    "(?i)vim" = { app_id = ["foot", "kitty"], icon = "", color = "#8fff6d" }
     "(cloud|developers)\\.google.com" = { icon = "", color = "#4285f4" }
     "192\\.168\\.0\\.1|192\\.168\\.86\\.1|ui\\.com" = { icon = "󰖩", color = "#004cb6" }
     "1password\\.com" = { icon = "󰍁", color = "#0572ec" }
@@ -390,17 +347,16 @@ in
     nnn = { app_id = ["foot", "Alacritty"], icon = "󰉖" }
     pgcli = { app_id = ["foot", "Alacritty"], icon = "󰆼", color = "#c74451" }
   '';
+  home.file = {
+    "/home/${username}/.config/libinput-gestures/sway.conf" = {
+      executable = false;
+      text = "
+       Cycle right through sway workspaces
+       gesture: swipe right 3 swaymsg focus right
+  
+       # Cycle left through sway workspaces
+       gesture: swipe left 3 swaymsg focus left
+     ";
+    };
+  };
 }
-
-#home.file = {
-#  "/home/${username}/.config/libinput-gestures/sway.conf" = {
-#    executable = false;
-#    text = "
-#      # Cycle right through sway workspaces
-#      gesture: swipe right 3 swaymsg focus right
-
-#      # Cycle left through sway workspaces
-#      gesture: swipe left 3 swaymsg focus left
-#    ";
-#  };
-#};
