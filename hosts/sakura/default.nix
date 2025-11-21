@@ -5,6 +5,9 @@
   lib,
   ...
 }:
+let
+  mac_ethernet = "13:37:00:00:00:01";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -14,6 +17,8 @@
     ./../../modules/services/mpd.nix
     ./../../modules/services/smart-monitoring.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+    ./../../modules/security/dnscrypt.nix
+    ./../../modules/security/syslogd.nix
   ];
 
   # install some system-utilities; set hosts to be editable by the user.
@@ -51,13 +56,25 @@
     # networkmanager.ethernet.macAddress = "13:37:6a:8a:ed:a4";
   };
 
+  environment.etc."NetworkManager/conf.d/20-ethernet-mac-address.conf".text = ''
+    [connection.20-ethernet-mac-addr]
+    match-device=type:ethernet
+    ethernet.cloned-mac-address=${mac_ethernet}
+
+    [.config]
+    enable=nm-version-min:1.45
+  '';
+
   powerManagement = {
     enable = true;
     # powertop.enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
 
-  services.logind.lidSwitchDocked = "ignore";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchDocked = "ignore";
+  };
 
   # change battery led to blue on suspend to indicate device is in suspend mode
   systemd.services."suspend-led-set" = {
@@ -81,7 +98,6 @@
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
   '';
-  services.logind.lidSwitch = "suspend";
   boot = {
     kernelParams = [
       "mem_sleep_default=deep"
