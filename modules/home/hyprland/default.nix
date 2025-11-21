@@ -6,6 +6,6 @@
     ++ [ (import ./scripts.nix) ]
     ++ [ (import ./variables.nix) ]
     ++ [ (import ./../hyprsunset.nix) ]
-    ++ [ (import ./../hyprlock.nix) ]
+    ++ [ (import ./../hyprlock/default.nix) ]
     ++ [ inputs.hyprland.homeManagerModules.default ];
 }
