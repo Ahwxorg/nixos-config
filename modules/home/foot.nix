@@ -108,7 +108,7 @@
     # long-press-delay=400
 
     [colors]
-    alpha=0.5
+    alpha=0.75
 
     background=000000
     foreground=878ba6
