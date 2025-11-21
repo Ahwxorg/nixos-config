@@ -8,7 +8,7 @@
     file."/home/${username}/.config/swaync/config.json".text = ''
             {
               "$schema": "/etc/xdg/swaync/configSchema.json",
-              "positionX": "right",
+              "positionX": "center",
               "positionY": "top",
               "layer": "overlay",
               "layer-shell": true,
@@ -79,7 +79,7 @@
         outline: none;
         transition: 200ms;
         padding: 1px;
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
       }
 
       .notification-row {
@@ -90,7 +90,7 @@
 
       .notification-row .notification-background .close-button {
         /* The notification Close Button */
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
         color: @text;
         text-shadow: none;
         box-shadow: none;
@@ -105,14 +105,14 @@
 
       .notification-row .notification-background .close-button:hover {
         box-shadow: none;
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
         transition: background 0.15s ease-in-out;
         border: 0px;
       }
 
       .notification-row .notification-background .notification {
         /* The actual notification */
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
       }
 
       .notification-group .notification-group-headers {
@@ -141,7 +141,7 @@
 
       .control-center-clear-all {
         /* Clear All button */
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
         padding: 5px;
       }
 
@@ -156,7 +156,7 @@
       /*** Widgets ***/
       /* Title widget */
       .widget-title {
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
         margin-top: 15px;
         margin-left: 15px;
         margin-right: 15px;
@@ -164,7 +164,7 @@
 
       /* Do Not Disturb widget */
       .widget-dnd {
-        background: transparent;
+        background: rgb(0, 0, 0, 0.75);
         margin-left: 15px;
         margin-right: 15px;
       }
