@@ -2,8 +2,9 @@
 {
   imports =
     [ (import ./docker.nix) ]
+    ++ [ (import ../security/default.nix) ]
     ++ [ (import ./hardware.nix) ]
-    # ++ [ (import ./displaylink.nix) ]
+    ++ [ (import ./displaylink.nix) ]
     # ++ [(import ./printing.nix)]
     ++ [ (import ./xserver.nix) ]
     ++ [ (import ./network.nix) ]
