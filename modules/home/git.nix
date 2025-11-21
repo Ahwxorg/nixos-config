@@ -1,12 +1,11 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
-    
-    userName = "Ahwx";
-    userEmail = "ahwx@ahwx.org";
-    
-    extraConfig = { 
+
+    settings = {
+      user.name = "Ahwx";
+      user.email = "ahwx@ahwx.org";
       init.defaultBranch = "master";
       credential.helper = "store";
       alias.stat = "status";
@@ -14,5 +13,8 @@
     };
   };
 
-  home.packages = [ pkgs.gh pkgs.git-lfs ];
+  home.packages = [
+    pkgs.gh
+    pkgs.git-lfs
+  ];
 }
