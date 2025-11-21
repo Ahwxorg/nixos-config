@@ -231,11 +231,13 @@
         du = "dust";
         cp = "cp -i -v";
         mv = "mv -i -v";
+        cd = "z";
         rm = "rm -i -v";
         cat = "${lib.getExe pkgs.bat} --plain";
         diff = "${lib.getExe pkgs.delta} --color-only";
         battery-left = "${lib.getExe pkgs.acpi} | cut -d' ' -f5";
         github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
+        tailscale = "sudo tailscale";
 
         # NixOS
         ns = "nix-shell --run zsh";
