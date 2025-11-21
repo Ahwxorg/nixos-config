@@ -18,6 +18,7 @@
     };
 
     services = {
+      pcscd.enable = true;
       login.u2fAuth = false;
       greetd.u2fAuth = false;
       sudo.u2fAuth = true;
@@ -28,7 +29,6 @@
           true
         else
           false;
-      # No longer using Hyprlock, might stay here for if I ever switch to it again.
       hyprlock.u2fAuth = false;
       hyprlock.fprintAuth =
         if (host == "sakura") then
