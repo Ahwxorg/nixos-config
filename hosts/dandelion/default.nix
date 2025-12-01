@@ -7,7 +7,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./variables.nix
     ./../../modules/core/default.server.nix
     ./../../modules/services/dandelion.nix
   ];
