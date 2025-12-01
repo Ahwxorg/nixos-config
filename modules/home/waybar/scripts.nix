@@ -1,6 +1,12 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  username,
+  config,
+  ...
+}:
 let
-  externalIPv4 = "";
+  # homeExternalIPv4 = "${pkgs.coreutils}/bin/cat ${config.sops.secrets.homeExternalIPv4.path}";
+  homeExternalIPv4 = "92.118.0.69";
 in
 {
   home.file = {
@@ -234,9 +240,9 @@ in
         NODE="$(mullvad status | grep -Ei 'relay' | awk '{print $2}' | tr '[:upper:]' '[:lower:]')"
         LOCATION="$(mullvad status | grep -Ei 'location' | cut -d':' -f2 | cut -d'.' -f1 | sed 's/       //g')"
         IPV4="$(mullvad status | grep 'IPv4' | cut -d':' -f3 | sed 's/       //g')"
-        echo "$IPV4" | grep -q "${externalIPv4}" && LOCATION="home"
+        echo "$IPV4" | grep -q "${homeExternalIPv4}" && LOCATION="home"
 
-        echo "$STATUS" | grep -Eioq 'connected|connecting' && TEXT="{\"text\":\"$STATUS ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}" || ip address show tailscale0 | grep "global tailscale0" -q && TEXT="{\"text\":\"tailscale ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
+        echo "$STATUS" | grep -Eioq 'connected|connecting' && TEXT="{\"text\":\"$STATUS ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}" # || ip address show tailscale0 | grep "global tailscale0" && TEXT="{\"text\":\"tailscale ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
         echo "$STATUS" | grep -Eioq 'disconnected' && TEXT="{\"text\":\"$STATUS\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
 
         echo "$TEXT"
