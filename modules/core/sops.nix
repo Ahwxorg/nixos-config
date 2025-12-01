@@ -32,6 +32,7 @@
           "systemMailerPassword" = { };
           "dandelionSyncthingId" = { };
           "sakuraSyncthingId" = { };
+          "homeExternalIPv4" = { };
         }
       else if (host == "dandelion") then
         {
