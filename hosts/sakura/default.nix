@@ -45,7 +45,7 @@ in
 
   hardware.framework = {
     amd-7040.preventWakeOnAC = true;
-    # laptop13.audioEnhancement.enable = true; # makes audio almost muted
+    laptop13.audioEnhancement.enable = true;
   };
 
   # Disable light sensors and accelerometers as they are not used and consume extra battery
