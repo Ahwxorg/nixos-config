@@ -29,6 +29,7 @@
     gcc
     gnumake
     python3
+    nautilus
 
     # CLI shit
     bitwarden-cli
