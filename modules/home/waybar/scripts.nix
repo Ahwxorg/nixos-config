@@ -1,5 +1,7 @@
 { pkgs, username, ... }:
-
+let
+  externalIPv4 = "";
+in
 {
   home.file = {
     "/home/${username}/.local/bin/waybar-yubikey" = {
@@ -213,6 +215,7 @@
       '';
     };
     "/home/${username}/.local/bin/waybar-vpn" = {
+      # unused nowadays
       executable = true;
       text = ''
         #!/usr/bin/env bash
@@ -220,6 +223,23 @@
         ip route | grep -q '10.7.0.0' \
         && echo '{"text":"Connected","class":"connected","percentage":100}' \
         || echo '{"text":"Disconnected","class":"disconnected","percentage":0}'
+      '';
+    };
+    "/home/${username}/.local/bin/waybar-mullvad" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+
+        STATUS="$(mullvad status | grep -Eio 'connected|connecting|disconnected' | tr '[:upper:]' '[:lower:]')"
+        NODE="$(mullvad status | grep -Ei 'relay' | awk '{print $2}' | tr '[:upper:]' '[:lower:]')"
+        LOCATION="$(mullvad status | grep -Ei 'location' | cut -d':' -f2 | cut -d'.' -f1 | sed 's/       //g')"
+        IPV4="$(mullvad status | grep 'IPv4' | cut -d':' -f3 | sed 's/       //g')"
+        echo "$IPV4" | grep -q "${externalIPv4}" && LOCATION="home"
+
+        echo "$STATUS" | grep -Eioq 'connected|connecting' && TEXT="{\"text\":\"$STATUS ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}" || ip address show tailscale0 | grep "global tailscale0" -q && TEXT="{\"text\":\"tailscale ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
+        echo "$STATUS" | grep -Eioq 'disconnected' && TEXT="{\"text\":\"$STATUS\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
+
+        echo "$TEXT"
       '';
     };
   };
