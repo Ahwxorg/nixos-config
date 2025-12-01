@@ -16,9 +16,10 @@ in
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/smart-monitoring.nix
+    ./../../modules/services/mullvad.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-    ./../../modules/security/dnscrypt.nix
-    ./../../modules/security/syslogd.nix
+    ./../../modules/home/steam.nix
+    # ./../../modules/services/automount.nix
   ];
 
   # install some system-utilities; set hosts to be editable by the user.
