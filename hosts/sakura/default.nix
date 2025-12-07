@@ -57,14 +57,14 @@ in
     # networkmanager.ethernet.macAddress = "13:37:6a:8a:ed:a4";
   };
 
-  environment.etc."NetworkManager/conf.d/20-ethernet-mac-address.conf".text = ''
-    [connection.20-ethernet-mac-addr]
-    match-device=type:ethernet
-    ethernet.cloned-mac-address=${mac_ethernet}
+  #environment.etc."NetworkManager/conf.d/20-ethernet-mac-address.conf".text = ''
+  #  [connection.20-ethernet-mac-addr]
+  #  match-device=type:ethernet
+  #  ethernet.cloned-mac-address=${mac_ethernet}
 
-    [.config]
-    enable=nm-version-min:1.45
-  '';
+  #  [.config]
+  #  enable=nm-version-min:1.45
+  #'';
 
   powerManagement = {
     enable = true;
