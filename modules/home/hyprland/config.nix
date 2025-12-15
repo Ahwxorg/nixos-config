@@ -37,6 +37,7 @@
         "foot --server &"
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
+        "nwg-dock-hyprland &"
       ];
 
       input = {
@@ -58,7 +59,6 @@
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
-        no_border_on_floating = false;
       };
       group = {
         "col.border_active" = "rgb(ffffff) rgb(ffffff) 45deg";
@@ -103,22 +103,20 @@
 
       decoration = {
         rounding = 0;
-        # active_opacity = 0.90;
-        # inactive_opacity = 0.90;
+        active_opacity = 1.00;
+        inactive_opacity = 0.75;
         # fullscreen_opacity = 1.0;
 
         blur = {
-          enabled = false;
-          size = 1;
-          passes = 1;
-          # size = 4;
-          # passes = 2;
+          enabled = true;
+          size = 7;
+          passes = 3;
+          noise = 0.08;
           brightness = 1;
-          contrast = 1.400;
+          contrast = 1.5;
           ignore_opacity = true;
-          noise = 0;
           new_optimizations = true;
-          xray = true;
+          xray = false;
         };
 
         # drop_shadow = true;
@@ -160,6 +158,9 @@
 
       gesture = [
         "3, horizontal, workspace"
+        "4, up, dispatcher, playerctl -p mpd play-pause"
+        "4, left, dispatcher, playerctl -p mpd next"
+        "4, right, dispatcher, playerctl -p mpd previous"
         # "4, horizontal, move"
       ];
 
@@ -287,58 +288,61 @@
       ];
 
       # windowrule
-      windowrule = [
-        "float,title:^(float_kitty)$"
-        "center,title:^(float_kitty)$"
-        "size 950 600,title:^(float_kitty)$"
-        "float,title:^(float_foot)$"
-        "center,title:^(float_foot)$"
-        "size 950 600,title:^(float_foot)$"
-        "float,title:^(Volume Control)$"
-        "float,title:^(Librewolf — Sharing Indicator)$"
-        "float,title:^(Export Image as PNG)$"
-        "move 0 0,title:^(Librewolf — Sharing Indicator)$"
-        "size 700 450,title:^(Volume Control)$"
-        "move 40 55%,title:^(Volume Control)$"
-        "bordersize 0, floating:0, onworkspace:w[tv1]"
-        "rounding 0, floating:0, onworkspace:w[tv1]"
-        "bordersize 0, floating:0, onworkspace:f[1]"
-        "rounding 0, floating:0, onworkspace:f[1]"
-      ];
+      # windowrule = [
+      #  "float,title:^(float_kitty)$"
+      #  "center,title:^(float_kitty)$"
+      #  "size 950 600,title:^(float_kitty)$"
+      #  "float,title:^(float_foot)$"
+      #  "center,title:^(float_foot)$"
+      #  "size 950 600,title:^(float_foot)$"
+      #  "float,title:^(Volume Control)$"
+      #  "float,title:^(Librewolf — Sharing Indicator)$"
+      #  "float,title:^(Export Image as PNG)$"
+      #  "move 0 0,title:^(Librewolf — Sharing Indicator)$"
+      #  "size 700 450,title:^(Volume Control)$"
+      #  "move 40 55%,title:^(Volume Control)$"
+      #  "bordersize 0, floating:0, onworkspace:w[tv1]"
+      #  "rounding 0, floating:0, onworkspace:w[tv1]"
+      #  "bordersize 0, floating:0, onworkspace:f[1]"
+      #  "rounding 0, floating:0, onworkspace:f[1]"
+      # ];
 
-      # windowrulev2
-      windowrulev2 = [
-        "noanim, class:^(bemenu)$"
-        "float, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
-        "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
-        "idleinhibit focus, class:^(mpv)$"
-        "idleinhibit fullscreen, class:^(librewolf)$"
-        "float,class:^(pavucontrol-qt)$"
-        "fullscreen,class:Nsxiv"
-        "fullscreen,title:^(*nsxiv*)$"
-        "fullscreen,title:^(nsxiv)$"
-        "fullscreen,class:swiv"
-        "fullscreen,title:^(*swiv*)$"
-        "fullscreen,title:^(swiv)$"
-        "float,class:^(pavucontrol)$"
-        "float,class:^(SoundWireServer)$"
-        "float,class:^(.sameboy-wrapped)$"
-        "float,class:^(file_progress)$"
-        "float,class:^(confirm)$"
-        "float,class:^(dialog)$"
-        "float,class:^(download)$"
-        "float,class:^(notification)$"
-        "float,class:^(error)$"
-        "float,class:^(confirmreset)$"
-        "float,title:^(Open File)$"
-        "float,title:^(branchdialog)$"
-        "float,title:^(Confirm to replace files)$"
-        "float,title:^(File Operation Progress)$"
-        "float,title:^(float_foot)$"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+      ## windowrulev2
+      windowrule = [
+        # "opacity 0.5 0.5, match:class nwg-dock-hyprland"
+        "no_blur on, match:class ungoogled-chromium"
+        "no_blur on, match:class librewolf"
+        #  "noanim, class:^(bemenu)$"
+        #  "float, title:^(Picture-in-Picture)$"
+        #  "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
+        #  "pin, title:^(Picture-in-Picture)$"
+        #  "opacity 1.0 override 1.0 override, title:^(.*imv.*)$"
+        #  "opacity 1.0 override 1.0 override, title:^(.*mpv.*)$"
+        #  "idleinhibit focus, class:^(mpv)$"
+        #  "idleinhibit fullscreen, class:^(librewolf)$"
+        #  "float,class:^(pavucontrol-qt)$"
+        #  "fullscreen,class:Nsxiv"
+        #  "fullscreen,title:^(*nsxiv*)$"
+        #  "fullscreen,title:^(nsxiv)$"
+        #  "fullscreen,class:swiv"
+        #  "fullscreen,title:^(*swiv*)$"
+        #  "fullscreen,title:^(swiv)$"
+        #  "float,class:^(pavucontrol)$"
+        #  "float,class:^(SoundWireServer)$"
+        #  "float,class:^(.sameboy-wrapped)$"
+        #  "float,class:^(file_progress)$"
+        #  "float,class:^(confirm)$"
+        #  "float,class:^(dialog)$"
+        #  "float,class:^(download)$"
+        #  "float,class:^(notification)$"
+        #  "float,class:^(error)$"
+        #  "float,class:^(confirmreset)$"
+        #  "float,title:^(Open File)$"
+        #  "float,title:^(branchdialog)$"
+        #  "float,title:^(Confirm to replace files)$"
+        #  "float,title:^(File Operation Progress)$"
+        #  "float,title:^(float_foot)$"
+        #  "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
 
     };
