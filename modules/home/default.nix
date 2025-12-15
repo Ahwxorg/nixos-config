@@ -10,6 +10,7 @@
     ++ [ (import ./kitty.nix) ]
     ++ [ (import ./kanshi.nix) ]
     ++ [ (import ./foot.nix) ]
+    ++ [ (import ./nextcloud.nix) ]
     ++ [ (import ./nvim.nix) ]
     ++ [ (import ./zathura.nix) ]
     ++ [ (import ./packages.nix) ]

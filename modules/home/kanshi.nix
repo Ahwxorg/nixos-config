@@ -69,6 +69,22 @@
         outputs = [
           {
             criteria = "eDP-1";
+            position = "152,1440";
+          }
+          {
+            criteria = "LG Electronics LG ULTRAGEAR+ 507NTRLM0646";
+            scale = 1.0;
+            status = "enable";
+            position = "0,0";
+            # adaptiveSync = true;
+            mode = "2560x1440@144Hz";
+          }
+        ];
+      };
+      home-alt = {
+        outputs = [
+          {
+            criteria = "eDP-1";
             status = "disable";
           }
           {

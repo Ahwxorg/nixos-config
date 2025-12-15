@@ -27,11 +27,11 @@
           "position": "top",
 
           "modules-left": [
+            "custom/devices",
             "privacy",
             "network",
             "custom/music",
             "custom/vpn",
-            "custom/devices",
             "sway/mode",
             "tray",
           ],
@@ -98,12 +98,14 @@
           },
 
           "custom/vpn": {
-            "format": "{icon}",
-            "tooltip-format": "{text}",
-            "format-icons": [ "","" ],
+            "format": "<span color='#aaaaaa'>VPN:</span> {text}", // <span color='#aaaaaa'>({location})</span>",
+            // "format": "{text}",
+            // "format-icons": [ "","" ],
+            // "tooltip": true,
+            // "tooltip-format": "{node}",
             "return-type": "json",
-            "exec": "~/.local/bin/waybar-vpn",
-            "interval": 30
+            "exec": "~/.local/bin/waybar-mullvad",
+            "interval": 10
           },
 
           "custom/music": {

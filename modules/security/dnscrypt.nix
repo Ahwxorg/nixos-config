@@ -25,7 +25,7 @@ in
           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
           "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
         ];
-        minisign_key = "sha256-LRw8acNa39MUv7XmA0GuheugECcejbN8+GJl2Ra7lpg="; # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+        minisign_key = "sha256-QIpM9e7dye+EDO9rvlhSbDVLtmcgw8aLtg0DncPHK2s="; # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
         cache_file = "/var/lib/dnscrypt/public-resolvers.md";
       };
 

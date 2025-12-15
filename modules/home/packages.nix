@@ -29,6 +29,7 @@
     gcc
     gnumake
     python3
+    nautilus
 
     # CLI shit
     bitwarden-cli
@@ -36,7 +37,6 @@
     foot
     termpdfpy
     vimv
-    iamb
     pass
     lm_sensors
     neofetch

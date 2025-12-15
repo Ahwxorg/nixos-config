@@ -16,9 +16,11 @@ in
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/smart-monitoring.nix
+    ./../../modules/services/mullvad.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-    ./../../modules/security/dnscrypt.nix
-    ./../../modules/security/syslogd.nix
+    ./../../modules/home/steam.nix
+    ./../../modules/services/ollama.nix
+    # ./../../modules/services/automount.nix
   ];
 
   # install some system-utilities; set hosts to be editable by the user.
@@ -26,6 +28,7 @@ in
     systemPackages = with pkgs; [
       fwupd
       fw-ectool
+      monero-gui
     ];
     etc.hosts.mode = "0700";
   };
@@ -36,6 +39,7 @@ in
     creative.enable = true;
     amdgpu.enable = true;
     gui.enable = true;
+    wine.enable = true;
   };
 
   services = {
@@ -56,14 +60,14 @@ in
     # networkmanager.ethernet.macAddress = "13:37:6a:8a:ed:a4";
   };
 
-  environment.etc."NetworkManager/conf.d/20-ethernet-mac-address.conf".text = ''
-    [connection.20-ethernet-mac-addr]
-    match-device=type:ethernet
-    ethernet.cloned-mac-address=${mac_ethernet}
+  #environment.etc."NetworkManager/conf.d/20-ethernet-mac-address.conf".text = ''
+  #  [connection.20-ethernet-mac-addr]
+  #  match-device=type:ethernet
+  #  ethernet.cloned-mac-address=${mac_ethernet}
 
-    [.config]
-    enable=nm-version-min:1.45
-  '';
+  #  [.config]
+  #  enable=nm-version-min:1.45
+  #'';
 
   powerManagement = {
     enable = true;
