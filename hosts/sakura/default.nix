@@ -19,6 +19,7 @@ in
     ./../../modules/services/mullvad.nix
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
     ./../../modules/home/steam.nix
+    ./../../modules/services/ollama.nix
     # ./../../modules/services/automount.nix
   ];
 
@@ -27,6 +28,7 @@ in
     systemPackages = with pkgs; [
       fwupd
       fw-ectool
+      monero-gui
     ];
     etc.hosts.mode = "0700";
   };
@@ -37,6 +39,7 @@ in
     creative.enable = true;
     amdgpu.enable = true;
     gui.enable = true;
+    wine.enable = true;
   };
 
   services = {
