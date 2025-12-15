@@ -20,6 +20,7 @@
           "forgejoWorkerSecret" = { };
           "minioRootCredentials" = { };
           "atticdEnvironment" = { };
+          "nextcloudPassword" = { };
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
