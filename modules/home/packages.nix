@@ -37,7 +37,6 @@
     foot
     termpdfpy
     vimv
-    iamb
     pass
     lm_sensors
     neofetch
