@@ -157,11 +157,11 @@
       };
 
       gesture = [
-        "3, horizontal, workspace"
-        "4, up, dispatcher, playerctl -p mpd play-pause"
-        "4, left, dispatcher, playerctl -p mpd next"
-        "4, right, dispatcher, playerctl -p mpd previous"
-        # "4, horizontal, move"
+        "3, left, dispatcher, changegroupactive, b"
+        "3, right, dispatcher, changegroupactive, f"
+        "4, horizontal, workspace"
+        "4, pinchin, fullscreen"
+        "4, pinchout, float"
       ];
 
       bind = [
