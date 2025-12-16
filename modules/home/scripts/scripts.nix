@@ -12,6 +12,9 @@ let
     builtins.readFile ./scripts/toggle_oppacity.sh
   );
   ascii = pkgs.writeScriptBin "ascii" (builtins.readFile ./scripts/ascii.sh);
+  dock-on-all-monitors = pkgs.writeScriptBin "dock-on-all-monitors" (
+    builtins.readFile ./scripts/dock-on-all-monitors.sh
+  );
 in
 {
   home.packages = with pkgs; [
@@ -25,5 +28,6 @@ in
     toggle_blur
     toggle_oppacity
     ascii
+    dock-on-all-monitors
   ];
 }
