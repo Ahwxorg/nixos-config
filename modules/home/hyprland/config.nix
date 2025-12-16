@@ -5,6 +5,55 @@
   ...
 }:
 {
+
+  home.file.".config/nwg-dock-hyprland/style.css".text = ''
+    * {
+    	border-radius: 0
+    }
+
+    window {
+    	background: #000000;
+    	border-style: none;
+    	border-width: 1px;
+    	border-radius: 0;
+    	border-color: rgba(156, 142, 122, 0.7);
+    	padding: 4em 6em;
+    	background: rgba(0, 0, 0, 0.5);
+    	-webkit-backdrop-filter: blur(25px);
+    	margin: 7px;
+    }
+
+    #box {
+    	/* Define attributes of the box surrounding icons here */
+    	padding: 10px
+    }
+
+    button,
+    image {
+    	background: none;
+    	border-style: none;
+    	box-shadow: none;
+    	color: #999
+    }
+
+    button {
+    	padding: 4px;
+    	margin-left: 4px;
+    	margin-right: 4px;
+    	color: #eee;
+    	font-size: 12px
+    }
+
+    button:hover {
+    	background-color: rgba(255, 255, 255, 0.15);
+    	border-radius: 2px;
+    }
+
+    button:focus {
+    	box-shadow: 0 0 2px;
+    }
+  '';
+
   services.hypridle.enable = true;
 
   wayland.windowManager.hyprland = {
