@@ -5,6 +5,90 @@
   ...
 }:
 {
+
+  home.file.".config/nwg-dock-hyprland/style.css".text = ''
+    * {
+    	border-radius: 0
+    }
+
+    window {
+    	background: #000000;
+    	border-style: none;
+    	border-width: 1px;
+    	border-radius: 0;
+    	border-color: rgba(156, 142, 122, 0.7);
+    	padding: 4em 6em;
+    	background: rgba(0, 0, 0, 0.5);
+    	-webkit-backdrop-filter: blur(25px);
+    	margin: 7px;
+    }
+
+    #box {
+    	/* Define attributes of the box surrounding icons here */
+    	padding: 10px
+    }
+
+    button,
+    image {
+    	background: none;
+    	border-style: none;
+    	box-shadow: none;
+    	color: #999
+    }
+
+    button {
+    	padding: 4px;
+    	margin-left: 4px;
+    	margin-right: 4px;
+    	color: #eee;
+    	font-size: 12px
+    }
+
+    button:hover {
+    	background-color: rgba(255, 255, 255, 0.15);
+    	border-radius: 2px;
+    }
+
+    button:focus {
+    	box-shadow: 0 0 2px;
+    }
+  '';
+
+  home.file.".cache/nwg-dock-pinned".text = ''
+    chromium-browser
+    thunar
+    ${if (host == "sakura") then "darktable" else ""}
+    ${if (host == "sakura") then "flstudio" else ""}
+    ${if (host == "iris") then "steam" else ""}
+    footclient
+    qutebrowser
+    librewolf
+    anki
+    virt-manager
+    Element
+    signal
+    spotify
+    thunderbird
+  '';
+
+  services.hypridle.enable = true;
+
+  home.file.".config/hypr/hypridle.conf".text = ''
+    general {
+      lock_cmd = pgrep hyprlock || hyprlock
+    }
+
+    listener {
+      timeout = 165 # in seconds
+      on-timeout = pgrep hyprlock || hyprlock
+    }
+
+    listener {
+      timeout = 1800 # in seconds
+      on-timeout = systemctl suspend; hyprlock
+    }
+  '';
+
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -37,7 +121,9 @@
         "foot --server &"
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
-        "nwg-dock-hyprland &"
+        "nwg-dock-hyprland -l top &"
+        "nextcloud &"
+        "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
       ];
 
       input = {
@@ -51,11 +137,15 @@
         };
       };
 
+      #workspace = [
+      #  "w[tv1], gapsout:0, gapsin:0"
+      #  "f[1], gapsout:0, gapsin:0"
+      #];
       general = {
         "$mainMod" = "ALT";
         layout = "dwindle";
         gaps_in = 0;
-        gaps_out = 0;
+        gaps_out = "0,0,68,0";
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
@@ -157,11 +247,11 @@
       };
 
       gesture = [
-        "3, horizontal, workspace"
-        "4, up, dispatcher, playerctl -p mpd play-pause"
-        "4, left, dispatcher, playerctl -p mpd next"
-        "4, right, dispatcher, playerctl -p mpd previous"
-        # "4, horizontal, move"
+        "3, left, dispatcher, changegroupactive, b"
+        "3, right, dispatcher, changegroupactive, f"
+        "4, horizontal, workspace"
+        "4, pinchin, fullscreen"
+        "4, pinchout, float"
       ];
 
       bind = [
@@ -280,11 +370,6 @@
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
-      ];
-
-      workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
       ];
 
       # windowrule

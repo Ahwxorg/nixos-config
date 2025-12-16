@@ -36,6 +36,11 @@ unfuck_bar() {
   setsid waybar &
 }
 
+unfuck_dock() {
+  pkill .nwg-dock-hyprl
+  setsid dock-on-all-monitors &
+}
+
 unfuck_networkmanager() {
   # sudo modprobe -r iwlwifi
   # sudo modprobe iwlwifi

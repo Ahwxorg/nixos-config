@@ -33,12 +33,8 @@ in
           size = 14;
         };
         theme = {
-          name = "Juno";
-          package = pkgs.juno-theme; # .override {
-          # colorVariants = [ "dark" ];
-          # themeVariants = [ "green" ];
-          # tweakVariants = [ "macos" ];
-          # };
+          name = "Orchis-Purple-Dark-Compact";
+          package = pkgs.orchis-theme;
         };
         iconTheme = {
           name = "Papirus-Dark";
