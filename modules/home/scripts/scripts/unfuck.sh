@@ -37,8 +37,8 @@ unfuck_bar() {
 }
 
 unfuck_dock() {
-  pkill nwg-dock-hyprland
-  setsid nwg-dock-hyprland -l top &
+  pkill .nwg-dock-hyprl
+  setsid dock-on-all-monitors &
 }
 
 unfuck_networkmanager() {
