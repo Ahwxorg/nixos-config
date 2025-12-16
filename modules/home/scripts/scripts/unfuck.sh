@@ -36,6 +36,11 @@ unfuck_bar() {
   setsid waybar &
 }
 
+unfuck_dock() {
+  pkill nwg-dock-hyprland
+  setsid nwg-dock-hyprland -l top &
+}
+
 unfuck_networkmanager() {
   # sudo modprobe -r iwlwifi
   # sudo modprobe iwlwifi
