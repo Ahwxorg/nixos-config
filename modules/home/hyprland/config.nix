@@ -54,7 +54,40 @@
     }
   '';
 
+  home.file.".cache/nwg-dock-pinned".text = ''
+    chromium-browser
+    thunar
+    ${if (host == "sakura") then "darktable" else ""}
+    ${if (host == "sakura") then "flstudio" else ""}
+    ${if (host == "iris") then "steam" else ""}
+    footclient
+    qutebrowser
+    librewolf
+    anki
+    virt-manager
+    Element
+    signal
+    spotify
+    thunderbird
+  '';
+
   services.hypridle.enable = true;
+
+  home.file.".config/hypr/hypridle.conf".text = ''
+    general {
+      lock_cmd = pgrep hyprlock || hyprlock
+    }
+
+    listener {
+      timeout = 165 # in seconds
+      on-timeout = pgrep hyprlock || hyprlock
+    }
+
+    listener {
+      timeout = 1800 # in seconds
+      on-timeout = systemctl suspend; hyprlock
+    }
+  '';
 
   wayland.windowManager.hyprland = {
     settings = {
@@ -88,7 +121,9 @@
         "foot --server &"
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
-        "nwg-dock-hyprland &"
+        "nwg-dock-hyprland -l top &"
+        "nextcloud &"
+        "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
       ];
 
       input = {
@@ -110,7 +145,7 @@
         "$mainMod" = "ALT";
         layout = "dwindle";
         gaps_in = 0;
-        gaps_out = "0,0,85,0";
+        gaps_out = "0,0,68,0";
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
