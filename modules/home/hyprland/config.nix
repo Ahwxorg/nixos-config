@@ -5,6 +5,8 @@
   ...
 }:
 {
+  services.hypridle.enable = true;
+
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -51,11 +53,15 @@
         };
       };
 
+      #workspace = [
+      #  "w[tv1], gapsout:0, gapsin:0"
+      #  "f[1], gapsout:0, gapsin:0"
+      #];
       general = {
         "$mainMod" = "ALT";
         layout = "dwindle";
         gaps_in = 0;
-        gaps_out = 0;
+        gaps_out = "0,0,85,0";
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
@@ -280,11 +286,6 @@
       bindm = [
         "$mainMod, mouse:272, movewindow"
         "$mainMod, mouse:273, resizewindow"
-      ];
-
-      workspace = [
-        "w[tv1], gapsout:0, gapsin:0"
-        "f[1], gapsout:0, gapsin:0"
       ];
 
       # windowrule
