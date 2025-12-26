@@ -21,6 +21,7 @@
           "minioRootCredentials" = { };
           "atticdEnvironment" = { };
           "nextcloudPassword" = { };
+          "gluetunEnvironment" = { };
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
