@@ -15,6 +15,7 @@ let
   dock-on-all-monitors = pkgs.writeScriptBin "dock-on-all-monitors" (
     builtins.readFile ./scripts/dock-on-all-monitors.sh
   );
+  caffeine = pkgs.writeScriptBin "caffeine" (builtins.readFile ./scripts/caffeine);
 in
 {
   home.packages = with pkgs; [
@@ -29,5 +30,6 @@ in
     toggle_oppacity
     ascii
     dock-on-all-monitors
+    caffeine
   ];
 }
