@@ -79,13 +79,13 @@
     }
 
     listener {
-      timeout = 165 # in seconds
-      on-timeout = pgrep hyprlock || hyprlock
+      timeout = 300 # 5m in seconds
+      on-timeout = if [ -f "$HOME/.config/hypr/caffeine_mode" ]; then exit 0; else pgrep hyprlock || hyprlock; fi
     }
 
     listener {
-      timeout = 1800 # in seconds
-      on-timeout = systemctl suspend; hyprlock
+      timeout = 1800 # 30m in seconds
+      on-timeout = if [ -f "$HOME/.config/hypr/caffeine_mode" ]; then exit 0; else systemctl suspend; hyprlock; fi
     }
   '';
 
