@@ -56,7 +56,7 @@
 
   home.file.".cache/nwg-dock-pinned".text = ''
     chromium-browser
-    thunar
+    nautilus
     ${if (host == "sakura") then "darktable" else ""}
     ${if (host == "sakura") then "flstudio" else ""}
     ${if (host == "iris") then "steam" else ""}
@@ -264,7 +264,7 @@
         "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
         "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "SUPER, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
-        "$mainMod, E, exec, thunar"
+        "$mainMod, E, exec, nautilus"
         "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "$mainMod, C,exec, hyprpicker -a"
         "$mainMod, W,exec, wallpaper-picker"
