@@ -97,8 +97,10 @@ in
         #!/usr/bin/env zsh
 
         typeset -A known=(
-          'headphones' '38:18:4C:D1:AE:48'
+          'ch700n' '38:18:4C:D1:AE:48'
           'airpods' '2C:18:09:EF:BD:11'
+          'headphones' '38:18:4C:D4:B7:B4'
+          'trackpad' '38:18:4C:D4:B7:B4'
         )
 
         function get_addr_or_fail () {
@@ -194,18 +196,18 @@ in
 
           if [[ "$(echo $MICROPHONE_STATE | grep 'Microphone: Connected')" ]]; then
           	MIC=1
-          	MTEXT="󰍬 - available!"
+          	MTEXT="microphone: available!"
           else
           	MIC=0
-          	MTEXT=" "
+          	MTEXT=""
           fi
 
           if [[ "$(echo $CAMERA_STATE | grep 'Camera: Connected')" ]]; then
           	CAM=1
-          	CTEXT="󰄀 - available!"
+          	CTEXT="camera: available!"
           else
           	CAM=0
-          	CTEXT="󰗟 "
+          	CTEXT=""
           fi
 
           echo "$CTEXT $MTEXT"
