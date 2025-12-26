@@ -34,6 +34,16 @@ in
   programs.qutebrowser = {
     enable = true;
 
+    keyBindings = {
+      normal = {
+        "d" = "scroll-page 0 0.5";
+        "u" = "scroll-page 0 -0.5";
+        "x" = "tab-close -o";
+        "<Ctrl-Shift-T>" = "undo";
+        ",v" = "spawn mpv {url}";
+      };
+    };
+
     settings = {
       fonts = {
         default_family = "GohuFont 14 Nerd Font Mono";
