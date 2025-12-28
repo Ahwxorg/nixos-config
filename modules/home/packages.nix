@@ -1,10 +1,4 @@
-{
-  inputs,
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     # Environment shit
@@ -79,11 +73,6 @@
     # (writeShellScriptBin "install-pip-packages" '' # This script does not run, yet.
     #   pip install --user --break-system-packages <package>
     # '')
-
-    inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
-    mermaid-cli
-    gnuplot
 
     # Email/calendar/etc
     neomutt
