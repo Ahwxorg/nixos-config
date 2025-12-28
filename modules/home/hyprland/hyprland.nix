@@ -12,6 +12,7 @@
     direnv
     nwg-dock-hyprland
     hyprland-monitor-attached
+    hypridle
   ];
   # systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {

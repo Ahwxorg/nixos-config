@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CAFFEINE_FILE="$HOME/.config/hypr/caffeine_mode"
+
+if [ -f "$CAFFEINE_FILE" ]; then
+	rm "$CAFFEINE_FILE"
+	notify-send "Caffeine" "Disabled"
+else
+	touch "$CAFFEINE_FILE"
+	notify-send "Caffeine" "Enabled"
+fi

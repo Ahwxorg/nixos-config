@@ -30,6 +30,7 @@
     gnumake
     python3
     nautilus
+    qbittorrent
 
     # CLI shit
     bitwarden-cli

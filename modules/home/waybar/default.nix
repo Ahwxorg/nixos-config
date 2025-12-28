@@ -109,11 +109,12 @@
           },
 
           "custom/music": {
-            "interval": 5,
+            "interval": "once",
             "return-type": "json",
             "exec": "~/.local/bin/waybar-music",
             "on-click": "playerctl play-pause",
-            "escape": true
+            "escape": true,
+            "signal": 2
           },
 
           "custom/devices": {

@@ -29,6 +29,7 @@ in
       fwupd
       fw-ectool
       monero-gui
+      remmina
     ];
     etc.hosts.mode = "0700";
   };

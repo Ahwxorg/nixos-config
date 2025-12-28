@@ -76,7 +76,8 @@ in
         nsxiv
         imv
         libreoffice
-        xfce.thunar
+        #xfce.thunar
+        nautilus
         # spotify
         spotify-player
         thunderbird
