@@ -173,6 +173,16 @@
             inherit self inputs username;
           };
         };
+        april = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/april)
+          ];
+          specialArgs = {
+            host = "april";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
