@@ -24,6 +24,15 @@
                 position = "0,0";
               }
             ]
+          else if (host == "april") then
+            [
+              {
+                criteria = "eDP-1";
+                scale = 1.0;
+                status = "enable";
+                position = "0,0";
+              }
+            ]
           else if (host == "imilia") then
             [
               {
