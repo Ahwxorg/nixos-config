@@ -32,19 +32,20 @@
         };
       };
     };
-    anubis.instances.atticd = {
-      settings = {
-        TARGET = "http://localhost:8060";
-        BIND = ":8061";
-        BIND_NETWORK = "tcp";
-      };
-    };
+    #anubis.instances.atticd = {
+    #  settings = {
+    #    TARGET = "http://localhost:8060";
+    #    BIND = "/run/anubis/anubis-atticd/anubis.sock";
+    #    METRICS_BIND = "/run/anubis/anubis-atticd/anubis.sock";
+    #  };
+    #};
     nginx.virtualHosts."cache.liv.town" = {
       forceSSL = true;
       sslCertificate = "/var/lib/acme/liv.town/cert.pem";
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
-        proxyPass = "http://localhost${toString config.services.anubis.instances.atticd.settings.BIND}";
+        # proxyPass = "http://unix:${toString config.services.anubis.instances.atticd.settings.BIND}";
+        proxyPass = "http://localhost:8060";
         proxyWebsockets = true;
       };
     };

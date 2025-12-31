@@ -68,19 +68,20 @@ in
     #     };
     #   };
     # };
-    anubis.instances.forgejo = {
-      settings = {
-        TARGET = "http://localhost:3050";
-        BIND = ":3051";
-        BIND_NETWORK = "tcp";
-      };
-    };
+    #anubis.instances.forgejo = {
+    #  settings = {
+    #    TARGET = "http://localhost:3050";
+    #    BIND = "/run/anubis/anubis-forgejo/anubis.sock";
+    #    METRICS_BIND = "/run/anubis/anubis-forgejo/anubis.sock";
+    #  };
+    #};
     nginx.virtualHosts."code.liv.town" = {
       forceSSL = true;
       sslCertificate = "/var/lib/acme/liv.town/cert.pem";
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
-        proxyPass = "http://localhost${toString config.services.anubis.instances.forgejo.settings.BIND}";
+        # proxyPass = "http://unix:${toString config.services.anubis.instances.forgejo.settings.BIND}";
+        proxyPass = "http://localhost:3050";
         proxyWebsockets = true;
       };
     };

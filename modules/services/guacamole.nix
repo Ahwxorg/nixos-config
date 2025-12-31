@@ -17,19 +17,20 @@
         guacd-hostname = "localhost";
       };
     };
-    anubis.instances.guacamole = {
-      settings = {
-        TARGET = "http://localhost:4822";
-        BIND = ":4883";
-        BIND_NETWORK = "tcp";
-      };
-    };
+    #anubis.instances.guacamole = {
+    #  settings = {
+    #    TARGET = "http://localhost:4822";
+    #    BIND = "/run/anubis/anubis-guacamole/anubis.sock";
+    #    METRICS_BIND = "/run/anubis/anubis-guacamole/anubis.sock";
+    #  };
+    #};
     nginx.virtualHosts."remote.liv.town" = {
       forceSSL = true;
       sslCertificate = "/var/lib/acme/liv.town/cert.pem";
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
-        proxyPass = "http://localhost${toString config.services.anubis.instances.guacamole.settings.BIND}";
+        # proxyPass = "http://unix:${toString config.services.anubis.instances.guacamole.settings.BIND}";
+        proxyPass = "http://${toString config.services.guacamole-server.host}:${toString config.services.guacamole-server.port}";
         proxyWebsockets = true;
       };
     };
