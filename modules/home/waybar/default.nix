@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   username,
   ...
@@ -50,6 +48,7 @@
             // "wireplumber",
             "group/audio",
             "group/battery",
+            "custom/pomodoro",
             "group/clock"
           ],
 
@@ -367,6 +366,15 @@
             "interval": 60,
             "format": "CEST: <span color='#aaaaaa'>{}</span>  ",
             "exec": "~/.local/bin/waybar-minutes"
+          },
+
+          "custom/pomodoro": {
+            "interval": 1,
+            "format": "{}",
+            "return-type": "json",
+            "exec": "waybar-module-pomodoro --no-work-icons",
+            "on-click": "waybar-module-pomodoro toggle",
+            "on-click-right": "waybar-module-pomodoro reset"
           }
         }
         ]
