@@ -108,7 +108,7 @@
           },
 
           "custom/music": {
-            "interval": "once",
+            "interval": 60,
             "return-type": "json",
             "exec": "~/.local/bin/waybar-music",
             "on-click": "playerctl play-pause",
