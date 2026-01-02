@@ -30,7 +30,7 @@
     bitwarden-cli
     imagemagick
     foot
-    termpdfpy
+    # termpdfpy # shit broke again smfh
     vimv
     pass
     lm_sensors
