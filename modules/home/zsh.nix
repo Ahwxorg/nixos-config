@@ -128,6 +128,38 @@
           printf "%s\n" "''${url}"
         }
 
+        function cd() {
+          if [ -f "$1" ]; then
+            ${pkgs.zoxide}/bin/zoxide "$(dirname "$1")"
+            return
+          fi
+
+          ${pkgs.zoxide}/bin/zoxide $@
+        }
+
+        get-git-root() {
+          echo "$(${pkgs.git}/bin/git rev-parse --show-toplevel 2>/dev/null)"
+        }
+
+        cd-git-root() {
+          pushd "$(get-git-root)"
+        }
+
+        pushd-git-root-widget() {
+          setopt localoptions pipefail no_aliases 2> /dev/null
+          local dir="$(eval "get-git-root")"
+          if [[ -z "$dir" ]]; then
+            zle redisplay
+            return 0
+          fi
+          zle push-line
+          BUFFER="builtin pushd -- ''${(q)dir}"
+          zle accept-line
+          local ret=$?
+          zle reset-prompt
+          return $ret
+        }
+
         function nixcd () {
           PACKAGE_NAME="$1"
           if [[ "$PACKAGE_NAME" = "" ]]; then
