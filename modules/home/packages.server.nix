@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     vimv
@@ -27,7 +27,5 @@
     wget
     xxd
     borgbackup
-    inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
-    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

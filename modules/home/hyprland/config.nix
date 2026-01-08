@@ -261,7 +261,8 @@
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "$mainMod, Space, togglefloating,"
-        "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
+        # "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
+        "$mainMod, D, exec, vicinae toggle"
         "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "SUPER, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "$mainMod, E, exec, nautilus"

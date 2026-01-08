@@ -14,17 +14,19 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/${username}/Music";
-    playlistDirectory = "/home/${username}/Music/.playlists";
-    extraConfig = ''
-      restore_paused "yes"
-      auto_update "yes"
+    settings = {
+      playlist_directory = "/home/${username}/Music/.playlists";
+      music_directory = "/home/${username}/Music";
+      restore_paused = "yes";
+      auto_update = "yes";
 
-      audio_output {
-        type "pipewire"
-        name "pipewire"
-      }
-    '';
+      audio_output = [
+        {
+          type = "pipewire";
+          name = "pipewire";
+        }
+      ];
+    };
     user = "${username}"; # PipeWire requires this as it runs as the normal user and mpd normally runs as a system user.
 
     # Optional:
