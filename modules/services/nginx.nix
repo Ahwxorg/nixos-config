@@ -24,6 +24,14 @@
         environmentFile = "/home/liv/desec.env"; # location of your DESEC_TOKEN=[value]
         webroot = null;
       };
+      "ahwx.org" = {
+        domain = "*.ahwx.org";
+        extraDomainNames = [ "ahwx.org" ];
+        group = config.services.nginx.group;
+        dnsProvider = "desec";
+        environmentFile = "/home/liv/desec.env"; # location of your DESEC_TOKEN=[value]
+        webroot = null;
+      };
       "quack.social" = {
         domain = "*.quack.social";
         extraDomainNames = [ "quack.social" ];
