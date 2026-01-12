@@ -38,9 +38,9 @@ in
           gimp
           darktable
           audacity
-          kdePackages.kdenlive
           orca-slicer
-          freecad
+          # kdePackages.kdenlive
+          # freecad
         ];
       };
     };
