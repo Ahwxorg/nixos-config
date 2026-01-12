@@ -27,7 +27,6 @@
     qbittorrent
 
     # CLI shit
-    bitwarden-cli
     imagemagick
     foot
     # termpdfpy # shit broke again smfh
@@ -56,10 +55,10 @@
     yarn
     cargo
     rustc
-    wikit
-    reader
+    # wikit
+    # reader
     nmap
-    speedtest-go
+    # speedtest-go
     powertop
     android-tools
     sshpass
@@ -75,10 +74,10 @@
     # '')
 
     # Email/calendar/etc
-    neomutt
+    # neomutt
     w3m
-    khard
-    khal
-    vdirsyncer
+    # khard
+    # khal
+    # vdirsyncer
   ];
 }
