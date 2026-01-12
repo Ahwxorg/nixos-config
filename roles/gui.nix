@@ -69,23 +69,18 @@ in
         signal-desktop
         mumble
         anki-bin
-        obs-studio
         wdisplays
-        librewolf # main
-        ungoogled-chromium # for things that don't work with librewolf
+        librewolf
+        ungoogled-chromium
         nsxiv
         imv
         libreoffice
-        #xfce.thunar
         nautilus
-        # spotify
         spotify-player
         thunderbird
         lxqt.pavucontrol-qt
         mpv
         kdePackages.kdeconnect-kde
-        winbox
-        # onthespot-overlay
 
         # Gaming
         lunar-client
@@ -100,7 +95,6 @@ in
         pkgs.twemoji-color-font
         pkgs.noto-fonts-color-emoji
         pkgs.swww
-        pkgs.swaylock
         pkgs.pywal16
       ];
     };
