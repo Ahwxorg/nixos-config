@@ -21,6 +21,10 @@
     amdgpu.enable = false;
   };
 
+  environment.systemPackages = with pkgs; [
+    remmina
+  ];
+
   services = {
     vnstat.enable = true;
   };
