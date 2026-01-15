@@ -108,6 +108,7 @@ in
       "mem_sleep_default=deep"
       "acpi_osi=\"!Windows 2020\"" # otherwise GPU does weird shit that makes the computer look like the RAM is broken
     ];
+    plymouth.enable = false;
     kernelModules = [ "acpi_call" ];
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
