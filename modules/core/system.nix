@@ -8,6 +8,7 @@
 {
   nix = {
     settings = {
+      download-buffer-size = 67108864; # Set buffer size to 64MB for large downloads
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       experimental-features = [
@@ -51,12 +52,6 @@
 
   # powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "ja_JP.UTF-8/UTF-8"
-  ];
-
   # Font packages
   environment.systemPackages = with pkgs; [
     noto-fonts-cjk-sans
@@ -64,6 +59,14 @@
     ipaexfont
   ];
 
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [
+    "en_US.UTF-8/UTF-8"
+    "ja_JP.UTF-8/UTF-8"
+  ];
   time.timeZone = lib.mkDefault "Europe/Amsterdam";
+  environment.variables = {
+    LC_TIME = "C.UTF-8";
+  };
   system.stateVersion = "24.05";
 }
