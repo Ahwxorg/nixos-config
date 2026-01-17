@@ -10,7 +10,7 @@
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
     hypr-contrib.url = "github:hyprwm/contrib";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
@@ -19,7 +19,9 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     oisd.url = "https://big.oisd.nl/domainswild";
     oisd.flake = false;
-    funkwhale.url = "github:mmai/funkwhale-flake";
+    nixocaine.url = "https://git.madhouse-project.org/iocaine/nixocaine/archive/stable.tar.gz";
+    ai-robots-txt.url = "github:ai-robots-txt/ai.robots.txt";
+    ai-robots-txt.flake = false;
   };
 
   outputs =
