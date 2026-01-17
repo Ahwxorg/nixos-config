@@ -6,10 +6,17 @@
 }:
 {
 
+  #imports = [
+  #    (import ./iocaine.nix)
+  #];
+
   security.acme = {
     acceptTerms = true;
     defaults.email = lib.mkDefault "ahwx@ahwx.org";
+    maxConcurrentRenewals = 1;
     defaults = {
+      validMinDays = 30;
+      renewInterval = "daily";
       # server = "https://acme-staging-v02.api.letsencrypt.org/directory";
       # dnsPropagationCheck = false;
       extraLegoFlags = [ "--dns.propagation-wait=300s" ];
