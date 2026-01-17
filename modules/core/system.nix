@@ -47,6 +47,7 @@
     overlays = [
       self.overlays.default
       inputs.nur.overlay
+      inputs.nixocaine.overlays.default
     ];
   };
 
