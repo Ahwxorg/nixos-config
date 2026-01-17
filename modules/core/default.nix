@@ -18,5 +18,6 @@
     ++ [ (import ./user.nix) ]
     ++ [ (import ./bluetooth.nix) ]
     ++ [ (import ./yubikey.nix) ]
-    ++ [ (import ./wayland.nix) ];
+    ++ [ (import ./wayland.nix) ]
+    ++ [ (import ./virtualization.nix) ];
 }
