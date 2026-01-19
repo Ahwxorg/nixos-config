@@ -25,6 +25,12 @@
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
           };
+          "matrixWhatsAppBridgeSecret" = {
+            owner = "mautrix-signal";
+          };
+          "matrixSignalBridgeSecret" = {
+            owner = "mautrix-whatsapp";
+          };
           "smbLoginDetails" = { };
           "syncplay" = { };
           "funkwhaleDjangoSecret" = { };
