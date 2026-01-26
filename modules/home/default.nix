@@ -5,6 +5,7 @@
     ++ [ (import ./swaync/default.nix) ]
     ++ [ (import ./sway/default.nix) ]
     ++ [ (import ./fonts.nix) ]
+    ++ [ (import ./htop.nix) ]
     ++ [ (import ./hyprland) ]
     ++ [ (import ./hyprlock) ]
     ++ [ (import ./kitty.nix) ]
