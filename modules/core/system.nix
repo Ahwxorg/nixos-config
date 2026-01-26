@@ -30,6 +30,8 @@
     libraries = with pkgs; [ ];
   };
 
+  services.envfs.enable = true;
+
   nixpkgs = {
     overlays = [
       self.overlays.default
