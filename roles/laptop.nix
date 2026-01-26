@@ -30,11 +30,7 @@ in
     };
 
     # DisplayLink
-    services.xserver.videoDrivers = [
-      "displaylink"
-      "modesetting"
-    ];
-    systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+    import = [ (../modules/core/displaylink.nix) ];
 
     networking.networkmanager.enable = true;
 
@@ -48,6 +44,13 @@ in
       thermald.enable = true;
       power-profiles-daemon.enable = true;
 
+      udev.extraRules = ''
+        # Switch to power-save profile when on battery
+        SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver", RUN+="/bin/sh -c 'echo 30 | tee /sys/class/backlight/amdgpu_bl1/brightness'"
+        # Switch to balanced profile when plugged in
+        SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced", RUN+="/bin/sh -c 'cat /sys/class/backlight/amdgpu_bl1/max_brightness > /sys/class/backlight/amdgpu_bl1/brightness'"
+      '';
+
       upower = {
         enable = true;
         percentageLow = 20;
@@ -55,6 +58,21 @@ in
         percentageAction = 5;
         criticalPowerAction = "Hibernate";
       };
+      #auto-cpufreq = {
+      #  enable = true;
+      #  settings = {
+      #    battery = {
+      #      governor = "powersave";
+      #      turbo = "never";
+      #      energy_performance_preference = "balance_power";
+      #    };
+      #    charger = {
+      #      governor = "performance";
+      #      turbo = "auto";
+      #      energy_performance_preference = "performance";
+      #    };
+      #  };
+      #};
     };
     # powerManagement.powertop.enable = false; # somehow figure out how to let this not apply to specific USB devices, as they will auto suspend and that is annoying.
   };
