@@ -288,7 +288,8 @@
             "orientation": "horizontal",
             "modules": [ 
               "battery",
-              "custom/powerdraw"
+              "custom/powerdraw",
+              "power-profiles-daemon"
             ],
             "drawer": {
               "transition-left-to-right": false,
@@ -318,6 +319,14 @@
           "custom/powerdraw": {
             "interval": 60,
             "exec": "~/.local/bin/waybar-powerdraw",
+            "tooltip": false,
+          },
+
+          "power-profiles-daemon": {
+            "interval": 60,
+            "format": "{profile}",
+            "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+            "tooltip": true,
           },
 
           "group/clock": {

@@ -43,7 +43,6 @@
     pwgen
     jq
     tmux
-    htop
     eza
     file
     fzf
@@ -65,6 +64,19 @@
     net-tools
     nmap
     aerc
+
+    aspell
+    aspellDicts.de
+    aspellDicts.nl
+    aspellDicts.uk
+
+    # Hunspell dictionaries for spell checking
+    hunspell
+    hunspellDicts.de_DE # German
+    hunspellDicts.en_GB-ise # UK English with -ise spellings
+    hunspellDicts.en_US
+    hunspellDicts.nl_NL # Dutch
+    hunspellDicts.nl_nl # Dutch (alternative)
 
     # Install pip packages
     # python3
