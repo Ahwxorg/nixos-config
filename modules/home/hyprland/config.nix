@@ -124,6 +124,7 @@
         "nwg-dock-hyprland -l top &"
         "nextcloud &"
         "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
+        "vicinae server &"
       ];
 
       input = {
@@ -279,7 +280,8 @@
         "$mainMod SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
 
         # clipboard manager
-        "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
+        # "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
+        "$mainMod SHIFT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
 
         "$mainMod SHIFT, F, exec, librewolf"
         "$mainMod SHIFT, C, exec, chromium"
@@ -398,6 +400,14 @@
         # "opacity 0.5 0.5, match:class nwg-dock-hyprland"
         "no_blur on, match:class ungoogled-chromium"
         "no_blur on, match:class librewolf"
+        "no_screen_share on, match:class element-desktop"
+        "match:title ^(.*Bitwarden Password Manager.*)$, float on"
+        "match:title ^(Picture-in-Picture)$, float on"
+        "match:title ^(Picture-in-Picture)$, pin on"
+        # stop idle when watching videos
+        "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
+        "match:class ^(chromium)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
+        "match:class ^(chromium)$, idle_inhibit fullscreen"
         #  "noanim, class:^(bemenu)$"
         #  "float, title:^(Picture-in-Picture)$"
         #  "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
@@ -430,7 +440,10 @@
         #  "float,title:^(float_foot)$"
         #  "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
-
+      layerrule = [
+        "match:class vicinae, blur on"
+        "match:class vicinae, ignore_alpha 0"
+      ];
     };
 
     extraConfig = "
