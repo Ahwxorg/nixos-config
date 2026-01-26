@@ -43,7 +43,6 @@
     pwgen
     jq
     tmux
-    htop
     eza
     file
     fzf
