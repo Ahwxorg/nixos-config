@@ -86,7 +86,7 @@
           }
           {
             criteria = "eDP-1";
-            status = if (host == "sakura") then "enable" else "disable";
+            status = if (host == "sakura") then "disable" else "disable";
             position = if (host == "sakura") then "152,1440" else "300,1440";
           }
         ];
