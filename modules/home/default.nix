@@ -16,8 +16,10 @@
     ++ [ (import ./packages.nix) ]
     ++ [ (import ./scripts/scripts.nix) ]
     ++ [ (import ./spotify.nix) ]
+    ++ [ (import ./ssh.nix) ]
     ++ [ (import ./waybar) ]
     ++ [ (import ./zsh.nix) ]
     ++ [ (import ./qutebrowser.nix) ]
+    ++ [ (import ./xdg.nix) ]
     ++ [ (import ./tmux.nix) ];
 }
