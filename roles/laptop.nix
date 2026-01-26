@@ -30,7 +30,7 @@ in
     };
 
     # DisplayLink
-    import = [ (../modules/core/displaylink.nix) ];
+    # imports = [ ../modules/core/displaylink.nix ];
 
     networking.networkmanager.enable = true;
 
