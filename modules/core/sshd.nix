@@ -16,7 +16,7 @@
   users.users.liv.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGXi00z/rxVrWLKgYr+tWIsbHsSQO75hUMSTThNm5wUw liv@sakura" # sakura
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHv2zxCy22KU1tZOH2hA1p8fWVpOSrTYF68+3E5r330O liv@ichiyo" # ichiyo
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEDltZ7vfyrLrl32TIWCC3iUx40TrCtIz6Ssi/SZvikg liv@zinnia" # zinnia
+    # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEDltZ7vfyrLrl32TIWCC3iUx40TrCtIz6Ssi/SZvikg liv@zinnia" # zinnia; retired
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQtG69zrMFsoHForwZEi66y1tPvctqg1OgjQFrF3OI+ liv@iris" # iris
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINKI2KQn97mykFLIaMUWMftA1txJec9qW56hAMj5/MhE liv@dandelion" # dandelion
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILwDS8tXjGjUtk3eQAaPf0S0f9JgwEGPlNYQ7OvACX1Z liv@imilia" # imilia
