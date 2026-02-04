@@ -13,8 +13,21 @@
     #./../../modules/services/automount.nix
   ];
 
+  environment.systemPackages = [
+    pkgs.vim
+  ];
+
   security.pam.enableSudoTouchIdAuth = true;
   system.primaryUser = username;
+
+  nix.settings.experimental-features = "nix-command flakes";
+
+  system.configurationRevision = self.rev or self.dirtyRev or null;
+
+  system.stateVersion = 6;
+
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
   homebrew = {
     enable = true;
     onActivation = {
@@ -27,7 +40,6 @@
       no_quarantine = true;
     };
     casks = [
-      # "steam"
       "libreoffice"
       "signal"
       "handbrake"
