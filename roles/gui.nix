@@ -81,6 +81,7 @@ in
         lxqt.pavucontrol-qt
         mpv
         kdePackages.kdeconnect-kde
+        libgnome-keyring
 
         # Gaming
         lunar-client
