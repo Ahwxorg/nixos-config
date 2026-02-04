@@ -5,7 +5,7 @@
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
@@ -22,15 +22,16 @@
     nixocaine.url = "https://git.madhouse-project.org/iocaine/nixocaine/archive/stable.tar.gz";
     ai-robots-txt.url = "github:ai-robots-txt/ai.robots.txt";
     ai-robots-txt.flake = false;
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      sops-nix,
-      disko,
-      oisd,
+      nix-darwin,
       ...
     }@inputs:
     let
@@ -44,6 +45,16 @@
     in
     {
       overlays.default = overlays.addition;
+      darwinConfigurations = {
+        azalea = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            (import ./hosts/azalea)
+          ];
+          host = "azalea";
+          inherit self inputs username;
+        };
+      };
       nixosConfigurations = {
         sakura = nixpkgs.lib.nixosSystem {
           inherit system;
