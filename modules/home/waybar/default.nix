@@ -311,8 +311,8 @@
             "format-discharging-warning": "<span color='#aaaaaa'>BATT:</span> <span color='#FF5F1F'>{capacity}%</span>",
             "format-discharging-critical": "<span color='#aaaaaa'>BATT:</span> <span color='#FF3131'>{capacity}%</span>",
             "format-charging": "<span color='#aaaaaa'>BATT:</span> <span color='#DAF7A6'>{capacity}%</span><span color='#aaaaaa'> @ {power:2.0f}W</span>",
-            "format-full": "<span color='#aaaaaa'>BATT:</span> 󱐥   {capacity}%",
-            "format-not-charging": "<span color='#aaaaaa'>BATT:</span> 󱐤   {capacity}%",
+            "format-full": "<span color='#aaaaaa'>BATT:</span> {capacity}%",
+            "format-not-charging": "<span color='#aaaaaa'>BATT:</span> !!! {capacity}%",
             // "format-icons": [" ", " ", " ", " ", " "], // use {icon}
           },
 
