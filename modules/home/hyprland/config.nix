@@ -89,6 +89,8 @@
     }
   '';
 
+  services.swayosd.enable = true;
+
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -197,6 +199,13 @@
         active_opacity = 1.00;
         inactive_opacity = 0.75;
         # fullscreen_opacity = 1.0;
+
+        shadow = {
+          enabled = true;
+          render_power = 4;
+          ignore_window = true;
+          # offset = [ ];
+        };
 
         blur = {
           enabled = true;
