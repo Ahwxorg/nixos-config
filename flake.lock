@@ -353,6 +353,38 @@
         "type": "github"
       }
     },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770245750,
+        "narHash": "sha256-hWGcDAhwloJK0MGvu9v1aIY3tUphAYMYkbc3whaCHTY=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "e4f2be7badec7ede6128614daaa7a0ca8155d183",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1770252071,
+        "narHash": "sha256-d3ci+aTB1k5HyCTIoX/JmrhKgbXZVjE/aggVl6xYdFE=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "520f413dc530506af8e624f9cbbedbb3b5e01677",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
     "hypr-contrib": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -1225,6 +1257,8 @@
         "alejandra": "alejandra",
         "disko": "disko",
         "home-manager": "home-manager",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
         "hypr-contrib": "hypr-contrib",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
