@@ -851,16 +851,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1770184146,
-        "narHash": "sha256-DsqnN6LvXmohTRaal7tVZO/AKBuZ02kPBiZKSU4qa/k=",
+        "lastModified": 1767634391,
+        "narHash": "sha256-owcSz2ICqTSvhBbhPP+1eWzi88e54rRZtfCNE5E/wwg=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "0d7874ef7e3ba02d58bebb871e6e29da36fa1b37",
+        "rev": "08585aacc3d6d6c280a02da195fdbd4b9cf083c2",
         "type": "github"
       },
       "original": {
         "owner": "nix-darwin",
-        "ref": "master",
+        "ref": "nix-darwin-25.11",
         "repo": "nix-darwin",
         "type": "github"
       }
@@ -1117,11 +1117,11 @@
         "nixvim": "nixvim_2"
       },
       "locked": {
-        "lastModified": 1767307820,
-        "narHash": "sha256-5L9VbYzjeaq1npMXyAFFak9G/+c9akZoFummW7Een9c=",
+        "lastModified": 1770252550,
+        "narHash": "sha256-Yl6KsoJNONPQ4Q838wfF8wiNpppjaD1OrGnWwRxTrXU=",
         "owner": "ahwxorg",
         "repo": "nixvim-config",
-        "rev": "a0ff3802e67a281acc7ab957d716a994660bb3f9",
+        "rev": "de02f4a71a460e21fbfdf2e76b5cebe38635dfff",
         "type": "github"
       },
       "original": {

@@ -22,7 +22,7 @@
     nixocaine.url = "https://git.madhouse-project.org/iocaine/nixocaine/archive/stable.tar.gz";
     ai-robots-txt.url = "github:ai-robots-txt/ai.robots.txt";
     ai-robots-txt.flake = false;
-    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
@@ -56,13 +56,15 @@
     {
       overlays.default = overlays.addition;
       darwinConfigurations = {
-        azalea = nix-darwin.lib.darwinSystem {
+        "azalea" = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
             (import ./hosts/azalea)
           ];
-          host = "azalea";
-          inherit self inputs username;
+          specialArgs = {
+            host = "sakura";
+            inherit self inputs username;
+          };
         };
       };
       nixosConfigurations = {
