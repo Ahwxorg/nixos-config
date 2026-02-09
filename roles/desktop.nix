@@ -22,6 +22,7 @@ in
         home.packages = with pkgs; [
           # Home packages
           swaylock
+          lm_sensors
         ];
       };
     };
@@ -39,7 +40,7 @@ in
       hardware.openrgb = {
         enable = true;
         package = pkgs.openrgb-with-all-plugins;
-        motherboard = "amd";
+        motherboard = "intel";
         server = {
           port = 6742;
           # autoStart = true;

@@ -82,6 +82,21 @@ in
         mpv
         kdePackages.kdeconnect-kde
         libgnome-keyring
+        foot
+        nautilus
+        tesseract
+        yubikey-touch-detector
+        wireguard-tools
+        openresolv
+        xdg-utils
+        killall
+        libnotify
+        openssl
+        pamixer
+        playerctl
+        wl-clipboard
+        cliphist
+        poweralertd
 
         # Gaming
         lunar-client

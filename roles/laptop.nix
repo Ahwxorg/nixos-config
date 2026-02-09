@@ -25,6 +25,8 @@ in
         home.packages = with pkgs; [
           acpi
           brightnessctl
+          powertop
+          lm_sensors
         ];
       };
     };

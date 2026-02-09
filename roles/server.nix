@@ -20,6 +20,7 @@ in
       kitty.terminfo
       foot.terminfo
       powertop
+      lm_sensors
     ];
 
     services = {
