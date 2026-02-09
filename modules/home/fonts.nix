@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  fonts.fontconfig.antialias = false;
+
   home.packages = with pkgs; [
     scientifica
     # nerd-fonts._0xproto
