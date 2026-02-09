@@ -3,7 +3,7 @@
 
   inputs = {
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
@@ -63,6 +63,7 @@
           ];
           specialArgs = {
             host = "sakura";
+            system = "aarch64-darwin";
             inherit self inputs username;
           };
         };
@@ -75,6 +76,7 @@
           ];
           specialArgs = {
             host = "sakura";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -85,6 +87,7 @@
           ];
           specialArgs = {
             host = "yoshino";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -95,6 +98,7 @@
           ];
           specialArgs = {
             host = "ichiyo";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -105,6 +109,7 @@
           ];
           specialArgs = {
             host = "violet";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -115,6 +120,7 @@
           ];
           specialArgs = {
             host = "dandelion";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -125,6 +131,7 @@
           ];
           specialArgs = {
             host = "lily";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -135,6 +142,7 @@
           ];
           specialArgs = {
             host = "zinnia";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -145,6 +153,7 @@
           ];
           specialArgs = {
             host = "posy";
+            system = "aarch64-linux";
             inherit self inputs username;
           };
         };
@@ -155,6 +164,7 @@
           ];
           specialArgs = {
             host = "hazel";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -165,6 +175,7 @@
           ];
           specialArgs = {
             host = "daisy";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -175,6 +186,7 @@
           ];
           specialArgs = {
             host = "iris";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -185,6 +197,7 @@
           ];
           specialArgs = {
             host = "sunflower";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -195,6 +208,7 @@
           ];
           specialArgs = {
             host = "imilia";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
@@ -205,6 +219,7 @@
           ];
           specialArgs = {
             host = "april";
+            system = "x86_64-linux";
             inherit self inputs username;
           };
         };
