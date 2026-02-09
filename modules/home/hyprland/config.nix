@@ -89,6 +89,8 @@
     }
   '';
 
+  services.swayosd.enable = true;
+
   wayland.windowManager.hyprland = {
     settings = {
 
@@ -143,7 +145,7 @@
       #  "f[1], gapsout:0, gapsin:0"
       #];
       general = {
-        "$mainMod" = "ALT";
+        # "ALT" = "ALT";
         layout = "dwindle";
         gaps_in = 0;
         gaps_out = "0,0,68,0";
@@ -197,6 +199,13 @@
         active_opacity = 1.00;
         inactive_opacity = 0.75;
         # fullscreen_opacity = 1.0;
+
+        shadow = {
+          enabled = true;
+          render_power = 4;
+          ignore_window = true;
+          # offset = [ ];
+        };
 
         blur = {
           enabled = true;
@@ -257,95 +266,95 @@
 
       bind = [
         # keybindings
-        "$mainMod, Return, exec, footclient"
-        "$mainMod SHIFT, Return, exec, [float; center; size 950 650] footclient --title 'float_foot'"
-        "$mainMod, Q, killactive,"
-        "$mainMod, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
-        "$mainMod, Space, togglefloating,"
-        # "$mainMod, D, exec, bemenu-run -l 5 --ignorecase"
-        "$mainMod, D, exec, vicinae toggle"
+        "ALT, Return, exec, footclient"
+        "ALT SHIFT, Return, exec, [float; center; size 950 650] footclient --title 'float_foot'"
+        "ALT, Q, killactive,"
+        "ALT, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
+        "ALT, Space, togglefloating,"
+        # "ALT, D, exec, bemenu-run -l 5 --ignorecase"
+        "ALT, D, exec, vicinae toggle"
         "SUPER SHIFT, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
         "SUPER, L, exec, swaylock --image /home/${username}/.local/share/bg.png"
-        "$mainMod, E, exec, nautilus"
-        "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
-        "$mainMod, C,exec, hyprpicker -a"
-        "$mainMod, W,exec, wallpaper-picker"
-        "$mainMod, G, togglegroup,"
+        "ALT, E, exec, nautilus"
+        "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
+        "ALT, C,exec, hyprpicker -a"
+        "ALT, W,exec, wallpaper-picker"
+        "ALT, G, togglegroup,"
         "SUPER, N, changegroupactive, f"
         "SUPER, P, changegroupactive, b"
-        "$mainMod, Tab, changegroupactive, f"
-        "$mainMod SHIFT, Tab, changegroupactive, b"
+        "ALT, Tab, changegroupactive, f"
+        "ALT SHIFT, Tab, changegroupactive, b"
 
         # password manager
-        "$mainMod SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
+        "ALT SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
 
         # clipboard manager
-        # "$mainMod SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
-        "$mainMod SHIFT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+        # "ALT SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
+        "ALT SHIFT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
 
-        "$mainMod SHIFT, F, exec, librewolf"
-        "$mainMod SHIFT, C, exec, chromium"
-        "$mainMod SHIFT, Q, exec, qutebrowser"
-        "$mainMod SHIFT, W, exec, wdisplays"
-        "$mainMod SHIFT, T, exec, thunderbird"
-        "$mainMod SHIFT, E, exec, element-desktop"
-        "$mainMod SHIFT, P, exec, pavucontrol-qt"
-        "$mainMod SHIFT, N, exec, notes"
-        "$mainMod      , N, exec, swaync-client -t"
+        "ALT SHIFT, F, exec, librewolf"
+        "ALT SHIFT, C, exec, chromium"
+        "ALT SHIFT, Q, exec, qutebrowser"
+        "ALT SHIFT, W, exec, wdisplays"
+        "ALT SHIFT, T, exec, thunderbird"
+        "ALT SHIFT, E, exec, element-desktop"
+        "ALT SHIFT, P, exec, pavucontrol-qt"
+        "ALT SHIFT, N, exec, notes"
+        "ALT      , N, exec, swaync-client -t"
 
         # screenshot
         "SUPER SHIFT, S, exec, grimblast save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-        "$mainMod SHIFT, S, exec, grimblast copy area"
-        "$mainMod SHIFT, G, exec, grabtext"
+        "ALT SHIFT, S, exec, grimblast copy area"
+        "ALT SHIFT, G, exec, grabtext"
 
         # switch focus
-        "$mainMod, H, movefocus, l"
-        "$mainMod, L, movefocus, r"
-        "$mainMod, K, movefocus, u"
-        "$mainMod, J, movefocus, d"
+        "ALT, H, movefocus, l"
+        "ALT, L, movefocus, r"
+        "ALT, K, movefocus, u"
+        "ALT, J, movefocus, d"
 
-        "$mainMod SHIFT, H, movewindow, l"
-        "$mainMod SHIFT, L, movewindow, r"
-        "$mainMod SHIFT, K, movewindow, u"
-        "$mainMod SHIFT, J, movewindow, d"
+        "ALT SHIFT, H, movewindow, l"
+        "ALT SHIFT, L, movewindow, r"
+        "ALT SHIFT, K, movewindow, u"
+        "ALT SHIFT, J, movewindow, d"
 
         # switch to workspace
-        "$mainMod, 1, workspace, 1"
-        "$mainMod, 2, workspace, 2"
-        "$mainMod, 3, workspace, 3"
-        "$mainMod, 4, workspace, 4"
-        "$mainMod, 5, workspace, 5"
-        "$mainMod, 6, workspace, 6"
-        "$mainMod, 7, workspace, 7"
-        "$mainMod, 8, workspace, 8"
-        "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
+        "ALT, 1, workspace, 1"
+        "ALT, 2, workspace, 2"
+        "ALT, 3, workspace, 3"
+        "ALT, 4, workspace, 4"
+        "ALT, 5, workspace, 5"
+        "ALT, 6, workspace, 6"
+        "ALT, 7, workspace, 7"
+        "ALT, 8, workspace, 8"
+        "ALT, 9, workspace, 9"
+        "ALT, 0, workspace, 10"
 
         # move to workspace
-        "$mainMod SHIFT, 1, movetoworkspacesilent, 1"
-        "$mainMod SHIFT, 2, movetoworkspacesilent, 2"
-        "$mainMod SHIFT, 3, movetoworkspacesilent, 3"
-        "$mainMod SHIFT, 4, movetoworkspacesilent, 4"
-        "$mainMod SHIFT, 5, movetoworkspacesilent, 5"
-        "$mainMod SHIFT, 6, movetoworkspacesilent, 6"
-        "$mainMod SHIFT, 7, movetoworkspacesilent, 7"
-        "$mainMod SHIFT, 8, movetoworkspacesilent, 8"
-        "$mainMod SHIFT, 9, movetoworkspacesilent, 9"
-        "$mainMod SHIFT, 0, movetoworkspacesilent, 10"
+        "ALT SHIFT, 1, movetoworkspacesilent, 1"
+        "ALT SHIFT, 2, movetoworkspacesilent, 2"
+        "ALT SHIFT, 3, movetoworkspacesilent, 3"
+        "ALT SHIFT, 4, movetoworkspacesilent, 4"
+        "ALT SHIFT, 5, movetoworkspacesilent, 5"
+        "ALT SHIFT, 6, movetoworkspacesilent, 6"
+        "ALT SHIFT, 7, movetoworkspacesilent, 7"
+        "ALT SHIFT, 8, movetoworkspacesilent, 8"
+        "ALT SHIFT, 9, movetoworkspacesilent, 9"
+        "ALT SHIFT, 0, movetoworkspacesilent, 10"
 
         # window control
-        #  "$mainMod SHIFT, left, movewindow, l"
-        #  "$mainMod SHIFT, right, movewindow, r"
-        #  "$mainMod SHIFT, up, movewindow, u"
-        #  "$mainMod SHIFT, down, movewindow, d"
-        #  "$mainMod CTRL, left, resizeactive, -80 0"
-        #  "$mainMod CTRL, right, resizeactive, 80 0"
-        #  "$mainMod CTRL, up, resizeactive, 0 -80"
-        #  "$mainMod CTRL, down, resizeactive, 0 80"
-        #  "$mainMod ALT, left, moveactive,  -80 0"
-        #  "$mainMod ALT, right, moveactive, 80 0"
-        #  "$mainMod ALT, up, moveactive, 0 -80"
-        #  "$mainMod ALT, down, moveactive, 0 80"
+        #  "ALT SHIFT, left, movewindow, l"
+        #  "ALT SHIFT, right, movewindow, r"
+        #  "ALT SHIFT, up, movewindow, u"
+        #  "ALT SHIFT, down, movewindow, d"
+        #  "ALT CTRL, left, resizeactive, -80 0"
+        #  "ALT CTRL, right, resizeactive, 80 0"
+        #  "ALT CTRL, up, resizeactive, 0 -80"
+        #  "ALT CTRL, down, resizeactive, 0 80"
+        #  "ALT ALT, left, moveactive,  -80 0"
+        #  "ALT ALT, right, moveactive, 80 0"
+        #  "ALT ALT, up, moveactive, 0 -80"
+        #  "ALT ALT, down, moveactive, 0 80"
 
         # media and volume controls
         ",XF86AudioRaiseVolume,exec, pamixer -i 2"
@@ -355,14 +364,14 @@
         ",XF86AudioNext,exec, playerctl next"
         ",XF86AudioPrev,exec, playerctl previous"
         ",XF86AudioStop, exec, playerctl stop"
-        "$mainMod, mouse_down, workspace, e-1"
-        "$mainMod, mouse_up, workspace, e+1"
+        "ALT, mouse_down, workspace, e-1"
+        "ALT, mouse_up, workspace, e+1"
 
         # laptop brigthness
         ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
-        "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+        "ALT, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
+        "ALT, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
       ];
 
       bindl = [
@@ -371,8 +380,8 @@
 
       # mouse binding
       bindm = [
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
+        "ALT, mouse:272, movewindow"
+        "ALT, mouse:273, resizewindow"
       ];
 
       # windowrule
