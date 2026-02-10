@@ -38,50 +38,45 @@
       yabai -m window --toggle border
 
       # cmd - d : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
-      cmd - return: open -a Kitty -n
+      alt - return: open -a Kitty -n
 
+      # # Linux-style word navigation and deletion
+      # ctrl - backspace [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | alt - backspace  # Other apps: delete word
+      # ]
 
+      # ctrl - left [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | alt - left       # Other apps: move word left
+      # ]
 
+      # ctrl - right [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | alt - right      # Other apps: move word right
+      # ]
 
+      # # Home/End key behavior (with shift for selection)
+      # home [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | cmd - left       # Other apps: line start
+      # ]
 
-      # Linux-style word navigation and deletion
-      ctrl - backspace [
-          @native_apps ~         # Terminal apps handle natively
-          *            | alt - backspace  # Other apps: delete word
-      ]
+      # shift - home [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | cmd + shift - left  # Other apps: select to line start
+      # ]
 
-      ctrl - left [
-          @native_apps ~         # Terminal apps handle natively
-          *            | alt - left       # Other apps: move word left
-      ]
+      # # Ctrl+Home/End for document navigation
+      # ctrl - home [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | cmd - up         # Other apps: document start
+      # ]
 
-      ctrl - right [
-          @native_apps ~         # Terminal apps handle natively
-          *            | alt - right      # Other apps: move word right
-      ]
-
-      # Home/End key behavior (with shift for selection)
-      home [
-          @native_apps ~         # Terminal apps handle natively
-          *            | cmd - left       # Other apps: line start
-      ]
-
-      shift - home [
-          @native_apps ~         # Terminal apps handle natively
-          *            | cmd + shift - left  # Other apps: select to line start
-      ]
-
-      # Ctrl+Home/End for document navigation
-      ctrl - home [
-          @native_apps ~         # Terminal apps handle natively
-          *            | cmd - up         # Other apps: document start
-      ]
-
-      ctrl - end [
-          @native_apps ~         # Terminal apps handle natively
-          *            | cmd - down       # Other apps: document end
-      ]
-
+      # ctrl - end [
+      #     @native_apps ~         # Terminal apps handle natively
+      #     *            | cmd - down       # Other apps: document end
+      # ]
     '';
   };
 }
