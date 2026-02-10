@@ -30,6 +30,7 @@
           proxy_buffering off;
         '';
       };
+      locations."wp-login.php".return = "301 https://hil-speed.hetzner.com/10GB.bin";
     };
   };
 }
