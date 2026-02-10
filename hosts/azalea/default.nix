@@ -1,35 +1,51 @@
-{ username, ... }:
+{
+  pkgs,
+  inputs,
+  self,
+  ...
+}:
 {
   imports = [
-    #./hardware-configuration.nix
-    #./../../modules/core
+    # ./../../modules/core/homebrew.nix
+    ./../../modules/core/user.nix
+    ./../../modules/core/skhd.nix
+    ./../../modules/core/yabai.nix
     #./../../modules/core/virtualization.nix
     #./../../modules/services/tailscale.nix
     #./../../modules/services/mpd.nix
-    #./../../modules/services/smart-monitoring.nix
-    #./../../modules/services/mullvad.nix
-    #./../../modules/home/steam.nix
-    #./../../modules/services/ollama.nix
-    #./../../modules/services/automount.nix
   ];
 
-  environment.systemPackages = [
-    pkgs.vim
-  ];
-
-  security.pam.enableSudoTouchIdAuth = true;
-  system.primaryUser = username;
-
+  security.pam.services.sudo_local.touchIdAuth = true;
   nix.settings.experimental-features = "nix-command flakes";
-
-  system.configurationRevision = self.rev or self.dirtyRev or null;
-
-  system.stateVersion = 6;
-
+  # system.configurationRevision = self.rev or self.dirtyRev or null;
+  system = {
+    primaryUser = "liv";
+    stateVersion = 6;
+    defaults = {
+      dock = {
+        autohide = true;
+        mru-spaces = false;
+        show-recents = false;
+        # showHidden = true;
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        FXPreferredViewStyle = "clmv";
+      };
+      iCal."first day of week" = "Monday";
+      screencapture.include-date = true;
+      screencapture.type = "png";
+      spaces.spans-displays = true;
+    };
+  };
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   homebrew = {
     enable = true;
+    #taps = {
+    #  "homebrew/homebrew-core" = inputs.homebrew-core;
+    #  "homebrew/homebrew-cask" = inputs.homebrew-cask;
+    #};
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";
@@ -39,16 +55,58 @@
     caskArgs = {
       no_quarantine = true;
     };
+    brews = [
+      "imagemagick"
+      "virt-manager"
+    ];
     casks = [
+      "qbittorrent"
       "libreoffice"
       "signal"
-      "handbrake"
-      "tailscale"
       "ungoogled-chromium"
       # "orca-slicer"
       "element"
       "raycast"
       "anki"
+      "kitty"
+      "spotify"
+      "nextcloud"
+      "handbrake-app"
+      "tailscale-app"
+      "ungoogled-chromium"
+      "karabiner-elements"
+      "bitwarden"
+      "gimp"
+      "betterdisplay"
+      "mullvad-vpn"
+      "maccy"
+      "spotmenu"
+    ];
+  };
+
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  # imports = [ ../flake/modules/home/zsh.nix ];
+  environment.systemPackages = [
+    pkgs.vim
+    inputs.nixvim.packages.${pkgs.system}.default
+    pkgs.lazygit
+    pkgs.eza
+    pkgs.exiftool
+    pkgs.fzf
+  ];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "jitsi-meet-1.0.8043"
+      "olm-3.2.16"
+      "libsoup-2.74.3"
+    ];
+    overlays = [
+      self.overlays.default
+      inputs.nur.overlay
+      inputs.nixocaine.overlays.default
     ];
   };
 }
