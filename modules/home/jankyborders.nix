@@ -1,0 +1,18 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    jankyborders
+  ];
+  home.file.".config/borders/bordersrc" = {
+    executable = true;
+    text = ''
+      borders \
+        style=round \
+        width=8.0 \
+        hidpi=off \
+        active_color=0xc0e2e2e3 \
+        inactive_color=0xc02c2e34 \
+        background_color=0x302c2e34 
+    '';
+  };
+}
