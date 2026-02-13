@@ -4,6 +4,7 @@
     [ (import ./git.nix) ]
     ++ [ (import ./fonts.nix) ]
     ++ [ (import ./htop.nix) ]
+    ++ [ (import ./iamb.nix) ]
     ++ [ (import ./kitty.nix) ]
     ++ [ (import ./nvim.nix) ]
     ++ [ (import ./zathura.nix) ]
