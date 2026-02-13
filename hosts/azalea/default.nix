@@ -8,7 +8,7 @@
   imports = [
     # ./../../modules/core/homebrew.nix
     ./../../modules/core/user.nix
-    ./../../modules/core/skhd.nix
+    # ./../../modules/core/skhd.nix
     ./../../modules/core/yabai.nix
     #./../../modules/core/virtualization.nix
     #./../../modules/services/tailscale.nix
@@ -35,17 +35,18 @@
       iCal."first day of week" = "Monday";
       screencapture.include-date = true;
       screencapture.type = "png";
-      spaces.spans-displays = true;
+      spaces.spans-displays = false;
     };
   };
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   homebrew = {
     enable = true;
-    #taps = {
-    #  "homebrew/homebrew-core" = inputs.homebrew-core;
-    #  "homebrew/homebrew-cask" = inputs.homebrew-cask;
-    #};
+    taps = [
+      "homebrew/homebrew-core"
+      "homebrew/homebrew-cask"
+      # "FelixKratz/formulae"
+    ];
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";
@@ -58,6 +59,7 @@
     brews = [
       "imagemagick"
       "virt-manager"
+      # "svim"
     ];
     casks = [
       "qbittorrent"
@@ -81,6 +83,8 @@
       "mullvad-vpn"
       "maccy"
       "spotmenu"
+      # "svim"
+      # "font-sketchybar-app-font"
     ];
   };
 
