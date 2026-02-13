@@ -11,6 +11,7 @@
           width = 66;
         };
       };
+      username_display = "displayname";
     };
   };
 }
