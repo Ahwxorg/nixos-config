@@ -22,7 +22,7 @@
       active_window_opacity = "1.0";
       normal_window_opacity = "1.0";
 
-      mouse_modifier = "cmd";
+      mouse_modifier = "alt";
       # set modifier + right-click drag to resize window (default: resize)
       mouse_action2 = "resize";
       # set modifier + left-click drag to resize window (default: move)
@@ -32,24 +32,14 @@
       focus_follows_mouse = "autofocus";
 
       # gaps
-      top_padding = 0;
-      bottom_padding = 0;
-      left_padding = 0;
-      right_padding = 0;
-      window_gap = 0;
+      top_padding = 20;
+      bottom_padding = 8;
+      left_padding = 8;
+      right_padding = 8;
+      window_gap = 16;
     };
 
     extraConfig = ''
-      # osascript -e 'tell application id "tracesOf.Uebersicht" to refresh'
-      # rules
-      yabai -m rule --add app=".*" sub-layer=normal
-      yabai -m rule --add app="^System Settings$"    manage=off
-      yabai -m rule --add app="^System Information$" manage=off
-      yabai -m rule --add app="^System Preferences$" manage=off
-      yabai -m rule --add title="Preferences$"       manage=off
-      yabai -m rule --add title="Settings$"          manage=off
-      yabai -m rule --add app="Finder$"              manage=off
-
       # workspace management
       yabai -m space 1 --label web
       yabai -m space 2 --label terminal
@@ -62,20 +52,27 @@
       yabai -m rule --add app="Element" space=chat
       yabai -m rule --add app="Signal" space=chat
       yabai -m rule --add app="Spotify" space=music
-
       yabai -m rule --add app="Calendar" space=mail
       yabai -m rule --add app="Mail" space=mail
 
       yabai -m rule --add app='About This Mac' manage=off
       yabai -m rule --add app='System Information' manage=off
       yabai -m rule --add app='System Preferences' manage=off
+      yabai -m rule --add label="Select file to save to" app="^Gimp$" title="Select file to save to" manage=off
+      yabai -m rule --add app=".*" sub-layer=normal
+      yabai -m rule --add app="^System Settings$"    manage=off
+      yabai -m rule --add app="^System Information$" manage=off
+      yabai -m rule --add app="^System Preferences$" manage=off
+      yabai -m rule --add title="Preferences$"       manage=off
+      yabai -m rule --add title="Settings$"          manage=off
+      yabai -m rule --add app="Finder$"              manage=off
 
       yabai -m signal --add event=dock_did_restart \
       action="sudo yabai --load-sa"
       sudo yabai --load-sa
 
       # yabai -m config external_bar all:40:0
-      # exec ~/.config/borders/bordersrc &
+      exec ~/.config/borders/bordersrc &
     '';
   };
 
