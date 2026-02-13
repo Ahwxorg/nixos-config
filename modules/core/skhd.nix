@@ -31,6 +31,9 @@
       shift + alt - k : yabai -m window --warp north
       shift + alt - l : yabai -m window --warp east
 
+      alt + shirt - r; \
+          skhd --reload; \
+          yabai --restart-service
 
       # Float / Unfloat window
       alt - space : \
@@ -39,6 +42,14 @@
 
       # cmd - d : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
       alt - return: open -a Kitty -n
+      alt + shift - t : open -na Mail
+      alt + shift - c : open -na Chromium # open new instance
+      alt + shift - e : open -a Element # move to existing instance
+
+      alt - f : yabai -m window --toggle zoom-fullscreen
+
+      alt + shift -f : yabai -m window --toggle native-fullscreen
+
 
       # # Linux-style word navigation and deletion
       # ctrl - backspace [
