@@ -51,7 +51,7 @@
       };
 
       initContent = ''
-        export export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+        export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
 
         autoload -U add-zsh-hook
         autoload -U compinit
@@ -130,11 +130,11 @@
 
         function cd() {
           if [ -f "$1" ]; then
-            ${pkgs.zoxide}/bin/zoxide "$(dirname "$1")"
+            z "$(dirname "$1")"
             return
           fi
 
-          ${pkgs.zoxide}/bin/zoxide $@
+          z $@
         }
 
         get-git-root() {
@@ -253,7 +253,6 @@
         ezit = "exit";
         wlc = "wl-copy";
         yt-dlp-audio = "yt-dlp -f 'ba' -x --audio-format mp3";
-        open = "xdg-open";
         tree = "eza --icons --tree --group-directories-first";
         doas = "sudo";
         sxiv = "nsxiv";
@@ -267,7 +266,6 @@
         rm = "rm -i -v";
         cat = "${lib.getExe pkgs.bat} --plain";
         diff = "${lib.getExe pkgs.delta} --color-only";
-        battery-left = "${lib.getExe pkgs.acpi} | cut -d' ' -f5";
         github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
         tailscale = "sudo tailscale";
 
@@ -338,6 +336,7 @@
     fd
     delta
     bat
+    # zoxide
     nix-search-fzf.zsh-shell-widget
   ];
 }
