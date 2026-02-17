@@ -11,6 +11,8 @@
     gnumake
     python3
     qbittorrent
+    mpv
+    qutebrowser
 
     # CLI shit
     imagemagick
