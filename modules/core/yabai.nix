@@ -28,8 +28,9 @@
       # set modifier + left-click drag to resize window (default: move)
       mouse_action1 = "move";
 
-      mouse_follows_focus = "off";
+      mouse_follows_focus = "on";
       focus_follows_mouse = "autofocus";
+      mouse_drop_action = "swap";
 
       # gaps
       top_padding = 20;
@@ -71,8 +72,9 @@
       action="sudo yabai --load-sa"
       sudo yabai --load-sa
 
-      # yabai -m config external_bar all:40:0
+      yabai -m config external_bar all:34:0
       exec ~/.config/borders/bordersrc &
+      spacebar &
     '';
   };
 
