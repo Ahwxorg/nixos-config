@@ -13,6 +13,7 @@
     ++ [ (import ./ssh.nix) ]
     ++ [ (import ./skhd.nix) ]
     ++ [ (import ./sketchybar/default.nix) ]
+    ++ [ (import ./spacebar.nix) ]
     ++ [ (import ./jankyborders.nix) ]
     ++ [ (import ./zsh.nix) ]
     ++ [ (import ./qutebrowser.nix) ]
