@@ -37,7 +37,9 @@
         shift + alt - k : yabai -m window --warp north
         shift + alt - l : yabai -m window --warp east
 
-        alt + shift - r : skhd --reload; yabai --restart-service
+        alt + shift - r : launchctl kickstart -k "gui/$\{UID}/com.jackielii.skhd"; launchctl kickstart -k "gui/$\{UID}/org.nixos.yabai"
+
+        alt - q : yabai -m window --close
 
         # Float / Unfloat window
         alt - space : yabai -m window --toggle float; yabai -m window --toggle border
@@ -45,6 +47,7 @@
         # cmd - d : yabai -m space --layout $(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
         alt - return: open -a Kitty -n
         alt + shift - t : open -na Mail
+        alt - e : open -a Finder /Users/${username}
         alt + shift - c : open -na Chromium # open new instance
         alt + shift - e : open -a Element # move to existing instance
 
