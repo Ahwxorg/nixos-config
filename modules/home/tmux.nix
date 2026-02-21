@@ -1,4 +1,10 @@
-{ inputs, lib, config, pkgs, ... }:
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     tmux
@@ -58,10 +64,9 @@
 
       # Allow passthrough so that image.nvim works.
       set -gq allow-passthrough on
-      '';
+    '';
     plugins = with pkgs.tmuxPlugins; [
-      yank 
-      fzf-tmux-url
+      yank
       vim-tmux-navigator
     ];
   };
