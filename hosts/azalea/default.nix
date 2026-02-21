@@ -2,17 +2,12 @@
   pkgs,
   inputs,
   self,
+  username,
   ...
 }:
 {
   imports = [
-    # ./../../modules/core/homebrew.nix
-    ./../../modules/core/user.nix
-    # ./../../modules/core/skhd.nix
-    ./../../modules/core/yabai.nix
-    #./../../modules/core/virtualization.nix
-    #./../../modules/services/tailscale.nix
-    #./../../modules/services/mpd.nix
+    ./../../modules/core/default.azalea.nix
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
@@ -30,12 +25,18 @@
       };
       finder = {
         AppleShowAllExtensions = true;
-        FXPreferredViewStyle = "clmv";
+        FXEnableExtensionChangeWarning = false;
+        CreateDesktop = false;
+        FXPreferredViewStyle = "Nlsv"; # list view
+        # FXPreferredViewStyle = "clmv";
+        ShowPathbar = true;
       };
+      # "com.apple.finder".NewWindowTargetPath = "file:///Users/${username}/";
       iCal."first day of week" = "Monday";
       screencapture.include-date = true;
       screencapture.type = "png";
       spaces.spans-displays = false;
+      loginwindow.GuestEnabled = false;
     };
   };
   nixpkgs.hostPlatform = "aarch64-darwin";
@@ -45,7 +46,7 @@
     taps = [
       "homebrew/homebrew-core"
       "homebrew/homebrew-cask"
-      # "FelixKratz/formulae"
+      "FelixKratz/homebrew-formulae"
     ];
     onActivation = {
       autoUpdate = true;
@@ -59,17 +60,29 @@
     brews = [
       "imagemagick"
       "virt-manager"
-      # "svim"
+      "svim"
+      "nowplaying-cli"
+      "switchaudio-osx"
+      "lua"
     ];
     casks = [
+      "vial"
+      "thunderbird"
+      "sf-symbols"
+      "font-sf-mono"
+      "font-sf-pro"
+      "darktable"
       "qbittorrent"
       "libreoffice"
       "signal"
       "ungoogled-chromium"
+      "keepingyouawake"
+      # "yubikey-agent"
       # "orca-slicer"
       "element"
-      "raycast"
       "anki"
+      "homerow"
+      "firefox"
       "kitty"
       "spotify"
       "nextcloud"
@@ -83,8 +96,7 @@
       "mullvad-vpn"
       "maccy"
       "spotmenu"
-      # "svim"
-      # "font-sketchybar-app-font"
+      "utm"
     ];
   };
 
@@ -93,7 +105,7 @@
   # imports = [ ../flake/modules/home/zsh.nix ];
   environment.systemPackages = [
     pkgs.vim
-    inputs.nixvim.packages.${pkgs.system}.default
+    inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.lazygit
     pkgs.eza
     pkgs.exiftool
