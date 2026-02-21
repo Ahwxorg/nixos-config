@@ -4,7 +4,7 @@
     spacebar
   ];
 
-  home.file."/users/${username}/.config/spacebar/spacebarrc" = {
+  home.file.".config/spacebar/spacebarrc" = {
     executable = true;
     text = ''
       #!/usr/bin/env sh
