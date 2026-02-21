@@ -16,11 +16,11 @@
       window_opacity = "off";
       window_border = "on";
       window_border_placement = "inset";
-      window_border_width = 2;
+      window_border_width = 8;
       window_border_radius = 3;
       window_shadow = "float";
       active_window_opacity = "1.0";
-      normal_window_opacity = "1.0";
+      normal_window_opacity = "0.7";
 
       mouse_modifier = "alt";
       # set modifier + right-click drag to resize window (default: resize)
@@ -33,10 +33,10 @@
       mouse_drop_action = "swap";
 
       # gaps
-      top_padding = 20;
-      bottom_padding = 8;
-      left_padding = 8;
-      right_padding = 8;
+      top_padding = 12;
+      bottom_padding = 12;
+      left_padding = 12;
+      right_padding = 12;
       window_gap = 16;
     };
 
