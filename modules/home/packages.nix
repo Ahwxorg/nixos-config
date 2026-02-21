@@ -10,7 +10,7 @@
     gcc
     gnumake
     python3
-    qbittorrent
+    # qbittorrent
     mpv
     qutebrowser
 
