@@ -66,6 +66,7 @@
       "lua"
     ];
     casks = [
+      "supertuxkart"
       "vial"
       "thunderbird"
       "sf-symbols"
