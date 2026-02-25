@@ -50,10 +50,12 @@
         alt - e : open -a Finder /Users/${username}
         alt + shift - c : open -na Chromium # open new instance
         alt + shift - e : open -a Element # move to existing instance
+        alt + shift - f : open -a Firefox -n # open new firefox window
+        alt + shift - n : macos-terminal-launcher notes # open notes window
 
         alt - f : yabai -m window --toggle zoom-fullscreen
 
-        alt + shift -f : yabai -m window --toggle native-fullscreen
+        alt + ctrl + shift -f : yabai -m window --toggle native-fullscreen
 
 
         # # Linux-style word navigation and deletion
