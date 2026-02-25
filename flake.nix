@@ -26,6 +26,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     skhd-zig.url = "github:sebb3/skhd-zig.nix";
+    iamb.url = "github:ulyssa/iamb/latest";
 
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
