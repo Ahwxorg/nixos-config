@@ -91,6 +91,9 @@ sketchybar --add item clock right \
            --add item memory right \
            --set memory script="$PLUGIN_DIR/memory.sh" \
            --set memory update_freq=120 \
+           --add item uptime right \
+           --set uptime script="$PLUGIN_DIR/uptime.sh" \
+           --set uptime update_freq=60
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
