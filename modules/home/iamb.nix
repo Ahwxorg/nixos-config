@@ -19,6 +19,7 @@
           "recent"
           "unread"
           "name"
+          "lowpriority"
         ];
         members = [
           "power"
@@ -31,12 +32,20 @@
         gr = ":rooms<Enter>";
         gs = ":spaces<Enter>";
         gu = ":unreads<Enter>";
+        gf = ":open<Enter>";
         uc = ":unreads clear<Enter>";
         r = ":reply<Enter>";
+        e = ":edit<Enter>";
         mq = ":cancel<Enter>y";
         me = ":editor<Enter>";
         J = ":tabprevious<Enter>y";
         K = ":tabnext<Enter>";
+      };
+      macros.normal = {
+        asdf = "<Esc>";
+        sadf = "<Esc>";
+        fasd = "<Esc>";
+        sdaf = "<Esc>";
       };
       notifications.enabled = false;
       username_display = "displayname";
