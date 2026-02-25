@@ -16,6 +16,16 @@ let
     builtins.readFile ./scripts/dock-on-all-monitors.sh
   );
   caffeine = pkgs.writeScriptBin "caffeine" (builtins.readFile ./scripts/caffeine);
+  image-preview = pkgs.writeScriptBin "image-preview" (builtins.readFile ./scripts/image-preview.sh);
+  focus-kitty-picker = pkgs.writeScriptBin "focus-kitty-picker" (
+    builtins.readFile ./scripts/focus-kitty-picker.sh
+  );
+  change-wallpaper = pkgs.writeScriptBin "change-wallpaper" (
+    builtins.readFile ./scripts/change-wallpaper.sh
+  );
+  macos-terminal-launcher = pkgs.writeShellScriptBin "macos-terminal-launcher" (
+    builtins.readFile ./scripts/macos-terminal-launcher.sh
+  );
 in
 {
   home.packages = with pkgs; [
@@ -31,5 +41,9 @@ in
     ascii
     dock-on-all-monitors
     caffeine
+    change-wallpaper
+    focus-kitty-picker
+    image-preview
+    macos-terminal-launcher
   ];
 }
