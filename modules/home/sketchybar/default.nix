@@ -41,6 +41,10 @@
       executable = true;
       text = builtins.readFile ./plugins/space.sh;
     };
+    ".config/sketchybar/plugins/uptime.sh" = {
+      executable = true;
+      text = builtins.readFile ./plugins/uptime.sh;
+    };
     ".config/sketchybar/plugins/volume.sh" = {
       executable = true;
       text = builtins.readFile ./plugins/volume.sh;
