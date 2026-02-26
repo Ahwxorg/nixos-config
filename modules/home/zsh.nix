@@ -53,6 +53,16 @@
       initContent = ''
         export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
 
+        preview_cmd='
+        if file --mime-type {} | grep -qF image/; then
+          kitten icat --clear --transfer-mode=memory --stdin=no --place=''${_KITTEN_ICAT_PLACE} {} > /dev/tty
+        else
+          printf "\\x1b_Ga=d,d=A\\x1b\\\\" && bat --color=always --style=header,grid --line-range :300 {}
+        fi
+        '
+
+        export FZF_CTRL_T_OPTS='--ansi --height 100% --layout=reverse --preview-window "right:60%" --preview '"'$preview_cmd'"
+
         autoload -U add-zsh-hook
         autoload -U compinit
         zmodload zsh/complist
@@ -268,6 +278,7 @@
         diff = "${lib.getExe pkgs.delta} --color-only";
         github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
         tailscale = "sudo tailscale";
+        finder = "open -a Finder";
 
         # NixOS
         ns = "nix-shell --run zsh";
