@@ -1,18 +1,26 @@
 {
   pkgs,
   inputs,
-  config,
   username,
   host,
+  lib,
+  system,
   ...
 }:
 {
   imports =
-    [ inputs.home-manager.nixosModules.home-manager ]
-    ++ [ ./../../roles/default.nix ]
-    ++ [ ./sops.nix ]
+    (lib.optionals (system == "x64_64-linux") [ inputs.home-manager.nixosModules.home-manager ])
+    ++ (lib.optionals (system == "aarch64-darwin") [ inputs.home-manager.darwinModules.home-manager ])
+    ++ (lib.optionals (system == "x64_64-linux") [ ./../../roles/default.nix ])
+    ++ (lib.optionals (system == "aarch64-linux") [ ./../../roles/default.nix ])
+    ++ (lib.optionals (system == "x64_64-linux") [ ./user-linux.nix ])
+    ++ (lib.optionals (system == "aarch64-linux") [ ./user-linux.nix ])
+    ++ (lib.optionals (system == "x64_64-linux") [ ./sops.nix ])
+    ++ (lib.optionals (system == "aarch64-linux") [ ./sops.nix ])
     ++ [ ./../../variables.nix ];
+
   home-manager = {
+    backupFileExtension = "bak";
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };
@@ -30,34 +38,33 @@
           [ ./../home/default.server.nix ]
         else if (host == "daisy") then
           [ ./../home/default.server.nix ]
-        # else if (host == "yoshino") then
-        # [ ./../home/default.nix ]
+        else if (system == "aarch64-darwin") then
+          [ ./../home/default.azalea.nix ]
         else
           [ ./../home ];
       home = {
-        username = "${username}";
-        homeDirectory = "/home/${username}";
+        username = "liv";
         stateVersion = "22.11";
+        sessionVariables = {
+          EDITOR = "nvim";
+          VISUAL = "nvim";
+          PAGER = "less";
+        };
       };
       programs.home-manager.enable = true;
     };
   };
 
-  fonts.fontconfig.antialias = false;
-
   users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "input"
-      "dialout"
-      "wheel"
-    ];
+    home =
+      if (system == "x64_64-linux") then
+        "/home/${username}"
+      else if (system == "aarch64-darwin") then
+        "/Users/${username}"
+      else
+        "/home/${username}";
     shell = pkgs.zsh;
-    initialPassword = "temporary-password";
+    description = "ahwx";
   };
   nix.settings.allowed-users = [ "${username}" ];
 }
