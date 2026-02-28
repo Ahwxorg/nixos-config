@@ -25,7 +25,7 @@
       swaylock.fprintAuth =
         if (host == "sakura") then
           true
-        else if (host == "zinnia") then
+        else if (host == "april") then
           true
         else
           false;
@@ -33,20 +33,32 @@
       hyprlock.fprintAuth =
         if (host == "sakura") then
           true
-        else if (host == "zinnia") then
+        else if (host == "april") then
           true
         else
           false;
     };
   };
 
-  services.fprintd.enable =
-    if (host == "sakura") then
-      true
-    else if (host == "zinnia") then
-      true
-    else
-      false;
+  services.fprintd = {
+    enable =
+      if (host == "sakura") then
+        true
+      else if (host == "april") then
+        true
+      else
+        false;
+    #tod.enable = if (config.services.fprintd.enable) then true else false;
+    #tod.driver =
+    #  if (host == "sakura") then
+    #    pkgs.libfprint-2-tod1-goodix
+    #  else if (host == "april") then
+    #  pkgs.libfprint-2-tod1-vfs0090
+    #  else
+    #    null;
+  };
+
+  nixpkgs.config.allowBroken = true;
 
   environment.systemPackages = with pkgs; [
     yubikey-manager
