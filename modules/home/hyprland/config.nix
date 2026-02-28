@@ -123,9 +123,9 @@
         "foot --server &"
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
-        "nwg-dock-hyprland -l top &"
+        # "nwg-dock-hyprland -l top &"
         "nextcloud &"
-        "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
+        # "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
         "vicinae server &"
       ];
 
@@ -148,7 +148,8 @@
         # "ALT" = "ALT";
         layout = "dwindle";
         gaps_in = 0;
-        gaps_out = "0,0,68,0";
+        # gaps_out = "0,0,68,0";
+        gaps_out = "0,0,0,0";
         border_size = 2;
         "col.active_border" = "rgb(ffffff) rgb(ffffff) 45deg";
         "col.inactive_border" = "0x00000000";
