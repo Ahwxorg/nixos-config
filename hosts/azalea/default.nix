@@ -63,8 +63,12 @@
       "nowplaying-cli"
       "switchaudio-osx"
       "lua"
+      "mpv"
     ];
     casks = [
+      "kdenlive"
+      "royal-tsx"
+      "obs"
       "supertuxkart"
       "vial"
       "thunderbird"
