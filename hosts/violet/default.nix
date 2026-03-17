@@ -53,7 +53,7 @@
     loader.grub = {
       enable = true;
       device = "/dev/sda";
-      useOSProber = true;
+      useOSProber = false;
     };
     kernelModules = [ "acpi_call" ];
     extraModulePackages =
