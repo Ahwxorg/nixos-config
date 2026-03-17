@@ -2,6 +2,7 @@
 {
   services.nextcloud = {
     enable = true;
+    home = "/mnt/array/nextcloud/";
     package = pkgs.nextcloud32;
     hostName = "cloud.liv.town";
     # appstoreEnable = true;
@@ -23,10 +24,17 @@
     };
     configureRedis = true;
     settings = {
+      mail_smtpmode = "smtp";
+      mail_sendmailmode = "smtp";
+      mail_from_address = "noreply";
+      mail_domain = "liv.town";
+      mail_smtptimeout = 30;
       mail_smtphost = "smtp.migadu.com";
       mail_smtpport = 465;
       mail_smtpname = "notifications@liv.town";
+      # mail_smtppassword = config.sops.secrets.systemMailerPassword.path;
       mail_smtpauth = true;
+      mail_smtpsecure = "ssl";
       trusted_domains = [ "cloud.liv.town" ];
       enabledPreviewProviders = [
         "OC\\Preview\\BMP"
