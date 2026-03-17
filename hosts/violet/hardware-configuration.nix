@@ -33,7 +33,7 @@
   };
 
   fileSystems."/mnt/array" = {
-    device = "/dev/disk/by-uuid/c503088f-95aa-4bb0-85eb-d1de1e0158d0";
+    device = "/dev/disk/by-uuid/ba71c5cc-85af-43c6-a72e-7b285f8d46df";
     fsType = "ext4";
   };
 
