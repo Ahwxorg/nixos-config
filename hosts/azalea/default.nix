@@ -64,9 +64,12 @@
       "switchaudio-osx"
       "lua"
       "mpv"
+      "syncthing"
     ];
     casks = [
+      "steam"
       "kdenlive"
+      "ti-connect-ce"
       "royal-tsx"
       "obs"
       "supertuxkart"
@@ -82,7 +85,10 @@
       "ungoogled-chromium"
       "keepingyouawake"
       # "yubikey-agent"
-      # "orca-slicer"
+      "docker-desktop"
+      "pinta"
+      "winbox"
+      "orcaslicer"
       "element"
       "anki"
       "homerow"
@@ -101,6 +107,7 @@
       "maccy"
       "spotmenu"
       "utm"
+      "syncthing-app"
     ];
   };
 
