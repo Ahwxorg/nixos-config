@@ -47,6 +47,7 @@
     nmap
     aerc
     w3m
+    spotify-player
 
     # aspell
     # aspellDicts.de
