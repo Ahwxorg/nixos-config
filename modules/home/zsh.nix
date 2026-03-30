@@ -279,6 +279,7 @@
         github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
         tailscale = "sudo tailscale";
         finder = "open -a Finder";
+        fucking = "systemctl --user restart";
 
         # NixOS
         ns = "nix-shell --run zsh";
