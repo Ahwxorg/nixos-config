@@ -56,7 +56,7 @@
     recommendedOptimisation = true;
     recommendedGzipSettings = false;
     recommendedProxySettings = true;
-    clientMaxBodySize = lib.mkDefault "10G";
+    clientMaxBodySize = lib.mkDefault "25G";
 
     # Hardened TLS and HSTS preloading
     appendHttpConfig = ''
