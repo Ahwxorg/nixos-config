@@ -34,6 +34,7 @@
           "smbLoginDetails" = { };
           "syncplay" = { };
           "funkwhaleDjangoSecret" = { };
+          "desecToken" = { };
         }
       else if (host == "sakura") then
         {
