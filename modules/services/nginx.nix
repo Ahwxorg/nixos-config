@@ -12,7 +12,7 @@
 
   security.acme = {
     acceptTerms = true;
-    defaults.email = lib.mkDefault "ahwx@ahwx.org";
+    defaults.email = lib.mkDefault "letsencrypt@liv.town";
     maxConcurrentRenewals = 1;
     defaults = {
       validMinDays = 30;
@@ -21,34 +21,37 @@
       # dnsPropagationCheck = false;
       extraLegoFlags = [ "--dns.propagation-wait=300s" ];
       dnsProvider = "ns1.desec.io:53";
+      postRun = "systemctl restart nginx prosody matrix-synapse";
     };
     certs = {
       "liv.town" = {
-        domain = "*.liv.town";
-        extraDomainNames = [ "liv.town" ];
-        group = config.services.nginx.group;
+        domain = "liv.town";
+        extraDomainNames = [ "*.liv.town" ];
         dnsProvider = "desec";
-        environmentFile = "/home/liv/desec.env"; # location of your DESEC_TOKEN=[value]
+        environmentFile = config.sops.secrets.desecToken.path;
+        # environmentFile = "/home/liv/desec.env";
         webroot = null;
       };
       "ahwx.org" = {
-        domain = "*.ahwx.org";
-        extraDomainNames = [ "ahwx.org" ];
-        group = config.services.nginx.group;
+        domain = "ahwx.org";
+        extraDomainNames = [ "*.ahwx.org" ];
         dnsProvider = "desec";
-        environmentFile = "/home/liv/desec.env"; # location of your DESEC_TOKEN=[value]
+        environmentFile = config.sops.secrets.desecToken.path;
+        # environmentFile = "/home/liv/desec.env";
         webroot = null;
       };
       "quack.social" = {
-        domain = "*.quack.social";
-        extraDomainNames = [ "quack.social" ];
-        group = config.services.nginx.group;
+        domain = "quack.social";
+        extraDomainNames = [ "*.quack.social" ];
         dnsProvider = "desec";
-        environmentFile = "/home/liv/desec.env"; # location of your DESEC_TOKEN=[value]
+        environmentFile = config.sops.secrets.desecToken.path;
+        # environmentFile = "/home/liv/desec.env";
         webroot = null;
       };
     };
   };
+
+  users.users.nginx.extraGroups = [ "acme" ];
 
   services.nginx = {
     enable = true;
@@ -60,15 +63,8 @@
 
     # Hardened TLS and HSTS preloading
     appendHttpConfig = ''
-      # Proxying
-      # real_ip_header proxy_protocol;
-
       ssl_certificate /var/lib/acme/quack.social/cert.pem;
       ssl_certificate_key /var/lib/acme/quack.social/key.pem;
-
-      # proxy_set_header Host            $host;
-      # proxy_set_header X-Real-IP       $proxy_protocol_addr;
-      # proxy_set_header X-Forwarded-For $proxy_protocol_addr;
 
       # Add HSTS header with preloading to HTTPS requests.
       # Do not add HSTS header to HTTP requests.
