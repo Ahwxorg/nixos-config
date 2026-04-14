@@ -38,4 +38,6 @@
     # Server-to-server connections (direct TLS)
     5270
   ];
+
+  # users.users.prosody.extraGroups = [ "acme" ];
 }
