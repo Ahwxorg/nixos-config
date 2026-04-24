@@ -2,7 +2,7 @@
   services = {
     paperless = {
       enable = true;
-      consumptionDirIsPublic = true;
+      consumptionDirIsPublic = false;
       settings = {
         PAPERLESS_CONSUMER_IGNORE_PATTERN = [
           ".DS_STORE/*"
