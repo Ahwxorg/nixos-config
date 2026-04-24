@@ -13,10 +13,10 @@
     initialPassword = "temporary-password";
   };
 
-  home-manager = {
-    inherit username;
-    homeDirectory = "/home/${username}";
-  };
+  #home-manager = {
+  #  inherit username;
+  #  homeDirectory = "/home/${username}";
+  #};
 
   fonts.fontconfig.antialias = false;
 }
