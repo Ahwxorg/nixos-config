@@ -58,8 +58,6 @@
     #    null;
   };
 
-  nixpkgs.config.allowBroken = true;
-
   environment.systemPackages = with pkgs; [
     yubikey-manager
   ];
