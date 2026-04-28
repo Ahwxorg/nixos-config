@@ -209,9 +209,15 @@
         #   alias imv="nsxiv"
         #   alias sxiv="nsxiv"
         # fi
-        function preexec {
-          print -Pn "\e]0;$\{(q)1}\e\\"
+        # function preexec {
+        #   print -Pn "\e]0;$\{(q)1}\e\\"
+        # }
+
+        startwm() {
+          dbus-run-session sway
         }
+
+        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then startwm; fi
       '';
 
       zsh-abbr = {
