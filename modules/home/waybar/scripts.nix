@@ -4,9 +4,9 @@
   lib,
   ...
 }:
-let
-  waybar-module-pomodoro = pkgs.callPackage ./waybar-module-pomodoro.nix { };
-in
+# let
+#   waybar-module-pomodoro = pkgs.callPackage ./waybar-module-pomodoro.nix { };
+# in
 {
   home.file = {
     "/home/${username}/.local/bin/waybar-yubikey" = {
@@ -254,6 +254,6 @@ in
     wf-recorder
     bemenu
     ncspot
-    waybar-module-pomodoro
+    # waybar-module-pomodoro
   ];
 }
