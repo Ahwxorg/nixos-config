@@ -64,11 +64,12 @@ in
         };
       };
       home.packages = with pkgs; [
+        dconf
         element-desktop
         dino
         signal-desktop
         mumble
-        anki-bin
+        anki
         wdisplays
         librewolf
         ungoogled-chromium
@@ -99,13 +100,12 @@ in
         poweralertd
 
         # Gaming
-        lunar-client
+        # lunar-client
 
         # Not GUI but specific to GUI usage
         sshuttle
         sshfs
 
-        # previously in hyprland config
         # pkgs.nerdfonts
         # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
         pkgs.twemoji-color-font
