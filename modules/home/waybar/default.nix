@@ -25,21 +25,21 @@
           "position": "top",
 
           "modules-left": [
-            "custom/devices",
-            "privacy",
-            "network",
-            "custom/music",
-            "custom/vpn",
+            "sway/workspaces",
+            "hyprland/workspaces",
             "sway/mode",
             "tray",
           ],
 
           "modules-center": [
-            "sway/workspaces",
-            "hyprland/workspaces",
           ],
 
           "modules-right": [
+            "custom/devices",
+            "privacy",
+            "network",
+            "custom/music",
+            "custom/vpn",
             "custom/yubikey#icon",
             "custom/yubikey#data",
             "group/hardware",
@@ -48,7 +48,7 @@
             // "wireplumber",
             "group/audio",
             "group/battery",
-            "custom/pomodoro",
+            // "custom/pomodoro",
             "group/clock"
           ],
 
@@ -298,7 +298,7 @@
           },
 
           "battery": {
-            "bat": "BAT1",
+            "bat": "macsmc-battery",
             "interval": 20,
             "states": {
               "warning": 20,
@@ -377,14 +377,14 @@
             "exec": "~/.local/bin/waybar-minutes"
           },
 
-          "custom/pomodoro": {
-            "interval": 1,
-            "format": "{}",
-            "return-type": "json",
-            "exec": "waybar-module-pomodoro --no-work-icons",
-            "on-click": "waybar-module-pomodoro toggle",
-            "on-click-right": "waybar-module-pomodoro reset"
-          }
+          // "custom/pomodoro": {
+          //   "interval": 1,
+          //   "format": "{}",
+          //   "return-type": "json",
+          //   "exec": "waybar-module-pomodoro --no-work-icons",
+          //   "on-click": "waybar-module-pomodoro toggle",
+          //   "on-click-right": "waybar-module-pomodoro reset"
+          // }
         }
         ]
       '';
@@ -397,7 +397,7 @@
                           font-family: 'GohuFont 11 Nerd Font Mono';
                           font-weight: 400;
                           font-size: 14px;
-                          min-height: 26px;
+                          min-height: 44px;
                           /* margin: 0 0px; */
                         }
 
