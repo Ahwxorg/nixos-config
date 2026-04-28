@@ -4,7 +4,7 @@
     [ (import ./docker.nix) ]
     ++ [ (import ../security/default.nix) ]
     ++ [ (import ./hardware.nix) ]
-    # ++ [(import ./printing.nix)]
+    ++ [ (import ./printing.nix) ]
     ++ [ (import ./xserver.nix) ]
     ++ [ (import ./network.nix) ]
     ++ [ (import ./pipewire.nix) ]
