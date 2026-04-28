@@ -225,6 +225,17 @@
             inherit self inputs username;
           };
         };
+        fragile = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/fragile)
+          ];
+          specialArgs = {
+            host = "fragile";
+            system = "aarch64-linux";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
