@@ -2,6 +2,7 @@ keys:
   - &sakura age1yzapmznelujajfyrpw5mxmy86ckg377494w5ap4yej39jatewursfxls9w
   - &violet age1zegau3chyn53tqvkwud6tuyggpkazc88pdkqv8cknavaudu49enqm2f0h3
   - &dandelion age1dpzajxcx7dcumda55qc3hncxqd43a7k85t2cdwtcvy5qsgp6k5tsugxqmd
+  - &fragile age1yu47wk9z3j5tspymyda8lw3u5snr66u96f2lzhqfdfmm7xv8xpxqcz9fcv
 creation_rules:
   - path_regex: secrets/sakura/secrets.yaml
     key_groups:
@@ -17,3 +18,7 @@ creation_rules:
       - age:
           - *sakura
           - *dandelion
+  - path_regex: secrets/fragile/secrets.yaml
+    key_groups:
+      - age:
+          - *fragile

@@ -49,6 +49,14 @@
           "dandelionSyncthingId" = { };
           "sakuraSyncthingId" = { };
         }
+      else if (host == "fragile") then
+        {
+          "systemMailerPassword" = { };
+          "yubikeySecret" = {
+            owner = username;
+            path = "/home/${username}/.config/Yubico/u2f_keys";
+          };
+        }
       else
         { };
   };
