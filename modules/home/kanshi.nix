@@ -42,6 +42,15 @@
                 position = "0,0";
               }
             ]
+          else if (host == "fragile") then
+            [
+              {
+                criteria = "eDP-1";
+                scale = 1.25;
+                status = "enable";
+                position = "0,0";
+              }
+            ]
           else
             [
               {
