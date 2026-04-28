@@ -43,15 +43,15 @@ in
       ];
     };
     services = {
-      thermald.enable = true;
-      power-profiles-daemon.enable = true;
+      # thermald.enable = true;
+      # power-profiles-daemon.enable = true;
 
-      udev.extraRules = ''
-        # Switch to power-save profile when on battery
-        SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver", RUN+="/bin/sh -c 'echo 30 | tee /sys/class/backlight/amdgpu_bl1/brightness'"
-        # Switch to balanced profile when plugged in
-        SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced", RUN+="/bin/sh -c 'cat /sys/class/backlight/amdgpu_bl1/max_brightness > /sys/class/backlight/amdgpu_bl1/brightness'"
-      '';
+      # udev.extraRules = ''
+      #   # Switch to power-save profile when on battery
+      #   SUBSYSTEM=="power_supply", ATTR{online}=="0", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set power-saver", RUN+="/bin/sh -c 'echo 30 | tee /sys/class/backlight/amdgpu_bl1/brightness'"
+      #   # Switch to balanced profile when plugged in
+      #   SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="${pkgs.power-profiles-daemon}/bin/powerprofilesctl set balanced", RUN+="/bin/sh -c 'cat /sys/class/backlight/amdgpu_bl1/max_brightness > /sys/class/backlight/amdgpu_bl1/brightness'"
+      # '';
 
       upower = {
         enable = true;
@@ -76,6 +76,6 @@ in
       #  };
       #};
     };
-    # powerManagement.powertop.enable = false; # somehow figure out how to let this not apply to specific USB devices, as they will auto suspend and that is annoying.
+    powerManagement.powertop.enable = false; # somehow figure out how to let this not apply to specific USB devices, as they will auto suspend and that is annoying.
   };
 }
