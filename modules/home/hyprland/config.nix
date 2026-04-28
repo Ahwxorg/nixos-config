@@ -6,6 +6,13 @@
 }:
 {
 
+  # core
+  #xdg.portal = {
+  #  extraPortals = [
+  #    pkgs.xdg-desktop-portal-hyprland
+  #  ];
+  #};
+
   home.file.".config/nwg-dock-hyprland/style.css".text = ''
     * {
     	border-radius: 0
