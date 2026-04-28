@@ -1299,7 +1299,7 @@
     "oisd": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-cm5dctY8XwEFsmiLJdjWOI50bOuo+u87pJNJp99N37I=",
+        "narHash": "sha256-5L9n3VDIHxDdfcGK/MoMg8c7qyaczvmCunR2q+X17G8=",
         "type": "file",
         "url": "https://big.oisd.nl/domainswild"
       },
