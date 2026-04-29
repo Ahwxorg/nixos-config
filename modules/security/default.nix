@@ -1,7 +1,7 @@
 { ... }:
 {
   imports =
-    [ (import ./dnscrypt.nix) ]
+    # [ (import ./dnscrypt.nix) ]
     # ++ [ (import ../opensnitch.nix) ]
-    ++ [ (import ./syslogd.nix) ];
+    [ (import ./syslogd.nix) ];
 }
