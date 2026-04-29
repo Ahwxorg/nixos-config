@@ -16,6 +16,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    # security.pam.services.greetd.enableGnomeKeyring = true; # not using greetd
     services = {
       gvfs = {
         enable = true;
@@ -27,6 +28,7 @@ in
     home-manager.users.${username} = {
       fonts.fontconfig.enable = true;
       gtk = {
+        # gtk4.theme = config.gtk.theme;
         enable = true;
         font = {
           name = "GohuFont 14 Nerd Font Mono";
