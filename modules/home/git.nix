@@ -11,6 +11,7 @@
       alias.stat = "status";
       alias.lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit";
     };
+    signing.format = "openpgp";
   };
 
   home.packages = [
