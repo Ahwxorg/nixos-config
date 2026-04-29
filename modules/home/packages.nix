@@ -13,6 +13,7 @@
     # qbittorrent
     mpv
     qutebrowser
+    xfce.xfce4-taskmanager
 
     # CLI shit
     imagemagick
