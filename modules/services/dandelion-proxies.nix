@@ -6,7 +6,7 @@
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
       locations."/" = {
         # proxyPass = "http://unix:${toString config.services.anubis.instances.librey.settings.BIND}";
-        proxyPass = "http://172.16.10.185:2283";
+        proxyPass = "http://172.16.10.130:2283";
         proxyWebsockets = true;
       };
       extraConfig = ''
