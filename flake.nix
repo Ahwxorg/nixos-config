@@ -27,6 +27,7 @@
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     skhd-zig.url = "github:sebb3/skhd-zig.nix";
     iamb.url = "github:ulyssa/iamb/latest";
+    apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
 
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
