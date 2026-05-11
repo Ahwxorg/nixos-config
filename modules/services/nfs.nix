@@ -6,7 +6,6 @@
 }:
 {
   services = {
-    # Network shares
     samba = {
       package = pkgs.samba;
       # ^^ `samba4Full` is compiled with avahi, ldap, AD etc support (compared to the default package, `samba`. samba4Full gives issue, however)
@@ -34,7 +33,7 @@
       publish.enable = true;
       publish.userServices = true;
       # ^^ Needed to allow samba to automatically register mDNS records (without the need for an `extraServiceFile`
-      #nssmdns4 = true;
+      nssmdns4 = true;
       # ^^ Not one hundred percent sure if this is needed- if it aint broke, don't fix it
       enable = lib.mkForce true;
       openFirewall = true;
