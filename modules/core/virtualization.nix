@@ -14,6 +14,8 @@
         true
       else if (host == "dandelion") then
         true
+      else if (host == "flora") then
+        true
       else if (host == "sakura") then
         true
       else if (host == "yoshino") then
