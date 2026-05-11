@@ -8,6 +8,8 @@
         true
       else if (host == "sunflower") then
         true
+      else if (host == "flora") then
+        true
       else
         false;
     collector.enable = true;
