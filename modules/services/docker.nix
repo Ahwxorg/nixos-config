@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 {
   virtualisation.docker = {
     enable = true;
@@ -6,7 +6,7 @@
     # enableNvidia = true;
   };
   
-  users.users.liv = {
+  users.users.${username} = {
     extraGroups = [ "docker" ];
   };
 }
