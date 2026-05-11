@@ -237,6 +237,17 @@
             inherit self inputs username;
           };
         };
+        flora = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/flora)
+          ];
+          specialArgs = {
+            host = "flora";
+            system = "x86_64-linux";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
