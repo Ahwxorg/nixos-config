@@ -1,0 +1,82 @@
+{
+  pkgs,
+  inputs,
+  ...
+}:
+
+{
+  imports = [
+    ../../modules/core
+    ./hardware-configuration.nix
+    inputs.apple-silicon-support.nixosModules.apple-silicon-support
+    # ./apple-silicon-support
+    ./../../modules/services/tailscale.nix
+    ../../modules/core/automount.nix
+    ./../../modules/services/mpd.nix
+    ./../../modules/services/mullvad.nix
+    # ./../../modules/services/automount.nix
+  ];
+
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+
+  liv = {
+    laptop.enable = true;
+    creative.enable = true;
+    gui.enable = true;
+  };
+
+  networking.hostName = "fragile";
+  networking.networkmanager = {
+    enable = true;
+    # wifi.backend = "iwd"; # required to get WPA3 to work
+  };
+
+  time.timeZone = "Europe/Amsterdam";
+
+  environment.systemPackages = with pkgs; [
+    btrfs-progs
+    neovim
+    wget
+    acpi
+  ];
+
+  services = {
+    displayManager.ly.enable = true;
+    vnstat.enable = true;
+    # hardware.bolt.enable = true; # enable once Thunderbolt is supported
+  };
+
+  # swapDevices = [
+  #   {
+  #     device = "/swapfile";
+  #     size = 32 * 1024;
+  #     # options = [ "discard" ]; # enabling TRIM
+  #   }
+  # ];
+
+  # zramSwap.enable = true;
+
+  boot = {
+    kernelParams = [
+      "appledrm.show_notch=1"
+      "hid_apple.swap_fn_leftctrl=1"
+      "hid_apple.swap_opt_cmd=1"
+      "zswap.enabled=1" # enables zswap
+      "zswap.compressor=lz4" # compression algorithm
+      "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
+      "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
+    ];
+    initrd.systemd.enable = true; # required by lz4 in zram
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = false;
+    };
+    kernel.sysctl."vm.mmap_rnd_bits" = 18;
+    #boot.kernelPatches = map (x: {
+    #  name = baseNameOf x;
+    #  patch = x;
+    #}) (lib.filesystem.listFilesRecursive (./kernel));
+  };
+
+  system.stateVersion = "25.11"; # Did you read the comment?
+}
