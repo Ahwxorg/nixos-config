@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  username,
+  ...
+}:
 {
   services.openssh = {
     enable = true;
@@ -13,7 +18,7 @@
 
   networking.firewall.allowedTCPPorts = config.services.openssh.ports;
 
-  users.users.liv.openssh.authorizedKeys.keys = [
+  users.users.${username}.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGXi00z/rxVrWLKgYr+tWIsbHsSQO75hUMSTThNm5wUw liv@sakura" # sakura
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHv2zxCy22KU1tZOH2hA1p8fWVpOSrTYF68+3E5r330O liv@ichiyo" # ichiyo
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQtG69zrMFsoHForwZEi66y1tPvctqg1OgjQFrF3OI+ liv@iris" # iris
