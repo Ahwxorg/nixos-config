@@ -15,8 +15,9 @@ in
   services = {
     forgejo = {
       enable = true;
-      # database.type = "postgres";
+      database.type = "postgres";
       # Enable support for Git Large File Storage
+      stateDir = "/spinners/applications/forgejo";
       lfs.enable = true;
       settings = {
         server = {
