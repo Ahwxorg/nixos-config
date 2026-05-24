@@ -16,6 +16,7 @@
     ./../../modules/services/tailscale.nix
     ./../../modules/services/nfs.nix
     ./../../modules/services/hd-idle.nix
+    ./../../modules/services/violet.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -50,6 +51,10 @@
       ];
     };
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
 
   # services.xserver.videoDrivers = [ "nvidia" ]; # --> put this in roles/nvidia.nix
   # liv.nvidia.enable = true;
