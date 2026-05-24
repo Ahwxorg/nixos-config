@@ -2,7 +2,7 @@
 {
   services.nextcloud = {
     enable = true;
-    home = "/mnt/array/nextcloud/";
+    home = "/spinners/applications/nextcloud/";
     package = pkgs.nextcloud32;
     hostName = "cloud.liv.town";
     # appstoreEnable = true;
