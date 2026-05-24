@@ -36,6 +36,29 @@
           "funkwhaleDjangoSecret" = { };
           "desecToken" = { };
         }
+      else if (host == "flora") then
+        {
+          "systemMailerPassword" = { };
+          "forgejoWorkerSecret" = { };
+          "minioRootCredentials" = { };
+          "atticdEnvironment" = { };
+          "nextcloudPassword" = { };
+          "gluetunEnvironment" = { };
+          "matrixRegistrationSecret" = {
+            owner = "matrix-synapse";
+          };
+          "matrixWhatsAppBridgeSecret" = {
+            owner = "mautrix-signal";
+          };
+          "matrixSignalBridgeSecret" = {
+            owner = "mautrix-whatsapp";
+          };
+          "smbLoginDetails" = { };
+          "syncplay" = { };
+          "funkwhaleDjangoSecret" = { };
+          "desecToken" = { };
+          "radicaleSecret" = { };
+        }
       else if (host == "sakura") then
         {
           "systemMailerPassword" = { };
