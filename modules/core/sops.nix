@@ -42,7 +42,9 @@
           "forgejoWorkerSecret" = { };
           "minioRootCredentials" = { };
           "atticdEnvironment" = { };
-          "nextcloudPassword" = { };
+          "nextcloudPassword" = {
+            owner = "nextcloud";
+          };
           "gluetunEnvironment" = { };
           "matrixRegistrationSecret" = {
             owner = "matrix-synapse";
