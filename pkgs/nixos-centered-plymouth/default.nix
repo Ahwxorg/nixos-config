@@ -11,8 +11,8 @@ stdenv.mkDerivation {
 
   src = fetchgit {
     url = "https://code.liv.town/liv/nixos-centered-plymouth";
-    rev = "d7c01ff3ca1da939ca9a8b7d72ed1a63ecc1638f";
-    hash = "sha256-2bC3OrlYdAlYFF0pZYULt25IJVY0w04meaYnDksd7sI=";
+    rev = "ccca3ee5e156a5e7e8d4c01734f844a21d284b05";
+    hash = "sha256-mp3vTZ4YbG0GrJ+STp/av4mROtN3CpZHtAW0JiOKJfo=";
   };
 
   dontConfigure = true;
