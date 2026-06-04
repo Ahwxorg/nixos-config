@@ -11,13 +11,24 @@
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
     # ./apple-silicon-support
     ./../../modules/services/tailscale.nix
-    ../../modules/core/automount.nix
+    # ../../modules/core/sshfs.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/mullvad.nix
     # ./../../modules/services/automount.nix
   ];
 
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+
+  environment = {
+    systemPackages = [
+      pkgs.monero-gui
+      pkgs.btrfs-progs
+      pkgs.apfs-fuse
+      pkgs.neovim
+      pkgs.wget
+      pkgs.acpi
+    ];
+  };
 
   liv = {
     laptop.enable = true;
@@ -32,13 +43,6 @@
   };
 
   time.timeZone = "Europe/Amsterdam";
-
-  environment.systemPackages = with pkgs; [
-    btrfs-progs
-    neovim
-    wget
-    acpi
-  ];
 
   services = {
     displayManager.ly.enable = true;
