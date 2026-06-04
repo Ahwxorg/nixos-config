@@ -21,7 +21,18 @@
         forceSSL = true;
         sslCertificate = "/var/lib/acme/liv.town/cert.pem";
         sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
-        # locations."/radicale/" = {
+        locations."/radicale/" = {
+          proxyPass = "http://127.0.0.1:5232/";
+          proxyWebsockets = true;
+          extraConfig = ''
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-Proto https;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Host $remote_addr;
+            proxy_pass_header Authorization;
+          '';
+        };
         locations."/" = {
           proxyPass = "http://127.0.0.1:5232/";
           proxyWebsockets = true;
@@ -32,6 +43,11 @@
             send_timeout                300;
           '';
         };
+        locations."^/.well-known/carddav".return = "301 /radicale/";
+        locations."^/.well-known/caldav".return = "301 /radicale/";
+        locations."^/remote.php/webdav".return = "301 /radicale/";
+        locations."^/remote.php/caldav".return = "301 /radicale/caldav/";
+        locations."^/remote.php/carddav".return = "301 /radicale/carddav/";
       };
     };
   };
