@@ -24,6 +24,8 @@
         true
       else if (host == "imilia") then
         true
+      else if (host == "fragile") then
+        true
       else
         false;
     spiceUSBRedirection.enable =
