@@ -1,7 +1,18 @@
-{ ... }: 
+{
+  username,
+  pkgs,
+  lib,
+  ...
+}:
 {
   virtualisation.docker = {
+    package = lib.mkDefault pkgs.docker_29;
     enable = true;
-    enableOnBoot = false;
+    # autoPrune.enable = true;
+    # enableNvidia = true;
+  };
+
+  users.users.${username} = {
+    extraGroups = [ "docker" ];
   };
 }
