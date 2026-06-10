@@ -14,5 +14,13 @@
         proxyPass = "http://localhost:53842";
       };
     };
+    nginx.virtualHosts."share.ahwx.org" = {
+      forceSSL = true;
+      sslCertificate = "/var/lib/acme/ahwx.org/cert.pem";
+      sslCertificateKey = "/var/lib/acme/ahwx.org/key.pem";
+      locations."/" = {
+        proxyPass = "http://localhost:53842";
+      };
+    };
   };
 }
