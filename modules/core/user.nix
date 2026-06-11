@@ -9,14 +9,10 @@
 }:
 {
   imports =
-    (lib.optionals (system == "x64_64-linux") [ inputs.home-manager.nixosModules.home-manager ])
-    ++ (lib.optionals (system == "aarch64-darwin") [ inputs.home-manager.darwinModules.home-manager ])
-    ++ (lib.optionals (system == "x64_64-linux") [ ./../../roles/default.nix ])
-    ++ (lib.optionals (system == "aarch64-linux") [ ./../../roles/default.nix ])
-    ++ (lib.optionals (system == "x64_64-linux") [ ./user-linux.nix ])
-    ++ (lib.optionals (system == "aarch64-linux") [ ./user-linux.nix ])
-    ++ (lib.optionals (system == "x64_64-linux") [ ./sops.nix ])
-    ++ (lib.optionals (system == "aarch64-linux") [ ./sops.nix ])
+    [ inputs.home-manager.nixosModules.home-manager ]
+    ++ [ ./../../roles/default.nix ]
+    ++ [ ./user-linux.nix ]
+    ++ [ ./sops.nix ]
     ++ [ ./../../variables.nix ];
 
   home-manager = {
@@ -38,12 +34,14 @@
           [ ./../home/default.server.nix ]
         else if (host == "daisy") then
           [ ./../home/default.server.nix ]
+        else if (host == "flora") then
+          [ ./../home/default.server.nix ]
         else if (system == "aarch64-darwin") then
           [ ./../home/default.azalea.nix ]
         else
           [ ./../home ];
       home = {
-        username = "liv";
+        username = "${username}";
         stateVersion = "22.11";
         sessionVariables = {
           EDITOR = "nvim";
