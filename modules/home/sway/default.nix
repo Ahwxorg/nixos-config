@@ -25,7 +25,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    libinput-gestures
     wmctrl
     waylock
   ];
@@ -268,6 +267,8 @@ in
       # blur enable
       # blur_passes 2
       # lbur_radius 1
+      bindgesture swipe:right workspace prev
+      bindgesture swipe:left workspace next
     '';
   };
 
@@ -287,19 +288,6 @@ in
       font_size = "14";
       window_background_color = "d1f21";
       window_background_opacity = 0.2;
-    };
-  };
-
-  home.file = {
-    "/home/${username}/.config/libinput-gestures/sway.conf" = {
-      executable = false;
-      text = "
-       Cycle right through sway workspaces
-       gesture: swipe right 3 swaymsg focus right
-  
-       # Cycle left through sway workspaces
-       gesture: swipe left 3 swaymsg focus left
-     ";
     };
   };
 }
