@@ -86,31 +86,31 @@ in
         proxyWebsockets = true;
       };
     };
-    borgbackup.jobs."violet-forgejo" = {
-      paths = [ "/var/lib/forgejo" ];
-      repo = "${baseRepo}/var-forgejo";
-      encryption.mode = "none";
-      compression = "auto,zstd";
-      startAt = "daily";
-      preHook = ''
-        systemctl stop forgejo
-      '';
-      postHook = ''
-        systemctl start forgejo
-        if [ $exitStatus -eq 2 ]; then
-          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) failed with errors"
-        else
-          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) completed succesfully with exit status $exitStatus"
-        fi
-      '';
-      user = "root";
-      extraCreateArgs = [
-        "--stats"
-      ];
-      environment = {
-        BORG_RSH = "ssh -p 9123 -i /home/${username}/.ssh/id_ed25519";
-      };
-    };
+    # borgbackup.jobs."violet-forgejo" = {
+    #   paths = [ "/var/lib/forgejo" ];
+    #   repo = "${baseRepo}/var-forgejo";
+    #   encryption.mode = "none";
+    #   compression = "auto,zstd";
+    #   startAt = "daily";
+    #   preHook = ''
+    #     systemctl stop forgejo
+    #   '';
+    #   postHook = ''
+    #     systemctl start forgejo
+    #     if [ $exitStatus -eq 2 ]; then
+    #       ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) failed with errors"
+    #     else
+    #       ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (forgejo) completed succesfully with exit status $exitStatus"
+    #     fi
+    #   '';
+    #   user = "root";
+    #   extraCreateArgs = [
+    #     "--stats"
+    #   ];
+    #   environment = {
+    #     BORG_RSH = "ssh -p 9123 -i /home/${username}/.ssh/id_ed25519";
+    #   };
+    # };
   };
   # systemd.services.forgejo.preStart = let
   #   adminCmd = "${lib.getExe cfg.package} admin user";

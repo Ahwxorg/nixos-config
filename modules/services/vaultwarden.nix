@@ -41,30 +41,30 @@ in
         };
       };
     };
-    borgbackup.jobs."violet-vaultwarden" = {
-      paths = [ "/var/lib/bitwarden_rs" ];
-      repo = "${baseRepo}/var-vaultwarden";
-      encryption.mode = "none";
-      compression = "auto,zstd";
-      startAt = "daily";
-      preHook = ''
-        systemctl stop vaultwarden
-      '';
-      postHook = ''
-        systemctl start vaultwarden
-        if [ $exitStatus -eq 2 ]; then
-          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (vaultwarden) failed with errors"
-        else
-          ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (vaultwarden) completed succesfully with exit status $exitStatus"
-        fi
-      '';
-      user = "root";
-      extraCreateArgs = [
-        "--stats"
-      ];
-      environment = {
-        BORG_RSH = "ssh -p 9123 -i /home/${username}/.ssh/id_ed25519";
-      };
-    };
+    # borgbackup.jobs."violet-vaultwarden" = {
+    #   paths = [ "/var/lib/bitwarden_rs" ];
+    #   repo = "${baseRepo}/var-vaultwarden";
+    #   encryption.mode = "none";
+    #   compression = "auto,zstd";
+    #   startAt = "daily";
+    #   preHook = ''
+    #     systemctl stop vaultwarden
+    #   '';
+    #   postHook = ''
+    #     systemctl start vaultwarden
+    #     if [ $exitStatus -eq 2 ]; then
+    #       ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (vaultwarden) failed with errors"
+    #     else
+    #       ${pkgs.ntfy-sh}/bin/ntfy send https://notify.liv.town/${host} "borgbackup: ${host} backup (vaultwarden) completed succesfully with exit status $exitStatus"
+    #     fi
+    #   '';
+    #   user = "root";
+    #   extraCreateArgs = [
+    #     "--stats"
+    #   ];
+    #   environment = {
+    #     BORG_RSH = "ssh -p 9123 -i /home/${username}/.ssh/id_ed25519";
+    #   };
+    # };
   };
 }
