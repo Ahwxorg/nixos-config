@@ -33,7 +33,12 @@ in
     walp
     runbg
     notes
+
     grabtext
+    # required for grabtext
+    slurp
+    tesseract
+
     unfuck
     hidname
     toggle_blur
