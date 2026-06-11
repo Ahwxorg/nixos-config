@@ -9,14 +9,31 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core/default.server.nix
-    ./../../modules/services/docker.nix
     ./../../modules/services/home-assistant.nix
     ./../../modules/services/monitoring.nix
     ./../../modules/services/smart-monitoring.nix
     ./../../modules/services/tailscale.nix
     ./../../modules/services/nfs.nix
     ./../../modules/services/hd-idle.nix
-    ./../../modules/services/violet.nix
+
+    ./../../modules/services/invidious.nix
+    ./../../modules/services/binternet-proxy.nix
+    ./../../modules/services/email.nix
+    ./../../modules/services/forgejo.nix
+    ./../../modules/services/gokapi.nix
+    ./../../modules/services/immich-proxy.nix
+    ./../../modules/services/jellyfin.nix
+    ./../../modules/services/matrix/default.nix
+    ./../../modules/services/mumble.nix
+    ./../../modules/services/ntfy.nix
+    ./../../modules/services/nginx.nix
+    ./../../modules/services/prosody.nix
+    ./../../modules/services/pollaris-proxy.nix
+    ./../../modules/services/radicale.nix
+    ./../../modules/services/sharkey-proxy.nix
+    ./../../modules/services/tailscale.nix
+    ./../../modules/services/uptime-kuma.nix
+    ./../../modules/services/vaultwarden.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
