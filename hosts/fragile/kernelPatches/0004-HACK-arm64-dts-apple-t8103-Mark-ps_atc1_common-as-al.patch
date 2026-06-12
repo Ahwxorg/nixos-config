@@ -1,0 +1,31 @@
+From 59a43872360afe62880e80949395adbddacb971d Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Thu, 25 Dec 2025 18:49:55 +0100
+Subject: [PATCH 04/13] HACK: arm64: dts: apple: t8103: Mark ps_atc1_common as
+ always on
+
+Works around missing suspend/resume handling in ATC phy for DP-altmode.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 0d4ff6fd0933..bf92d3e2c775 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -166,6 +166,10 @@ &dcpext {
+ &dpaudio1 {
+ 	status = "okay";
+ };
++
++&ps_atc1_common {
++	apple,always-on; /* Needs to stay on for DP-alt suspend/resume */
++};
+ #endif
+ 
+ /* USB controllers */
+-- 
+2.53.0
+

@@ -1,0 +1,31 @@
+From 34f2f0780387e1971b5662bddb99a7dba33641a1 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Thu, 25 Dec 2025 18:49:55 +0100
+Subject: [PATCH 12/13] HACK: arm64: dts: apple: t60xx: j[34]75: Mark
+ ps_atc1_common as always on
+
+Works around missing suspend/resume handling in ATC phy for DP-altmode.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+index 167306974939..03b335d0cc53 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+@@ -240,6 +240,10 @@ &dpaudio2 {
+ &atcphy1_xbar {
+         status = "okay";
+ };
++
++&ps_atc1_common {
++	apple,always-on; /* Needs to stay on for DP-alt suspend/resume */
++};
+ #endif
+ 
+ /* USB controllers */
+-- 
+2.53.0
+

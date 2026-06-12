@@ -1,0 +1,78 @@
+From f8fd296869cac5f9d2112ae91ffcfe89e543a050 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sun, 4 Aug 2024 18:42:36 +0200
+Subject: [PATCH 07/13] arm64: apple: t8112-j473: Add DP-altmode on typec1
+
+Needs more testing, maybe a little unstable and somehow limits the HDMI
+out to 1280x720 (to be verified).
+Using dcp as display coproc since dcpext is used for the HDMI port.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8112-j473.dts | 43 ++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8112-j473.dts b/arch/arm64/boot/dts/apple/t8112-j473.dts
+index 48f268bce7d3..855e3bbf89ca 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j473.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j473.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t8112.dtsi"
+ #include "t8112-jxxx.dtsi"
+ 
+@@ -66,6 +68,47 @@ &dcpext {
+ 	apple,dptx-phy = <5>;
+ };
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++/ {
++	aliases {
++		dcp = &dcp;
++	};
++};
++
++&display {
++	/* dispext0_dart needs to be first for m1n1's */
++	iommus = <&dispext0_dart 0>, <&disp0_dart 0>;
++};
++
++&disp0_dart {
++	status = "okay";
++};
++
++&dcp {
++	status = "okay";
++	apple,connector-type = "DP";
++
++	/* hacks */
++	apple,dptx-phy = <1>;
++	phys = <&atcphy1 PHY_TYPE_DP>;
++	phy-names = "dp-phy";
++	mux-controls = <&atcphy1_xbar 0>;
++	mux-control-names = "dp-xbar";
++	mux-index = <0>;
++};
++
++&dcpext {
++	/delete-property/ mux-controls;
++	/delete-property/ mux-control-names;
++	/delete-property/ mux-index;
++};
++
++&typec1 {
++	/* hacks */
++	displayport = <&dcp>;
++};
++#endif
++
+ /* remove once m1n1 enables sio nodes after setup */
+ &sio {
+         status = "okay";
+-- 
+2.53.0
+

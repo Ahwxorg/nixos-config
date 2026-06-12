@@ -1,0 +1,173 @@
+From 21ac5e639a4e07ac944a020c78835dfd76758ff0 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sun, 9 Jun 2024 23:35:29 +0200
+Subject: [PATCH 11/13] arm64: dts: apple: t60xx: j[34]75: Add dp-altmode hacks
+
+DP alt mode for Mac Studio, the blessed port is the back left middle port
+(second closest USB-C port to the power connector).
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t6001-j375c.dts  |  2 +
+ arch/arm64/boot/dts/apple/t6002-j375d.dts  |  2 +
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi  | 47 ++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t6021-j475c.dts  |  6 +++
+ arch/arm64/boot/dts/apple/t6022-j475d.dts  |  2 +
+ arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi |  4 ++
+ 6 files changed, 63 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
+index f3f98f038009..844bee0c4fdf 100644
+--- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
++++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t6001.dtsi"
+ #include "t600x-j375.dtsi"
+ 
+diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
+index 5cf30cd162b6..1eedbfecfc38 100644
+--- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
++++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t6002.dtsi"
+ #include "t600x-j375.dtsi"
+ 
+diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+index ce339c0855bc..167306974939 100644
+--- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
+@@ -23,6 +23,9 @@ aliases {
+ 		disp0 = &display;
+ 		disp0_piodma = &disp0_piodma;
+ 		#endif
++#ifdef ENABLE_DCPEXT_TYPEC
++		dcpext1 = &dcpext1;
++#endif
+ 		ethernet0 = &ethernet0;
+ 		serial0 = &serial0;
+ 		sio = &sio;
+@@ -111,6 +114,11 @@ typec1: connector {
+ 			power-role = "dual";
+ 			data-role = "dual";
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++			/* hacks */
++			displayport = <&dcpext1>;
++#endif
++
+ 			ports {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -195,6 +203,45 @@ typec3_connector_ss: endpoint {
+ 	};
+ };
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++&display {
++	iommus = <&disp0_dart 0>, <&dispext1_dart 0>;
++};
++
++&dispext1_dart {
++	status = "okay";
++};
++
++&dcpext1_dart {
++	status = "okay";
++};
++
++&dcpext1_mbox {
++	status = "okay";
++};
++
++&dcpext1 {
++	status = "okay";
++	apple,connector-type = "DP";
++
++	/* hacks */
++	apple,dptx-phy = <1>;
++	phys = <&atcphy1 PHY_TYPE_DP>;
++	phy-names = "dp-phy";
++	mux-controls = <&atcphy1_xbar 0>;
++	mux-control-names = "dp-xbar";
++	mux-index = <2>;
++};
++
++&dpaudio2 {
++	status = "okay";
++};
++
++&atcphy1_xbar {
++        status = "okay";
++};
++#endif
++
+ /* USB controllers */
+ &dwc3_0 {
+ 	ports {
+diff --git a/arch/arm64/boot/dts/apple/t6021-j475c.dts b/arch/arm64/boot/dts/apple/t6021-j475c.dts
+index e4321cfc5568..ce08d5a42761 100644
+--- a/arch/arm64/boot/dts/apple/t6021-j475c.dts
++++ b/arch/arm64/boot/dts/apple/t6021-j475c.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t6021.dtsi"
+ #include "t602x-j474-j475.dtsi"
+ 
+@@ -81,7 +83,11 @@ &dcp {
+ 	status = "disabled";
+ };
+ &display {
++#ifdef ENABLE_DCPEXT_TYPEC
++	iommus = <&dispext0_dart 0>, <&dispext1_dart 0>;
++#else
+ 	iommus = <&dispext0_dart 0>;
++#endif
+ };
+ &dispext0_dart {
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
+index cdfc78a1703c..1ab639556cb0 100644
+--- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
++++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #define NO_DCP
+ 
+ #include "t6022.dtsi"
+diff --git a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
+index fa0183441d79..eee0c83f7f7d 100644
+--- a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
++++ b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
+@@ -22,7 +22,11 @@ &lpdptxphy_die1 {
+ };
+ 
+ &display {
++#ifdef ENABLE_DCPEXT_TYPEC
++	iommus = <&dispext0_dart_die1 0>, <&dispext1_dart 0>;
++#else
+ 	iommus = <&dispext0_dart_die1 0>;
++#endif
+ };
+ 
+ &dispext0_dart_die1 {
+-- 
+2.53.0
+

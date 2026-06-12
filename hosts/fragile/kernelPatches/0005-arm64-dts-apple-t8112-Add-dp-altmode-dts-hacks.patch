@@ -1,0 +1,124 @@
+From 65061fcd844e58c4295b8461080381917d7c03b7 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sat, 3 Dec 2022 22:19:44 +0100
+Subject: [PATCH 05/13] arm64: dts: apple: t8112: Add dp-altmode dts hacks
+
+Enable DP alt mode for the front left USB-C port of Macbook Air 13 (M2,
+13/15-inch) and Macbook Pro (M2, 13-inch).
+Can't easily enabled on on the M2 Mac Mini since dcpext is used for the
+HDMI port and dcp bringup is troublesome.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8112-j413.dts  |  2 +
+ arch/arm64/boot/dts/apple/t8112-j415.dts  |  2 +
+ arch/arm64/boot/dts/apple/t8112-j493.dts  |  2 +
+ arch/arm64/boot/dts/apple/t8112-jxxx.dtsi | 46 +++++++++++++++++++++++
+ 4 files changed, 52 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8112-j413.dts b/arch/arm64/boot/dts/apple/t8112-j413.dts
+index f36d40cb7fe6..312a54cb7f21 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j413.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j413.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t8112.dtsi"
+ #include "t8112-jxxx.dtsi"
+ #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/apple/t8112-j415.dts b/arch/arm64/boot/dts/apple/t8112-j415.dts
+index 7f63969ede2a..5fe5b2ba5dab 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j415.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j415.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t8112.dtsi"
+ #include "t8112-jxxx.dtsi"
+ #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
+index 61bbb7a3c6f4..9859375f8fa1 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j493.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
+@@ -9,6 +9,8 @@
+ 
+ /dts-v1/;
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ #include "t8112.dtsi"
+ #include "t8112-jxxx.dtsi"
+ #include <dt-bindings/leds/common.h>
+diff --git a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
+index fb957f785d82..344042877adb 100644
+--- a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
+@@ -96,6 +96,11 @@ typec1: connector {
+ 			power-role = "dual";
+ 			data-role = "dual";
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++			/* hacks */
++			displayport = <&dcpext>;
++#endif
++
+ 			ports {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -116,6 +121,47 @@ typec1_connector_ss: endpoint {
+ 	};
+ };
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++/ {
++	aliases {
++		dcpext = &dcpext;
++	};
++};
++
++&display {
++	iommus = <&disp0_dart 0>, <&dispext0_dart 0>;
++};
++
++&dispext0_dart {
++	status = "okay";
++};
++
++&dcpext_dart {
++	status = "okay";
++};
++
++&dcpext_mbox {
++	status = "okay";
++};
++
++&dcpext {
++	status = "okay";
++	apple,connector-type = "DP";
++
++	/* hacks */
++	apple,dptx-phy = <1>;
++	phys = <&atcphy1 PHY_TYPE_DP>;
++	phy-names = "dp-phy";
++	mux-controls = <&atcphy1_xbar 0>;
++	mux-control-names = "dp-xbar";
++	mux-index = <2>;
++};
++
++&dpaudio1 {
++	status = "okay";
++};
++#endif
++
+ /* USB controllers */
+ &dwc3_0 {
+ 	ports {
+-- 
+2.53.0
+

@@ -1,0 +1,31 @@
+From b04b3bc51b8aa57880256b0c2fd99e19c6236f9e Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Thu, 25 Dec 2025 18:49:55 +0100
+Subject: [PATCH 08/13] HACK: arm64: apple: t8112-j473: Mark ps_atc1_common as
+ always on
+
+Works around missing suspend/resume handling in ATC phy for DP-altmode.
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8112-j473.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8112-j473.dts b/arch/arm64/boot/dts/apple/t8112-j473.dts
+index 855e3bbf89ca..6c3b04fa6553 100644
+--- a/arch/arm64/boot/dts/apple/t8112-j473.dts
++++ b/arch/arm64/boot/dts/apple/t8112-j473.dts
+@@ -107,6 +107,10 @@ &typec1 {
+ 	/* hacks */
+ 	displayport = <&dcp>;
+ };
++
++&ps_atc1_common {
++	apple,always-on; /* Needs to stay on for DP-alt suspend/resume */
++};
+ #endif
+ 
+ /* remove once m1n1 enables sio nodes after setup */
+-- 
+2.53.0
+

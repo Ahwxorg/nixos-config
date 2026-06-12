@@ -1,0 +1,94 @@
+From 8710bf540afd5a936933e137116eed6f86efc151 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sat, 3 Dec 2022 21:26:42 +0100
+Subject: [PATCH 03/13] arm64: dts: apple: t8103: Add dp-altmode dts hacks
+
+Enable DP alt mode for all M1 devices:
+- Mac Mini (M1): USB-C port next to the HDMI port
+- Macbook Pro (M1, 13-inch): front left USB-C port
+- Macbook Air (M1, 13-inch): front left USB-C port
+- iMac (M1, 2 USB-C ports): back left USB-C port
+- iMac (M1, 4 USB-C ports): back right middle USB-C port
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi | 45 +++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 67a57fc507df..0d4ff6fd0933 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -9,10 +9,15 @@
+  * Copyright The Asahi Linux Contributors
+  */
+ 
++#define ENABLE_DCPEXT_TYPEC
++
+ / {
+ 	aliases {
+ 		bluetooth0 = &bluetooth0;
+ 		dcp = &dcp;
++#ifdef ENABLE_DCPEXT_TYPEC
++		dcpext = &dcpext;
++#endif
+ 		disp0 = &display;
+ 		disp0_piodma = &disp0_piodma;
+ 		serial0 = &serial0;
+@@ -103,6 +108,11 @@ typec1: connector {
+ 			power-role = "dual";
+ 			data-role = "dual";
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++			/* hacks */
++			displayport = <&dcpext>;
++#endif
++
+ 			ports {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
+@@ -123,6 +133,41 @@ typec1_connector_ss: endpoint {
+ 	};
+ };
+ 
++#ifdef ENABLE_DCPEXT_TYPEC
++&display {
++	iommus = <&disp0_dart 0>, <&dispext0_dart 0>;
++};
++
++&dispext0_dart {
++	status = "okay";
++};
++
++&dcpext_dart {
++	status = "okay";
++};
++
++&dcpext_mbox {
++	status = "okay";
++};
++
++&dcpext {
++	status = "okay";
++	apple,connector-type = "DP";
++
++	/* hacks */
++	apple,dptx-phy = <1>;
++	phys = <&atcphy1 PHY_TYPE_DP>;
++	phy-names = "dp-phy";
++	mux-controls = <&atcphy1_xbar 0>;
++	mux-control-names = "dp-xbar";
++	mux-index = <0>;
++};
++
++&dpaudio1 {
++	status = "okay";
++};
++#endif
++
+ /* USB controllers */
+ &dwc3_0 {
+ 	ports {
+-- 
+2.53.0
+
