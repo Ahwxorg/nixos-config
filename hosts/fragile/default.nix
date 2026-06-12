@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }:
 
@@ -36,10 +37,9 @@
     gui.enable = true;
   };
 
-  networking.hostName = "fragile";
-  networking.networkmanager = {
-    enable = true;
-    # wifi.backend = "iwd"; # required to get WPA3 to work
+  networking = {
+    hostName = "fragile";
+    networkmanager.enable = true;
   };
 
   time.timeZone = "Europe/Amsterdam";
@@ -54,7 +54,7 @@
   #   {
   #     device = "/swapfile";
   #     size = 32 * 1024;
-  #     # options = [ "discard" ]; # enabling TRIM
+  #     options = [ "discard" ]; # enabling TRIM
   #   }
   # ];
 
@@ -76,10 +76,21 @@
       efi.canTouchEfiVariables = false;
     };
     kernel.sysctl."vm.mmap_rnd_bits" = 18;
-    #boot.kernelPatches = map (x: {
-    #  name = baseNameOf x;
-    #  patch = x;
-    #}) (lib.filesystem.listFilesRecursive (./kernel));
+    kernelPatches =
+      # [
+      #   {
+      #     name = "localversion-config";
+      #     patch = null;
+      #     extraConfig = ''
+      #       LOCALVERSION -according-to-all-known-laws-of-aviation-there-is-no-way-a
+      #     '';
+      #   }
+      # ]
+      # ++
+      map (x: {
+        name = baseNameOf x;
+        patch = x;
+      }) (lib.filesystem.listFilesRecursive (./kernelPatches));
   };
 
   system.stateVersion = "25.11"; # Did you read the comment?
