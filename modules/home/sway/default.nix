@@ -206,6 +206,7 @@ in
         # { command = "wlsunset -S '06:30' -s '19:30' -d 1800 "; }
         { command = "foot --server &"; }
         { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; }
+        { command = "xfce4-taskmanager"; }
       ];
       workspaceAutoBackAndForth = false;
 
