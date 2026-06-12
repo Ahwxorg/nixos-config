@@ -232,10 +232,9 @@
           gc = "git clone";
           ga = "git add .";
           gcm = "git commit -m";
-          gph = "git push -u origin main";
           g = "git";
           gp = "git pull";
-
+          compose = "docker compose";
           wiki = "wikit";
         };
       };
