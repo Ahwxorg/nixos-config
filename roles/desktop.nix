@@ -16,13 +16,13 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ cifs-utils ];
+    environment.systemPackages = [ pkgs.cifs-utils ];
     home-manager = {
       users.${username} = {
-        home.packages = with pkgs; [
+        home.packages = [
           # Home packages
-          swaylock
-          lm_sensors
+          pkgs.swaylock
+          pkgs.lm_sensors
         ];
       };
     };

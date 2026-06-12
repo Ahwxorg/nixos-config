@@ -16,17 +16,17 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      cifs-utils
-      powertop
+    environment.systemPackages = [
+      pkgs.cifs-utils
+      pkgs.powertop
     ];
     home-manager = {
       users.${username} = {
-        home.packages = with pkgs; [
-          acpi
-          brightnessctl
-          powertop
-          lm_sensors
+        home.packages = [
+          pkgs.acpi
+          pkgs.brightnessctl
+          pkgs.powertop
+          pkgs.lm_sensors
         ];
       };
     };

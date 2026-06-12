@@ -16,10 +16,10 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       pkgs.kitty.terminfo
-      powertop
-      bind
+      pkgs.powertop
+      pkgs.bind
     ];
 
     services = {

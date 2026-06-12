@@ -5,11 +5,11 @@
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    mpc
-    mpdris2
-    ncmpcpp
-    rmpc
+  environment.systemPackages = [
+    pkgs.mpc
+    pkgs.mpdris2
+    pkgs.ncmpcpp
+    pkgs.rmpc
   ];
 
   services.mpd = {

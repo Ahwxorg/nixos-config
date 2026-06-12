@@ -65,48 +65,48 @@ in
           };
         };
       };
-      home.packages = with pkgs; [
-        dconf
-        element-desktop
-        dino
-        signal-desktop
-        mumble
-        anki
-        wdisplays
-        librewolf
-        ungoogled-chromium
-        nsxiv
-        imv
-        libreoffice
-        nautilus
-        spotify-player
-        thunderbird
-        lxqt.pavucontrol-qt
-        mpv
-        kdePackages.kdeconnect-kde
-        libgnome-keyring
-        foot
-        nautilus
-        tesseract
-        yubikey-touch-detector
-        wireguard-tools
-        openresolv
-        xdg-utils
-        killall
-        libnotify
-        openssl
-        pamixer
-        playerctl
-        wl-clipboard
-        cliphist
-        poweralertd
+      home.packages = [
+        pkgs.dconf
+        pkgs.element-desktop
+        pkgs.dino
+        pkgs.signal-desktop
+        pkgs.mumble
+        pkgs.anki
+        pkgs.wdisplays
+        pkgs.librewolf
+        pkgs.ungoogled-chromium
+        pkgs.nsxiv
+        pkgs.imv
+        pkgs.libreoffice
+        pkgs.nautilus
+        pkgs.spotify-player
+        pkgs.thunderbird
+        pkgs.lxqt.pavucontrol-qt
+        pkgs.mpv
+        pkgs.kdePackages.kdeconnect-kde
+        pkgs.libgnome-keyring
+        pkgs.foot
+        pkgs.nautilus
+        pkgs.tesseract
+        pkgs.yubikey-touch-detector
+        pkgs.wireguard-tools
+        pkgs.openresolv
+        pkgs.xdg-utils
+        pkgs.killall
+        pkgs.libnotify
+        pkgs.openssl
+        pkgs.pamixer
+        pkgs.playerctl
+        pkgs.wl-clipboard
+        pkgs.cliphist
+        pkgs.poweralertd
 
         # Gaming
         # lunar-client
 
         # Not GUI but specific to GUI usage
-        sshuttle
-        sshfs
+        pkgs.sshuttle
+        pkgs.sshfs
 
         # pkgs.nerdfonts
         # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

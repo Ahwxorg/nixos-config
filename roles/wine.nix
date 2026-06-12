@@ -1,19 +1,27 @@
-{ lib, pkgs, config, username, home-manager, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  username,
+  home-manager,
+  ...
+}:
 with lib;
 let
   cfg = config.liv.wine;
-in {
+in
+{
   options.liv.wine = {
     enable = mkEnableOption "Enable wine";
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      wineWowPackages.stable
-      wineWowPackages.waylandFull
-      winetricks
-      mono5
-      mono
+    environment.systemPackages = [
+      pkgs.wineWowPackages.stable
+      pkgs.wineWowPackages.waylandFull
+      pkgs.winetricks
+      pkgs.mono5
+      pkgs.mono
     ];
   };
 }

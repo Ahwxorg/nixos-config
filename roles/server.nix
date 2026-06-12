@@ -16,11 +16,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      kitty.terminfo
-      foot.terminfo
-      powertop
-      lm_sensors
+    environment.systemPackages = [
+      pkgs.kitty.terminfo
+      pkgs.foot.terminfo
+      pkgs.powertop
+      pkgs.lm_sensors
     ];
 
     services = {

@@ -27,22 +27,22 @@ in
       enableRedistributableFirmware = true;
       graphics = {
         enable = true;
-        extraPackages = with pkgs; [
+        extraPackages = [
           # amdvlk would be the package that would be required for AMD on desktop, since none of the hosts use NVIDIA as a desktop GPU, this is open and uncertain.
         ];
         # For 32 bit applications as well
-        extraPackages32 = with pkgs; [
+        extraPackages32 = [
           # driversi686Linux.amdvlk would be the package that would be required for AMD on desktop, since none of the hosts use NVIDIA as a desktop GPU, this is open and uncertain.
         ];
       };
     };
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = [
       # amdvlk
       #nvidia-x11
       #nvidia-settings
       #nvidia-persistenced
-      nvtopPackages.nvidia
+      pkgs.nvtopPackages.nvidia
     ];
   };
 }
