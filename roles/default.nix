@@ -9,5 +9,6 @@
     ++ [ (import ./desktop.nix) ]
     ++ [ (import ./wine.nix) ]
     ++ [ (import ./creative.nix) ]
+    ++ [ (import ./gnome.nix) ]
     ++ [ (import ./gui.nix) ];
 }
