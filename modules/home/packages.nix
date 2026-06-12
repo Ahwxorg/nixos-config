@@ -1,54 +1,55 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
+  home.packages = [
     # Environment shit
-    ffmpeg
-    zip
-    unzip
-    wget
-    xxd
-    gcc
-    gnumake
-    python3
-    # qbittorrent
-    mpv
-    qutebrowser
-    xfce.xfce4-taskmanager
+    pkgs.ffmpeg
+    pkgs.zip
+    pkgs.unzip
+    pkgs.wget
+    pkgs.xxd
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.python3
+    pkgs.qbittorrent
+    pkgs.mpv
+    pkgs.qutebrowser
+    pkgs.xfce.xfce4-taskmanager
 
     # CLI shit
-    imagemagick
-    vimv
-    pass
-    neofetch
-    hyfetch
-    glow
-    eva
-    exiftool
-    translate-shell
-    progress
-    pwgen
-    jq
-    tmux
-    eza
-    file
-    fzf
-    lazygit
-    gitleaks
-    ripgrep
-    yt-dlp
-    nodejs_22
-    yarn
-    cargo
-    rustc
-    nmap
-    speedtest-go
-    android-tools
-    sshpass
-    net-tools
-    nmap
-    aerc
-    w3m
-    spotify-player
+    pkgs.imagemagick
+    pkgs.vimv
+    pkgs.pass
+    pkgs.neofetch
+    pkgs.hyfetch
+    pkgs.glow
+    pkgs.eva
+    pkgs.exiftool
+    pkgs.translate-shell
+    pkgs.progress
+    pkgs.pwgen
+    pkgs.jq
+    pkgs.tmux
+    pkgs.eza
+    pkgs.file
+    pkgs.fzf
+    pkgs.lazygit
+    pkgs.gitleaks
+    pkgs.ripgrep
+    pkgs.yt-dlp
+    pkgs.nodejs_22
+    pkgs.yarn
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.nmap
+    pkgs.speedtest-go
+    pkgs.android-tools
+    pkgs.sshpass
+    pkgs.net-tools
+    pkgs.nmap
+    pkgs.aerc
+    pkgs.w3m
+    pkgs.spotify-player
+    pkgs.ansible
 
     # aspell
     # aspellDicts.de
