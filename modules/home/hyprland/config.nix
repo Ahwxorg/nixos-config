@@ -105,8 +105,10 @@
 
       "debug:disable_scale_checks" = true;
       monitor =
-        if (host == "sakura") then
+        if (host == "fw13") then
           "eDP-1, 2256x1504@60, 0x0, 1.0"
+        else if (host == "sakura") then
+          "eDP-1, 1920x1200@60, 0x0, 1.0"
         else if (host == "zinnia") then
           "eDP-1, 1920x1080@60, 0x0, 1.0"
         else if (host == "imilia") then
