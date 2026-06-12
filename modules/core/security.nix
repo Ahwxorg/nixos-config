@@ -7,13 +7,17 @@
 {
   security = {
     rtkit.enable = true;
-    pam.services.swaylock = { };
     auditd.enable = true;
     audit = {
       enable = true;
       rules = [
         "-a exit,always -F arch=b64 -S execve"
       ];
+    };
+    pam.services = {
+      swaylock = { };
+      login.enableGnomeKeyring = true;
+      ly.enableGnomeKeyring = true;
     };
 
     sudo = {
