@@ -2,28 +2,34 @@
 {
   services.nextcloud = {
     enable = true;
-    home = "/spinners/applications/nextcloud/";
-    package = pkgs.nextcloud32;
+    home = "/spinners/applications/nextcloud2";
+    caching.apcu = true;
+    configureRedis = true;
+    caching.redis = true;
+    package = pkgs.nextcloud33;
     hostName = "cloud.liv.town";
-    # appstoreEnable = true;
+    appstoreEnable = false;
+    autoUpdateApps.enable = false;
     https = true;
     maxUploadSize = "10G";
+    extraAppsEnable = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
-        news
+        # news
         contacts
         calendar
         groupfolders
-        notify_push
+        # notify_push
         ;
     };
+    notify_push.enable = true;
     config = {
       adminuser = "root";
       adminpassFile = config.sops.secrets.nextcloudPassword.path;
       dbtype = "sqlite";
     };
-    configureRedis = true;
     settings = {
+      appstoreenabled = false;
       mail_smtpmode = "smtp";
       mail_sendmailmode = "smtp";
       mail_from_address = "noreply";
