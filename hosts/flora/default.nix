@@ -22,7 +22,6 @@
     ./../../modules/services/forgejo.nix
     ./../../modules/services/gokapi.nix
     ./../../modules/services/immich-proxy.nix
-    ./../../modules/services/jellyfin.nix
     ./../../modules/services/matrix/default.nix
     ./../../modules/services/mumble.nix
     ./../../modules/services/ntfy.nix
