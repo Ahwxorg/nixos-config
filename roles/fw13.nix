@@ -6,7 +6,7 @@
 }:
 with lib;
 let
-  cfg = config.liv.gui;
+  cfg = config.liv.fw13;
 in
 {
   options.liv.fw13 = {
