@@ -8,10 +8,8 @@
 }:
 {
   imports =
-    (lib.optionals (system == "x64_64-linux") [ (import ./i18n.nix) ])
-    ++ (lib.optionals (system == "aarch64-linux") [ (import ./i18n.nix) ])
-    ++ (lib.optionals (system == "x64_64-linux") [ (import ./nixos.nix) ])
-    ++ (lib.optionals (system == "aarch64-linux") [ (import ./nixos.nix) ]);
+    [ (import ./i18n.nix) ]
+    ++     [ (import ./nixos.nix) ];
 
   nix = {
     settings = {
