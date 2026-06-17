@@ -5,11 +5,11 @@
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    hypr-contrib.url = "github:hyprwm/contrib";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    # hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    # hypr-contrib.url = "github:hyprwm/contrib";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -28,6 +28,7 @@
     skhd-zig.url = "github:sebb3/skhd-zig.nix";
     iamb.url = "github:ulyssa/iamb/latest";
     apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
+    nix-webapps.url = "github:AniviaFlome/nix-webapps";
 
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
