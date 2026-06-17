@@ -16,6 +16,7 @@
     ./../../modules/services/mpd.nix
     ./../../modules/services/mullvad.nix
     # ./../../modules/services/automount.nix
+    # ./../../modules/home/webapps.nix
   ];
 
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
@@ -35,6 +36,7 @@
     laptop.enable = true;
     creative.enable = true;
     gui.enable = true;
+    gnome.enable = true;
   };
 
   networking = {
@@ -45,7 +47,7 @@
   time.timeZone = "Europe/Amsterdam";
 
   services = {
-    displayManager.ly.enable = true;
+    # displayManager.ly.enable = true;
     vnstat.enable = true;
     # hardware.bolt.enable = true; # enable once Thunderbolt is supported
   };
