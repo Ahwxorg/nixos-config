@@ -46,6 +46,9 @@
   users.groups.libvirtd.members =
     if (config.virtualisation.libvirtd.enable == true) then [ username ] else [ ];
 
+  users.groups.qemu-libvirtd.members =
+    if (config.virtualisation.libvirtd.enable == true) then [ username ] else [ ];
+
   # Enable qemu etc
   environment.systemPackages = with pkgs; [
     qemu

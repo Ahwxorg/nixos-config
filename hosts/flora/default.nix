@@ -78,6 +78,7 @@
   environment.systemPackages = [
     pkgs.kitty
     pkgs.foot
+    pkgs.zpool-iostat-viz
   ];
 
   time.timeZone = "Europe/Amsterdam";
