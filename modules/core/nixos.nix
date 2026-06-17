@@ -12,6 +12,10 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
+    settings.trusted-users = [
+      "root"
+      "@wheel"
+    ];
   };
 
   programs.nix-ld = {
