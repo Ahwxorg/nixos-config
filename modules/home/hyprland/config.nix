@@ -2,107 +2,22 @@
   pkgs,
   host,
   username,
+  inputs,
   ...
 }:
 {
-
-  # core
-  #xdg.portal = {
-  #  extraPortals = [
-  #    pkgs.xdg-desktop-portal-hyprland
-  #  ];
-  #};
-
-  home.file.".config/nwg-dock-hyprland/style.css".text = ''
-    * {
-    	border-radius: 0
-    }
-
-    window {
-    	background: #000000;
-    	border-style: none;
-    	border-width: 1px;
-    	border-radius: 0;
-    	border-color: rgba(156, 142, 122, 0.7);
-    	padding: 4em 6em;
-    	background: rgba(0, 0, 0, 0.5);
-    	-webkit-backdrop-filter: blur(25px);
-    	margin: 7px;
-    }
-
-    #box {
-    	/* Define attributes of the box surrounding icons here */
-    	padding: 10px
-    }
-
-    button,
-    image {
-    	background: none;
-    	border-style: none;
-    	box-shadow: none;
-    	color: #999
-    }
-
-    button {
-    	padding: 4px;
-    	margin-left: 4px;
-    	margin-right: 4px;
-    	color: #eee;
-    	font-size: 12px
-    }
-
-    button:hover {
-    	background-color: rgba(255, 255, 255, 0.15);
-    	border-radius: 2px;
-    }
-
-    button:focus {
-    	box-shadow: 0 0 2px;
-    }
-  '';
-
-  home.file.".cache/nwg-dock-pinned".text = ''
-    chromium-browser
-    nautilus
-    ${if (host == "sakura") then "darktable" else ""}
-    ${if (host == "sakura") then "flstudio" else ""}
-    ${if (host == "iris") then "steam" else ""}
-    footclient
-    qutebrowser
-    librewolf
-    anki
-    virt-manager
-    Element
-    signal
-    spotify
-    thunderbird
-  '';
-
-  services.hypridle.enable = true;
-
-  home.file.".config/hypr/hypridle.conf".text = ''
-    general {
-      lock_cmd = pgrep hyprlock || hyprlock
-    }
-
-    listener {
-      timeout = 300 # 5m in seconds
-      on-timeout = if [ -f "$HOME/.config/hypr/caffeine_mode" ]; then exit 0; else pgrep hyprlock || hyprlock; fi
-    }
-
-    listener {
-      timeout = 1800 # 30m in seconds
-      on-timeout = if [ -f "$HOME/.config/hypr/caffeine_mode" ]; then exit 0; else systemctl suspend; hyprlock; fi
-    }
-  '';
+  imports = [
+    ./hyprland.nix
+  ];
 
   services.swayosd.enable = true;
 
   wayland.windowManager.hyprland = {
+    enable = true;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
     settings = {
-
-      source = "~/nixos-config/modules/home/hyprland/displays.conf";
-
       "debug:disable_scale_checks" = true;
       monitor =
         if (host == "fw13") then
@@ -113,6 +28,8 @@
           "eDP-1, 1920x1080@60, 0x0, 1.0"
         else if (host == "imilia") then
           "eDP-1, 1920x1080@60, 0x0, 1.0"
+        else if (host == "fragile") then
+          "eDP-1, 3024x1964@120, 0x0, 1.5"
         else
           ", preferred, auto, 1";
 
@@ -121,7 +38,7 @@
         "systemctl --user import-environment &"
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
-        "wl-clip-persist --clipboard both"
+        "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard both"
         "swww-daemon &"
         "poweralertd &"
         "waybar &"
@@ -132,10 +49,7 @@
         "foot --server &"
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
-        # "nwg-dock-hyprland -l top &"
         "nextcloud &"
-        # "hyprland-monitor-attached dock-on-all-monitors dock-on-all-monitors &"
-        "vicinae server &"
       ];
 
       input = {
@@ -146,6 +60,9 @@
         sensitivity = 0;
         touchpad = {
           natural_scroll = true;
+          tap-to-click = false;
+          clickfinger_behavior = true;
+          disable_while_typing = true;
         };
       };
 
@@ -282,9 +199,9 @@
         "ALT, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "ALT, Space, togglefloating,"
         # "ALT, D, exec, bemenu-run -l 5 --ignorecase"
-        "ALT, D, exec, vicinae toggle"
-        "SUPER SHIFT, L, exec, swaylock-fancy"
-        "SUPER, L, exec, swaylock-fancy"
+        "ALT, D, exec, bemenu-run -l 5 --ignorecase"
+        "SUPER SHIFT, L, exec, ${pkgs.swaylock-fancy}/bin/swaylock-fancy"
+        # "SUPER, L, exec, swaylock-fancy"
         "ALT, E, exec, nautilus"
         "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "ALT, C,exec, hyprpicker -a"
@@ -299,8 +216,7 @@
         "ALT SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
 
         # clipboard manager
-        # "ALT SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
-        "ALT SHIFT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+        "ALT SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
         "ALT SHIFT, F, exec, librewolf"
         "ALT SHIFT, C, exec, chromium"
@@ -416,17 +332,16 @@
 
       ## windowrulev2
       windowrule = [
-        # "opacity 0.5 0.5, match:class nwg-dock-hyprland"
-        "no_blur on, match:class ungoogled-chromium"
-        "no_blur on, match:class librewolf"
-        "no_screen_share on, match:class element-desktop"
-        "match:title ^(.*Bitwarden Password Manager.*)$, float on"
-        "match:title ^(Picture-in-Picture)$, float on"
-        "match:title ^(Picture-in-Picture)$, pin on"
+        # "no_blur on, match:class ungoogled-chromium"
+        # "no_blur on, match:class librewolf"
+        # "no_screen_share on, match:class element-desktop"
+        # "match:title ^(.*Bitwarden Password Manager.*)$, float on"
+        # "match:title ^(Picture-in-Picture)$, float on"
+        # "match:title ^(Picture-in-Picture)$, pin on"
         # stop idle when watching videos
-        "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
-        "match:class ^(chromium)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
-        "match:class ^(chromium)$, idle_inhibit fullscreen"
+        # "match:class ^(mpv|.+exe|celluloid)$, idle_inhibit focus"
+        # "match:class ^(chromium)$, match:title ^(.*YouTube.*)$, idle_inhibit focus"
+        # "match:class ^(chromium)$, idle_inhibit fullscreen"
         #  "noanim, class:^(bemenu)$"
         #  "float, title:^(Picture-in-Picture)$"
         #  "opacity 1.0 override 1.0 override, title:^(Picture-in-Picture)$"
@@ -458,10 +373,6 @@
         #  "float,title:^(File Operation Progress)$"
         #  "float,title:^(float_foot)$"
         #  "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-      ];
-      layerrule = [
-        "match:class vicinae, blur on"
-        "match:class vicinae, ignore_alpha 0"
       ];
     };
 
