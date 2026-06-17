@@ -17,7 +17,7 @@ in
 
   config = mkIf cfg.enable {
     # security.pam.services.greetd.enableGnomeKeyring = true; # not using greetd
-    hardware.opengl.enable = true;
+    hardware.graphics.enable = true;
     services = {
       gvfs = {
         enable = true;
