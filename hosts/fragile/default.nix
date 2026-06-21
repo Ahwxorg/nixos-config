@@ -17,6 +17,7 @@
     ./../../modules/services/mullvad.nix
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
+    ./../../modules/services/keyd.nix
   ];
 
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;

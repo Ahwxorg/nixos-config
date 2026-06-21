@@ -294,6 +294,8 @@
         nix-switch-upgrade = "sudo nixos-rebuild switch --upgrade --flake ~/nixos-config#${host}";
         nix-flake-update = "sudo nix flake update ~/nixos-config#";
         nix-clean = "sudo nix-collect-garbage && sudo nix-collect-garbage -d && sudo rm /nix/var/nix/gcroots/auto/* && nix-collect-garbage && nix-collect-garbage -d";
+        keydon = "sudo systemctl start keyd";
+        keydoff = "sudo systemctl stop keyd";
       };
 
       plugins = with pkgs; [
