@@ -83,6 +83,7 @@ in
         pkgs.spotify-player
         pkgs.thunderbird
         pkgs.lxqt.pavucontrol-qt
+        pkgs.helvum
         pkgs.mpv
         pkgs.kdePackages.kdeconnect-kde
         pkgs.libgnome-keyring
