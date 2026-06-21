@@ -285,6 +285,7 @@
         tailscale = "sudo tailscale";
         finder = "open -a Finder";
         fucking = "systemctl --user restart";
+        reboot-to-macos = "sudo asahi-bless --set-boot 1";
 
         # NixOS
         ns = "nix-shell --run zsh";

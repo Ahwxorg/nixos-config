@@ -23,6 +23,7 @@
 
   environment = {
     systemPackages = [
+      pkgs.asahi-bless
       pkgs.monero-gui
       pkgs.btrfs-progs
       pkgs.apfs-fuse
