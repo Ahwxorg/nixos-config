@@ -218,18 +218,7 @@
       text = ''
         #!/usr/bin/env zsh
 
-        if [[ -f /sys/class/power_supply/BAT1/status && "$(cat /sys/class/power_supply/BAT1/status)" == "Discharging" ]]; then; cat /sys/class/power_supply/BAT1/current_now /sys/class/power_supply/BAT1/voltage_now | xargs | awk '{print $1*$2/1e12 " W"}'; fi
-      '';
-    };
-    "/home/${username}/.local/bin/waybar-vpn" = {
-      # unused nowadays
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-
-        ip route | grep -q '10.7.0.0' \
-        && echo '{"text":"Connected","class":"connected","percentage":100}' \
-        || echo '{"text":"Disconnected","class":"disconnected","percentage":0}'
+        cat /sys/class/power_supply/*/current_now /sys/class/power_supply/*/voltage_now | xargs | awk '{print $1*$2/1e12 " W"}'
       '';
     };
     "/home/${username}/.local/bin/waybar-mullvad" = {
@@ -247,6 +236,14 @@
         echo "$STATUS" | grep -Eioq 'disconnected' && TEXT="{\"text\":\"$STATUS\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
 
         echo "$TEXT"
+      '';
+    };
+    "/home/${username}/.local/bin/waybar-weather" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env sh
+
+        mullvad-exclude curl 'wttr.is?format=%c+(%p)+%t+(%f)+%w+(%S,+%s)\n'
       '';
     };
   };
