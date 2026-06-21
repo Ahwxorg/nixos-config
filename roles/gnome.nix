@@ -56,7 +56,7 @@ in
               "rounded-window-corners@yilozt.shell-extension.zip"
             ];
             favorite-apps = [
-              "librewolf.desktop"
+              "firefox.desktop"
               "foot.desktop"
             ];
             had-bluetooth-devices-setup = true;
@@ -164,7 +164,7 @@ in
           # };
           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
             name = "Open element";
-            command = "${pkgs.librewolf}/bin/librewolf";
+            command = "${pkgs.firefox}/bin/firefox";
             binding = "<Alt><Shift>f";
           };
           "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {

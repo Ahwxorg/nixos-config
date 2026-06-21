@@ -74,7 +74,7 @@ in
         pkgs.mumble
         pkgs.anki
         pkgs.wdisplays
-        pkgs.librewolf
+        pkgs.firefox
         pkgs.ungoogled-chromium
         pkgs.nsxiv
         pkgs.imv
