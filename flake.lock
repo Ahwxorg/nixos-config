@@ -356,11 +356,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1781793117,
-        "narHash": "sha256-w5TiAwnNIxrpQ8aapdmiUVDUyI5jr1L5n9bCzs2qWkA=",
+        "lastModified": 1782163145,
+        "narHash": "sha256-kRIMcaZSJ/QsW5GoEf6u+qO4/KFxLNIRGJsPQ76VvEk=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "df72b7113f471eeb73fac0f58520bffc1bdbb7fe",
+        "rev": "28142e3bacf04a30ce8cdd1139c35598afc16f0a",
         "type": "github"
       },
       "original": {
@@ -372,11 +372,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1781793010,
-        "narHash": "sha256-gxr1oeeh8W/PVhPCTRaZk+gVsAJhtIaFlncv4GXP3+I=",
+        "lastModified": 1782162900,
+        "narHash": "sha256-9VDorYtHbZ8i3pXAcV4tfK272MVbQd66u2adsE/flO4=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "30fbf0e9f5d719897c207b1801ef9f60549f5c9e",
+        "rev": "dfd7d15b2fb10757bd7f74a598f7bd43fd947a93",
         "type": "github"
       },
       "original": {
@@ -583,11 +583,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1781622756,
-        "narHash": "sha256-JrPh4M6S7aPsEE9tOENuZrxC6o2szSLlK+t4+nLke9s=",
+        "lastModified": 1782161863,
+        "narHash": "sha256-Nr8HtMcApIoxFm/ZSRxXulTChAoy3qW9ZbcxUPN9Rdw=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "08018c72174a4df5657f8d94178ac69fb9c243e5",
+        "rev": "aa741c485b8a056bec04fe64994e17ae7b7e9a03",
         "type": "github"
       },
       "original": {
@@ -725,11 +725,11 @@
     },
     "nixpkgs_15": {
       "locked": {
-        "lastModified": 1781074563,
-        "narHash": "sha256-d34lhgOet4IqYMnCxbIvwFBMOyTV6PT4TyNEOP0/ZhU=",
-        "rev": "9ae611a455b90cf061d8f332b977e387bda8e1ca",
+        "lastModified": 1781577229,
+        "narHash": "sha256-rcUHdUtJEvMdNEl2Wq+YpHraHKfcer3KsBscpZEF2Yg=",
+        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1014179.9ae611a455b9/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1017464.567a49d1913c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -907,11 +907,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1781793196,
-        "narHash": "sha256-AtPZh9rpsmQcGk1MTU96iV/ZVDPFOMlK3oJe7IaEAnE=",
+        "lastModified": 1782163405,
+        "narHash": "sha256-drrFjrQR9NjgpNtKnhotf59uwgh9yW+HfQz2GiPExqs=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "d6f9ff5873f2c301ea5324d574bee817c47f255f",
+        "rev": "6ca7b89db273df57cbb01e7e54e7f9ee2be87faa",
         "type": "github"
       },
       "original": {
@@ -947,7 +947,7 @@
     "oisd": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-fy096+pfUOeiEpp+26MlFUyU/iFEJU6IRFO4NoLUHEw=",
+        "narHash": "sha256-0PMxC67BLeYILXd+lqt0pIsIiVwkbAkWFUrpKTgflh8=",
         "type": "file",
         "url": "https://big.oisd.nl/domainswild"
       },
@@ -1062,11 +1062,11 @@
         "nixpkgs": "nixpkgs_14"
       },
       "locked": {
-        "lastModified": 1780547341,
-        "narHash": "sha256-Gq8KNx5A7hBB3uGJaj6eQfLDIz5YdLu92gqBcvHvoUo=",
+        "lastModified": 1781943681,
+        "narHash": "sha256-NFHmA7H47adqiyp+0iEOyZOQhmigDqA/NBAlf4imB6U=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "9ed65852b6257fbeae4355bc24ecfea307ca759a",
+        "rev": "420f8d2e9882911f65cfac15cc706f639ba96cca",
         "type": "github"
       },
       "original": {
@@ -1081,11 +1081,11 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1781425310,
-        "narHash": "sha256-GTBka4Df/ZOacmisI/DI2LICyNChEqn/giah83LucdM=",
+        "lastModified": 1782031037,
+        "narHash": "sha256-a7oWSyS7SN81UOqVt481yIEMDsMpaJ7GNdV6Eaz5Yqg=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "aeaf7c81a45d3761da61cb05bfc370ac6d1b0441",
+        "rev": "9cb27462cfd20edac174353f1e95bc03aa888863",
         "type": "github"
       },
       "original": {
