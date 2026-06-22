@@ -56,6 +56,7 @@
   fileSystems."/home" = {
     device = "rpool/home";
     fsType = "zfs";
+    neededForBoot = true;
   };
 
   swapDevices = [ ];
