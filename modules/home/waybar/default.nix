@@ -28,6 +28,7 @@
             "sway/workspaces",
             "hyprland/workspaces",
             "sway/mode",
+            "custom/weather",
             "tray",
           ],
 
@@ -58,6 +59,13 @@
               "(.*) - zsh": "> [$1]"
             },
             "separate-outputs": true
+          },
+
+          "custom/weather": {
+            "format": "{text}",
+            "return-type": "text",
+            "exec": "~/.local/bin/waybar-weather",
+            "interval": 1800
           },
 
           "sway/workspaces": {
@@ -263,11 +271,9 @@
           },
 
           "wireplumber": {
-            "format": "{icon}  {node_name}/{volume}",
-            "format-muted": "",
+            "format": "<span color='#aaaaaa'>VOL:</span> {node_name}/{volume}",
             "on-click": "pavucontrol-qt",
             "on-click-right": "helvum",
-            "format-icons": ["", "", ""]
           },
 
           "custom/audio-internal": {
@@ -365,10 +371,6 @@
           "clock#time": {
             "interval": 60,
             "format": "<span color='#aaaaaa'>CEST:</span> {:%I:%M %p}",
-            "actions":  {
-              "on-scroll-up": "tz_up",
-              "on-scroll-down": "tz_down"
-            }
           },
 
           "custom/clock#minutes": {

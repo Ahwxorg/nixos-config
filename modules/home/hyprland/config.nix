@@ -57,7 +57,7 @@
         kb_options = "caps:ctrl_modifier,compose:ralt";
         numlock_by_default = true;
         follow_mouse = 1;
-        sensitivity = 0;
+        sensitivity = 0.01;
         touchpad = {
           natural_scroll = true;
           tap-to-click = false;
@@ -124,7 +124,8 @@
       decoration = {
         rounding = 0;
         active_opacity = 1.00;
-        inactive_opacity = 0.75;
+        inactive_opacity = 1.00;
+        # inactive_opacity = 0.75;
         # fullscreen_opacity = 1.0;
 
         shadow = {
@@ -218,7 +219,7 @@
         # clipboard manager
         "ALT SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
 
-        "ALT SHIFT, F, exec, librewolf"
+        "ALT SHIFT, F, exec, firefox"
         "ALT SHIFT, C, exec, chromium"
         "ALT SHIFT, Q, exec, qutebrowser"
         "ALT SHIFT, W, exec, wdisplays"

@@ -159,7 +159,7 @@ in
           "${altmod}+Shift+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
           "${mod}+Shift+b" = "exec pkill -SIGUSR1 .waybar-wrapped";
           "${mod}+Shift+v" = "exec cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy";
-          "${mod}+Shift+f" = "exec --no-startup-id ${pkgs.librewolf}/bin/librewolf";
+          "${mod}+Shift+f" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
           "${mod}+Shift+c" = "exec --no-startup-id ${pkgs.ungoogled-chromium}/bin/chromium";
           "${mod}+Shift+q" = "exec --no-startup-id ${pkgs.qutebrowser}/bin/qutebrowser";
           "${mod}+Shift+w" = "exec --no-startup-id ${pkgs.wdisplays}/bin/wdisplays";

@@ -74,7 +74,7 @@ in
         pkgs.mumble
         pkgs.anki
         pkgs.wdisplays
-        pkgs.librewolf
+        pkgs.firefox
         pkgs.ungoogled-chromium
         pkgs.nsxiv
         pkgs.imv
@@ -83,6 +83,7 @@ in
         pkgs.spotify-player
         pkgs.thunderbird
         pkgs.lxqt.pavucontrol-qt
+        pkgs.helvum
         pkgs.mpv
         pkgs.kdePackages.kdeconnect-kde
         pkgs.libgnome-keyring
