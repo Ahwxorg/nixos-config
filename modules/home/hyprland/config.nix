@@ -50,6 +50,7 @@
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
         "nextcloud &"
+        "swayosd-server &"
       ];
 
       input = {
@@ -198,11 +199,10 @@
         "ALT SHIFT, Return, exec, [float; center; size 950 650] footclient --title 'float_foot'"
         "ALT, Q, killactive,"
         "ALT, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
+        "SUPER, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "ALT, Space, togglefloating,"
-        # "ALT, D, exec, bemenu-run -l 5 --ignorecase"
         "ALT, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER SHIFT, L, exec, ${pkgs.swaylock-fancy}/bin/swaylock-fancy"
-        # "SUPER, L, exec, swaylock-fancy"
+        "SUPER, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
         "ALT, E, exec, nautilus"
         "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "ALT, C,exec, hyprpicker -a"
@@ -212,9 +212,6 @@
         "SUPER, P, changegroupactive, b"
         "ALT, Tab, changegroupactive, f"
         "ALT SHIFT, Tab, changegroupactive, b"
-
-        # password manager
-        "ALT SHIFT, X, exec, footclient --title 'float_foot' zsh -c 'bash ~/.local/src/bw-fzf/bw-fzf.sh"
 
         # clipboard manager
         "ALT SHIFT, V, exec, cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy"
@@ -269,36 +266,26 @@
         "ALT SHIFT, 9, movetoworkspacesilent, 9"
         "ALT SHIFT, 0, movetoworkspacesilent, 10"
 
-        # window control
-        #  "ALT SHIFT, left, movewindow, l"
-        #  "ALT SHIFT, right, movewindow, r"
-        #  "ALT SHIFT, up, movewindow, u"
-        #  "ALT SHIFT, down, movewindow, d"
-        #  "ALT CTRL, left, resizeactive, -80 0"
-        #  "ALT CTRL, right, resizeactive, 80 0"
-        #  "ALT CTRL, up, resizeactive, 0 -80"
-        #  "ALT CTRL, down, resizeactive, 0 80"
-        #  "ALT ALT, left, moveactive,  -80 0"
-        #  "ALT ALT, right, moveactive, 80 0"
-        #  "ALT ALT, up, moveactive, 0 -80"
-        #  "ALT ALT, down, moveactive, 0 80"
-
         # media and volume controls
-        ",XF86AudioRaiseVolume,exec, pamixer -i 2"
-        ",XF86AudioLowerVolume,exec, pamixer -d 2"
-        ",XF86AudioMute,exec, pamixer -t"
+        # ",XF86AudioRaiseVolume,exec, pamixer -i 2"
+        # ",XF86AudioLowerVolume,exec, pamixer -d 2"
+        ",XF86AudioRaiseVolume,exec, swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume,exec, swayosd-client --output-volume lower"
+        ",XF86AudioMute,exec, swayosd-client --output-volume mute-toggle"
         ",XF86AudioPlay,exec, playerctl play-pause"
         ",XF86AudioNext,exec, playerctl next"
         ",XF86AudioPrev,exec, playerctl previous"
         ",XF86AudioStop, exec, playerctl stop"
-        "ALT, mouse_down, workspace, e-1"
-        "ALT, mouse_up, workspace, e+1"
 
         # laptop brigthness
-        ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-        ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        "ALT, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
-        "ALT, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+        ",XF86MonBrightnessUp, exec, swayosd-client --brightness +5"
+        ",XF86MonBrightnessDown, exec, swayosd-client --brightness -5"
+        "ALT, XF86MonBrightnessUp, exec, swayosd-client --brigthness +100"
+        "ALT, XF86MonBrightnessDown, exec, swayosd-client --brigthness 1"
+
+        # mouse controls
+        "ALT, mouse_down, workspace, e-1"
+        "ALT, mouse_up, workspace, e+1"
       ];
 
       bindl = [
