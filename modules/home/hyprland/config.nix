@@ -269,8 +269,8 @@
         # media and volume controls
         # ",XF86AudioRaiseVolume,exec, pamixer -i 2"
         # ",XF86AudioLowerVolume,exec, pamixer -d 2"
-        ",XF86AudioRaiseVolume,exec, swayosd-client --output-volume raise"
-        ",XF86AudioLowerVolume,exec, swayosd-client --output-volume lower"
+        ",XF86AudioRaiseVolume,exec, swayosd-client --output-volume +2"
+        ",XF86AudioLowerVolume,exec, swayosd-client --output-volume -2"
         ",XF86AudioMute,exec, swayosd-client --output-volume mute-toggle"
         ",XF86AudioPlay,exec, playerctl play-pause"
         ",XF86AudioNext,exec, playerctl next"
