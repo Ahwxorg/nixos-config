@@ -16,6 +16,7 @@
     ++ [ (import ./nvim.nix) ]
     ++ [ (import ./zathura.nix) ]
     ++ [ (import ./packages.nix) ]
+    ++ [ (import ./security.nix) ]
     ++ [ (import ./scripts/scripts.nix) ]
     # ++ [ (import ./spotify.nix) ]
     ++ [ (import ./ssh.nix) ]
