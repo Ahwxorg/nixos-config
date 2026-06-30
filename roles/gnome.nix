@@ -19,9 +19,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    # security.pam.services.gdm.enableGnomeKeyring = true;
-    # services.displayManager.gdm.enable = true;
-    # services.desktopManager.gnome.enable = true;
+    security.pam.services.gdm.enableGnomeKeyring = true;
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true;
     # services.displayManager.defaultSession = "Hyprland";
 
     services.gnome.core-apps.enable = false;
