@@ -51,6 +51,7 @@
   services = {
     # displayManager.ly.enable = true;
     vnstat.enable = true;
+    pcscd.enable = lib.mkForce true;
     # hardware.bolt.enable = true; # enable once Thunderbolt is supported
   };
 
