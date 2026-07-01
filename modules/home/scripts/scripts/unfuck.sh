@@ -8,6 +8,7 @@ unfuckable=(
   "spotify"
   "audio"
   "screenlock"
+  "hyprland_portal"
 )
 
 usage() {
@@ -82,6 +83,15 @@ unfuck_audio() {
 unfuck_screenlock() {
   hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
   hyprctl --instance 0 'dispatch exec hyprlock'
+}
+
+unfuck_hyprland_portal() {
+  sleep 4
+  killall -e xdg-desktop-portal-hyprland
+  killall xdg-desktop-portal
+  /usr/lib/xdg-desktop-portal-hyprland &
+  sleep 4
+  /usr/lib/xdg-desktop-portal &
 }
 
 case $1 in
