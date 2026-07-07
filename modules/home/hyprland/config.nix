@@ -253,6 +253,10 @@
         "ALT, 8, workspace, 8"
         "ALT, 9, workspace, 9"
         "ALT, 0, workspace, 10"
+        "ALT, F1, workspace, name:garbage"
+        "ALT, F2, workspace, name:misc"
+        "ALT, F3, workspace, name:🛒"
+        "ALT, F4, workspace, name:📹"
 
         # move to workspace
         "ALT SHIFT, 1, movetoworkspacesilent, 1"
@@ -265,6 +269,10 @@
         "ALT SHIFT, 8, movetoworkspacesilent, 8"
         "ALT SHIFT, 9, movetoworkspacesilent, 9"
         "ALT SHIFT, 0, movetoworkspacesilent, 10"
+        "ALT SHIFT, F1, movetoworkspace, name:garbage"
+        "ALT SHIFT, F2, movetoworkspace, name:misc"
+        "ALT SHIFT, F3, movetoworkspace, name:🛒"
+        "ALT SHIFT, F4, movetoworkspace, name:📹"
 
         # media and volume controls
         # ",XF86AudioRaiseVolume,exec, pamixer -i 2"
