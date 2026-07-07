@@ -9,15 +9,24 @@
 
   programs.gpg = {
     enable = true;
-    mutableKeys = false;
-    mutableTrust = false;
+    mutableKeys = true;
+    mutableTrust = true;
     publicKeys = [
       {
+        # own key
         source = builtins.fetchurl {
-          url = "https://keybase.io/livtown/pgp_keys.asc?fingerprint=2c565233f609450e109249c4b7e0db563fd1f754";
-          sha256 = "sha256-xsR6Mm5OqVLBOJB89939t7Db2Y/wBzu4Raad6O174QM=";
+          url = "https://keybase.io/livtown/pgp_keys.asc?fingerprint=904af20ad2fd157cea8f76276d3c3d797793190c";
+          sha256 = "sha256-6cJmBMe2yCRip+Id4lCaep/0H8IUfKKzmYx6ExMEeUI=";
         };
-        trust = "ultimate";
+        trust = 5;
+      }
+      {
+        # natalie
+        source = builtins.fetchurl {
+          url = "https://git.gay/0x6e6174/natalieee.net/raw/branch/main/website/site-data/pubkey.asc";
+          sha256 = "sha256-THQRICPANA4iv4k9bKdjAc3GMbaN6FPjwxptgGMRxbc=";
+        };
+        trust = 4;
       }
     ];
   };
