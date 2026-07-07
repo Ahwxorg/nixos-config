@@ -48,6 +48,7 @@
         HISTFILE = "~/.zsh_history";
         HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE = 1;
         KEYTIMEOUT = 1; # make Vi-mode transitions faster
+        KEY_ID = "0x6D3C3D797793190C";
       };
 
       initContent = ''
