@@ -215,7 +215,7 @@
         # }
 
         startwm() {
-          dbus-run-session Hyprland
+          start-hyprland
         }
 
         if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then startwm; fi
