@@ -39,7 +39,7 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd &"
         "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard both"
-        "swww-daemon &"
+        "awww-daemon &"
         "poweralertd &"
         "waybar &"
         "swaync &"

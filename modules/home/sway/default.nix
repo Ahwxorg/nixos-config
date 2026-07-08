@@ -196,7 +196,7 @@ in
         { command = "hash dbus-update-activation-environment 2>/dev/null &"; }
         { command = "dbus-update-activation-environment --systemd &"; }
         { command = "wl-clip-persist --clipboard both"; }
-        { command = "swww-daemon &"; }
+        { command = "awww-daemon &"; }
         { command = "poweralertd &"; }
         { command = "waybar &"; }
         { command = "swaync &"; }

@@ -21,9 +21,9 @@ usage() {
 }
 
 unfuck_wallpaper() {
-  pkill swww-daemon
-  setsid swww-daemon &
-  swww img ~/.local/share/bg.png
+  pkill awww-daemon
+  setsid awww-daemon &
+  awww img ~/.local/share/bg.png
 }
 
 unfuck_fingerprint() {

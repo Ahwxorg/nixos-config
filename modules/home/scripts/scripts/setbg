@@ -2,4 +2,4 @@
 
 magick convert "$1" ~/.local/share/bg.png
 wal -i "$1"
-swww img ~/.local/share/bg.png --transition-type fade
+awww img ~/.local/share/bg.png --transition-type fade
