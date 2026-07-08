@@ -13,13 +13,13 @@
     pkgs.qbittorrent
     pkgs.mpv
     pkgs.qutebrowser
-    pkgs.xfce.xfce4-taskmanager
+    pkgs.xfce4-taskmanager
 
     # CLI shit
     pkgs.imagemagick
     pkgs.vimv
     pkgs.pass
-    pkgs.neofetch
+    pkgs.fastfetch
     pkgs.hyfetch
     pkgs.glow
     pkgs.eva
