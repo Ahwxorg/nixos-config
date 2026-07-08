@@ -28,6 +28,14 @@
         };
         trust = 4;
       }
+      {
+        # avery
+        source = builtins.fetchurl {
+          url = "https://keys.openpgp.org/vks/v1/by-fingerprint/4CC1272267890A39BA4B3A3FDE957602B43A2D60";
+          sha256 = "sha256-PDad7v1/PEbNpYnTnqWiMMmXM1ac3sttJ+ucX0d/VOo=";
+        };
+        trust = 4;
+      }
     ];
   };
 }
