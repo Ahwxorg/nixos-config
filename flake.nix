@@ -10,7 +10,7 @@
     # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     # hyprland-plugins.inputs.hyprland.follows = "hyprland";
     # hypr-contrib.url = "github:hyprwm/contrib";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nixvim.url = "github:ahwxorg/nixvim-config";
@@ -22,7 +22,7 @@
     nixocaine.url = "https://git.madhouse-project.org/iocaine/nixocaine/archive/stable.tar.gz";
     ai-robots-txt.url = "github:ai-robots-txt/ai.robots.txt";
     ai-robots-txt.flake = false;
-    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     skhd-zig.url = "github:sebb3/skhd-zig.nix";
