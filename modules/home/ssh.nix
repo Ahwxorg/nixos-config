@@ -15,7 +15,7 @@
       PubkeyAuthentication yes
       VerifyHostKeyDNS yes
     '';
-    includes = [ "/home/${username}/config.d/*" ];
+    includes = [ "/home/${username}/.ssh/config.d/*" ];
     matchBlocks = {
       "github.com gitlab.com" = {
         user = "git";
