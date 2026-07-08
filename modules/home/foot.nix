@@ -15,7 +15,7 @@
     # title=foot
     # locked-title=no
 
-    font=GohuFont 14 Nerd Font Mono:size=12
+    font=GohuFont 14 Nerd Font Mono:size=10
     # font-bold=<bold variant of regular font>
     # font-italic=<italic variant of regular font>
     # font-bold-italic=<bold+italic variant of regular font>
@@ -111,7 +111,7 @@
     [touch]
     # long-press-delay=400
 
-    [colors]
+    [colors-dark]
     alpha=0.75
 
     background=000000
