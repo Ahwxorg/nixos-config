@@ -51,6 +51,7 @@
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
         "nextcloud &"
         "swayosd-server &"
+        "xfce4-taskmanager &"
       ];
 
       input = {
@@ -86,7 +87,7 @@
         "col.border_inactive" = "0x00000000";
         groupbar = {
           font_family = "GohuFont 11 Nerd Font Mono";
-          font_size = 11;
+          font_size = 8;
           "col.active" = "rgb(efa8a5) rgb(efa8a5) 45deg";
           "col.inactive" = "rgb(a5ecef) rgb(a5ecef) 45deg";
         };
@@ -114,7 +115,7 @@
         special_scale_factor = 1.0;
         split_width_multiplier = 1.0;
         use_active_for_splits = true;
-        pseudotile = "yes";
+        # pseudotile = "yes";
         preserve_split = "yes";
       };
 
@@ -132,7 +133,7 @@
         shadow = {
           enabled = true;
           render_power = 4;
-          ignore_window = true;
+          # ignore_window = true;
           # offset = [ ];
         };
 
