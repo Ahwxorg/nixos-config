@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./../../modules/core
     ./../../modules/services/tailscale.nix
+    ./../../modules/services/keyd.nix
   ];
 
   powerManagement = {
