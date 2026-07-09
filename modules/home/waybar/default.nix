@@ -273,7 +273,7 @@
           "wireplumber": {
             "format": "<span color='#aaaaaa'>VOL:</span> {node_name}/{volume}",
             "on-click": "pavucontrol-qt",
-            "on-click-right": "helvum",
+            "on-click-right": "crosspipe",
           },
 
           "custom/audio-internal": {
