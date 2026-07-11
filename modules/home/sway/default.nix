@@ -26,7 +26,7 @@ in
 {
   home.packages = with pkgs; [
     wmctrl
-    waylock
+    swaylock
   ];
 
   wayland.windowManager.sway = {

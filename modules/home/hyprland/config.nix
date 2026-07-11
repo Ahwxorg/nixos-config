@@ -203,7 +203,7 @@
         "SUPER, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "ALT, Space, togglefloating,"
         "ALT, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
+        "CTRL SHIFT, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
         "ALT, E, exec, nautilus"
         "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "ALT, C,exec, hyprpicker -a"
