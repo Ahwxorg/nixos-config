@@ -20,7 +20,10 @@
     ./../../modules/services/keyd.nix
   ];
 
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi = {
+    enable = true;
+    peripheralFirmwareDirectory = ./firmware;
+  };
 
   environment = {
     systemPackages = [
