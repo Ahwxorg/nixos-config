@@ -2,14 +2,8 @@
   description = "liv's Nix configuration";
 
   inputs = {
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    # hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    # hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    # hypr-contrib.url = "github:hyprwm/contrib";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -22,23 +16,20 @@
     nixocaine.url = "https://git.madhouse-project.org/iocaine/nixocaine/archive/stable.tar.gz";
     ai-robots-txt.url = "github:ai-robots-txt/ai.robots.txt";
     ai-robots-txt.flake = false;
+    iamb.url = "github:ulyssa/iamb/latest";
+    apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
+    nix-webapps.url = "github:AniviaFlome/nix-webapps";
+    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+
+    # darwin
+    homebrew-core.url = "github:homebrew/homebrew-core";
+    homebrew-core.flake = false;
+    homebrew-cask.url = "github:homebrew/homebrew-cask";
+    homebrew-cask.flake = false;
     nix-darwin.url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     skhd-zig.url = "github:sebb3/skhd-zig.nix";
-    iamb.url = "github:ulyssa/iamb/latest";
-    apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
-    nix-webapps.url = "github:AniviaFlome/nix-webapps";
-
-    homebrew-core = {
-      url = "github:homebrew/homebrew-core";
-      flake = false;
-    };
-
-    homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
-      flake = false;
-    };
   };
 
   outputs =
