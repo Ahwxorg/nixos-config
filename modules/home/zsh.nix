@@ -52,7 +52,8 @@
       };
 
       initContent = ''
-        export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/"
+        export PATH="''${PATH}:''${HOME}/.local/bin/:''${HOME}/.cargo/bin/:''${HOME}/.fzf/bin/:''${HOME}/.config/emacs/bin"
+        export DOOMDIR="''${HOME}/flake/modules/home/doom-config/";
 
         preview_cmd='
         if file --mime-type {} | grep -qF image/; then
