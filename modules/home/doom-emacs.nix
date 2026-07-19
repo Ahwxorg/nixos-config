@@ -42,6 +42,9 @@ in
       pkgs.shellcheck
       pkgs.symbola
       pkgs.nerd-fonts.symbols-only
+      pkgs.fd
+      pkgs.ripgrep
+      pkgs.git
     ];
   };
 }
