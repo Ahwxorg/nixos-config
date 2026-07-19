@@ -33,6 +33,7 @@
     ./../../modules/services/tailscale.nix
     ./../../modules/services/uptime-kuma.nix
     ./../../modules/services/vaultwarden.nix
+    ./../../modules/services/nextcloud.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
