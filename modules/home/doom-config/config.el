@@ -36,9 +36,9 @@
 (setq doom-theme 'doom-oxocarbon)
 (setq doom-font (font-spec :family "scientifica" :size 24))
 
-;; (after! doom-themes
-;;   (custom-set-faces!
-;;     '(default :foreground "#bbc2cf")))
+(after! doom-themes
+  (custom-set-faces!
+    '(default :foreground "#bbc2cf")))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -79,3 +79,10 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(map! )
+
+(define-key evil-normal-state-map (kbd "C-k") 'centaur-tabs-forward)
+                                        ; (define-key evil-normal-state-map (kbd "") 'centaur-tabs-forward)
+(define-key evil-normal-state-map (kbd "C-j") 'centaur-tabs-backward)
+                                        ; (define-key evil-normal-state-map (kbd "") 'centaur-tabs-backward)
