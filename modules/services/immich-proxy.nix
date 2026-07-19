@@ -4,17 +4,7 @@
       forceSSL = true;
       sslCertificate = "/var/lib/acme/liv.town/cert.pem";
       sslCertificateKey = "/var/lib/acme/liv.town/key.pem";
-      locations."/" = {
-        # proxyPass = "http://unix:${toString config.services.anubis.instances.librey.settings.BIND}";
-        proxyPass = "http://localhost:2283";
-        proxyWebsockets = true;
-      };
-      extraConfig = ''
-        client_body_buffer_size  1024k;
-        proxy_request_buffering  off;
-        proxy_http_version       1.1;
-        proxy_redirect           off;
-      '';
+      locations."/".return = "301 https://photos.ahwx.org";
     };
   };
 }
