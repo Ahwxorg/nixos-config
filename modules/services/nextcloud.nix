@@ -22,7 +22,7 @@
         # notify_push
         ;
     };
-    notify_push.enable = true;
+    # notify_push.enable = true;
     config = {
       adminuser = "root";
       adminpassFile = config.sops.secrets.nextcloudPassword.path;
