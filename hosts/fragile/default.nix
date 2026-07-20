@@ -58,14 +58,6 @@
     # hardware.bolt.enable = true; # enable once Thunderbolt is supported
   };
 
-  # swapDevices = [
-  #   {
-  #     device = "/swapfile";
-  #     size = 32 * 1024;
-  #     options = [ "discard" ]; # enabling TRIM
-  #   }
-  # ];
-
   # zramSwap.enable = true;
 
   boot = {
@@ -73,10 +65,6 @@
       "appledrm.show_notch=1"
       "hid_apple.swap_fn_leftctrl=1"
       "hid_apple.swap_opt_cmd=1"
-      "zswap.enabled=1" # enables zswap
-      "zswap.compressor=lz4" # compression algorithm
-      "zswap.max_pool_percent=20" # maximum percentage of RAM that zswap is allowed to use
-      "zswap.shrinker_enabled=1" # whether to shrink the pool proactively on high memory pressure
     ];
     initrd.systemd.enable = true; # required by lz4 in zram
     loader = {
@@ -84,21 +72,10 @@
       efi.canTouchEfiVariables = false;
     };
     kernel.sysctl."vm.mmap_rnd_bits" = 18;
-    kernelPatches =
-      # [
-      #   {
-      #     name = "localversion-config";
-      #     patch = null;
-      #     extraConfig = ''
-      #       LOCALVERSION -according-to-all-known-laws-of-aviation-there-is-no-way-a
-      #     '';
-      #   }
-      # ]
-      # ++
-      map (x: {
-        name = baseNameOf x;
-        patch = x;
-      }) (lib.filesystem.listFilesRecursive (./kernelPatches));
+    kernelPatches = map (x: {
+      name = baseNameOf x;
+      patch = x;
+    }) (lib.filesystem.listFilesRecursive (./kernelPatches));
   };
 
   system.stateVersion = "25.11"; # Did you read the comment?
