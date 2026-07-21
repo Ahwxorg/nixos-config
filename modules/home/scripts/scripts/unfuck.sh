@@ -94,6 +94,10 @@ unfuck_hyprland_portal() {
   /usr/lib/xdg-desktop-portal &
 }
 
+unfuck_bluetooth() {
+  foot -e 'doas modprobe -r hci_bcm4377 && doas modprobe hci_bcm4377'
+}
+
 case $1 in
 "")
   echo "what is fucked?"
@@ -107,6 +111,7 @@ everything)
   unfuck_spotify
   unfuck_wallpaper
   unfuck_fingerprint
+  unfuck_bluetooth
   ;;
 *)
   eval "unfuck_$1"
