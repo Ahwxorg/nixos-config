@@ -9,6 +9,7 @@ unfuckable=(
   "audio"
   "screenlock"
   "hyprland_portal"
+  "touch"
 )
 
 usage() {
@@ -94,6 +95,10 @@ unfuck_hyprland_portal() {
   /usr/lib/xdg-desktop-portal &
 }
 
+unfuck_touch() {
+  hyprctl keyword input:touchdevice:transform '3'
+}
+
 case $1 in
 "")
   echo "what is fucked?"
@@ -107,6 +112,7 @@ everything)
   unfuck_spotify
   unfuck_wallpaper
   unfuck_fingerprint
+  unfuck_touch
   ;;
 *)
   eval "unfuck_$1"

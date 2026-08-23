@@ -30,6 +30,8 @@
           "eDP-1, 1920x1080@60, 0x0, 1.0"
         else if (host == "fragile") then
           "eDP-1, 3024x1964@120, 0x0, 1.5"
+        else if (host == "primrose") then
+          "DSI-1, 1200x1920@90, 0x0, 1.25, transform,3"
         else
           ", preferred, auto, 1";
 
@@ -52,6 +54,7 @@
         "nextcloud &"
         "swayosd-server &"
         "xfce4-taskmanager &"
+        "hyprctl keyword input:touchdevice:transform '3' &"
       ];
 
       input = {
@@ -203,7 +206,7 @@
         "SUPER, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "ALT, Space, togglefloating,"
         "ALT, D, exec, bemenu-run -l 5 --ignorecase"
-        "SUPER, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
+        "CTRL SHIFT, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
         "ALT, E, exec, nautilus"
         "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
         "ALT, C,exec, hyprpicker -a"
