@@ -24,5 +24,6 @@
     pkgs.wget
     pkgs.xxd
     pkgs.borgbackup
+    pkgs.nodejs
   ];
 }

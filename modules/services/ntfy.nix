@@ -25,15 +25,6 @@ in
         proxyWebsockets = true;
       };
     };
-    frp.settings.proxies = [
-      {
-        name = "http";
-        type = "tcp";
-        localIP = "localhost";
-        localPort = port;
-        remotePort = port;
-      }
-    ];
   };
   networking.firewall.allowedTCPPorts = [ port ];
 }

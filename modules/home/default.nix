@@ -2,6 +2,7 @@
 {
   imports =
     [ (import ./git.nix) ]
+    ++ [ (import ./doom-emacs.nix) ]
     ++ [ (import ./swaync/default.nix) ]
     ++ [ (import ./sway/default.nix) ]
     ++ [ (import ./fonts.nix) ]

@@ -6,7 +6,7 @@
     caching.apcu = true;
     configureRedis = true;
     caching.redis = true;
-    package = pkgs.nextcloud33;
+    package = pkgs.nextcloud34;
     hostName = "cloud.liv.town";
     appstoreEnable = false;
     autoUpdateApps.enable = false;
@@ -15,14 +15,12 @@
     extraAppsEnable = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
-        # news
         contacts
         calendar
         groupfolders
-        # notify_push
+        user_oidc
         ;
     };
-    notify_push.enable = true;
     config = {
       adminuser = "root";
       adminpassFile = config.sops.secrets.nextcloudPassword.path;

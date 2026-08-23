@@ -17,12 +17,16 @@
   ];
 
   boot.initrd.availableKernelModules = [
+    "mpt3sas"
     "xhci_pci"
     "ahci"
     "usb_storage"
     "usbhid"
+    "uas"
     "sd_mod"
+    "sr_mod"
   ];
+
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];

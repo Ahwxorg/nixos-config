@@ -50,7 +50,7 @@
       notifications.enabled = false;
       username_display = "displayname";
       image_preview = {
-        protocol.type = "kitty";
+        protocol.type = "sixel";
         protocol.size = {
           height = 10;
           width = 66;

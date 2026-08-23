@@ -32,14 +32,14 @@
         # environmentFile = "/home/liv/desec.env";
         webroot = null;
       };
-      "ahwx.org" = {
-        domain = "ahwx.org";
-        extraDomainNames = [ "*.ahwx.org" ];
-        dnsProvider = "desec";
-        environmentFile = config.sops.secrets.desecToken.path;
-        # environmentFile = "/home/liv/desec.env";
-        webroot = null;
-      };
+      #"ahwx.org" = {
+      #  domain = "ahwx.org";
+      #  extraDomainNames = [ "*.ahwx.org" ];
+      #  dnsProvider = "desec";
+      #  environmentFile = config.sops.secrets.desecToken.path;
+      #  # environmentFile = "/home/liv/desec.env";
+      #  webroot = null;
+      #};
       "quack.social" = {
         domain = "quack.social";
         extraDomainNames = [ "*.quack.social" ];

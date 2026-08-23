@@ -20,7 +20,6 @@
   };
 
   home.packages = with pkgs; [
-    inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
     inputs.nixvim.packages.${pkgs.stdenv.hostPlatform.system}.default # import config from github:ahwxorg/nixvim-config
     mermaid-cli
     gnuplot

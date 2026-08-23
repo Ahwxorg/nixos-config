@@ -304,7 +304,7 @@
           },
 
           "battery": {
-            "bat": "macsmc-battery",
+            "bat": "BAT0",
             "interval": 20,
             "states": {
               "warning": 20,
@@ -398,8 +398,8 @@
                           border-radius: 0;
                           font-family: 'GohuFont 11 Nerd Font Mono';
                           font-weight: 400;
-                          font-size: 14px;
-                          min-height: 44px;
+                          font-size: 10px;
+                          min-height: 32px;
                           /* margin: 0 0px; */
                         }
 

@@ -2,12 +2,12 @@
   services = {
     miniflux = {
       enable = false; # if enable then postgres mad
-      createDatabaseLocally = false;
+      # createDatabaseLocally = false;
       config = {
         # CLEANUP_FREQUENCY = 48;
         LISTEN_ADDR = "localhost:8011";
       };
-      adminCredentialsFile = /etc/miniflux/adminCredentialsFile;
+      adminCredentialsFile = /run/secrets/minifluxAdminCredentials;
     };
     nginx.virtualHosts."feed.liv.town" = {
       forceSSL = true;

@@ -9,6 +9,12 @@
 {
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
+  users = {
+    users = {
+      lldap.isNormalUser = true;
+    };
+  };
+
   sops = {
     defaultSopsFile = ../../secrets/${host}/secrets.yaml;
     defaultSopsFormat = "yaml";
@@ -60,6 +66,22 @@
           "funkwhaleDjangoSecret" = { };
           "desecToken" = { };
           "radicaleSecret" = { };
+          "tinyauthEnvironment" = { };
+          "lldapUserPass" = {
+            owner = "lldap";
+          };
+          "lldapJwtSecret" = {
+            owner = "lldap";
+          };
+          "lldapPrivateKey" = {
+            owner = "lldap";
+          };
+          "ldapObserver" = {
+            owner = "tinyauth";
+          };
+          "minifluxAdminCredentials" = {
+            # owner = "miniflux";
+          };
         }
       else if (host == "sakura") then
         {

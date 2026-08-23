@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -33,6 +34,10 @@
     ./../../modules/services/tailscale.nix
     ./../../modules/services/uptime-kuma.nix
     ./../../modules/services/vaultwarden.nix
+    ./../../modules/services/nextcloud.nix
+    ./../../modules/services/tinyauth.nix
+    ./../../modules/services/lldap.nix
+    ./../../modules/services/miniflux.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -61,6 +66,7 @@
         25565
         25567
         5201
+        5601
       ];
       allowedUDPPorts = [
         5201
