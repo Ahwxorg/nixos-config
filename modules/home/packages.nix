@@ -14,6 +14,7 @@
     pkgs.mpv
     pkgs.qutebrowser
     pkgs.xfce4-taskmanager
+    pkgs.spotify
 
     # CLI shit
     pkgs.imagemagick
