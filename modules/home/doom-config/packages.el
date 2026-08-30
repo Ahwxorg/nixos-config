@@ -55,3 +55,5 @@
 (package! tldr)
 
 (package! org-caldav)
+
+(package! typescript-mode :disable t)
