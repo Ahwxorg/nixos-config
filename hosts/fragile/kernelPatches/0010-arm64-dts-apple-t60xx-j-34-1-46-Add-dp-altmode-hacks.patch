@@ -1,7 +1,7 @@
-From cfe8c9c8efbf4e453f9a512b37c2be0f7434ac4f Mon Sep 17 00:00:00 2001
+From e4bd0f159ed29032e38b576cf51cc725bda2fcf2 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sat, 5 Nov 2022 21:22:50 +0100
-Subject: [PATCH 09/13] arm64: dts: apple: t60xx: j[34]1[46]: Add dp-altmode
+Subject: [PATCH 10/14] arm64: dts: apple: t60xx: j[34]1[46]: Add dp-altmode
  hacks
 
 Blessed dp-altmode port is front left port on j314/j316/j414/j416.
@@ -12,7 +12,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 50 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index cea603e5c2d9..b16c9fdc7233 100644
+index 5f8f5dd48..09ca581e6 100644
 --- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
 +++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
 @@ -9,6 +9,8 @@
@@ -94,5 +94,5 @@ index cea603e5c2d9..b16c9fdc7233 100644
  / {
  	speaker_sdz: fixed-regulator-sn012776-sdz {
 -- 
-2.53.0
+2.54.0
 

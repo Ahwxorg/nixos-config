@@ -1,0 +1,26 @@
+From e25660512a0361dee7dd300df3f2e4eb1f822790 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sun, 26 Jul 2026 12:40:56 +0200
+Subject: [PATCH 01/14] fixup! arm64: configs: asahi: Add new configs for v7.1
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/configs/asahi.config | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/configs/asahi.config b/arch/arm64/configs/asahi.config
+index b7ff1bbad..4aa7f4999 100644
+--- a/arch/arm64/configs/asahi.config
++++ b/arch/arm64/configs/asahi.config
+@@ -21,7 +21,7 @@ CONFIG_SPMI_APPLE=m
+ CONFIG_PINCTRL_APPLE_GPIO=m
+ CONFIG_GPIO_MACSMC=m
+ CONFIG_POWER_RESET_MACSMC=m
+-CONFIG_CHARGER_MACSMC=m
++CONFIG_MACSMC_POWER=m
+ CONFIG_SENSORS_MACSMC_HWMON=m
+ CONFIG_APPLE_WATCHDOG=m
+ CONFIG_VIDEO_APPLE_AVD=m
+-- 
+2.54.0
+

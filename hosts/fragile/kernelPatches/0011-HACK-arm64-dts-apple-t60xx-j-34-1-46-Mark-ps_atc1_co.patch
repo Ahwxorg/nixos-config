@@ -1,7 +1,7 @@
-From 3af556775051897bf01f8148e222a1cca0d69b01 Mon Sep 17 00:00:00 2001
+From 449d9961a37ebb98034f0792d6d377ee3ccb5c65 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Thu, 25 Dec 2025 18:50:32 +0100
-Subject: [PATCH 10/13] HACK: arm64: dts: apple: t60xx: j[34]1[46]: Mark
+Subject: [PATCH 11/14] HACK: arm64: dts: apple: t60xx: j[34]1[46]: Mark
  ps_atc1_common as always on
 
 Works around missing suspend/resume handling in ATC phy for DP-altmode.
@@ -12,7 +12,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index b16c9fdc7233..6424eabacfb9 100644
+index 09ca581e6..216d74e90 100644
 --- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
 +++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
 @@ -295,6 +295,10 @@ &dpaudio2 {
@@ -27,5 +27,5 @@ index b16c9fdc7233..6424eabacfb9 100644
  
  /* Virtual regulator representing the shared shutdown GPIO */
 -- 
-2.53.0
+2.54.0
 

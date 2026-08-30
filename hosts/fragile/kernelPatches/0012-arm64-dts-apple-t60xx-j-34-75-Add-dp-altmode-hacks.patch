@@ -1,7 +1,7 @@
-From 21ac5e639a4e07ac944a020c78835dfd76758ff0 Mon Sep 17 00:00:00 2001
+From 352b88307bf301f1f84ba63e3ccc8131b936741e Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sun, 9 Jun 2024 23:35:29 +0200
-Subject: [PATCH 11/13] arm64: dts: apple: t60xx: j[34]75: Add dp-altmode hacks
+Subject: [PATCH 12/14] arm64: dts: apple: t60xx: j[34]75: Add dp-altmode hacks
 
 DP alt mode for Mac Studio, the blessed port is the back left middle port
 (second closest USB-C port to the power connector).
@@ -17,7 +17,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  6 files changed, 63 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-index f3f98f038009..844bee0c4fdf 100644
+index f3f98f038..844bee0c4 100644
 --- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
 +++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
 @@ -9,6 +9,8 @@
@@ -30,7 +30,7 @@ index f3f98f038009..844bee0c4fdf 100644
  #include "t600x-j375.dtsi"
  
 diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-index 5cf30cd162b6..1eedbfecfc38 100644
+index 5cf30cd16..1eedbfecf 100644
 --- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
 +++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
 @@ -9,6 +9,8 @@
@@ -43,7 +43,7 @@ index 5cf30cd162b6..1eedbfecfc38 100644
  #include "t600x-j375.dtsi"
  
 diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-index ce339c0855bc..167306974939 100644
+index ce339c085..167306974 100644
 --- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
 +++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
 @@ -23,6 +23,9 @@ aliases {
@@ -115,7 +115,7 @@ index ce339c0855bc..167306974939 100644
  &dwc3_0 {
  	ports {
 diff --git a/arch/arm64/boot/dts/apple/t6021-j475c.dts b/arch/arm64/boot/dts/apple/t6021-j475c.dts
-index e4321cfc5568..ce08d5a42761 100644
+index e4321cfc5..ce08d5a42 100644
 --- a/arch/arm64/boot/dts/apple/t6021-j475c.dts
 +++ b/arch/arm64/boot/dts/apple/t6021-j475c.dts
 @@ -9,6 +9,8 @@
@@ -140,7 +140,7 @@ index e4321cfc5568..ce08d5a42761 100644
  &dispext0_dart {
  	status = "okay";
 diff --git a/arch/arm64/boot/dts/apple/t6022-j475d.dts b/arch/arm64/boot/dts/apple/t6022-j475d.dts
-index cdfc78a1703c..1ab639556cb0 100644
+index cdfc78a17..1ab639556 100644
 --- a/arch/arm64/boot/dts/apple/t6022-j475d.dts
 +++ b/arch/arm64/boot/dts/apple/t6022-j475d.dts
 @@ -9,6 +9,8 @@
@@ -153,7 +153,7 @@ index cdfc78a1703c..1ab639556cb0 100644
  
  #include "t6022.dtsi"
 diff --git a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
-index fa0183441d79..eee0c83f7f7d 100644
+index fa0183441..eee0c83f7 100644
 --- a/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
 +++ b/arch/arm64/boot/dts/apple/t6022-jxxxd.dtsi
 @@ -22,7 +22,11 @@ &lpdptxphy_die1 {
@@ -169,5 +169,5 @@ index fa0183441d79..eee0c83f7f7d 100644
  
  &dispext0_dart_die1 {
 -- 
-2.53.0
+2.54.0
 

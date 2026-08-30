@@ -1,7 +1,7 @@
-From 59a43872360afe62880e80949395adbddacb971d Mon Sep 17 00:00:00 2001
+From 1022ad9c6ed0210f8bcee23cf4a26bba8c552df6 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Thu, 25 Dec 2025 18:49:55 +0100
-Subject: [PATCH 04/13] HACK: arm64: dts: apple: t8103: Mark ps_atc1_common as
+Subject: [PATCH 05/14] HACK: arm64: dts: apple: t8103: Mark ps_atc1_common as
  always on
 
 Works around missing suspend/resume handling in ATC phy for DP-altmode.
@@ -12,7 +12,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-index 0d4ff6fd0933..bf92d3e2c775 100644
+index 0d4ff6fd0..bf92d3e2c 100644
 --- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
 +++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
 @@ -166,6 +166,10 @@ &dcpext {
@@ -27,5 +27,5 @@ index 0d4ff6fd0933..bf92d3e2c775 100644
  
  /* USB controllers */
 -- 
-2.53.0
+2.54.0
 

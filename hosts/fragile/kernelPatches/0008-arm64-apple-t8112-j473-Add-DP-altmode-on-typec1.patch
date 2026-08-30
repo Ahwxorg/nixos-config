@@ -1,7 +1,7 @@
-From f8fd296869cac5f9d2112ae91ffcfe89e543a050 Mon Sep 17 00:00:00 2001
+From 05057727172b1bac8af4775698c9727a3a8b985a Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sun, 4 Aug 2024 18:42:36 +0200
-Subject: [PATCH 07/13] arm64: apple: t8112-j473: Add DP-altmode on typec1
+Subject: [PATCH 08/14] arm64: apple: t8112-j473: Add DP-altmode on typec1
 
 Needs more testing, maybe a little unstable and somehow limits the HDMI
 out to 1280x720 (to be verified).
@@ -13,7 +13,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 43 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t8112-j473.dts b/arch/arm64/boot/dts/apple/t8112-j473.dts
-index 48f268bce7d3..855e3bbf89ca 100644
+index 4fc967798..53f4ab554 100644
 --- a/arch/arm64/boot/dts/apple/t8112-j473.dts
 +++ b/arch/arm64/boot/dts/apple/t8112-j473.dts
 @@ -9,6 +9,8 @@
@@ -74,5 +74,5 @@ index 48f268bce7d3..855e3bbf89ca 100644
  &sio {
          status = "okay";
 -- 
-2.53.0
+2.54.0
 

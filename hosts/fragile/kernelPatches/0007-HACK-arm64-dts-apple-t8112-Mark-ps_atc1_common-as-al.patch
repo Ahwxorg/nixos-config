@@ -1,7 +1,7 @@
-From 5cb09bf01895825292587640e625dca9fc3dc4e9 Mon Sep 17 00:00:00 2001
+From 31186a1d89b46aeb6cbd848d628796f3eecff712 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Thu, 25 Dec 2025 18:49:55 +0100
-Subject: [PATCH 06/13] HACK: arm64: dts: apple: t8112: Mark ps_atc1_common as
+Subject: [PATCH 07/14] HACK: arm64: dts: apple: t8112: Mark ps_atc1_common as
  always on
 
 Works around missing suspend/resume handling in ATC phy for DP-altmode.
@@ -12,7 +12,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 4 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
-index 344042877adb..62fa3bc8f99f 100644
+index 344042877..62fa3bc8f 100644
 --- a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
 +++ b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
 @@ -160,6 +160,10 @@ &dcpext {
@@ -27,5 +27,5 @@ index 344042877adb..62fa3bc8f99f 100644
  
  /* USB controllers */
 -- 
-2.53.0
+2.54.0
 

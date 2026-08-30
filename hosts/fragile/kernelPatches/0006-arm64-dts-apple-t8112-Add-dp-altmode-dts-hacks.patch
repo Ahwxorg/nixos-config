@@ -1,7 +1,7 @@
-From 65061fcd844e58c4295b8461080381917d7c03b7 Mon Sep 17 00:00:00 2001
+From 94158a168afe93e786161fda22f79ba5932ea9ce Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sat, 3 Dec 2022 22:19:44 +0100
-Subject: [PATCH 05/13] arm64: dts: apple: t8112: Add dp-altmode dts hacks
+Subject: [PATCH 06/14] arm64: dts: apple: t8112: Add dp-altmode dts hacks
 
 Enable DP alt mode for the front left USB-C port of Macbook Air 13 (M2,
 13/15-inch) and Macbook Pro (M2, 13-inch).
@@ -17,7 +17,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  4 files changed, 52 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t8112-j413.dts b/arch/arm64/boot/dts/apple/t8112-j413.dts
-index f36d40cb7fe6..312a54cb7f21 100644
+index a9119ac58..5780992fa 100644
 --- a/arch/arm64/boot/dts/apple/t8112-j413.dts
 +++ b/arch/arm64/boot/dts/apple/t8112-j413.dts
 @@ -9,6 +9,8 @@
@@ -30,7 +30,7 @@ index f36d40cb7fe6..312a54cb7f21 100644
  #include "t8112-jxxx.dtsi"
  #include <dt-bindings/leds/common.h>
 diff --git a/arch/arm64/boot/dts/apple/t8112-j415.dts b/arch/arm64/boot/dts/apple/t8112-j415.dts
-index 7f63969ede2a..5fe5b2ba5dab 100644
+index 9add9c531..3551e41f6 100644
 --- a/arch/arm64/boot/dts/apple/t8112-j415.dts
 +++ b/arch/arm64/boot/dts/apple/t8112-j415.dts
 @@ -9,6 +9,8 @@
@@ -43,7 +43,7 @@ index 7f63969ede2a..5fe5b2ba5dab 100644
  #include "t8112-jxxx.dtsi"
  #include <dt-bindings/leds/common.h>
 diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index 61bbb7a3c6f4..9859375f8fa1 100644
+index ba237db8f..8ec34e61f 100644
 --- a/arch/arm64/boot/dts/apple/t8112-j493.dts
 +++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
 @@ -9,6 +9,8 @@
@@ -56,7 +56,7 @@ index 61bbb7a3c6f4..9859375f8fa1 100644
  #include "t8112-jxxx.dtsi"
  #include <dt-bindings/leds/common.h>
 diff --git a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
-index fb957f785d82..344042877adb 100644
+index fb957f785..344042877 100644
 --- a/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
 +++ b/arch/arm64/boot/dts/apple/t8112-jxxx.dtsi
 @@ -96,6 +96,11 @@ typec1: connector {
@@ -120,5 +120,5 @@ index fb957f785d82..344042877adb 100644
  &dwc3_0 {
  	ports {
 -- 
-2.53.0
+2.54.0
 

@@ -1,7 +1,7 @@
-From d9b201ca8e20a4b160c3f77c951c27414b506f8c Mon Sep 17 00:00:00 2001
+From ecb9073f2e4b578762bcbdadf46495502ca2f13b Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Mon, 22 Dec 2025 22:08:35 +0100
-Subject: [PATCH 02/13] usb: typec: tipd: HACK: Use drm oob hotplug event
+Subject: [PATCH 03/14] usb: typec: tipd: HACK: Use drm oob hotplug event
 
 This is not how dp-altmode support should be implemented but it works
 for new. Requires a "displayport" property in the connector node with a
@@ -13,7 +13,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 20 insertions(+)
 
 diff --git a/drivers/usb/typec/tipd/core.c b/drivers/usb/typec/tipd/core.c
-index 607d0876ee79..aad526d0ce47 100644
+index 403c5a540..abc417732 100644
 --- a/drivers/usb/typec/tipd/core.c
 +++ b/drivers/usb/typec/tipd/core.c
 @@ -6,6 +6,8 @@
@@ -55,7 +55,7 @@ index 607d0876ee79..aad526d0ce47 100644
  	/* Process partner disconnection or change */
  	if (!new_connected || partner_changed) {
  		if (!IS_ERR(tps->partner))
-@@ -837,6 +848,9 @@ static void cd321x_update_work(struct work_struct *work)
+@@ -839,6 +850,9 @@ static void cd321x_update_work(struct work_struct *work)
  	/* Launch the USB role switch */
  	usb_role_switch_set_role(tps->role_sw, new_role);
  
@@ -65,7 +65,7 @@ index 607d0876ee79..aad526d0ce47 100644
  	power_supply_changed(tps->psy);
  }
  
-@@ -1271,6 +1285,7 @@ static int
+@@ -1273,6 +1287,7 @@ static int
  cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
  {
  	struct cd321x *cd321x = container_of(tps, struct cd321x, tps);
@@ -73,7 +73,7 @@ index 607d0876ee79..aad526d0ce47 100644
  	int ret;
  
  	INIT_DELAYED_WORK(&cd321x->update_work, cd321x_update_work);
-@@ -1289,6 +1304,11 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
+@@ -1291,6 +1306,11 @@ cd321x_register_port(struct tps6598x *tps, struct fwnode_handle *fwnode)
  		goto err_unregister_altmodes;
  	}
  
@@ -86,5 +86,5 @@ index 607d0876ee79..aad526d0ce47 100644
  	cd321x->state.mode = TYPEC_STATE_SAFE;
  	cd321x->state.data = NULL;
 -- 
-2.53.0
+2.54.0
 

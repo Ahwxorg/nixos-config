@@ -1,7 +1,7 @@
-From 4e84610e5722c34e48fef3f33f7bd8faedb13348 Mon Sep 17 00:00:00 2001
+From e3e35907c17a05773d481e58a566bf9108166cc5 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sat, 5 Nov 2022 21:22:50 +0100
-Subject: [PATCH 13/13] arm64: dts: apple: t6020-j474s: Add dp-altmode hacks
+Subject: [PATCH 14/14] arm64: dts: apple: t6020-j474s: Add dp-altmode hacks
 
 DP alt mode for Mac Mini M2 Pro, the blessed port is the back right
 middle port (second closest USB-C port to the power connector).
@@ -12,7 +12,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t6020-j474s.dts b/arch/arm64/boot/dts/apple/t6020-j474s.dts
-index 12dfe9693502..cfe7f8ac7306 100644
+index 12dfe9693..cfe7f8ac7 100644
 --- a/arch/arm64/boot/dts/apple/t6020-j474s.dts
 +++ b/arch/arm64/boot/dts/apple/t6020-j474s.dts
 @@ -9,6 +9,8 @@
@@ -37,5 +37,5 @@ index 12dfe9693502..cfe7f8ac7306 100644
  &dispext0_dart {
  	status = "okay";
 -- 
-2.53.0
+2.54.0
 

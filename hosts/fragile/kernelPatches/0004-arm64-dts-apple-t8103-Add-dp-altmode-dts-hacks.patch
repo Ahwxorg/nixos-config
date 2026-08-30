@@ -1,7 +1,7 @@
-From 8710bf540afd5a936933e137116eed6f86efc151 Mon Sep 17 00:00:00 2001
+From e603264b3da654e6215d960c507c70c8303640a3 Mon Sep 17 00:00:00 2001
 From: Janne Grunau <j@jannau.net>
 Date: Sat, 3 Dec 2022 21:26:42 +0100
-Subject: [PATCH 03/13] arm64: dts: apple: t8103: Add dp-altmode dts hacks
+Subject: [PATCH 04/14] arm64: dts: apple: t8103: Add dp-altmode dts hacks
 
 Enable DP alt mode for all M1 devices:
 - Mac Mini (M1): USB-C port next to the HDMI port
@@ -16,7 +16,7 @@ Signed-off-by: Janne Grunau <j@jannau.net>
  1 file changed, 45 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
-index 67a57fc507df..0d4ff6fd0933 100644
+index 67a57fc50..0d4ff6fd0 100644
 --- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
 +++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
 @@ -9,10 +9,15 @@
@@ -90,5 +90,5 @@ index 67a57fc507df..0d4ff6fd0933 100644
  &dwc3_0 {
  	ports {
 -- 
-2.53.0
+2.54.0
 
