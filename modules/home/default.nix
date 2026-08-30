@@ -2,6 +2,7 @@
 {
   imports =
     [ (import ./git.nix) ]
+    ++ [ (import ./bemenu.nix) ]
     ++ [ (import ./doom-emacs.nix) ]
     ++ [ (import ./swaync/default.nix) ]
     ++ [ (import ./sway/default.nix) ]
@@ -21,6 +22,7 @@
     ++ [ (import ./scripts/scripts.nix) ]
     # ++ [ (import ./spotify.nix) ]
     ++ [ (import ./ssh.nix) ]
+    ++ [ (import ./tofi.nix) ]
     ++ [ (import ./waybar) ]
     ++ [ (import ./zsh.nix) ]
     ++ [ (import ./qutebrowser.nix) ]
