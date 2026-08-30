@@ -1,11 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 {
   programs = {
     zsh.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      # pinentryFlavor = "";
+      pinentryPackage = pkgs.pinentry-bemenu;
     };
   };
 }
