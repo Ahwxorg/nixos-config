@@ -15,7 +15,7 @@
     # title=foot
     # locked-title=no
 
-    font=GohuFont 14 Nerd Font Mono:size=10
+    font=scientifica:size=10
     # font-bold=<bold variant of regular font>
     # font-italic=<italic variant of regular font>
     # font-bold-italic=<bold+italic variant of regular font>
