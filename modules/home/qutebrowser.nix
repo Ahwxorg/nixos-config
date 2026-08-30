@@ -3,6 +3,14 @@
   ...
 }:
 let
+  fg = "#cda5ef";
+  # fg = "#ff7eb6";
+  fg-alt = "#f8f8f8";
+  accent = "#ff7eb6";
+  bg = "#161616";
+  bg-alt = "#525252";
+  urgent = "#f46ca4";
+
   rosewater = "#f5e0dc";
   flamingo = "#f2cdcd";
   pink = "#f5c2e7";
@@ -66,21 +74,21 @@ in
 
       colors = {
         completion = {
-          category.bg = "${base}";
-          category.border.bottom = "${mantle}";
+          category.bg = "${bg}";
+          category.border.bottom = "${bg-alt}";
           category.border.top = "${overlay2}";
-          category.fg = "${green}";
-          fg = "${subtext0}";
-          item.selected.bg = "${surface2}";
-          item.selected.border.bottom = "${surface2}";
-          item.selected.border.top = "${surface2}";
-          item.selected.fg = "${text}";
-          item.selected.match.fg = "${rosewater}";
-          even.bg = "${base}";
-          odd.bg = "${base}";
-          match.fg = "${green}";
-          scrollbar.bg = "${crust}";
-          scrollbar.fg = "${surface2}";
+          category.fg = "${fg}";
+          fg = "${fg-alt}";
+          item.selected.bg = "${bg}";
+          item.selected.border.bottom = "${bg}";
+          item.selected.border.top = "${bg}";
+          item.selected.fg = "${fg-alt}";
+          item.selected.match.fg = "${fg-alt}";
+          even.bg = "${bg}";
+          odd.bg = "${bg}";
+          match.fg = "${fg}";
+          scrollbar.bg = "${bg}";
+          scrollbar.fg = "${fg-alt}";
         };
 
         downloads = {
