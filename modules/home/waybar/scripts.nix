@@ -246,6 +246,12 @@
         mullvad-exclude curl 'wttr.is?format=%c+(%p)+%t+(%f)+%w+(%S,+%s)\n'
       '';
     };
+    "/home/${username}/.local/bin/waybar-memory" = {
+      executable = true;
+      text = ''
+        echo "$(free -t -m | tail -n1 | awk '{printf "%.1f/%.1f", $3/1024, $2/1024}')"
+      '';
+    };
   };
   home.packages = with pkgs; [
     wf-recorder
