@@ -1,27 +1,21 @@
 {
   pkgs,
-  host,
-  username,
   lib,
   ...
 }:
 let
-  dark = "#040606";
-  black = "#241b2f";
-  dim = "#495671";
-  red = "#f53fa1";
-  green = "#72f1b8";
-  yellow = "#ffcc00";
-  blue = "#2b196e";
-  magenta = "#ff7edb"; # previously cda5ef
-  cyan = "#61e2ff";
-  white = "#f8f8f8";
-  bright = "#ffffff";
-  transparent = "#ff000000";
-  winterBlue = "#252535";
+  fg = "#cda5ef";
+  # fg = "#ff7eb6";
+  fg-alt = "#f8f8f8";
+  accent = "#ff7eb6";
+  bg = "#161616";
+  bg-alt = "#525252";
+  urgent = "#f46ca4";
+
   mod = "Mod1";
   altmod = "Mod4";
   laptop = "eDP-1";
+  monitor = "DP-1";
 in
 {
   home.packages = with pkgs; [
@@ -35,62 +29,68 @@ in
     enable = true;
     config = {
       output = {
-        eDP-1 = {
+        laptop = {
           scale = "1.25";
+          pos = "2560 0";
+        };
+        monitor = {
+          scale = "1";
+          pos = "0 0";
         };
       };
       window.border = 4;
       colors = {
+        # client.<state> <border> <background> <text> <indicator> <child_border>
         focused = {
-          border = magenta;
-          background = "#536161";
-          text = white;
-          indicator = yellow;
-          childBorder = "#536161";
-        };
-        unfocused = {
-          border = dark;
-          background = dark;
-          text = dim;
-          indicator = dark;
-          childBorder = winterBlue;
-        };
-        focusedInactive = {
-          border = dark;
-          background = dark;
-          text = white;
-          indicator = dark;
-          childBorder = winterBlue;
-        };
-        urgent = {
-          border = red;
-          background = red;
-          text = white;
-          indicator = red;
-          childBorder = red;
+          border = fg-alt;
+          background = bg-alt;
+          text = fg;
+          indicator = accent;
+          childBorder = fg-alt;
         };
         placeholder = {
-          border = dark;
-          background = dark;
-          text = white;
-          indicator = white;
-          childBorder = dark;
+          border = bg;
+          background = bg-alt;
+          text = fg;
+          indicator = accent;
+          childBorder = fg-alt;
+        };
+        focusedInactive = {
+          border = bg-alt;
+          background = bg;
+          text = fg-alt;
+          indicator = accent;
+          childBorder = bg-alt;
+        };
+        unfocused = {
+          border = bg-alt;
+          background = bg;
+          text = fg-alt;
+          indicator = accent;
+          childBorder = bg-alt;
+        };
+        urgent = {
+          border = urgent;
+          background = urgent;
+          text = fg;
+          indicator = urgent;
+          childBorder = urgent;
         };
       };
       fonts = {
         names = [
-          "BlexMono Nerd Font"
+          "scientifica"
         ];
         style = "Bold Semi-Condensed";
         size = 11.0;
       };
       bars = [ ];
-      input = {
-        "type:keyboard" = {
-          # "*" = {
-          xkb_options = "caps:ctrl_modifier";
-        };
-      };
+      # input = {
+      # "type:keyboard" = {
+      # "*" = {
+      # xkb_options = "caps:ctrl_modifier";
+      # };
+      # };
       modifier = mod;
       keybindings = lib.attrsets.mergeAttrsList [
         (lib.attrsets.mergeAttrsList (
@@ -149,16 +149,17 @@ in
           "${altmod}+n" = "focus next";
           "${altmod}+p" = "focus prev";
 
-          "${mod}+d" = "exec --no-startup-id ${pkgs.bemenu}/bin/bemenu-run -l 5 --ignorecase";
+          "${mod}+d" = "exec --no-startup-id bemenu-run";
           "${mod}+e" = "exec --no-startup-id ${pkgs.nautilus}/bin/nautilus";
           "${mod}+c" = "exec --no-startup-id ${pkgs.hyprpicker}/bin/hyprpicker -a";
           "${mod}+n" = "exec --no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync-client -t";
 
           "${mod}+Return" = "exec --no-startup-id ${pkgs.foot}/bin/footclient";
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.foot}/bin/footclient --title 'float_foot'";
-          "${altmod}+Shift+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
+          "${altmod}+Shift+l" =
+            "exec ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.jpg --indicator-idle-visible";
           "${mod}+Shift+b" = "exec pkill -SIGUSR1 .waybar-wrapped";
-          "${mod}+Shift+v" = "exec cliphist list | bemenu -l 5 --ignorecase | cliphist decode | wl-copy";
+          "${mod}+Shift+v" = "exec cliphist list | bemenu -l 5| cliphist decode | wl-copy";
           "${mod}+Shift+f" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
           "${mod}+Shift+c" = "exec --no-startup-id ${pkgs.ungoogled-chromium}/bin/chromium";
           "${mod}+Shift+q" = "exec --no-startup-id ${pkgs.qutebrowser}/bin/qutebrowser";
@@ -175,19 +176,19 @@ in
           "${mod}+Shift+g" = "exec --no-startup-id grabtext";
 
           # media and volume controls
-          "XF86AudioRaiseVolume" = "exec pamixer -i 2";
-          "XF86AudioLowerVolume" = "exec pamixer -d 2";
-          "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
-          "XF86AudioPlay" = "exec ${pkgs.playerctl}/playerctl play-pause";
-          "XF86AudioNext" = "exec ${pkgs.playerctl}/playerctl next";
-          "XF86AudioPrev" = "exec ${pkgs.playerctl}/playerctl previous";
-          "XF86AudioStop" = "exec ${pkgs.playerctl}/playerctl stop";
+          "XF86AudioRaiseVolume" = "exec ${pkgs.swayosd}/bin/swayosd-client --output-volume +2";
+          "XF86AudioLowerVolume" = "exec ${pkgs.swayosd}/bin/swayosd-client --output-volume -2";
+          "XF86AudioMute" = "exec ${pkgs.swayosd}/bin/swayosd-client --output-volume mute-toggle";
+          "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+          "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+          "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+          "XF86AudioStop" = "exec ${pkgs.playerctl}/bin/playerctl stop";
 
           # laptop brigthness
-          "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
-          "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
-          "${mod}+XF86MonBrightnessUp" = "exec brightnessctl set 100%+";
-          "${mod}+XF86MonBrightnessDown" = "exec brightnessctl set 100%-";
+          "XF86MonBrightnessUp" = "${pkgs.swayosd}/bin/swayosd-client --brightness +5";
+          "XF86MonBrightnessDown" = "${pkgs.swayosd}/bin/swayosd-client --brightness -5";
+          "${mod}+XF86MonBrightnessUp" = "${pkgs.swayosd}/bin/swayosd-client --brightness +1000";
+          "${mod}+XF86MonBrightnessDown" = "${pkgs.swayosd}/bin/swayosd-client --brightness 0";
         }
       ];
       focus.followMouse = true;
@@ -207,6 +208,7 @@ in
         { command = "foot --server &"; }
         { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; }
         { command = "xfce4-taskmanager"; }
+        { command = "tailscale systray"; }
       ];
       workspaceAutoBackAndForth = false;
 
@@ -229,12 +231,13 @@ in
       gtk = true;
     };
     extraConfig = ''
-      set $font Ubuntu Mono
-      font pango:$font 7
+      set $font scientifica
+      font pango:$font 10
       hide_edge_borders none
       title_align left
       default_border normal 2
-      for_window [all] border normal 2, floating enable, title_format "<span text_transform='lowercase'>%title</span>"
+      # for_window [all] border normal 2, floating enable, title_format "<span text_transform='lowercase'>%title</span>"
+      for_window [all] border normal 2, title_format "<span text_transform='lowercase'>%title</span>"
 
       for_window [app_id="firefox"]            floating disabled
       for_window [app_id="thudnerbird"]        floating disabled
@@ -270,6 +273,17 @@ in
       # lbur_radius 1
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
+
+      workspace 0 output ${laptop}
+      workspace 1 output ${monitor}
+      workspace 2 output ${monitor}
+      workspace 3 output ${monitor}
+      workspace 4 output ${monitor}
+      workspace 5 output ${monitor}
+      workspace 6 output ${monitor}
+      workspace 7 output ${monitor}
+      workspace 8 output ${monitor}
+      workspace 9 output ${laptop}
     '';
   };
 
