@@ -26,4 +26,9 @@
     package = pkgs.hyprland;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
+
+  programs.sway = {
+    enable = true;
+    package = pkgs.swayfx;
+  };
 }
