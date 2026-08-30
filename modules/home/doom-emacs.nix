@@ -39,12 +39,41 @@ in
     packages = [
       doom-install
       pkgs.emacs
-      pkgs.shellcheck
+
       pkgs.symbola
       pkgs.nerd-fonts.symbols-only
+
+      # for building Vterm
+      pkgs.cmake
+      pkgs.libtool
+
+      # requirements
       pkgs.fd
       pkgs.ripgrep
       pkgs.git
+
+      pkgs.nixfmt
+
+      pkgs.shellcheck
+      pkgs.shfmt
+
+      pkgs.html-tidy
+      pkgs.stylelint
+
+      pkgs.pandoc
+
+      pkgs.dockfmt
+
+      pkgs.gopls
+      pkgs.gotests
+      pkgs.gomodifytags
+      pkgs.gore
+      pkgs.js-beautify
+
+      pkgs.hunspell
+      pkgs.hunspellDicts.en-us
+      pkgs.hunspellDicts.nl_nl
+      pkgs.hunspellDicts.de-de
     ];
   };
 }
