@@ -94,9 +94,17 @@
             mode = if (host == "sakura") then "2560x1440@60Hz" else "2560x1440@60Hz";
           }
           {
+            criteria = "DP-1";
+            scale = 1.0;
+            status = "enable";
+            position = "0,0";
+            # adaptiveSync = true;
+            mode = if (host == "fragile") then "2560x1440@240Hz" else "2560x1440@60Hz";
+          }
+          {
             criteria = "eDP-1";
-            status = if (host == "sakura") then "disable" else "disable";
-            position = if (host == "sakura") then "152,1440" else "300,1440";
+            status = if (host == "sakura") then "disable" else "enable";
+            position = if (host == "sakura") then "152,1440" else "2560,0";
           }
         ];
       };
