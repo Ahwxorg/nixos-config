@@ -88,7 +88,6 @@ in
         pkgs.kdePackages.kdeconnect-kde
         pkgs.libgnome-keyring
         pkgs.foot
-        pkgs.nautilus
         pkgs.tesseract
         pkgs.yubikey-touch-detector
         pkgs.wireguard-tools
@@ -102,6 +101,15 @@ in
         pkgs.wl-clipboard
         pkgs.cliphist
         pkgs.poweralertd
+
+        # thunar
+        pkgs.thunar
+        pkgs.gvfs
+        pkgs.tumbler
+        pkgs.ffmpegthumbnailer
+        pkgs.thunar-archive-plugin
+        pkgs.thunar-volman
+        pkgs.thunar-media-tags-plugin
 
         # Gaming
         # lunar-client
