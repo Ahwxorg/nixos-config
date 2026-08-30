@@ -66,7 +66,9 @@
           "funkwhaleDjangoSecret" = { };
           "desecToken" = { };
           "radicaleSecret" = { };
-          "tinyauthEnvironment" = { };
+          "tinyauthEnvironment" = {
+            restartUnits = [ "tinyauth.service" ];
+          };
           "lldapUserPass" = {
             owner = "lldap";
           };
@@ -81,6 +83,12 @@
           };
           "minifluxAdminCredentials" = {
             # owner = "miniflux";
+          };
+          "navidromeEnvironment" = {
+            restartUnits = [ "navidrome.service" ];
+          };
+          "grafanaKeyFile" = {
+            owner = "grafana";
           };
         }
       else if (host == "sakura") then

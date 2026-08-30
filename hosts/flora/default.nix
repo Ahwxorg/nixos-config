@@ -38,6 +38,8 @@
     ./../../modules/services/tinyauth.nix
     ./../../modules/services/lldap.nix
     ./../../modules/services/miniflux.nix
+    ./../../modules/services/navidrome.nix
+    ./../../modules/services/grafana.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

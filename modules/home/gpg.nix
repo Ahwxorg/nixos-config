@@ -9,8 +9,8 @@
 
   programs.gpg = {
     enable = true;
-    mutableKeys = true;
-    mutableTrust = true;
+    mutableKeys = false;
+    mutableTrust = false;
     publicKeys = [
       {
         # own key
@@ -26,7 +26,7 @@
           url = "https://git.gay/0x6e6174/natalieee.net/raw/branch/main/website/site-data/pubkey.asc";
           sha256 = "sha256-THQRICPANA4iv4k9bKdjAc3GMbaN6FPjwxptgGMRxbc=";
         };
-        trust = 4;
+        trust = 5;
       }
       {
         # avery
@@ -34,7 +34,15 @@
           url = "https://keys.openpgp.org/vks/v1/by-fingerprint/4CC1272267890A39BA4B3A3FDE957602B43A2D60";
           sha256 = "sha256-PDad7v1/PEbNpYnTnqWiMMmXM1ac3sttJ+ucX0d/VOo=";
         };
-        trust = 4;
+        trust = 5;
+      }
+      {
+        # serana
+        source = builtins.fetchurl {
+          url = "https://serana.dev/pgp.txt";
+          sha256 = "sha256-Fry5azR6eJqnjlH5Sekrvf5uRJsC7vzCLUqq9RhGs0g=";
+        };
+        trust = 5;
       }
     ];
   };

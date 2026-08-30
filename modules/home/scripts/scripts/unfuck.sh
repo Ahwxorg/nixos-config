@@ -2,118 +2,124 @@
 # unfuck system when shit goes wrong
 
 unfuckable=(
-  "wallpaper"
-  "bar"
-  "networkmanager"
-  "spotify"
-  "audio"
-  "screenlock"
-  "hyprland_portal"
+	"wallpaper"
+	"bar"
+	"networkmanager"
+	"spotify"
+	"audio"
+	"screenlock"
+	"hyprland_portal"
+	"touch"
 )
 
 usage() {
-  echo "INFO: usage; unfuck [OPTION]"
-  echo "INFO: example; unfuck everything"
-  echo ""
-  echo "INFO: items: ${unfuckable[*]}"
-  echo ""
-  echo "WARN: unfuck everything should only be used when *everything* is broken and nothing works anymore!"
+	echo "INFO: usage; unfuck [OPTION]"
+	echo "INFO: example; unfuck everything"
+	echo ""
+	echo "INFO: items: ${unfuckable[*]}"
+	echo ""
+	echo "WARN: unfuck everything should only be used when *everything* is broken and nothing works anymore!"
 }
 
 unfuck_wallpaper() {
-  pkill awww-daemon
-  setsid awww-daemon &
-  awww img ~/.local/share/bg.png
+	pkill awww-daemon
+	setsid awww-daemon &
+	awww img ~/.local/share/bg.png
 }
 
 unfuck_fingerprint() {
-  notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
-  sleep 10
-  sudo systemctl restart fprintd.service
+	notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
+	sleep 10
+	sudo systemctl restart fprintd.service
 }
 
 unfuck_bar() {
-  pkill waybar
-  setsid waybar &
+	pkill waybar
+	setsid waybar &
 }
 
 unfuck_dock() {
-  pkill .nwg-dock-hyprl
-  setsid dock-on-all-monitors &
+	pkill .nwg-dock-hyprl
+	setsid dock-on-all-monitors &
 }
 
 unfuck_networkmanager() {
-  # sudo modprobe -r iwlwifi
-  # sudo modprobe iwlwifi
-  notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
-  sleep 10
-  sudo systemctl restart NetworkManager
+	# sudo modprobe -r iwlwifi
+	# sudo modprobe iwlwifi
+	notify-send "Touch sensor or use YubiKey." "Sleeping for 10 seconds."
+	sleep 10
+	sudo systemctl restart NetworkManager
 }
 
 unfuck_spotify() {
-  if pgrep ncspot; then
-    pkill ncspot
-    kitty -e ncspot
-  elif pgrep spotify; then
-    pkill spotify
-    spotify
-  fi
+	if pgrep ncspot; then
+		pkill ncspot
+		kitty -e ncspot
+	elif pgrep spotify; then
+		pkill spotify
+		spotify
+	fi
 }
 
 unfuck_audio() {
-  if [[ "$(playerctl status)" == "Playing" ]]; then
-    playerctl pause
-  fi
-  for device in $(bluetoothctl devices Connected | awk '{print $2}'); do
-    devices+=("$device")
-  done
-  systemctl --user restart wireplumber pipewire pipewire-pulse bluetooth
-  rfkill block bluetooth
-  rfkill unblock bluetooth
-  bluetoothctl power off
-  bluetoothctl power on
-  for device in ${devices[*]}; do
-    # because bluetooth is the worst thing ever created and defaults to handset mode, devices will need to reconnect
-    echo "INFO: disconnecting and reconnecting to $device"
-    bluetoothctl disconnect "$device"
-    bluetoothctl connect "$device"
-  done
+	if [[ "$(playerctl status)" == "Playing" ]]; then
+		playerctl pause
+	fi
+	for device in $(bluetoothctl devices Connected | awk '{print $2}'); do
+		devices+=("$device")
+	done
+	systemctl --user restart wireplumber pipewire pipewire-pulse bluetooth
+	rfkill block bluetooth
+	rfkill unblock bluetooth
+	bluetoothctl power off
+	bluetoothctl power on
+	for device in ${devices[*]}; do
+		# because bluetooth is the worst thing ever created and defaults to handset mode, devices will need to reconnect
+		echo "INFO: disconnecting and reconnecting to $device"
+		bluetoothctl disconnect "$device"
+		bluetoothctl connect "$device"
+	done
 }
 
 unfuck_screenlock() {
-  hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
-  hyprctl --instance 0 'dispatch exec hyprlock'
+	hyprctl --instance 0 'keyword misc:allow_session_lock_restore 1'
+	hyprctl --instance 0 'dispatch exec hyprlock'
 }
 
 unfuck_hyprland_portal() {
-  sleep 4
-  killall -e xdg-desktop-portal-hyprland
-  killall xdg-desktop-portal
-  /usr/lib/xdg-desktop-portal-hyprland &
-  sleep 4
-  /usr/lib/xdg-desktop-portal &
+	sleep 4
+	killall -e xdg-desktop-portal-hyprland
+	killall xdg-desktop-portal
+	/usr/lib/xdg-desktop-portal-hyprland &
+	sleep 4
+	/usr/lib/xdg-desktop-portal &
+}
+
+unfuck_touch() {
+	hyprctl keyword input:touchdevice:transform '3'
 }
 
 unfuck_bluetooth() {
-  foot -e 'doas modprobe -r hci_bcm4377 && doas modprobe hci_bcm4377'
+	foot -e 'doas modprobe -r hci_bcm4377 && doas modprobe hci_bcm4377'
 }
 
 case $1 in
 "")
-  echo "what is fucked?"
-  ;;
+	echo "what is fucked?"
+	;;
 -h | --help | help)
-  usage
-  ;;
+	usage
+	;;
 everything)
-  unfuck_screenlock
-  unfuck_bar
-  unfuck_spotify
-  unfuck_wallpaper
-  unfuck_fingerprint
-  unfuck_bluetooth
-  ;;
+	unfuck_screenlock
+	unfuck_bar
+	unfuck_spotify
+	unfuck_wallpaper
+	unfuck_fingerprint
+	unfuck_touch
+	unfuck_bluetooth
+	;;
 *)
-  eval "unfuck_$1"
-  ;;
+	eval "unfuck_$1"
+	;;
 esac

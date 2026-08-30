@@ -32,6 +32,8 @@
           "eDP-1, 1920x1080@60, 0x0, 1.0"
         else if (host == "fragile") then
           "eDP-1, 3024x1964@120, 0x0, 1.5"
+        else if (host == "primrose") then
+          "DSI-1, 1200x1920@90, 0x0, 1.25, transform,3"
         else
           ", preferred, auto, 1";
 
@@ -53,6 +55,7 @@
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
         "nextcloud &"
         "xfce4-taskmanager &"
+        "hyprctl keyword input:touchdevice:transform '3' &"
       ];
 
       input = {

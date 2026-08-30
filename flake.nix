@@ -241,6 +241,17 @@
             inherit self inputs username;
           };
         };
+        primrose = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/primrose)
+          ];
+          specialArgs = {
+            host = "primrose";
+            system = "x86_64-linux";
+            inherit self inputs username;
+          };
+        };
       };
     };
 }
