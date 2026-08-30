@@ -224,16 +224,19 @@
 
           "group/resources": {
             "orientation": "horizontal",
-            "modules": [ "memory", "disk#root" ],
+            "modules": [ "custom/memory", "disk#root" ],
             "drawer": {
               "transition-left-to-right": false,
               "transition-duration": 500
             }
           },
 
-          "memory": {
+          "custom/memory": {
             "interval": 60,
-            "format": "<span color='#aaaaaa'>RAM:</span> {used:3.1f}GiB/<span color='#aaaaaa'>{total:3.1f}GiB</span> "
+            "format": "<span color='#aaaaaa'>RAM: </span>{text}<span color='#aaaaaa'>GiB</span> ",
+            "return-type": "text",
+            "exec": "~/.local/bin/waybar-memory",
+            "interval": 20
           },
 
           "disk#root": {
@@ -396,7 +399,7 @@
                         * {
                           border: none;
                           border-radius: 0;
-                          font-family: 'GohuFont 11 Nerd Font Mono';
+                          font-family: 'scientifica';
                           font-weight: 400;
                           font-size: 14px;
                           min-height: 44px;
