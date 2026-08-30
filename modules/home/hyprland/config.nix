@@ -52,7 +52,6 @@
         "hyprfloat &"
         "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &"
         "nextcloud &"
-        "swayosd-server &"
         "xfce4-taskmanager &"
       ];
 
@@ -204,7 +203,7 @@
         "ALT, F, fullscreen, 0" # set 1 to 0 to set full screen without waybar
         "SUPER, F, fullscreen, 1" # set 1 to 0 to set full screen without waybar
         "ALT, Space, togglefloating,"
-        "ALT, D, exec, bemenu-run -l 5 --ignorecase"
+        "ALT, D, exec, exec $(tofi-run)"
         "CTRL SHIFT, L, exec, ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible"
         "ALT, E, exec, nautilus"
         "ALT SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
@@ -377,19 +376,19 @@
 
     extraConfig = "
       # If desktop
-      input:accel_profile=flat
+      # input:accel_profile=flat
 
-      input {
-        force_no_accel = true
-      }
+      # input {
+      #   force_no_accel = true
+      # }
 
       monitor=,preferred,auto,auto
 
       # debug:disable_logs = false
 
-      xwayland {
-        force_zero_scaling = true
-      }
+      # xwayland {
+      #   force_zero_scaling = true
+      # }
 
       plugin {
         hyprbars {
