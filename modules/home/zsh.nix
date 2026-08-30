@@ -284,10 +284,9 @@
         cat = "${lib.getExe pkgs.bat} --plain";
         diff = "${lib.getExe pkgs.delta} --color-only";
         github-actions = "${lib.getExe pkgs.act} -s GITHUB_TOKEN=\"$(${lib.getExe pkgs.github-cli} auth token)\"";
-        tailscale = "sudo tailscale";
         finder = "open -a Finder";
         fucking = "systemctl --user restart";
-        reboot-to-macos = "sudo asahi-bless --set-boot 1";
+        reboot-to-macos = "echo 1 | sudo asahi-bless 1>/dev/null && sudo reboot";
 
         # NixOS
         ns = "nix-shell --run zsh";
