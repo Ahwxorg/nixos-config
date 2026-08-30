@@ -10,6 +10,7 @@
     ../../modules/core
     ./hardware-configuration.nix
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
+    inputs.steam-asahi.nixosModules.default
     # ./apple-silicon-support
     ./../../modules/services/tailscale.nix
     # ../../modules/core/sshfs.nix
@@ -18,6 +19,8 @@
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
     ./../../modules/services/keyd.nix
+    ./steam.nix
+    ./../../modules/core/displaylink.nix
   ];
 
   hardware.asahi = {
@@ -25,15 +28,17 @@
     peripheralFirmwareDirectory = ./firmware;
   };
 
+  #environment.variables = {
+  #  WLR_EVDI_RENDER_DEVICE = "/dev/dri/card1";
+  #};
+
   environment = {
     systemPackages = [
       pkgs.asahi-bless
       pkgs.monero-gui
       pkgs.btrfs-progs
       pkgs.apfs-fuse
-      pkgs.neovim
-      pkgs.wget
-      pkgs.acpi
+      pkgs.remmina
     ];
   };
 
@@ -52,13 +57,10 @@
   time.timeZone = "Europe/Amsterdam";
 
   services = {
-    # displayManager.ly.enable = true;
     vnstat.enable = true;
     pcscd.enable = lib.mkForce true;
     # hardware.bolt.enable = true; # enable once Thunderbolt is supported
   };
-
-  # zramSwap.enable = true;
 
   boot = {
     kernelParams = [

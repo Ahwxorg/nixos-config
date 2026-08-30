@@ -20,6 +20,7 @@
     apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
     nix-webapps.url = "github:AniviaFlome/nix-webapps";
     nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
+    steam-asahi.url = "github:sm-idk/steam-asahi";
 
     # darwin
     homebrew-core.url = "github:homebrew/homebrew-core";
