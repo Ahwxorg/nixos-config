@@ -23,13 +23,15 @@ in
     swaylock
   ];
 
+  services.swayosd.enable = true;
+
   wayland.windowManager.sway = {
     checkConfig = false;
     package = pkgs.swayfx;
     enable = true;
     config = {
       output = {
-        laptop = {
+        eDP-1 = {
           scale = "1.25";
           pos = "2560 0";
         };
@@ -156,8 +158,8 @@ in
 
           "${mod}+Return" = "exec --no-startup-id ${pkgs.foot}/bin/footclient";
           "${mod}+Shift+Return" = "exec --no-startup-id ${pkgs.foot}/bin/footclient --title 'float_foot'";
-          "${altmod}+Shift+l" =
-            "exec ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.jpg --indicator-idle-visible";
+          "ctrl+Shift+l" =
+            "exec ${pkgs.swaylock}/bin/swaylock -i ~/.local/share/bg.png --indicator-idle-visible";
           "${mod}+Shift+b" = "exec pkill -SIGUSR1 .waybar-wrapped";
           "${mod}+Shift+v" = "exec cliphist list | bemenu -l 5| cliphist decode | wl-copy";
           "${mod}+Shift+f" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
