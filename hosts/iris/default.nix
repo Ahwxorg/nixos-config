@@ -62,13 +62,9 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
     };
-    extraModulePackages =
-      with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-        v4l2loopback
-      ]
-      ++ [ pkgs.cpupower-gui ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+      v4l2loopback
+    ];
   };
 }

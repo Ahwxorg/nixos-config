@@ -71,14 +71,10 @@
       efi.canTouchEfiVariables = true;
       # systemd-boot.configurationLimit = 10;
     };
-    extraModulePackages =
-      with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-        v4l2loopback
-      ]
-      ++ [ pkgs.cpupower-gui ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+      v4l2loopback
+    ];
     extraModprobeConfig = ''
       options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
     '';

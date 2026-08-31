@@ -41,13 +41,9 @@
     };
     initrd.luks.devices."luks-729500c5-557b-45c8-ab3f-5c365db28284".keyFile =
       lib.mkForce "/crypto_keyfile.bin";
-    extraModulePackages =
-      with config.boot.kernelPackages;
-      [
-        acpi_call
-        cpupower
-      ]
-      ++ [ pkgs.cpupower-gui ];
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+    ];
   };
 
   networking.hostName = "ichiyo";
