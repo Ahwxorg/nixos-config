@@ -25,7 +25,6 @@ in
     services = {
       thermald.enable = true;
       vnstat.enable = true;
-      # cpupower-gui.enable = true;
       # power-profiles-daemon.enable = true;
 
       # auto-cpufreq = {
