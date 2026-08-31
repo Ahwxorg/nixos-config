@@ -25,32 +25,30 @@
           "position": "top",
 
           "modules-left": [
-            "sway/workspaces",
-            "hyprland/workspaces",
-            "sway/mode",
-            "custom/weather",
-            "tray",
+            // "group/hardware",
+            // "wireplumber",
+            // "custom/pomodoro",
+            "group/clock",
+            "group/battery",
+            "group/audio",
+            "bluetooth",
+            "custom/music",
+            "privacy",
+            "group/network",
+            "custom/yubikey#icon",
+            "custom/yubikey#data",
+            "group/resources"
           ],
 
           "modules-center": [
+            "sway/mode"
           ],
 
           "modules-right": [
-            "custom/devices",
-            "privacy",
-            "network",
-            "custom/music",
-            "custom/vpn",
-            "custom/yubikey#icon",
-            "custom/yubikey#data",
-            "group/hardware",
-            "group/resources",
-            "bluetooth",
-            // "wireplumber",
-            "group/audio",
-            "group/battery",
-            // "custom/pomodoro",
-            "group/clock"
+            "custom/weather",
+            "sway/workspaces",
+            "hyprland/workspaces",
+            "tray"
           ],
 
           "hyprland/window": {
@@ -80,17 +78,17 @@
             "format": "{name}"
           },
 
-          // "group/network": {
-          //   "orientation": "horizontal",
-          //   "modules": [ 
-          //     "network",
-          //     "custom/vpn",
-          //   ],
-          //   "drawer": {
-          //     "transition-left-to-right": true,
-          //     "transition-duration": 500
-          //   }
-          // },
+          "group/network": {
+            "orientation": "horizontal",
+            "modules": [ 
+              "network",
+              "custom/vpn",
+            ],
+            "drawer": {
+              "transition-left-to-right": true,
+              "transition-duration": 500
+            }
+          },
           
           "network": {
             "format": "󰈀 {ifname}",
@@ -224,7 +222,15 @@
 
           "group/resources": {
             "orientation": "horizontal",
-            "modules": [ "custom/memory", "disk#root" ],
+            "modules": [
+              "custom/memory",
+              "disk#root",
+              "cpu", 
+              "temperature#cpu",
+              "temperature#gpu",
+              "temperature#nvme",
+              "temperature#wifi"
+            ],
             "drawer": {
               "transition-left-to-right": false,
               "transition-duration": 500
@@ -307,7 +313,7 @@
           },
 
           "battery": {
-            "bat": "BAT0",
+            "bat": "macsmc-battery",
             "interval": 20,
             "states": {
               "warning": 20,
@@ -349,7 +355,7 @@
 
           "clock#date": {
             "interval": 60,
-            "format": "<span color='#ffffff'> {:%a %e %b %Y}</span>",
+            "format": "<span color='#f8f8f8'> {:%a %e %b %Y}</span>",
             "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
             "calendar": {
               "mode"          : "year",
@@ -401,16 +407,17 @@
                           border-radius: 0;
                           font-family: 'scientifica';
                           font-weight: 400;
-                          font-size: 10px;
-                          min-height: 32px;
+                          font-size: 14px;
+                          min-height: 46px;
                           /* margin: 0 0px; */
                         }
 
                         window#waybar.top {
                           /* background-color: rgba(115, 116, 116, 0.22); */
-                          background-color: rgba(0, 0, 0, 0.75);
+                          /* background-color: rgba(0, 0, 0, 0.75); */
+                          background-color: #000000;
                           border-top: none;
-                          color: #eeeeee;
+                          color: #f8f8f8;
                           transition-property: background-color;
                           transition-duration: .5s;
                         }
@@ -480,26 +487,26 @@
                           box-shadow: inherit;
                           text-shadow: inherit;
                           background: transparent;
-                          color: #ffffff;
+                          color: #f8f8f8;
                         }
 
                         #workspaces button.active {
                           box-shadow: inherit;
                           text-shadow: inherit;
                           background: transparent;
-                          color: #ffffff;
+                          color: #cda5ef;
                         }
 
                         #workspaces button.focused {
-                          color: #eeeeee;
+                          color: #cda5ef;
                         }
 
                         #workspaces button.focused:hover {
-                          color: #ffffff;
+                          color: #cda5ef;
                         }
 
                         #workspaces button.urgent {
-                          color: #ffffff;
+                          color: #f8f8f8;
                           background-color: #e27878;
                         }
 
@@ -529,17 +536,17 @@
                         }
 
                 	#custom-music {
-                          color: #ffffff;
+                          color: #f8f8f8;
                           padding-right: 5px;
                         }
 
                 	#custom-devices {
-                          color: #ffffff;
+                          color: #f8f8f8;
         		  padding: 0px 2px 0px 2px;
                         }
 
                 	#custom-powerdraw {
-                          color: #ffffff;
+                          color: #f8f8f8;
                           padding: 0px;
                         }
 
