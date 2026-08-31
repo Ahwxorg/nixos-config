@@ -215,11 +215,12 @@
         #   print -Pn "\e]0;$\{(q)1}\e\\"
         # }
 
-        startwm() {
-          start-hyprland
-        }
+        # startwm() {
+        #   start-hyprland
+        # }
 
-        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then startwm; fi
+        # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then startwm; fi
+        # use gnome display manager now
       '';
 
       zsh-abbr = {
@@ -287,6 +288,7 @@
         finder = "open -a Finder";
         fucking = "systemctl --user restart";
         reboot-to-macos = "echo 1 | sudo asahi-bless 1>/dev/null && sudo reboot";
+        catimg = "catimg -w $(tput cols)";
 
         # NixOS
         ns = "nix-shell --run zsh";
