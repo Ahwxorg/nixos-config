@@ -74,10 +74,10 @@
       efi.canTouchEfiVariables = false;
     };
     kernel.sysctl."vm.mmap_rnd_bits" = 18;
-    kernelPatches = map (x: {
-      name = baseNameOf x;
-      patch = x;
-    }) (lib.filesystem.listFilesRecursive (./kernelPatches));
+    # kernelPatches = map (x: {
+    #   name = baseNameOf x;
+    #   patch = x;
+    # }) (lib.filesystem.listFilesRecursive (./kernelPatches));
   };
 
   system.stateVersion = "25.11"; # Did you read the comment?
