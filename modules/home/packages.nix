@@ -14,7 +14,8 @@
     pkgs.mpv
     pkgs.qutebrowser
     pkgs.xfce4-taskmanager
-    pkgs.spotify
+    pkgs.widevine-cdm
+    # pkgs.spotify
 
     # CLI shit
     pkgs.imagemagick
@@ -51,6 +52,9 @@
     pkgs.w3m
     pkgs.spotify-player
     pkgs.ansible
+    pkgs.catimg
+    pkgs.ivpn
+    pkgs.ivpn-service
 
     # aspell
     # aspellDicts.de
