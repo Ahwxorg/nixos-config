@@ -65,4 +65,22 @@
     description = "ahwx";
   };
   nix.settings.allowed-users = [ "${username}" ];
+
+  users.users."lotte" = {
+    isNormalUser = true;
+    group = "users";
+    extraGroups = [
+      "networkmanager"
+    ];
+    initialPassword = "temporary-password";
+    home =
+      if (system == "x64_64-linux") then
+        "/home/lotte"
+      else if (system == "aarch64-darwin") then
+        "/Users/lotte"
+      else
+        "/home/lotte";
+    shell = pkgs.zsh;
+    description = "Lotte";
+  };
 }
