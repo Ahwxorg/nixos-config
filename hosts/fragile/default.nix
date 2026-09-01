@@ -39,6 +39,7 @@
       pkgs.btrfs-progs
       pkgs.apfs-fuse
       pkgs.remmina
+      pkgs.firefox
     ];
   };
 
