@@ -17,15 +17,15 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
+      # pkgs.xdg-desktop-portal-hyprland
     ];
   };
 
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = pkgs.hyprland;
+  #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  # };
 
   programs.sway = {
     enable = true;
