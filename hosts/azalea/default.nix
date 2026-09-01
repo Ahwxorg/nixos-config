@@ -103,7 +103,6 @@
       "bitwarden"
       "gimp"
       "betterdisplay"
-      "mullvad-vpn"
       "maccy"
       "spotmenu"
       "utm"

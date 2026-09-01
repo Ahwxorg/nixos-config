@@ -221,16 +221,15 @@
         cat /sys/class/power_supply/*/current_now /sys/class/power_supply/*/voltage_now | xargs | awk '{print $1*$2/1e12 " W"}'
       '';
     };
-    "/home/${username}/.local/bin/waybar-mullvad" = {
+    "/home/${username}/.local/bin/waybar-vpn" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash
 
-        STATUS="$(mullvad status | grep -Eio 'connected|connecting|disconnected' | tr '[:upper:]' '[:lower:]')"
-        NODE="$(mullvad status | grep -Ei 'relay' | awk '{print $2}' | tr '[:upper:]' '[:lower:]')"
-        LOCATION="$(mullvad status | grep -Ei 'location' | cut -d':' -f2 | cut -d'.' -f1 | sed 's/       //g')"
-        IPV4="$(mullvad status | grep 'IPv4' | cut -d':' -f3 | sed 's/       //g')"
-        echo "$IPV4" | grep -q "92.118.0.69" && LOCATION="home"
+        STATUS="$(ivpn status | grep VPN | head -n1 | awk '{print $3}' | tr '[:upper:]' '[:lower:]')"
+        NODE="$(ivpn status | head -n2 | tail -n1 | awk '{print $1}')"
+        LOCATION="$(ivpn status | head -n2 | tail -n1 | awk '{print $3, $4, $5, $6, $7, $8}' | tr '[:upper:]' '[:lower:]')"
+        IPV4="$(ivpn status | grep 'Server IP' | awk '{print $4}')"
 
         echo "$STATUS" | grep -Eioq 'connected|connecting' && TEXT="{\"text\":\"$STATUS ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}" # || ip address show tailscale0 | grep "global tailscale0" && TEXT="{\"text\":\"tailscale ($LOCATION)\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
         echo "$STATUS" | grep -Eioq 'disconnected' && TEXT="{\"text\":\"$STATUS\",\"location\":\"$LOCATION\",\"node\":\"$NODE\"}"
@@ -243,7 +242,7 @@
       text = ''
         #!/usr/bin/env sh
 
-        mullvad-exclude curl 'wttr.is?format=%c+(%p)+%t+(%f)+%w+(%S,+%s)\n'
+        curl 'wttr.is?format=%c+(%p)+%t+(%f)+%w+(%S,+%s)\n'
       '';
     };
     "/home/${username}/.local/bin/waybar-memory" = {

@@ -109,7 +109,7 @@
             // "tooltip": true,
             // "tooltip-format": "{node}",
             "return-type": "json",
-            "exec": "~/.local/bin/waybar-mullvad",
+            "exec": "~/.local/bin/waybar-vpn",
             "interval": 10
           },
 

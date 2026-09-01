@@ -13,7 +13,7 @@
     ./../../modules/services/tailscale.nix
     # ../../modules/core/sshfs.nix
     ./../../modules/services/mpd.nix
-    ./../../modules/services/mullvad.nix
+    ./../../modules/services/ivpn.nix
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
     ./../../modules/services/keyd.nix

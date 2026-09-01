@@ -16,7 +16,7 @@ in
     ./../../modules/services/tailscale.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/smart-monitoring.nix
-    ./../../modules/services/mullvad.nix
+    ./../../modules/services/ivpn.nix
     ./../../modules/home/steam.nix
     ./../../modules/services/ollama.nix
     # ./../../modules/services/automount.nix
