@@ -40,6 +40,7 @@
     ./../../modules/services/miniflux.nix
     ./../../modules/services/navidrome.nix
     ./../../modules/services/grafana.nix
+    ./../../modules/services/jellyfin.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
