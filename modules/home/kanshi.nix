@@ -2,132 +2,55 @@
 {
   services.kanshi = {
     enable = true;
-
-    profiles = {
-      laptops = {
-        outputs =
-          if (host == "sakura") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "zinnia") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "april") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "imilia") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
-          else if (host == "fragile") then
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.25;
-                status = "enable";
-                position = "0,0";
-              }
-            ]
+    settings = [
+      {
+        output.criteria = "eDP-1";
+        output.scale =
+          if (host == "fragile") then
+            1.25
+          else if (host == "sakura") then
+            1.25
           else
-            [
-              {
-                criteria = "eDP-1";
-                scale = 1.0;
-                status = "enable";
-                position = "0,0";
-              }
-            ];
-      };
-      work = {
-        outputs = [
+            1.0;
+      }
+      {
+        profile.name = "undocked";
+        profile.outputs = [
           {
             criteria = "eDP-1";
-            scale = 1.0;
-            status = "enable";
-            position = "0,0";
+          }
+        ];
+      }
+      {
+        profile.name = "work";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
           }
           {
             criteria = "HP Inc. HP E27q G5 CNC4190NG9";
-            scale = 1.0;
-            status = "enable";
-            position = "4816,0";
+            position = "3024,0";
           }
           {
             criteria = "HP Inc. HP E27q G5 CNC4081M2B";
-            scale = 1.0;
-            status = "enable";
-            position = "2256,0";
+            position = "5584,0";
           }
         ];
-      };
-      home = {
-        outputs = [
+      }
+      {
+        profile.name = "home";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            position = "2560,0";
+          }
           {
             criteria = "LG Electronics LG ULTRAGEAR+ 507NTRLM0646";
-            scale = 1.0;
-            status = "enable";
             position = "0,0";
-            # adaptiveSync = true;
-            mode = if (host == "sakura") then "2560x1440@60Hz" else "2560x1440@60Hz";
-          }
-          {
-            criteria = "DP-1";
-            scale = 1.0;
-            status = "enable";
-            position = "0,0";
-            # adaptiveSync = true;
             mode = if (host == "fragile") then "2560x1440@240Hz" else "2560x1440@60Hz";
           }
-          {
-            criteria = "eDP-1";
-            status = if (host == "sakura") then "disable" else "enable";
-            position = if (host == "sakura") then "152,1440" else "2560,0";
-          }
         ];
-      };
-      home-alt = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "disable";
-          }
-          {
-            criteria = "CMT GM34-CWQ CMI231700118";
-            scale = 1.0;
-            status = "enable";
-            position = "0,0";
-          }
-          # {
-          #   criteria = "";
-          #   scale = 1.0;
-          #   status = "enable";
-          #   position = "0,0";
-          # }
-        ];
-      };
-    };
+      }
+    ];
   };
 }

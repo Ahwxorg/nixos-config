@@ -12,10 +12,6 @@
     package = pkgs.waybar.overrideAttrs (oa: {
       mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
     });
-    systemd = {
-      enable = false;
-      target = "graphical-session.target";
-    };
   };
   home.file = {
     "/home/${username}/.config/waybar/config" = {

@@ -14,8 +14,8 @@
 
   services.mpd = {
     enable = true;
-    playlistDirectory = "/home/${username}/Music/.playlists";
-    musicDirectory = "/home/${username}/Music";
+    settings.playlist_directory = "/home/${username}/Music/.playlists";
+    settings.music_directory = "/home/${username}/Music";
     # extraConfig = ''
     #   restore_paused "yes"
     #   auto_update "yes"

@@ -16,8 +16,11 @@
       VerifyHostKeyDNS yes
     '';
     includes = [ "/home/${username}/.ssh/config.d/*" ];
-    matchBlocks = {
-      "github.com gitlab.com" = {
+    settings = {
+      "github.com" = {
+        user = "git";
+      };
+      "gitlab.com" = {
         user = "git";
       };
       "*" = {

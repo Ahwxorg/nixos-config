@@ -2,8 +2,7 @@
   description = "liv's Nix configuration";
 
   inputs = {
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -18,8 +17,6 @@
     ai-robots-txt.flake = false;
     iamb.url = "github:ulyssa/iamb/latest";
     apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
-    nix-webapps.url = "github:AniviaFlome/nix-webapps";
-    nix-doom-emacs-unstraightened.url = "github:marienz/nix-doom-emacs-unstraightened";
     steam-asahi.url = "github:sm-idk/steam-asahi";
 
     # darwin
