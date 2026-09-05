@@ -44,6 +44,13 @@
         };
         trust = 5;
       }
+      {
+        # amber
+        source = builtins.fetchurl {
+          url = "https://catgirlforest.com/eepy.asc";
+          sha256 = "07dvjmx1dmap0lmggfpn55kk1rcjrcxw3dxk710aj4z82pig3s1y";
+        };
+      }
     ];
   };
 }
