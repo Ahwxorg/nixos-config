@@ -41,6 +41,7 @@
     ./../../modules/services/navidrome.nix
     ./../../modules/services/grafana.nix
     ./../../modules/services/jellyfin.nix
+    ./../../modules/services/ircd.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -70,6 +71,7 @@
         25567
         5201
         5601
+        6697
       ];
       allowedUDPPorts = [
         5201
