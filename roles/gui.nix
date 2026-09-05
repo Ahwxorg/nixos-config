@@ -28,11 +28,11 @@ in
     };
     home-manager.users.${username} = {
       fonts.fontconfig.enable = true;
+      gtk.gtk4.theme = null;
       gtk = {
-        # gtk4.theme = config.gtk.theme;
         enable = true;
         font = {
-          name = "GohuFont 14 Nerd Font Mono";
+          name = "scientifica";
           size = 14;
         };
         theme = {
@@ -75,7 +75,11 @@ in
         pkgs.anki
         pkgs.wdisplays
         pkgs.firefox
-        pkgs.ungoogled-chromium
+        # pkgs.ungoogled-chromium
+        (pkgs.ungoogled-chromium.override {
+          commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
+          enableWideVine = true;
+        })
         pkgs.nsxiv
         pkgs.imv
         pkgs.libreoffice
