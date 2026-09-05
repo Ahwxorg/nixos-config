@@ -90,6 +90,7 @@
           "grafanaKeyFile" = {
             owner = "grafana";
           };
+          "ircPassword" = { };
         }
       else if (host == "sakura") then
         {

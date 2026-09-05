@@ -29,7 +29,6 @@
         extraDomainNames = [ "*.liv.town" ];
         dnsProvider = "desec";
         environmentFile = config.sops.secrets.desecToken.path;
-        # environmentFile = "/home/liv/desec.env";
         webroot = null;
       };
       #"ahwx.org" = {
@@ -37,7 +36,6 @@
       #  extraDomainNames = [ "*.ahwx.org" ];
       #  dnsProvider = "desec";
       #  environmentFile = config.sops.secrets.desecToken.path;
-      #  # environmentFile = "/home/liv/desec.env";
       #  webroot = null;
       #};
       "quack.social" = {
@@ -45,7 +43,13 @@
         extraDomainNames = [ "*.quack.social" ];
         dnsProvider = "desec";
         environmentFile = config.sops.secrets.desecToken.path;
-        # environmentFile = "/home/liv/desec.env";
+        webroot = null;
+      };
+      "robotgirl.zip" = {
+        domain = "robotgirl.zip";
+        extraDomainNames = [ "*.robotgirl.zip" ];
+        dnsProvider = "desec";
+        environmentFile = config.sops.secrets.desecToken.path;
         webroot = null;
       };
     };
