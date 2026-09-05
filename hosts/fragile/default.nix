@@ -40,6 +40,7 @@
       pkgs.apfs-fuse
       pkgs.remmina
       pkgs.firefox
+      pkgs.thunar
     ];
   };
 
