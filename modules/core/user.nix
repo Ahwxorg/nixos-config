@@ -62,7 +62,7 @@
       else
         "/home/${username}";
     shell = pkgs.zsh;
-    description = "ahwx";
+    description = "0x6c6976";
   };
   nix.settings.allowed-users = [ "${username}" ];
 
