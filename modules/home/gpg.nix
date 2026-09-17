@@ -50,6 +50,15 @@
           url = "https://catgirlforest.com/eepy.asc";
           sha256 = "07dvjmx1dmap0lmggfpn55kk1rcjrcxw3dxk710aj4z82pig3s1y";
         };
+        trust = 5;
+      }
+      {
+        # drewdevault
+        source = builtins.fetchurl {
+          url = "https://drewdevault.com/publickey.txt";
+          sha256 = "06w7whjq9kd6a5l3qglcqmb6b2caymq4h7xx8dq35x0r5vz5cvcx";
+        };
+        trust = 5;
       }
     ];
   };
