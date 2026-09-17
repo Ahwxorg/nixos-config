@@ -114,6 +114,7 @@ in
         pkgs.thunar-archive-plugin
         pkgs.thunar-volman
         pkgs.thunar-media-tags-plugin
+        pkgs.remmina
 
         # Gaming
         # lunar-client

@@ -21,14 +21,6 @@
     amdgpu.enable = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    remmina
-  ];
-
-  services = {
-    vnstat.enable = true;
-  };
-
   networking.hostName = "april";
 
   powerManagement = {

@@ -7,9 +7,7 @@
   ...
 }:
 {
-  imports =
-    [ (import ./i18n.nix) ]
-    ++     [ (import ./nixos.nix) ];
+  imports = [ (import ./i18n.nix) ] ++ [ (import ./nixos.nix) ];
 
   nix = {
     settings = {
@@ -23,6 +21,10 @@
       # trusted-public-keys = [ "violet.booping.local:2gshN3xfGSL7eKFc8tGkqSoIb3WQxuB2RJ8DuakLLqc=%" ];
     };
     optimise.automatic = true;
+  };
+
+  services = {
+    vnstat.enable = true;
   };
 
   nixpkgs = {
