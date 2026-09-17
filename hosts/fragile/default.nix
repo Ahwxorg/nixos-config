@@ -23,9 +23,17 @@
     ./../../modules/core/displaylink.nix
   ];
 
-  hardware.asahi = {
-    enable = true;
-    peripheralFirmwareDirectory = ./firmware;
+  hardware = {
+    # firmware = [
+    #   pkgs.avd-fw
+    # ];
+    asahi = {
+      enable = true;
+      avd.enable = true;
+      avd.vaapi-support = true;
+      setupAsahiSound = true;
+      peripheralFirmwareDirectory = ./firmware;
+    };
   };
 
   #environment.variables = {
