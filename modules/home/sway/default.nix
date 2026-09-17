@@ -152,7 +152,7 @@ in
           "${altmod}+p" = "focus prev";
 
           "${mod}+d" = "exec --no-startup-id bemenu-run";
-          "${mod}+e" = "exec --no-startup-id ${pkgs.nautilus}/bin/nautilus";
+          "${mod}+e" = "exec --no-startup-id ${pkgs.thunar}/bin/thunar";
           "${mod}+c" = "exec --no-startup-id ${pkgs.hyprpicker}/bin/hyprpicker -a";
           "${mod}+n" = "exec --no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync-client -t";
 
