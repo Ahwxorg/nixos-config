@@ -49,6 +49,7 @@
       pkgs.remmina
       pkgs.firefox
       pkgs.thunar
+      pkgs.prismlauncher
     ];
   };
 
