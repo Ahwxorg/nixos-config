@@ -187,10 +187,10 @@ in
           "XF86AudioStop" = "exec ${pkgs.playerctl}/bin/playerctl stop";
 
           # laptop brigthness
-          "XF86MonBrightnessUp" = "${pkgs.swayosd}/bin/swayosd-client --brightness +5";
-          "XF86MonBrightnessDown" = "${pkgs.swayosd}/bin/swayosd-client --brightness -5";
-          "${mod}+XF86MonBrightnessUp" = "${pkgs.swayosd}/bin/swayosd-client --brightness +1000";
-          "${mod}+XF86MonBrightnessDown" = "${pkgs.swayosd}/bin/swayosd-client --brightness 0";
+          "XF86MonBrightnessUp" = "exec ${pkgs.swayosd}/bin/swayosd-client --brightness +5";
+          "XF86MonBrightnessDown" = "exec ${pkgs.swayosd}/bin/swayosd-client --brightness -5";
+          "${mod}+XF86MonBrightnessUp" = "exec ${pkgs.swayosd}/bin/swayosd-client --brightness +1000";
+          "${mod}+XF86MonBrightnessDown" = "exec ${pkgs.swayosd}/bin/swayosd-client --brightness 0";
         }
       ];
       focus.followMouse = true;
