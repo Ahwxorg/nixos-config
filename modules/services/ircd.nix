@@ -59,9 +59,6 @@ in
       };
       network.name = "robotgirl.zip";
       server = {
-        ip-cloaking = {
-          enabled = true;
-        };
         name = "robotgirl.zip";
         motd = pkgs.writeText "ircd.motd" motd;
         sts.enabled = true;
