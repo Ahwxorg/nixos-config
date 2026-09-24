@@ -42,6 +42,7 @@
     ./../../modules/services/grafana.nix
     ./../../modules/services/jellyfin.nix
     ./../../modules/services/ircd.nix
+    ./../../modules/services/panel-proxy.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
