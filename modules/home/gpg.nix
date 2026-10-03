@@ -40,7 +40,7 @@
         # serana
         source = builtins.fetchurl {
           url = "https://serana.dev/pgp.txt";
-          sha256 = "sha256-Fry5azR6eJqnjlH5Sekrvf5uRJsC7vzCLUqq9RhGs0g=";
+          sha256 = "07y1x1zigxwnz9rlmm1m407f8rhqsffzpdv2vr9p3yjmx2lwcn8v";
         };
         trust = 5;
       }
