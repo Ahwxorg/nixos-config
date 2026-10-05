@@ -6,7 +6,7 @@
 }:
 {
   networking = {
-    hostname = lib.mkDefault host;
+    hostName = lib.mkDefault host;
     networkmanager = {
       enable = true;
       wifi.macAddress = "stable-ssid";
