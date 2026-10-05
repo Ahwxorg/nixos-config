@@ -9,6 +9,8 @@
 {
   imports = [ (import ./i18n.nix) ] ++ [ (import ./nixos.nix) ];
 
+  system.stateVersion = lib.mkDefault "24.05";
+
   nix = {
     settings = {
       experimental-features = [
