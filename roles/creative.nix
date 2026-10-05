@@ -34,11 +34,12 @@ in
     ];
     home-manager = {
       users.${username} = {
-        home.packages = with pkgs; [
-          gimp
-          darktable
-          audacity
-          orca-slicer
+        home.packages = [
+          pkgs.obs-studio
+          pkgs.gimp
+          pkgs.darktable
+          pkgs.audacity
+          pkgs.orca-slicer
           # kdePackages.kdenlive
           # freecad
         ];
