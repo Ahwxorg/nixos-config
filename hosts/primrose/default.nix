@@ -17,6 +17,7 @@
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
     ./../../modules/services/keyd.nix
+    inputs.nixos-hardware.nixosModules.chuwi-minibook-x
   ];
 
   liv = {
@@ -27,9 +28,7 @@
     amdgpu.enable = false;
   };
 
-  environment.systemPackages = [
-    pkgs.obs-studio
-  ];
+  hardware.intel-gpu-tools.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
