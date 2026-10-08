@@ -11,6 +11,11 @@
 
   system.stateVersion = lib.mkDefault "24.05";
 
+  services = {
+    vnstat.enable = true;
+    pcscd.enable = lib.mkForce true;
+  };
+
   nix = {
     settings = {
       experimental-features = [
@@ -29,10 +34,6 @@
       ];
     };
     optimise.automatic = true;
-  };
-
-  services = {
-    vnstat.enable = true;
   };
 
   nixpkgs = {

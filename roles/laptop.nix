@@ -31,6 +31,11 @@ in
       };
     };
 
+    services.logind.settings.Login = {
+      HandleLidSwitch = "suspend";
+      HandleLidSwitchDocked = "ignore";
+    };
+
     # DisplayLink
     # imports = [ ../modules/core/displaylink.nix ];
 

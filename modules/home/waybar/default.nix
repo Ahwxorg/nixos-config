@@ -276,7 +276,8 @@
           },
 
           "wireplumber": {
-            "format": "<span color='#aaaaaa'>VOL:</span> {node_name}/{volume}",
+            "format": "<span color='#aaaaaa'>VOL:</span> {node_name}/<span color='#aaaaaa'>{volume}</span>",
+            "format-muted": "<span color='#aaaaaa'>VOL: {node_name}/{volume}</span> (mute)",
             "on-click": "pavucontrol-qt",
             "on-click-right": "crosspipe",
           },
