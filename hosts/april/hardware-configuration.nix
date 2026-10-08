@@ -14,6 +14,31 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
+  };
+
+  boot = {
+    kernelParams = [
+      "mem_sleep_default=deep"
+    ];
+    kernelModules = [
+      "acpi_call"
+      "kvm-intel "
+    ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+    ];
+  };
+
   boot.initrd.availableKernelModules = [
     "xhci_pci"
     "nvme"
@@ -21,11 +46,6 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-c4154cca-9246-40e7-9f92-f67cf412f718".device =
     "/dev/disk/by-uuid/c4154cca-9246-40e7-9f92-f67cf412f718";
