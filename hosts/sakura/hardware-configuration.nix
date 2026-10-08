@@ -14,6 +14,34 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  services.hardware.bolt.enable = true;
+
+  powerManagement = {
+    enable = true;
+    # powertop.enable = true;
+    cpuFreqGovernor = lib.mkDefault "ondemand";
+  };
+
+  boot = {
+    kernelParams = [
+      "mem_sleep_default=deep"
+    ];
+    plymouth.enable = false;
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
+    extraModulePackages = with config.boot.kernelPackages; [
+      acpi_call
+      v4l2loopback
+    ];
+    extraModprobeConfig = ''
+      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+    '';
+  };
+
   boot.initrd.availableKernelModules = [
     "nvme"
     "xhci_pci"
@@ -22,8 +50,10 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "acpi_call"
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/24035f97-746a-4aec-b1d8-696bc32d3c97";
@@ -53,5 +83,5 @@
   # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

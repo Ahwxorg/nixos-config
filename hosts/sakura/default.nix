@@ -5,9 +5,6 @@
   lib,
   ...
 }:
-let
-  mac_ethernet = "13:37:00:00:00:01";
-in
 {
   imports = [
     ./hardware-configuration.nix
@@ -42,47 +39,7 @@ in
     wine.enable = true;
   };
 
-  services = {
-    vnstat.enable = true;
-    hardware.bolt.enable = true;
-  };
-
-  networking = {
-    hostName = "sakura";
-  };
-
-  powerManagement = {
-    enable = true;
-    # powertop.enable = true;
-    cpuFreqGovernor = lib.mkDefault "ondemand";
-  };
-
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    HandleLidSwitchDocked = "ignore";
-  };
-
   systemd.sleep.extraConfig = ''
     HibernateDelaySec=30m
   '';
-  boot = {
-    kernelParams = [
-      "mem_sleep_default=deep"
-    ];
-    plymouth.enable = false;
-    kernelModules = [ "acpi_call" ];
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 10;
-    };
-    extraModulePackages = with config.boot.kernelPackages; [
-      acpi_call
-      v4l2loopback
-    ];
-    extraModprobeConfig = ''
-      options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
-    '';
-  };
 }
