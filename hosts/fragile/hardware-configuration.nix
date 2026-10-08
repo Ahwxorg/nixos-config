@@ -14,6 +14,30 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  hardware = {
+    asahi = {
+      enable = true;
+      avd.enable = true;
+      avd.vaapi-support = true;
+      setupAsahiSound = true;
+      peripheralFirmwareDirectory = ./firmware;
+    };
+  };
+
+  boot = {
+    kernelParams = [
+      "appledrm.show_notch=1"
+      "hid_apple.swap_fn_leftctrl=1"
+      "hid_apple.swap_opt_cmd=1"
+    ];
+    initrd.systemd.enable = true; # required by lz4 in zram
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = false;
+    };
+    kernel.sysctl."vm.mmap_rnd_bits" = 18;
+  };
+
   boot.initrd.availableKernelModules = [
     "usb_storage"
     "sdhci_pci"
