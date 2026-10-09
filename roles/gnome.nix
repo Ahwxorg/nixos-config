@@ -54,6 +54,7 @@ in
               "hidetopbar@mathieu.bidon.ca"
               "gsconnect@andyholmes.github.io"
               "rounded-window-corners@yilozt.shell-extension.zip"
+              # "gnome-shell-extension-screen-autorotate@shyzus.github.io"
             ];
             favorite-apps = [
               "firefox.desktop"
