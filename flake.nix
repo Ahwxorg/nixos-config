@@ -70,6 +70,7 @@
           specialArgs = {
             host = "sakura";
             system = "x86_64-linux";
+            battery = "BAT1";
             inherit self inputs username;
           };
         };
@@ -81,6 +82,7 @@
           specialArgs = {
             host = "yoshino";
             system = "x86_64-linux";
+            battery = "";
             inherit self inputs username;
           };
         };
@@ -92,6 +94,7 @@
           specialArgs = {
             host = "ichiyo";
             system = "x86_64-linux";
+            battery = "BAT1";
             inherit self inputs username;
           };
         };
@@ -103,6 +106,7 @@
           specialArgs = {
             host = "lily";
             system = "x86_64-linux";
+            battery = "";
             inherit self inputs username;
           };
         };
@@ -114,6 +118,7 @@
           specialArgs = {
             host = "zinnia";
             system = "x86_64-linux";
+            battery = "BAT0";
             inherit self inputs username;
           };
         };
@@ -125,6 +130,7 @@
           specialArgs = {
             host = "posy";
             system = "aarch64-linux";
+            battery = "";
             inherit self inputs username;
           };
         };
@@ -136,6 +142,7 @@
           specialArgs = {
             host = "iris";
             system = "x86_64-linux";
+            battery = "";
             inherit self inputs username;
           };
         };
@@ -147,6 +154,7 @@
           specialArgs = {
             host = "imilia";
             system = "x86_64-linux";
+            battery = "BAT0";
             inherit self inputs username;
           };
         };
@@ -158,6 +166,7 @@
           specialArgs = {
             host = "april";
             system = "x86_64-linux";
+            battery = "BAT0";
             inherit self inputs username;
           };
         };
@@ -169,6 +178,7 @@
           specialArgs = {
             host = "fragile";
             system = "aarch64-linux";
+            battery = "macsmc-battery";
             inherit self inputs username;
           };
         };
@@ -180,6 +190,7 @@
           specialArgs = {
             host = "flora";
             system = "x86_64-linux";
+            battery = "";
             inherit self inputs username;
           };
         };
@@ -191,6 +202,7 @@
           specialArgs = {
             host = "primrose";
             system = "x86_64-linux";
+            battery = "BAT0";
             inherit self inputs username;
           };
         };
@@ -202,6 +214,7 @@
           specialArgs = {
             host = "adaisy";
             system = "x86_64-linux";
+            battery = "BAT0";
             inherit self inputs username;
           };
         };

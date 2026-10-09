@@ -1,9 +1,9 @@
 {
   pkgs,
   username,
+  battery,
   ...
 }:
-
 {
   imports = [ (import ./scripts.nix) ];
 
@@ -310,7 +310,7 @@
           },
 
           "battery": {
-            "bat": "macsmc-battery",
+            "bat": "${battery}",
             "interval": 20,
             "states": {
               "warning": 20,
