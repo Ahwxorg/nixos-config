@@ -81,7 +81,6 @@ in
           enableWideVine = true;
         })
         pkgs.nsxiv
-        pkgs.imv
         pkgs.libreoffice
         pkgs.nautilus
         pkgs.spotify-player
@@ -89,7 +88,6 @@ in
         pkgs.lxqt.pavucontrol-qt
         pkgs.crosspipe
         pkgs.mpv
-        pkgs.kdePackages.kdeconnect-kde
         pkgs.libgnome-keyring
         pkgs.foot
         pkgs.tesseract
@@ -114,9 +112,10 @@ in
         pkgs.thunar-archive-plugin
         pkgs.thunar-volman
         pkgs.thunar-media-tags-plugin
+        pkgs.remmina
 
         # Gaming
-        # lunar-client
+        # pkgs.lunar-client
 
         # Not GUI but specific to GUI usage
         pkgs.sshuttle

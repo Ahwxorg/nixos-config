@@ -7,9 +7,14 @@
   ...
 }:
 {
-  imports =
-    [ (import ./i18n.nix) ]
-    ++     [ (import ./nixos.nix) ];
+  imports = [ (import ./i18n.nix) ] ++ [ (import ./nixos.nix) ];
+
+  system.stateVersion = lib.mkDefault "24.05";
+
+  services = {
+    vnstat.enable = true;
+    pcscd.enable = lib.mkForce true;
+  };
 
   nix = {
     settings = {
@@ -21,6 +26,12 @@
       allowed-users = [ "@wheel" ];
       # substituters = [ "http://violet.booping.local" ];
       # trusted-public-keys = [ "violet.booping.local:2gshN3xfGSL7eKFc8tGkqSoIb3WQxuB2RJ8DuakLLqc=%" ];
+      extra-substituters = [
+        "https://nixos-apple-silicon.cachix.org"
+      ];
+      extra-trusted-public-keys = [
+        "nixos-apple-silicon.cachix.org-1:8psDu5SA5dAD7qA0zMy5UT292TxeEPzIz8VVEr2Js20="
+      ];
     };
     optimise.automatic = true;
   };

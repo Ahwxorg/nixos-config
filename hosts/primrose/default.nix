@@ -17,6 +17,7 @@
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
     ./../../modules/services/keyd.nix
+    inputs.nixos-hardware.nixosModules.chuwi-minibook-x
   ];
 
   liv = {
@@ -32,6 +33,8 @@
     pkgs.firefox
     pkgs.thunar
   ];
+
+  hardware.intel-gpu-tools.enable = true;
 
   systemd.services."minibook-base-accelerometer.service" = {
     description = "enable (2nd) base accelerometer for chuwi minibook x";

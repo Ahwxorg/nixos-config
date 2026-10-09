@@ -100,6 +100,8 @@
           'airpods' '2C:18:09:EF:BD:11'
           'headphones' '38:18:4C:D4:B7:B4'
           'trackpad' '38:18:4C:D4:B7:B4'
+          'cold fuse' '39:16:59:C9:60:4F'
+          'mouse' 'DB:09:5E:44:20:18'
         )
 
         function get_addr_or_fail () {

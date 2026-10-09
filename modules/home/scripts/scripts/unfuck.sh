@@ -10,6 +10,7 @@ unfuckable=(
 	"screenlock"
 	"hyprland_portal"
 	"touch"
+	"wifi"
 )
 
 usage() {
@@ -100,7 +101,17 @@ unfuck_touch() {
 }
 
 unfuck_bluetooth() {
-	foot -e 'doas modprobe -r hci_bcm4377 && doas modprobe hci_bcm4377'
+	modprobe -r hci_bcm4377 && modprobe hci_bcm4377
+	bluetoothctl power on
+}
+
+unfuck_wifi() {
+	systemctl stop NetworkManager
+	modprobe -r brcmfmac_wcc
+	modprobe -r brcmfmac
+	modprobe brcmfmac_wcc
+	modprobe brcmfmac
+	systemctl start NetworkManager
 }
 
 case $1 in
@@ -118,6 +129,7 @@ everything)
 	unfuck_fingerprint
 	unfuck_touch
 	unfuck_bluetooth
+	unfuck_wifi
 	;;
 *)
 	eval "unfuck_$1"

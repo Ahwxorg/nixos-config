@@ -95,28 +95,6 @@
             inherit self inputs username;
           };
         };
-        violet = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/violet)
-          ];
-          specialArgs = {
-            host = "violet";
-            system = "x86_64-linux";
-            inherit self inputs username;
-          };
-        };
-        dandelion = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/dandelion)
-          ];
-          specialArgs = {
-            host = "dandelion";
-            system = "x86_64-linux";
-            inherit self inputs username;
-          };
-        };
         lily = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -150,28 +128,6 @@
             inherit self inputs username;
           };
         };
-        hazel = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/hazel)
-          ];
-          specialArgs = {
-            host = "hazel";
-            system = "x86_64-linux";
-            inherit self inputs username;
-          };
-        };
-        daisy = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/daisy)
-          ];
-          specialArgs = {
-            host = "daisy";
-            system = "x86_64-linux";
-            inherit self inputs username;
-          };
-        };
         iris = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -179,17 +135,6 @@
           ];
           specialArgs = {
             host = "iris";
-            system = "x86_64-linux";
-            inherit self inputs username;
-          };
-        };
-        sunflower = nixpkgs.lib.nixosSystem {
-          inherit system;
-          modules = [
-            (import ./hosts/sunflower)
-          ];
-          specialArgs = {
-            host = "sunflower";
             system = "x86_64-linux";
             inherit self inputs username;
           };
@@ -245,6 +190,17 @@
           ];
           specialArgs = {
             host = "primrose";
+            system = "x86_64-linux";
+            inherit self inputs username;
+          };
+        };
+        adaisy = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (import ./hosts/adaisy)
+          ];
+          specialArgs = {
+            host = "adaisy";
             system = "x86_64-linux";
             inherit self inputs username;
           };

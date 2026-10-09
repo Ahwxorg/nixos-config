@@ -40,7 +40,7 @@
         # serana
         source = builtins.fetchurl {
           url = "https://serana.dev/pgp.txt";
-          sha256 = "sha256-Fry5azR6eJqnjlH5Sekrvf5uRJsC7vzCLUqq9RhGs0g=";
+          sha256 = "07y1x1zigxwnz9rlmm1m407f8rhqsffzpdv2vr9p3yjmx2lwcn8v";
         };
         trust = 5;
       }
@@ -50,6 +50,15 @@
           url = "https://catgirlforest.com/eepy.asc";
           sha256 = "07dvjmx1dmap0lmggfpn55kk1rcjrcxw3dxk710aj4z82pig3s1y";
         };
+        trust = 5;
+      }
+      {
+        # drewdevault
+        source = builtins.fetchurl {
+          url = "https://drewdevault.com/publickey.txt";
+          sha256 = "06w7whjq9kd6a5l3qglcqmb6b2caymq4h7xx8dq35x0r5vz5cvcx";
+        };
+        trust = 5;
       }
     ];
   };

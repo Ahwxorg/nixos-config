@@ -100,26 +100,6 @@ in
       locations."/" = {
         proxyPass = "http://127.0.0.1:4533/";
         proxyWebsockets = true;
-        extraConfig = ''
-          auth_request /tinyauth;
-          auth_request_set $redirection_url $upstream_http_x_tinyauth_location;
-          error_page 401 403 =302 $redirection_url;
-          auth_request_set $tinyauth_remote_user $upstream_http_remote_user;
-          proxy_set_header remote-user $tinyauth_remote_user;
-        '';
-      };
-      locations."/tinyauth" = {
-        extraConfig = ''
-          internal;
-          proxy_pass http://localhost:3030/api/auth/nginx;
-          proxy_pass_request_body off;
-          proxy_set_header Content-Length "";
-          proxy_set_header x-forwarded-for $remote_addr;
-          proxy_set_header x-real-ip $remote_addr;
-          proxy_set_header x-forwarded-proto $scheme;
-          proxy_set_header x-forwarded-host $http_host;
-          proxy_set_header x-forwarded-uri $request_uri;
-        '';
       };
     };
   };

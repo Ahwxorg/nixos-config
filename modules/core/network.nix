@@ -1,6 +1,12 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  host,
+  ...
+}:
 {
   networking = {
+    hostName = lib.mkDefault host;
     networkmanager = {
       enable = true;
       wifi.macAddress = "stable-ssid";
