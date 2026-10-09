@@ -22,14 +22,25 @@
   liv = {
     laptop.enable = true;
     gui.enable = true;
+    gnome.enable = true;
     desktop.enable = false;
     creative.enable = false;
     amdgpu.enable = false;
   };
 
   environment.systemPackages = [
-    pkgs.obs-studio
+    pkgs.firefox
+    pkgs.thunar
   ];
+
+  systemd.services."minibook-base-accelerometer.service" = {
+    description = "enable (2nd) base accelerometer for chuwi minibook x";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.type = "oneshot";
+    script = ''
+      echo mxc4005 0x15 > /sys/bus/i2c/devices/i2c-0/new_device
+    '';
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
