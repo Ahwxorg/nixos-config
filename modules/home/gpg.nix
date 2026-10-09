@@ -60,6 +60,14 @@
         };
         trust = 5;
       }
+      {
+        # sophia
+        source = builtins.fetchurl {
+          url = "https://zvava.org/media/zvava.asc";
+          sha256 = "1n83czilk649p83yw5krf32rry0bym4794wsycr2na7ldw9nnm93";
+        };
+        trust = 5;
+      }
     ];
   };
 }
