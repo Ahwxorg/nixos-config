@@ -27,5 +27,6 @@
     # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAR49vTfzwC2cd09nE2zAsi5GvjLKyYSXsi072hwmMV2 liv@azalea" # azalea
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOh90Kba/KNwWafa26+eBpNFer4qQ0KgF35Q+9gteyo/ liv@clover" # clover
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAD8DIqgrOXuI/EeOD7tSfpDikJfj9CmoghemkwkL0Dh openpgp:0x04CCA7CF" # yubi
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAR49vTfzwC2cd09nE2zAsi5GvjLKyYSXsi072hwmMV2 liv@fragile" # temp for sshfs
   ];
 }
