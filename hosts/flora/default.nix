@@ -43,6 +43,7 @@
     ./../../modules/services/jellyfin.nix
     ./../../modules/services/ircd.nix
     ./../../modules/services/panel-proxy.nix
+    ./../../modules/services/iocaine.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
