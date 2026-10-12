@@ -6,7 +6,6 @@
   };
 
   services.keybase.enable = true;
-
   programs.gpg = {
     enable = true;
     mutableKeys = false;
@@ -65,6 +64,14 @@
         source = builtins.fetchurl {
           url = "https://zvava.org/media/zvava.asc";
           sha256 = "1n83czilk649p83yw5krf32rry0bym4794wsycr2na7ldw9nnm93";
+        };
+        trust = 5;
+      }
+      {
+        # nex
+        source = builtins.fetchurl {
+          url = "https://cyan.gay/static/nex.asc";
+          sha256 = "1iyah5jqwhj67frz886gz3sh56p1h1ffkc8cy87bcjcw5q9nnph5";
         };
         trust = 5;
       }
