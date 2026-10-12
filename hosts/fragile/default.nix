@@ -34,6 +34,10 @@
     ];
   };
 
+  services.logind.settings.Login = {
+    HandleLidSwitch = lib.mkForce "ignore";
+  };
+
   liv = {
     laptop.enable = true;
     creative.enable = true;
