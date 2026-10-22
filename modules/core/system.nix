@@ -21,6 +21,7 @@
       experimental-features = [
         "nix-command"
         "flakes"
+        "pipe-operators"
       ];
       download-buffer-size = 67108864; # Set buffer size to 64MB for large downloads
       allowed-users = [ "@wheel" ];
