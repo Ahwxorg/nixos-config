@@ -5,7 +5,19 @@
   inputs,
   ...
 }:
-
+let
+  zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -46,8 +58,10 @@
     ./../../modules/services/iocaine.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   services = {
     vnstat.enable = true;
@@ -81,12 +95,11 @@
     };
   };
 
+  boot.kernelPackages = latestKernelPackage; # or; use pkgs.linuxPackages_latest but that doesn't work for ZFS half of the time
+
   nixpkgs.config.permittedInsecurePackages = [
     "olm-3.2.16"
   ];
-
-  # services.xserver.videoDrivers = [ "nvidia" ]; # --> put this in roles/nvidia.nix
-  # liv.nvidia.enable = true;
 
   environment.systemPackages = [
     pkgs.kitty
@@ -97,5 +110,5 @@
   time.timeZone = "Europe/Amsterdam";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  system.stateVersion = "25.11"; # Did you read the comment?
+  system.stateVersion = "25.11";
 }
