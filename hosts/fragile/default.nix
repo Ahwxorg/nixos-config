@@ -12,7 +12,7 @@
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
     inputs.steam-asahi.nixosModules.default
     ./../../modules/services/tailscale.nix
-    # ../../modules/core/sshfs.nix
+    ../../modules/core/sshfs.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/ivpn.nix
     # ./../../modules/services/automount.nix
