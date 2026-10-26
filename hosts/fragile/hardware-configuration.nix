@@ -83,7 +83,7 @@
 
   swapDevices = [
     {
-      device = "/dev/nvme0n1p6";
+      device = "/dev/disk/by-partuuid/be63ceb8-28b4-4b21-8238-3f7fe9b1991a";
       randomEncryption.enable = true;
     }
   ];
