@@ -31,6 +31,7 @@
       pkgs.firefox
       pkgs.thunar
       pkgs.prismlauncher
+      pkgs.zfs
     ];
   };
 
@@ -47,7 +48,14 @@
 
   services = {
     # hardware.bolt.enable = true; # enable once Thunderbolt is supported
+    zfs = {
+      autoScrub.enable = true;
+      autoScrub.interval = "weekly";
+      trim.enable = true;
+    };
   };
+
+  networking.hostId = "89e280d1";
 
   system.stateVersion = "25.11"; # Did you read the comment?
 }
