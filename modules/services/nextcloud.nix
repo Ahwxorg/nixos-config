@@ -6,7 +6,7 @@
     caching.apcu = true;
     configureRedis = true;
     caching.redis = true;
-    package = pkgs.nextcloud34;
+    package = pkgs.nextcloud35;
     hostName = "cloud.liv.town";
     appstoreEnable = false;
     autoUpdateApps.enable = false;
