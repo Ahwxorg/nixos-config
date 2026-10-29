@@ -75,6 +75,14 @@
         };
         trust = 5;
       }
+      {
+        # estela
+        source = builtins.fetchurl {
+          url = "https://keys.openpgp.org/vks/v1/by-fingerprint/0xcedba39e576bc6c21b71a64825e82bbea32bd476";
+          sha256 = "855ac767c1acc0b98b82fd335d4f8090e5a2fe42d2acf515df595ea352444b7b";
+        };
+        trust = 5;
+      }
     ];
   };
 }
