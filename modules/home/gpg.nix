@@ -83,6 +83,14 @@
         };
         trust = 5;
       }
+      {
+        # eden
+        source = builtins.fetchurl {
+          url = "https://ametrine.dev/pgp.asc";
+          sha256 = "";
+        };
+        trust = 5;
+      }
     ];
   };
 }
