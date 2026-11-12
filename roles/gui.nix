@@ -80,7 +80,6 @@ in
           commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --force-dark-mode";
           enableWideVine = true;
         })
-        pkgs.nsxiv
         pkgs.libreoffice
         pkgs.nautilus
         pkgs.spotify-player
