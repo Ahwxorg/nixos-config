@@ -87,7 +87,23 @@
         # eden
         source = builtins.fetchurl {
           url = "https://ametrine.dev/pgp.asc";
-          sha256 = "";
+          sha256 = "0xmjq7npzs5ns9zzyn3f4i887c4jqivsa92zmzxabzbdiwj60bmm";
+        };
+        trust = 5;
+      }
+      {
+        # savana
+        source = builtins.fetchurl {
+          url = "https://savimagines.nl/savannahvdkolk.outlook.asc";
+          sha256 = "0diljwdcm951p70jccgnxl2cb56g5jw9alz8w38pjpi34brsz54p";
+        };
+        trust = 5;
+      }
+      {
+        # emilia
+        source = builtins.fetchurl {
+          url = "https://keys.openpgp.org/vks/v1/by-fingerprint/F77235694B43B59973C2A9311EFBE941B89BB810";
+          sha256 = "1lihdyz99kq2mp1jjl5mzh9sqz1lw8jxik8gijfkcfd111wly4ls";
         };
         trust = 5;
       }

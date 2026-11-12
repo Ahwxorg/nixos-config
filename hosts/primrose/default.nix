@@ -17,6 +17,7 @@
     # ./../../modules/services/automount.nix
     # ./../../modules/home/webapps.nix
     ./../../modules/services/keyd.nix
+    ./../../modules/home/steam.nix
     inputs.nixos-hardware.nixosModules.chuwi-minibook-x
   ];
 
@@ -32,6 +33,7 @@
   environment.systemPackages = [
     pkgs.firefox
     pkgs.thunar
+    pkgs.spotify
   ];
 
   hardware.intel-gpu-tools.enable = true;
