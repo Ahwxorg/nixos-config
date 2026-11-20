@@ -11,6 +11,7 @@ unfuckable=(
 	"hyprland_portal"
 	"touch"
 	"wifi"
+	"usb"
 )
 
 usage() {
@@ -112,6 +113,10 @@ unfuck_wifi() {
 	modprobe brcmfmac_wcc
 	modprobe brcmfmac
 	systemctl start NetworkManager
+}
+
+unfuck_usb() {
+	foot -e 'doas modprobe -r tps6598x tps6598x_core && doas modprobe tps6598x'
 }
 
 case $1 in
