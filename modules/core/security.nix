@@ -32,7 +32,7 @@
               options = [ "NOPASSWD" ];
             }
             {
-              command = "/run/current-system/sw/bin/framework_tool --privacy";
+              command = "/etc/profiles/per-user/liv/bin/unfuck";
               options = [ "NOPASSWD" ];
             }
           ];
