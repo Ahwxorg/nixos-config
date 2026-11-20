@@ -25,7 +25,7 @@
     ++ [ (import ./tofi.nix) ]
     ++ [ (import ./waybar) ]
     ++ [ (import ./zsh.nix) ]
-    ++ [ (import ./qutebrowser.nix) ]
+    # ++ [ (import ./qutebrowser.nix) ]
     ++ [ (import ./xdg.nix) ]
     ++ [ (import ./tmux.nix) ];
 }
