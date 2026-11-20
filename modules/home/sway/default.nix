@@ -164,7 +164,7 @@ in
           "${mod}+Shift+v" = "exec cliphist list | bemenu -l 5| cliphist decode | wl-copy";
           "${mod}+Shift+f" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
           "${mod}+Shift+c" = "exec --no-startup-id ${pkgs.ungoogled-chromium}/bin/chromium";
-          "${mod}+Shift+q" = "exec --no-startup-id ${pkgs.qutebrowser}/bin/qutebrowser";
+          # "${mod}+Shift+q" = "exec --no-startup-id ${pkgs.qutebrowser}/bin/qutebrowser";
           "${mod}+Shift+w" = "exec --no-startup-id ${pkgs.wdisplays}/bin/wdisplays";
           "${mod}+Shift+t" = "exec --no-startup-id ${pkgs.thunderbird}/bin/thunderbird";
           "${mod}+Shift+e" = "exec --no-startup-id ${pkgs.element-desktop}/bin/element-desktop";
@@ -211,6 +211,7 @@ in
         { command = "gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'"; }
         { command = "xfce4-taskmanager"; }
         { command = "tailscale systray"; }
+        { command = "monero-wallet-gui"; }
       ];
       workspaceAutoBackAndForth = false;
 

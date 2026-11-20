@@ -12,7 +12,6 @@
     pkgs.python3
     pkgs.qbittorrent
     pkgs.mpv
-    pkgs.qutebrowser
     pkgs.xfce4-taskmanager
     pkgs.widevine-cdm
     # pkgs.spotify
