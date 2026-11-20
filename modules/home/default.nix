@@ -16,6 +16,7 @@
     ++ [ (import ./foot.nix) ]
     ++ [ (import ./nextcloud.nix) ]
     ++ [ (import ./nvim.nix) ]
+    ++ [ (import ./nsxiv.nix) ]
     ++ [ (import ./zathura.nix) ]
     ++ [ (import ./packages.nix) ]
     ++ [ (import ./gpg.nix) ]
