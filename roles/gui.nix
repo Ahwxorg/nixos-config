@@ -32,7 +32,7 @@ in
       gtk = {
         enable = true;
         font = {
-          name = "scientifica";
+          name = "scientifica:style=Medium";
           size = 14;
         };
         theme = {
