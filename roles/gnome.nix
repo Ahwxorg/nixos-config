@@ -37,9 +37,9 @@ in
         home.packages = [
           pkgs.gnomeExtensions.forge
           pkgs.gnomeExtensions.space-bar
-          pkgs.gnomeExtensions.cmud
+          # pkgs.gnomeExtensions.cmud
           # pkgs.gnomeExtensions.gocr
-          pkgs.gnomeExtensions.pano
+          # pkgs.gnomeExtensions.pano
           pkgs.gnomeExtensions.pop-shell
         ];
         dconf.enable = true;
