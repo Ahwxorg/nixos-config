@@ -17,7 +17,9 @@
     ai-robots-txt.flake = false;
     iamb.url = "github:ulyssa/iamb/latest";
     apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
-    steam-asahi.url = "github:sm-idk/steam-asahi";
+    # steam-asahi.url = "github:sm-idk/steam-asahi";
+    steam-asahi.url = "github:dramforever/nixos-muvm-steam";
+    sable.url = "git+https://git.sable.moe/SableClient/sable-next";
 
     # darwin
     homebrew-core.url = "github:homebrew/homebrew-core";
