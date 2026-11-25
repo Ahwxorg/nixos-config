@@ -10,19 +10,20 @@
     ../../modules/core
     ./hardware-configuration.nix
     inputs.apple-silicon-support.nixosModules.apple-silicon-support
-    inputs.steam-asahi.nixosModules.default
     ./../../modules/services/tailscale.nix
     ../../modules/core/sshfs.nix
     ./../../modules/services/mpd.nix
     ./../../modules/services/ivpn.nix
     # ./../../modules/services/automount.nix
     ./../../modules/services/keyd.nix
-    ./steam.nix
+    # ./steam.nix
     ./../../modules/core/displaylink.nix
   ];
 
   environment = {
     systemPackages = [
+      inputs.sable.packages.${pkgs.stdenv.system}.sable-desktop
+      # inputs.steam-asahi.packages.${pkgs.stdenv.system}.muvm-steam
       pkgs.asahi-bless
       pkgs.monero-gui
       pkgs.btrfs-progs
