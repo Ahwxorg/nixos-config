@@ -19,18 +19,32 @@
       enable = true;
       avd.enable = true;
       avd.vaapi-support = true;
+      avd.codecs = [ "all" ];
       setupAsahiSound = true;
       peripheralFirmwareDirectory = ./firmware;
     };
   };
 
+  # really stupid way to make things work after suspend
+  systemd.services.reinit-asahi-after-suspend = {
+    description = "unfuck various hardware items by reinitialising drivers";
+    wantedBy = [ "post-resume.target" ];
+    after = [ "post-resume.target" ];
+    script = ''
+      modprobe -r hci_bcm4377 && modprobe hci_bcm4377 # unfuck bluetooth
+      modprobe -r tps6598x tps6598x_core && modprobe tps6598x # unfuck usb
+    '';
+    serviceConfig.Type = "oneshot";
+  };
+
   boot = {
     kernelParams = [
       "appledrm.show_notch=1"
+      "appledrm.hdmi_audio=1"
       "hid_apple.swap_fn_leftctrl=1"
       "hid_apple.swap_opt_cmd=1"
     ];
-    initrd.systemd.enable = true; # required by lz4 in zram
+    # initrd.systemd.enable = true; # required by lz4 in zram
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = false;
